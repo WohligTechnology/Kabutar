@@ -9,19 +9,33 @@
 import UIKit
 
 class detailViewController: UIViewController {
+    
+    let mainColor = UIColor(red: 255.0/255.0, green: 90.0/255.0, blue: 96.0/255.0, alpha: 1.0)
 
-    @IBOutlet weak var detailtext: UILabel!
-    @IBOutlet weak var detaildescription: UILabel!
-    var dtext = UILabel()
-    var ddescription = UILabel()
+//    @IBOutlet weak var detailtext: UILabel!
+//    @IBOutlet weak var detaildescription: UILabel!
+//    var dtext = UILabel()
+//    var ddescription = UILabel()
+//    override func viewDidLoad() {
+//        print("detail view")
+//        super.viewDidLoad()
+//        self.detailtext?.text = self.dtext.text
+//        self.detaildescription?.text = self.ddescription.text
+//    }
+    
     override func viewDidLoad() {
-        print("detail view")
         super.viewDidLoad()
-        self.detailtext?.text = self.dtext.text
-        self.detaildescription?.text = self.ddescription.text
-
-        // Do any additional setup after loading the view.
     }
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        self.navigationController?.toolbar.barTintColor = mainColor
+//        self.navigationController?.navigationBar.barTintColor = mainColor
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "dfasd", style: UIButton(type: UIImageView)), target: self, action: "")
+        
+//        self.navigationController?.setToolbarHidden(true, animated: animated)
+//    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -36,6 +36,16 @@ class cardViewController: UIViewController,UICollectionViewDataSource,UICollecti
 //        self.collectionView.collectionViewLayout.invalidateLayout()
         
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setToolbarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setToolbarHidden(false, animated: animated)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -73,8 +83,8 @@ class cardViewController: UIViewController,UICollectionViewDataSource,UICollecti
             print(indexPaths)
             let indexPath = indexPaths[0] as NSIndexPath
             let vc = segue.destinationViewController as! detailViewController
-            vc.ddescription.text = self.descriptiontext[indexPath.row]
-            vc.dtext.text = self.labeltext[indexPath.row]
+//            vc.ddescription.text = self.descriptiontext[indexPath.row]
+//            vc.dtext.text = self.labeltext[indexPath.row]
             vc.title = self.labeltext[indexPath.row]
             
         }
