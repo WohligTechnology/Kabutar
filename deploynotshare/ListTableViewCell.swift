@@ -1,0 +1,27 @@
+//
+//  ListTableViewCell.swift
+//  deploynotshare
+//
+//  Created by Jagruti Patil on 26/10/15.
+//  Copyright © 2015 Wohlig. All rights reserved.
+//
+
+import UIKit
+
+class ListTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var Ttitle: UILabel!
+    @IBOutlet weak var Tdescription: UILabel!
+    @IBOutlet weak var Ttimestamp: UILabel!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
+}
