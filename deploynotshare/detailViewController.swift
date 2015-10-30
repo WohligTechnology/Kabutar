@@ -26,15 +26,14 @@ class detailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        self.navigationController?.toolbar.barTintColor = mainColor
-//        self.navigationController?.navigationBar.barTintColor = mainColor
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.toolbar.barTintColor = mainColor
+        self.navigationController?.navigationBar.barTintColor = mainColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
 //        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "dfasd", style: UIButton(type: UIImageView)), target: self, action: "")
         
-//        self.navigationController?.setToolbarHidden(true, animated: animated)
-//    }
+    }
     
 
     override func didReceiveMemoryWarning() {
