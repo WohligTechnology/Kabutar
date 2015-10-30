@@ -115,7 +115,7 @@
         <!--Card View Controller-->
         <scene sceneID="e38-fz-inZ">
             <objects>
-                <viewController id="UdC-qc-TtQ" customClass="cardViewController" customModule="deploynotshare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UdC-qc-TtQ" customClass="cardViewController" customModule="deploynotshare" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IlF-E6-R9c"/>
                         <viewControllerLayoutGuide type="bottom" id="aPO-7B-paF"/>
@@ -638,7 +638,7 @@
         <!--Think View Controller-->
         <scene sceneID="zWN-bP-kkj">
             <objects>
-                <viewController id="sdF-gM-qXP" customClass="ThinkViewController" customModule="deploynotshare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThinkViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sdF-gM-qXP" customClass="ThinkViewController" customModule="deploynotshare" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iLQ-q3-F7b"/>
                         <viewControllerLayoutGuide type="bottom" id="Q0h-AY-iTc"/>

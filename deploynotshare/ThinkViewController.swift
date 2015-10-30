@@ -9,6 +9,8 @@
 import UIKit
 
 class ThinkViewController: UIViewController {
+    
+    var mainViewController: UIViewController!
 
     @IBOutlet weak var saysomething: UITextView!
     override func viewDidLoad() {

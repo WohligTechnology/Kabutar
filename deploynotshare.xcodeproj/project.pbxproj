@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; settings = {ASSET_TAGS = (); }; };
 		4373172E1BD770650018B580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4373172D1BD770650018B580 /* AppDelegate.swift */; };
 		437317301BD770650018B580 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4373172F1BD770650018B580 /* ViewController.swift */; };
 		437317351BD770660018B580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 437317341BD770660018B580 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		434E77771BE34B4800684C08 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		4373172A1BD770650018B580 /* deploynotshare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deploynotshare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4373172D1BD770650018B580 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4373172F1BD770650018B580 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				4380B34D1BDA3FFA0026CED9 /* SwiftyJSON.swift */,
+				434E77771BE34B4800684C08 /* SlideMenuController.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -138,7 +141,6 @@
 		4308BE551BDE02D6009DC448 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				437317361BD770660018B580 /* LaunchScreen.storyboard */,
 				43F1A29B1BDBA87700F82938 /* Main.storyboard */,
 			);
 			name = Views;
@@ -201,6 +203,7 @@
 		43921D531BE0BD300032DE28 /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				437317361BD770660018B580 /* LaunchScreen.storyboard */,
 				43EFB9C01BDE62380014EDF9 /* footermenu.xib */,
 				43921D541BE0BD940032DE28 /* SortView.xib */,
 				43921D561BE0C4590032DE28 /* SortView.swift */,
@@ -403,6 +406,7 @@
 				437317301BD770650018B580 /* ViewController.swift in Sources */,
 				437EF0DB1BD8CA5500B7E9BF /* cardViewController.swift in Sources */,
 				437EF0DD1BD8CC0C00B7E9BF /* CollectionViewCell.swift in Sources */,
+				434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */,
 				4380B34E1BDA3FFA0026CED9 /* SwiftyJSON.swift in Sources */,
 				43921D571BE0C4590032DE28 /* SortView.swift in Sources */,
 				43921D5B1BE0E7DA0032DE28 /* PasswordViewController.swift in Sources */,
