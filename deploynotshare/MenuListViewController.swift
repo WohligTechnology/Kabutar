@@ -1,22 +1,25 @@
 //
-//  ThinkViewController.swift
+//  MenuListViewController.swift
 //  deploynotshare
 //
-//  Created by Jagruti Patil on 28/10/15.
+//  Created by Jagruti Patil on 30/10/15.
 //  Copyright © 2015 Wohlig. All rights reserved.
 //
 
 import UIKit
 
-class ThinkViewController: UIViewController {
-    
-//    var mainViewController: UIViewController!
+class MenuListViewController:  UITableViewController {
 
-    @IBOutlet weak var saysomething: UITextView!
+    var mainViewController: UIViewController!
+    
+    @IBOutlet weak var profileimage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.saysomething.layer.borderWidth = 2
-        self.saysomething.layer.borderColor = UIColor.brownColor().CGColor
+        self.profileimage!.layer.cornerRadius = self.profileimage.frame.size.width / 5
+        self.profileimage.clipsToBounds = true
+        self.profileimage.layer.borderWidth = 2.0
+        self.profileimage.layer.borderColor = UIColor.whiteColor().CGColor
+
         // Do any additional setup after loading the view.
     }
 

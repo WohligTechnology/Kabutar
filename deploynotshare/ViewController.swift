@@ -16,9 +16,9 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.profileimage!.layer.cornerRadius = self.profileimage.frame.size.width / 2
+        self.profileimage!.layer.cornerRadius = self.profileimage.frame.size.width / 2.0
         self.profileimage.clipsToBounds = true
-        self.profileimage.layer.borderWidth = 5
+        self.profileimage.layer.borderWidth = 2.0
         self.profileimage.layer.borderColor = UIColor.whiteColor().CGColor
         
         let border = CALayer()

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; settings = {ASSET_TAGS = (); }; };
+		434E77871BE3869E00684C08 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E778A1BE3979800684C08 /* MenuListViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4373172E1BD770650018B580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4373172D1BD770650018B580 /* AppDelegate.swift */; };
 		437317301BD770650018B580 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4373172F1BD770650018B580 /* ViewController.swift */; };
 		437317351BD770660018B580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 437317341BD770660018B580 /* Assets.xcassets */; };
@@ -49,6 +51,8 @@
 
 /* Begin PBXFileReference section */
 		434E77771BE34B4800684C08 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
+		434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
+		434E778A1BE3979800684C08 /* MenuListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuListViewController.swift; sourceTree = "<group>"; };
 		4373172A1BD770650018B580 /* deploynotshare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deploynotshare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4373172D1BD770650018B580 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4373172F1BD770650018B580 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,7 +125,9 @@
 				437EF0DA1BD8CA5500B7E9BF /* cardViewController.swift */,
 				43EFB9BC1BDE29130014EDF9 /* ListViewController.swift */,
 				43921D581BE0D8260032DE28 /* ThinkViewController.swift */,
+				434E778A1BE3979800684C08 /* MenuListViewController.swift */,
 				43EFB9BE1BDE3D5A0014EDF9 /* ListTableViewCell.swift */,
+				434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */,
 				43921D5A1BE0E7DA0032DE28 /* PasswordViewController.swift */,
 				4380B3511BDA590E0026CED9 /* detailViewController.swift */,
 				437EF0DC1BD8CC0C00B7E9BF /* CollectionViewCell.swift */,
@@ -407,10 +413,12 @@
 				437EF0DB1BD8CA5500B7E9BF /* cardViewController.swift in Sources */,
 				437EF0DD1BD8CC0C00B7E9BF /* CollectionViewCell.swift in Sources */,
 				434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */,
+				434E77871BE3869E00684C08 /* SideMenuTableViewController.swift in Sources */,
 				4380B34E1BDA3FFA0026CED9 /* SwiftyJSON.swift in Sources */,
 				43921D571BE0C4590032DE28 /* SortView.swift in Sources */,
 				43921D5B1BE0E7DA0032DE28 /* PasswordViewController.swift in Sources */,
 				4380B3501BDA54DF0026CED9 /* popup.swift in Sources */,
+				434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */,
 				43EFB9BF1BDE3D5A0014EDF9 /* ListTableViewCell.swift in Sources */,
 				4380B3521BDA590E0026CED9 /* detailViewController.swift in Sources */,
 				43EFB9BD1BDE29130014EDF9 /* ListViewController.swift in Sources */,

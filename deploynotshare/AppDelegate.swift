@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // create viewController code...
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         let mainViewController = storyboard.instantiateViewControllerWithIdentifier("cardViewController") as! cardViewController
-        let leftViewController = storyboard.instantiateViewControllerWithIdentifier("ThinkViewController") as! ThinkViewController
+//        let leftViewController = storyboard.instantiateViewControllerWithIdentifier("MenuView") as! MenuView
+        let leftViewController = storyboard.instantiateViewControllerWithIdentifier("MenuListViewController") as! MenuListViewController
         
         let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
         
