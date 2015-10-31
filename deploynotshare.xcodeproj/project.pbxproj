@@ -7,28 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; settings = {ASSET_TAGS = (); }; };
-		434E77871BE3869E00684C08 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E778A1BE3979800684C08 /* MenuListViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		36E846A31BE48AF8004109FA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E846A21BE48AF8004109FA /* UIViewControllerExtension.swift */; };
+		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; };
+		434E77871BE3869E00684C08 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */; };
+		434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E778A1BE3979800684C08 /* MenuListViewController.swift */; };
 		4373172E1BD770650018B580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4373172D1BD770650018B580 /* AppDelegate.swift */; };
 		437317301BD770650018B580 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4373172F1BD770650018B580 /* ViewController.swift */; };
 		437317351BD770660018B580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 437317341BD770660018B580 /* Assets.xcassets */; };
 		437317381BD770660018B580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 437317361BD770660018B580 /* LaunchScreen.storyboard */; };
 		437317431BD770660018B580 /* deploynotshareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437317421BD770660018B580 /* deploynotshareTests.swift */; };
 		4373174E1BD770660018B580 /* deploynotshareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4373174D1BD770660018B580 /* deploynotshareUITests.swift */; };
-		437EF0DB1BD8CA5500B7E9BF /* cardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437EF0DA1BD8CA5500B7E9BF /* cardViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		437EF0DD1BD8CC0C00B7E9BF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437EF0DC1BD8CC0C00B7E9BF /* CollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		4380B34E1BDA3FFA0026CED9 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4380B34D1BDA3FFA0026CED9 /* SwiftyJSON.swift */; settings = {ASSET_TAGS = (); }; };
-		4380B3501BDA54DF0026CED9 /* popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4380B34F1BDA54DF0026CED9 /* popup.swift */; settings = {ASSET_TAGS = (); }; };
-		4380B3521BDA590E0026CED9 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4380B3511BDA590E0026CED9 /* detailViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		43921D551BE0BD940032DE28 /* SortView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43921D541BE0BD940032DE28 /* SortView.xib */; settings = {ASSET_TAGS = (); }; };
-		43921D571BE0C4590032DE28 /* SortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921D561BE0C4590032DE28 /* SortView.swift */; settings = {ASSET_TAGS = (); }; };
-		43921D591BE0D8260032DE28 /* ThinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921D581BE0D8260032DE28 /* ThinkViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		43921D5B1BE0E7DA0032DE28 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921D5A1BE0E7DA0032DE28 /* PasswordViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		43EFB9BD1BDE29130014EDF9 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EFB9BC1BDE29130014EDF9 /* ListViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		43EFB9BF1BDE3D5A0014EDF9 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EFB9BE1BDE3D5A0014EDF9 /* ListTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		43EFB9C11BDE62380014EDF9 /* footermenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43EFB9C01BDE62380014EDF9 /* footermenu.xib */; settings = {ASSET_TAGS = (); }; };
-		43F1A29D1BDBA87700F82938 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F1A29B1BDBA87700F82938 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		437EF0DB1BD8CA5500B7E9BF /* cardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437EF0DA1BD8CA5500B7E9BF /* cardViewController.swift */; };
+		437EF0DD1BD8CC0C00B7E9BF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437EF0DC1BD8CC0C00B7E9BF /* CollectionViewCell.swift */; };
+		4380B3501BDA54DF0026CED9 /* popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4380B34F1BDA54DF0026CED9 /* popup.swift */; };
+		4380B3521BDA590E0026CED9 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4380B3511BDA590E0026CED9 /* detailViewController.swift */; };
+		43921D551BE0BD940032DE28 /* SortView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43921D541BE0BD940032DE28 /* SortView.xib */; };
+		43921D571BE0C4590032DE28 /* SortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921D561BE0C4590032DE28 /* SortView.swift */; };
+		43921D591BE0D8260032DE28 /* ThinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921D581BE0D8260032DE28 /* ThinkViewController.swift */; };
+		43921D5B1BE0E7DA0032DE28 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921D5A1BE0E7DA0032DE28 /* PasswordViewController.swift */; };
+		43EFB9BD1BDE29130014EDF9 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EFB9BC1BDE29130014EDF9 /* ListViewController.swift */; };
+		43EFB9BF1BDE3D5A0014EDF9 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EFB9BE1BDE3D5A0014EDF9 /* ListTableViewCell.swift */; };
+		43EFB9C11BDE62380014EDF9 /* footermenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43EFB9C01BDE62380014EDF9 /* footermenu.xib */; };
+		43F1A29D1BDBA87700F82938 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F1A29B1BDBA87700F82938 /* Main.storyboard */; };
 		CB6D02908480861E8104DBED /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C5E5AA73873D644F4D1844 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36E846A21BE48AF8004109FA /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		434E77771BE34B4800684C08 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		434E778A1BE3979800684C08 /* MenuListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuListViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		4373174F1BD770660018B580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		437EF0DA1BD8CA5500B7E9BF /* cardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cardViewController.swift; sourceTree = "<group>"; };
 		437EF0DC1BD8CC0C00B7E9BF /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		4380B34D1BDA3FFA0026CED9 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = "../../../Downloads/SwiftyJSON-master/Source/SwiftyJSON.swift"; sourceTree = "<group>"; };
 		4380B34F1BDA54DF0026CED9 /* popup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popup.swift; sourceTree = "<group>"; };
 		4380B3511BDA590E0026CED9 /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
 		43921D541BE0BD940032DE28 /* SortView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SortView.xib; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 		4308BE541BDE02BF009DC448 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				4380B34D1BDA3FFA0026CED9 /* SwiftyJSON.swift */,
 				434E77771BE34B4800684C08 /* SlideMenuController.swift */,
+				36E846A21BE48AF8004109FA /* UIViewControllerExtension.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -411,10 +411,10 @@
 			files = (
 				437317301BD770650018B580 /* ViewController.swift in Sources */,
 				437EF0DB1BD8CA5500B7E9BF /* cardViewController.swift in Sources */,
+				36E846A31BE48AF8004109FA /* UIViewControllerExtension.swift in Sources */,
 				437EF0DD1BD8CC0C00B7E9BF /* CollectionViewCell.swift in Sources */,
 				434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */,
 				434E77871BE3869E00684C08 /* SideMenuTableViewController.swift in Sources */,
-				4380B34E1BDA3FFA0026CED9 /* SwiftyJSON.swift in Sources */,
 				43921D571BE0C4590032DE28 /* SortView.swift in Sources */,
 				43921D5B1BE0E7DA0032DE28 /* PasswordViewController.swift in Sources */,
 				4380B3501BDA54DF0026CED9 /* popup.swift in Sources */,

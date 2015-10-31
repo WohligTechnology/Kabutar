@@ -4,3 +4,4 @@ use_frameworks!
 
 pod 'SwiftHTTP', '~> 1.0.0'
 
+pod "DKChainableAnimationKit", "~> 1.6.0"

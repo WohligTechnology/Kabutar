@@ -7,96 +7,156 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23525C82CBDC435399441A00FCDEB7E7 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5CF7DE5D545F02F18070C59514429D /* Upload.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		35722E89053CB3A40958526E2C60BCFE /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD692944910032F72CA5AA3BFE3A20 /* Request.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3F14090DBF240B46A891C5511AEDE857 /* HTTPSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062B1D98A4D85680DFF0301EA8A5E584 /* HTTPSecurity.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		420BCB67D2BF478F2FE4D09760FE3E7E /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */; };
-		435BCCD87BD5F9736ACE9213AF60993A /* SwiftHTTP-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A761DBCA0999ECC2CB4476E2EF98329 /* SwiftHTTP-dummy.m */; };
-		4A002836AE68178B4D463CF404A92B6B /* SwiftHTTP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F74C49D9CABA47C56D94EAD60E35C308 /* SwiftHTTP-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		591816D920F123E180E68AE07F92A86C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		692F1D0A3F9D0C6FA168C92BD570C27B /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA0FBB468AA0C9FDAEC8E8B3E55CC5 /* Operation.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		AD9D07B1BCDD86F78CE9288F761D8736 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		EC147185375A9E8F36A7E563084D2619 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FA1E38F492852E8D6A6A64EDB3AB122F /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E8562B075EF16B90C844D4246D6C4E /* StatusCode.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0BBC3F0095F4F0C098F31D1A564792FE /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637A517EC53306A3D6113BF377435918 /* StatusCode.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		191057E5C8E60A756B470E7C7D05B87F /* DKChainableAnimationKit+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50A9634A35E8A0F99DF99E5CCB9106D /* DKChainableAnimationKit+Extra.swift */; };
+		194F0AD10E3458E8832C1C6655E998E1 /* DKKeyframeAnimationFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08D1A4FA53A9AE8D8264B015ACACB3F /* DKKeyframeAnimationFunction.swift */; };
+		201E9219FFD991D3B1DE35AAF9CF0C44 /* DKChainableAnimationKit+Bezier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDB80BA6ACC6732330B3398AC40F81 /* DKChainableAnimationKit+Bezier.swift */; };
+		228A4B9A69CBB19A48A78A6F1ADDE3A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		41F0AC92519E78BB6B5F0459661E34BA /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91A6BA0BD5C50CD8E7691A6AE54E2FA /* Request.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		65E69EC79CB5C7406D3E5F4C8CC3CB94 /* DKKeyFrameAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFB20743A4BBAD2112913E7C739CAD3 /* DKKeyFrameAnimation.swift */; };
+		68BCA68A3C414D1AF450FB5E4187E568 /* UIView+AnimationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935D57A18466AFE870061BBB144F6225 /* UIView+AnimationKit.swift */; };
+		76972A34B39315EDDC664C197E416222 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */; };
+		7EEDBF050FCD05638CCE2B88221F4C14 /* DKChainableAnimationKit+Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF31811B3F4E1CCDAFDDC111707DD2F /* DKChainableAnimationKit+Transform.swift */; };
+		8D4EA5A18DA605D42633E35B378EE5F8 /* DKChainableAnimationKit+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCE6F12213249D40EFC42E652FD7E51 /* DKChainableAnimationKit+Anchor.swift */; };
+		966494965ACEBA8C5FD48C83CB0686EB /* SwiftHTTP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C72C2340B7EAE94E78E20CD6069EEA6 /* SwiftHTTP-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A12829E0D4A88632368879E3295103DE /* HTTPSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9151723067D9B43A38C225A405C1257C /* HTTPSecurity.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A837A0587E573930017C5AC6995149B2 /* SwiftHTTP-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F9667621EFEB83B72E0FA0313C22A27C /* SwiftHTTP-dummy.m */; };
+		AF2BAE41BCD4AD9E7CF0C6E01678B6D0 /* DKChainableAnimationKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB19C93EC96BACEBAF63691DACEE0F1 /* DKChainableAnimationKit-dummy.m */; };
+		B0DA046E44E7AA98BF3EEB7D3D6DC9D8 /* DKChainableAnimationKit+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824D451C5E36FD953A8DABAA0D1E8A1 /* DKChainableAnimationKit+Effects.swift */; };
+		B589B0ECA8C9BBE55F7E2BF8B0D52FC7 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C425D333C9F103B33E106CD25DF15F4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		CFCCA133A34D437568AD8D0EC560E122 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE043EF0EC84B9D1E14BED4BF822D3A9 /* Operation.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D1E796C2A27DE6385742B7DFB4F621C2 /* DKChainableAnimationKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F1424699493F75E476F9CC9C990A32 /* DKChainableAnimationKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D413B19742F60C901F801ECD47337F8E /* DKChainableAnimationKit+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BAEEF98E3A429E59A029F019DAF36 /* DKChainableAnimationKit+Frame.swift */; };
+		FB3E7C6DC2CC0790FEDB413BC09C16EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		FC7020C2D70721EE6A7086E4152C82E3 /* DKChainableAnimationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78C0CD2C3B7DA05CE41001F25C3614E /* DKChainableAnimationKit.swift */; };
+		FF3E292F8A648B990EC280E200296AE8 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2B481C7BE1487F528DB6C2330D6A0C /* Upload.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D2BAC0B919B0ADFC0C268AF689815CCE /* PBXContainerItemProxy */ = {
+		22BE1AD0BFB08ACB276BCF11FD3404BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 370D8B09F00B97515CD21C7F705FB20C;
+			remoteGlobalIDString = 7CC4F511B2E2605FD0BCF6A19BB8F680;
 			remoteInfo = SwiftHTTP;
+		};
+		D3AB9DDC28A5D73E02B06F5E700AFFDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 186526C95A6E6A368E316AEBD475C8CB;
+			remoteInfo = DKChainableAnimationKit;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		062B1D98A4D85680DFF0301EA8A5E584 /* HTTPSecurity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTTPSecurity.swift; sourceTree = "<group>"; };
 		2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
+		360C85DB0958A8B337F86ED2CE3E4769 /* DKChainableAnimationKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DKChainableAnimationKit.modulemap; sourceTree = "<group>"; };
+		37F1424699493F75E476F9CC9C990A32 /* DKChainableAnimationKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DKChainableAnimationKit-umbrella.h"; sourceTree = "<group>"; };
+		3DDEE0D7BD1CEFF1DF2EA9E5D927E44D /* DKChainableAnimationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DKChainableAnimationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		42FD692944910032F72CA5AA3BFE3A20 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		54E8562B075EF16B90C844D4246D6C4E /* StatusCode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
-		5A248A029B05291B6A6D39E9265880DC /* SwiftHTTP-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftHTTP-prefix.pch"; sourceTree = "<group>"; };
-		644D5A909D50587298CEC814585D5F9A /* SwiftHTTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		73A470E46770EF790AC9F40473C741D5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EFB20743A4BBAD2112913E7C739CAD3 /* DKKeyFrameAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKKeyFrameAnimation.swift; path = DKChainableAnimationKit/Classes/DKKeyFrameAnimation.swift; sourceTree = "<group>"; };
+		637A517EC53306A3D6113BF377435918 /* StatusCode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
+		6DEDB80BA6ACC6732330B3398AC40F81 /* DKChainableAnimationKit+Bezier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DKChainableAnimationKit+Bezier.swift"; path = "DKChainableAnimationKit/Classes/DKChainableAnimationKit+Bezier.swift"; sourceTree = "<group>"; };
+		70F7F24C28F4DC4633B1CF01E0221113 /* SwiftHTTP.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftHTTP.modulemap; sourceTree = "<group>"; };
+		7824D451C5E36FD953A8DABAA0D1E8A1 /* DKChainableAnimationKit+Effects.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DKChainableAnimationKit+Effects.swift"; path = "DKChainableAnimationKit/Classes/DKChainableAnimationKit+Effects.swift"; sourceTree = "<group>"; };
 		79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
 		87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		88A011EBA21EFE6E490263A87654C876 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		96921EBC09FF79614C72A92FC480A339 /* SwiftHTTP.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftHTTP.modulemap; sourceTree = "<group>"; };
+		8BF31811B3F4E1CCDAFDDC111707DD2F /* DKChainableAnimationKit+Transform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DKChainableAnimationKit+Transform.swift"; path = "DKChainableAnimationKit/Classes/DKChainableAnimationKit+Transform.swift"; sourceTree = "<group>"; };
+		8E2B481C7BE1487F528DB6C2330D6A0C /* Upload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
+		900BAEEF98E3A429E59A029F019DAF36 /* DKChainableAnimationKit+Frame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DKChainableAnimationKit+Frame.swift"; path = "DKChainableAnimationKit/Classes/DKChainableAnimationKit+Frame.swift"; sourceTree = "<group>"; };
+		9151723067D9B43A38C225A405C1257C /* HTTPSecurity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HTTPSecurity.swift; sourceTree = "<group>"; };
+		935D57A18466AFE870061BBB144F6225 /* UIView+AnimationKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+AnimationKit.swift"; path = "DKChainableAnimationKit/Classes/UIView+AnimationKit.swift"; sourceTree = "<group>"; };
 		977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		9A761DBCA0999ECC2CB4476E2EF98329 /* SwiftHTTP-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftHTTP-dummy.m"; sourceTree = "<group>"; };
-		AA5CF7DE5D545F02F18070C59514429D /* Upload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
-		B3EA0FBB468AA0C9FDAEC8E8B3E55CC5 /* Operation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		9C72C2340B7EAE94E78E20CD6069EEA6 /* SwiftHTTP-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftHTTP-umbrella.h"; sourceTree = "<group>"; };
+		AB6204FD478905D834D9595968FEE07F /* SwiftHTTP.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftHTTP.xcconfig; sourceTree = "<group>"; };
+		B08D1A4FA53A9AE8D8264B015ACACB3F /* DKKeyframeAnimationFunction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKKeyframeAnimationFunction.swift; path = DKChainableAnimationKit/Classes/DKKeyframeAnimationFunction.swift; sourceTree = "<group>"; };
+		B50A9634A35E8A0F99DF99E5CCB9106D /* DKChainableAnimationKit+Extra.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DKChainableAnimationKit+Extra.swift"; path = "DKChainableAnimationKit/Classes/DKChainableAnimationKit+Extra.swift"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BDCE6F12213249D40EFC42E652FD7E51 /* DKChainableAnimationKit+Anchor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DKChainableAnimationKit+Anchor.swift"; path = "DKChainableAnimationKit/Classes/DKChainableAnimationKit+Anchor.swift"; sourceTree = "<group>"; };
+		BE043EF0EC84B9D1E14BED4BF822D3A9 /* Operation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		C58EF80CAB43FAD835182AE58FF63763 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		CE95905BB9C20B91EB60ED0B881842C9 /* SwiftHTTP.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftHTTP.xcconfig; sourceTree = "<group>"; };
+		D002809194E2DD08DD1446ED8F13F334 /* DKChainableAnimationKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DKChainableAnimationKit-prefix.pch"; sourceTree = "<group>"; };
 		D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		DA1C025C53353F451400E37A0273DA01 /* DKChainableAnimationKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DKChainableAnimationKit.xcconfig; sourceTree = "<group>"; };
 		DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		E78C0CD2C3B7DA05CE41001F25C3614E /* DKChainableAnimationKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DKChainableAnimationKit.swift; path = DKChainableAnimationKit/Classes/DKChainableAnimationKit.swift; sourceTree = "<group>"; };
 		E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
 		E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E940F7E4C25674B2A3CF1DD52ED37FF5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F74C49D9CABA47C56D94EAD60E35C308 /* SwiftHTTP-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftHTTP-umbrella.h"; sourceTree = "<group>"; };
+		E883750AA7612E8AD3E03BE36073EDDE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDB19C93EC96BACEBAF63691DACEE0F1 /* DKChainableAnimationKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DKChainableAnimationKit-dummy.m"; sourceTree = "<group>"; };
+		EEDAFB2B1AFDFEFAF5237CCC8BC807CE /* SwiftHTTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftHTTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3FE59CCE30D4606F9E9AA5D8A19F049 /* SwiftHTTP-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftHTTP-prefix.pch"; sourceTree = "<group>"; };
+		F91A6BA0BD5C50CD8E7691A6AE54E2FA /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		F9667621EFEB83B72E0FA0313C22A27C /* SwiftHTTP-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftHTTP-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		30EFD8566C6A8CAE280436AD0C04F030 /* Frameworks */ = {
+		59ECEF67C16A9EA1740E5A27AE1B1FD2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD9D07B1BCDD86F78CE9288F761D8736 /* Foundation.framework in Frameworks */,
+				C425D333C9F103B33E106CD25DF15F4F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		57B7CC6D6B869FB722A59F3CA0F8F181 /* Frameworks */ = {
+		AA9D4E2113305568D3C844229100D215 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				591816D920F123E180E68AE07F92A86C /* Foundation.framework in Frameworks */,
+				228A4B9A69CBB19A48A78A6F1ADDE3A8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEE85B7BEAD5E2BEDA7D633F268A3CA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB3E7C6DC2CC0790FEDB413BC09C16EA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		272748845D84B1806732CB9ADF41C173 /* SwiftHTTP */ = {
+		0056DCC2347F3D04FA9973EDAFB631A7 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				062B1D98A4D85680DFF0301EA8A5E584 /* HTTPSecurity.swift */,
-				B3EA0FBB468AA0C9FDAEC8E8B3E55CC5 /* Operation.swift */,
-				42FD692944910032F72CA5AA3BFE3A20 /* Request.swift */,
-				54E8562B075EF16B90C844D4246D6C4E /* StatusCode.swift */,
-				AA5CF7DE5D545F02F18070C59514429D /* Upload.swift */,
-				D76076E579299FAD71000CD724F1C7EB /* Support Files */,
+				E883750AA7612E8AD3E03BE36073EDDE /* Info.plist */,
+				70F7F24C28F4DC4633B1CF01E0221113 /* SwiftHTTP.modulemap */,
+				AB6204FD478905D834D9595968FEE07F /* SwiftHTTP.xcconfig */,
+				F9667621EFEB83B72E0FA0313C22A27C /* SwiftHTTP-dummy.m */,
+				F3FE59CCE30D4606F9E9AA5D8A19F049 /* SwiftHTTP-prefix.pch */,
+				9C72C2340B7EAE94E78E20CD6069EEA6 /* SwiftHTTP-umbrella.h */,
 			);
-			path = SwiftHTTP;
+			name = "Support Files";
+			path = "../Target Support Files/SwiftHTTP";
 			sourceTree = "<group>";
 		};
-		3510D63EC130FBF054FB92BDC00B1AB3 /* Pods */ = {
+		649F0EAB1A543901828836DB44CF23D5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				272748845D84B1806732CB9ADF41C173 /* SwiftHTTP */,
+				81226BE1630355E6D03913CCAD764B70 /* DKChainableAnimationKit */,
+				6E434B7A69CE0054BE5A1E7518C8D856 /* SwiftHTTP */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		6E434B7A69CE0054BE5A1E7518C8D856 /* SwiftHTTP */ = {
+			isa = PBXGroup;
+			children = (
+				9151723067D9B43A38C225A405C1257C /* HTTPSecurity.swift */,
+				BE043EF0EC84B9D1E14BED4BF822D3A9 /* Operation.swift */,
+				F91A6BA0BD5C50CD8E7691A6AE54E2FA /* Request.swift */,
+				637A517EC53306A3D6113BF377435918 /* StatusCode.swift */,
+				8E2B481C7BE1487F528DB6C2330D6A0C /* Upload.swift */,
+				0056DCC2347F3D04FA9973EDAFB631A7 /* Support Files */,
+			);
+			path = SwiftHTTP;
 			sourceTree = "<group>";
 		};
 		75D98FF52E597A11900E131B6C4E1ADA /* Pods */ = {
@@ -122,19 +182,52 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				3510D63EC130FBF054FB92BDC00B1AB3 /* Pods */,
-				95D5F0D7A1DF184CBE6AF307FAC3BC6C /* Products */,
+				649F0EAB1A543901828836DB44CF23D5 /* Pods */,
+				7F99BBC45F33B42F313599372828F2A7 /* Products */,
 				B7B80995527643776607AFFA75B91E24 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		95D5F0D7A1DF184CBE6AF307FAC3BC6C /* Products */ = {
+		7F99BBC45F33B42F313599372828F2A7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				73A470E46770EF790AC9F40473C741D5 /* Pods.framework */,
-				644D5A909D50587298CEC814585D5F9A /* SwiftHTTP.framework */,
+				3DDEE0D7BD1CEFF1DF2EA9E5D927E44D /* DKChainableAnimationKit.framework */,
+				C58EF80CAB43FAD835182AE58FF63763 /* Pods.framework */,
+				EEDAFB2B1AFDFEFAF5237CCC8BC807CE /* SwiftHTTP.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		81226BE1630355E6D03913CCAD764B70 /* DKChainableAnimationKit */ = {
+			isa = PBXGroup;
+			children = (
+				E78C0CD2C3B7DA05CE41001F25C3614E /* DKChainableAnimationKit.swift */,
+				BDCE6F12213249D40EFC42E652FD7E51 /* DKChainableAnimationKit+Anchor.swift */,
+				6DEDB80BA6ACC6732330B3398AC40F81 /* DKChainableAnimationKit+Bezier.swift */,
+				7824D451C5E36FD953A8DABAA0D1E8A1 /* DKChainableAnimationKit+Effects.swift */,
+				B50A9634A35E8A0F99DF99E5CCB9106D /* DKChainableAnimationKit+Extra.swift */,
+				900BAEEF98E3A429E59A029F019DAF36 /* DKChainableAnimationKit+Frame.swift */,
+				8BF31811B3F4E1CCDAFDDC111707DD2F /* DKChainableAnimationKit+Transform.swift */,
+				3EFB20743A4BBAD2112913E7C739CAD3 /* DKKeyFrameAnimation.swift */,
+				B08D1A4FA53A9AE8D8264B015ACACB3F /* DKKeyframeAnimationFunction.swift */,
+				935D57A18466AFE870061BBB144F6225 /* UIView+AnimationKit.swift */,
+				93C1D24AC8AD8E74C57A6912F8F03AE6 /* Support Files */,
+			);
+			path = DKChainableAnimationKit;
+			sourceTree = "<group>";
+		};
+		93C1D24AC8AD8E74C57A6912F8F03AE6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				360C85DB0958A8B337F86ED2CE3E4769 /* DKChainableAnimationKit.modulemap */,
+				DA1C025C53353F451400E37A0273DA01 /* DKChainableAnimationKit.xcconfig */,
+				EDB19C93EC96BACEBAF63691DACEE0F1 /* DKChainableAnimationKit-dummy.m */,
+				D002809194E2DD08DD1446ED8F13F334 /* DKChainableAnimationKit-prefix.pch */,
+				37F1424699493F75E476F9CC9C990A32 /* DKChainableAnimationKit-umbrella.h */,
+				88A011EBA21EFE6E490263A87654C876 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DKChainableAnimationKit";
 			sourceTree = "<group>";
 		};
 		B7B80995527643776607AFFA75B91E24 /* Targets Support Files */ = {
@@ -161,49 +254,79 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		D76076E579299FAD71000CD724F1C7EB /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E940F7E4C25674B2A3CF1DD52ED37FF5 /* Info.plist */,
-				96921EBC09FF79614C72A92FC480A339 /* SwiftHTTP.modulemap */,
-				CE95905BB9C20B91EB60ED0B881842C9 /* SwiftHTTP.xcconfig */,
-				9A761DBCA0999ECC2CB4476E2EF98329 /* SwiftHTTP-dummy.m */,
-				5A248A029B05291B6A6D39E9265880DC /* SwiftHTTP-prefix.pch */,
-				F74C49D9CABA47C56D94EAD60E35C308 /* SwiftHTTP-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftHTTP";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		68FF43E71125EA764CA00CF740179CE1 /* Headers */ = {
+		0F564CA1D2F5C3526DCB7C78225000A8 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC147185375A9E8F36A7E563084D2619 /* Pods-umbrella.h in Headers */,
+				D1E796C2A27DE6385742B7DFB4F621C2 /* DKChainableAnimationKit-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6A162083F8C89C052D094C8EC93FF0CA /* Headers */ = {
+		CF7AB6EDE939B60E0A5B961E8911AC51 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A002836AE68178B4D463CF404A92B6B /* SwiftHTTP-umbrella.h in Headers */,
+				B589B0ECA8C9BBE55F7E2BF8B0D52FC7 /* Pods-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2806BA6FCD3535F9608E029CC06528A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				966494965ACEBA8C5FD48C83CB0686EB /* SwiftHTTP-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		370D8B09F00B97515CD21C7F705FB20C /* SwiftHTTP */ = {
+		186526C95A6E6A368E316AEBD475C8CB /* DKChainableAnimationKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5FDD1D40F4710173B4C04833A294C5B4 /* Build configuration list for PBXNativeTarget "SwiftHTTP" */;
+			buildConfigurationList = 6BEF9F918F72C937CEC047E65AFC5BA8 /* Build configuration list for PBXNativeTarget "DKChainableAnimationKit" */;
 			buildPhases = (
-				28423DB28DB13BCE0173684B717D38EE /* Sources */,
-				30EFD8566C6A8CAE280436AD0C04F030 /* Frameworks */,
-				6A162083F8C89C052D094C8EC93FF0CA /* Headers */,
+				D1B0B4AC24AF9E965392C43B61A0A54A /* Sources */,
+				AA9D4E2113305568D3C844229100D215 /* Frameworks */,
+				0F564CA1D2F5C3526DCB7C78225000A8 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DKChainableAnimationKit;
+			productName = DKChainableAnimationKit;
+			productReference = 3DDEE0D7BD1CEFF1DF2EA9E5D927E44D /* DKChainableAnimationKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		34190650C36F577860B39AB048AE0CAB /* Pods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F915EA272B08FCC75E9AF8BAF8AA821A /* Build configuration list for PBXNativeTarget "Pods" */;
+			buildPhases = (
+				996092E38556A08423CF3CFCA3EC5FBC /* Sources */,
+				AEE85B7BEAD5E2BEDA7D633F268A3CA8 /* Frameworks */,
+				CF7AB6EDE939B60E0A5B961E8911AC51 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4D1734340ED69289A7519EC5FDDF184 /* PBXTargetDependency */,
+				4FCA4C94EEF914B9076F1305E979C566 /* PBXTargetDependency */,
+			);
+			name = Pods;
+			productName = Pods;
+			productReference = C58EF80CAB43FAD835182AE58FF63763 /* Pods.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7CC4F511B2E2605FD0BCF6A19BB8F680 /* SwiftHTTP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23500566A63DFA1A478FF2D0867FB44C /* Build configuration list for PBXNativeTarget "SwiftHTTP" */;
+			buildPhases = (
+				5CB6A3CD1CD19A4AE6A53D763BC5803B /* Sources */,
+				59ECEF67C16A9EA1740E5A27AE1B1FD2 /* Frameworks */,
+				E2806BA6FCD3535F9608E029CC06528A /* Headers */,
 			);
 			buildRules = (
 			);
@@ -211,25 +334,7 @@
 			);
 			name = SwiftHTTP;
 			productName = SwiftHTTP;
-			productReference = 644D5A909D50587298CEC814585D5F9A /* SwiftHTTP.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		732F2977D3B3731782D7932850ACC2D6 /* Pods */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A4C80C205EE89B9298DA155731CF0A86 /* Build configuration list for PBXNativeTarget "Pods" */;
-			buildPhases = (
-				70E184A4297AD5601FFDAB3C20897707 /* Sources */,
-				57B7CC6D6B869FB722A59F3CA0F8F181 /* Frameworks */,
-				68FF43E71125EA764CA00CF740179CE1 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3F36DF1452B8A0BEBB611FA9B601AD1F /* PBXTargetDependency */,
-			);
-			name = Pods;
-			productName = Pods;
-			productReference = 73A470E46770EF790AC9F40473C741D5 /* Pods.framework */;
+			productReference = EEDAFB2B1AFDFEFAF5237CCC8BC807CE /* SwiftHTTP.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -249,53 +354,106 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 95D5F0D7A1DF184CBE6AF307FAC3BC6C /* Products */;
+			productRefGroup = 7F99BBC45F33B42F313599372828F2A7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				732F2977D3B3731782D7932850ACC2D6 /* Pods */,
-				370D8B09F00B97515CD21C7F705FB20C /* SwiftHTTP */,
+				186526C95A6E6A368E316AEBD475C8CB /* DKChainableAnimationKit */,
+				34190650C36F577860B39AB048AE0CAB /* Pods */,
+				7CC4F511B2E2605FD0BCF6A19BB8F680 /* SwiftHTTP */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		28423DB28DB13BCE0173684B717D38EE /* Sources */ = {
+		5CB6A3CD1CD19A4AE6A53D763BC5803B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F14090DBF240B46A891C5511AEDE857 /* HTTPSecurity.swift in Sources */,
-				692F1D0A3F9D0C6FA168C92BD570C27B /* Operation.swift in Sources */,
-				35722E89053CB3A40958526E2C60BCFE /* Request.swift in Sources */,
-				FA1E38F492852E8D6A6A64EDB3AB122F /* StatusCode.swift in Sources */,
-				435BCCD87BD5F9736ACE9213AF60993A /* SwiftHTTP-dummy.m in Sources */,
-				23525C82CBDC435399441A00FCDEB7E7 /* Upload.swift in Sources */,
+				A12829E0D4A88632368879E3295103DE /* HTTPSecurity.swift in Sources */,
+				CFCCA133A34D437568AD8D0EC560E122 /* Operation.swift in Sources */,
+				41F0AC92519E78BB6B5F0459661E34BA /* Request.swift in Sources */,
+				0BBC3F0095F4F0C098F31D1A564792FE /* StatusCode.swift in Sources */,
+				A837A0587E573930017C5AC6995149B2 /* SwiftHTTP-dummy.m in Sources */,
+				FF3E292F8A648B990EC280E200296AE8 /* Upload.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		70E184A4297AD5601FFDAB3C20897707 /* Sources */ = {
+		996092E38556A08423CF3CFCA3EC5FBC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				420BCB67D2BF478F2FE4D09760FE3E7E /* Pods-dummy.m in Sources */,
+				76972A34B39315EDDC664C197E416222 /* Pods-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1B0B4AC24AF9E965392C43B61A0A54A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D4EA5A18DA605D42633E35B378EE5F8 /* DKChainableAnimationKit+Anchor.swift in Sources */,
+				201E9219FFD991D3B1DE35AAF9CF0C44 /* DKChainableAnimationKit+Bezier.swift in Sources */,
+				B0DA046E44E7AA98BF3EEB7D3D6DC9D8 /* DKChainableAnimationKit+Effects.swift in Sources */,
+				191057E5C8E60A756B470E7C7D05B87F /* DKChainableAnimationKit+Extra.swift in Sources */,
+				D413B19742F60C901F801ECD47337F8E /* DKChainableAnimationKit+Frame.swift in Sources */,
+				7EEDBF050FCD05638CCE2B88221F4C14 /* DKChainableAnimationKit+Transform.swift in Sources */,
+				AF2BAE41BCD4AD9E7CF0C6E01678B6D0 /* DKChainableAnimationKit-dummy.m in Sources */,
+				FC7020C2D70721EE6A7086E4152C82E3 /* DKChainableAnimationKit.swift in Sources */,
+				65E69EC79CB5C7406D3E5F4C8CC3CB94 /* DKKeyFrameAnimation.swift in Sources */,
+				194F0AD10E3458E8832C1C6655E998E1 /* DKKeyframeAnimationFunction.swift in Sources */,
+				68BCA68A3C414D1AF450FB5E4187E568 /* UIView+AnimationKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3F36DF1452B8A0BEBB611FA9B601AD1F /* PBXTargetDependency */ = {
+		4FCA4C94EEF914B9076F1305E979C566 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftHTTP;
-			target = 370D8B09F00B97515CD21C7F705FB20C /* SwiftHTTP */;
-			targetProxy = D2BAC0B919B0ADFC0C268AF689815CCE /* PBXContainerItemProxy */;
+			target = 7CC4F511B2E2605FD0BCF6A19BB8F680 /* SwiftHTTP */;
+			targetProxy = 22BE1AD0BFB08ACB276BCF11FD3404BB /* PBXContainerItemProxy */;
+		};
+		E4D1734340ED69289A7519EC5FDDF184 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DKChainableAnimationKit;
+			target = 186526C95A6E6A368E316AEBD475C8CB /* DKChainableAnimationKit */;
+			targetProxy = D3AB9DDC28A5D73E02B06F5E700AFFDE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		77BD609B4FF78F1C7A3A69044969AB19 /* Debug */ = {
+		09672C070CFBBCE4B773A8A83DD2F55F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE95905BB9C20B91EB60ED0B881842C9 /* SwiftHTTP.xcconfig */;
+			baseConfigurationReference = DA1C025C53353F451400E37A0273DA01 /* DKChainableAnimationKit.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DKChainableAnimationKit/DKChainableAnimationKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DKChainableAnimationKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DKChainableAnimationKit/DKChainableAnimationKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = DKChainableAnimationKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		497E6FBE3CC16651A222D94E5F408B4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB6204FD478905D834D9595968FEE07F /* SwiftHTTP.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -321,7 +479,7 @@
 			};
 			name = Debug;
 		};
-		7D23E8E4028716107F6348FDF9BDC8C7 /* Debug */ = {
+		65D4B40AF9C9F4CC94D902DA5F20FFE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */;
 			buildSettings = {
@@ -351,33 +509,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		8955A62910C359F9F1E6E4380B4944E5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE95905BB9C20B91EB60ED0B881842C9 /* SwiftHTTP.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftHTTP/SwiftHTTP-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftHTTP/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftHTTP/SwiftHTTP.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SwiftHTTP;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -418,7 +549,34 @@
 			};
 			name = Debug;
 		};
-		B4CF0C899E5054AB3C864F961AC7E54D /* Release */ = {
+		BCB7F2C27272938A354AFBDE71C86FBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB6204FD478905D834D9595968FEE07F /* SwiftHTTP.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftHTTP/SwiftHTTP-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftHTTP/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftHTTP/SwiftHTTP.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftHTTP;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C9A1869A5B76B57E1DF3B98D73A1C5BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */;
 			buildSettings = {
@@ -440,6 +598,33 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_NAME = Pods;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E7765070AFF165424B832431C3BBD0F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA1C025C53353F451400E37A0273DA01 /* DKChainableAnimationKit.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DKChainableAnimationKit/DKChainableAnimationKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DKChainableAnimationKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DKChainableAnimationKit/DKChainableAnimationKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = DKChainableAnimationKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -485,6 +670,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		23500566A63DFA1A478FF2D0867FB44C /* Build configuration list for PBXNativeTarget "SwiftHTTP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				497E6FBE3CC16651A222D94E5F408B4E /* Debug */,
+				BCB7F2C27272938A354AFBDE71C86FBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -494,20 +688,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5FDD1D40F4710173B4C04833A294C5B4 /* Build configuration list for PBXNativeTarget "SwiftHTTP" */ = {
+		6BEF9F918F72C937CEC047E65AFC5BA8 /* Build configuration list for PBXNativeTarget "DKChainableAnimationKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				77BD609B4FF78F1C7A3A69044969AB19 /* Debug */,
-				8955A62910C359F9F1E6E4380B4944E5 /* Release */,
+				09672C070CFBBCE4B773A8A83DD2F55F /* Debug */,
+				E7765070AFF165424B832431C3BBD0F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A4C80C205EE89B9298DA155731CF0A86 /* Build configuration list for PBXNativeTarget "Pods" */ = {
+		F915EA272B08FCC75E9AF8BAF8AA821A /* Build configuration list for PBXNativeTarget "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7D23E8E4028716107F6348FDF9BDC8C7 /* Debug */,
-				B4CF0C899E5054AB3C864F961AC7E54D /* Release */,
+				65D4B40AF9C9F4CC94D902DA5F20FFE7 /* Debug */,
+				C9A1869A5B76B57E1DF3B98D73A1C5BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

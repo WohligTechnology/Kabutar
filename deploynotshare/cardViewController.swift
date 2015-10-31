@@ -5,15 +5,24 @@
 //  Created by Jagruti Patil on 22/10/15.
 //  Copyright © 2015 Wohlig. All rights reserved.
 //
-
 import UIKit
 import MapKit
-//import c
+import DKChainableAnimationKit
+
 
 class cardViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
 
+    
     @IBOutlet weak var sorting: SortView!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    
+    @IBAction func SortTap(sender: AnyObject) {
+        
+        self.sorting.animation.makeOpacity(1.0).moveY(-1*sorting.frame.size.height+70).animate(1.0)
+        
+    }
+    
     var selected:NSIndexPath = NSIndexPath();
     
     // Modal cancel button event
@@ -31,7 +40,8 @@ class cardViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        sorting.ch
+        
+       //        sorting.ch
         //        self.preferredContentSize = CGSizeMake(200, 200);
 //        self.collectionView.collectionViewLayout.invalidateLayout()
         
@@ -39,6 +49,7 @@ class cardViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.setNavigationBarItem()
         self.navigationController?.setToolbarHidden(true, animated: animated)
     }
     

@@ -1,10 +1,13 @@
 PODS:
+  - DKChainableAnimationKit (1.6.0)
   - SwiftHTTP (1.0.2)
 
 DEPENDENCIES:
+  - DKChainableAnimationKit (~> 1.6.0)
   - SwiftHTTP (~> 1.0.0)
 
 SPEC CHECKSUMS:
+  DKChainableAnimationKit: fe28909402825a42cc632b211eadcc39ad2bee38
   SwiftHTTP: 6d8ca031a9ce613a01e8f18b497503887b0b50c0
 
 COCOAPODS: 0.39.0
