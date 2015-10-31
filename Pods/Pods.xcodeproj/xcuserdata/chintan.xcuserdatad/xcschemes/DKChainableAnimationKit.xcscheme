@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '8C18FD5D65E5A1E888CD2DC0'
+               BlueprintIdentifier = 'D39E83589800EAEB4AFD80EA'
                BlueprintName = 'DKChainableAnimationKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'DKChainableAnimationKit.framework'>

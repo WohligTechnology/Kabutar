@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		366420321BE4BF03003477CF /* FoderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366420311BE4BF03003477CF /* FoderModel.swift */; };
 		36E846A31BE48AF8004109FA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E846A21BE48AF8004109FA /* UIViewControllerExtension.swift */; };
 		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; };
 		434E77871BE3869E00684C08 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		366420311BE4BF03003477CF /* FoderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoderModel.swift; sourceTree = "<group>"; };
 		36E846A21BE48AF8004109FA /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		434E77771BE34B4800684C08 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		366420301BE4BEE0003477CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				366420311BE4BF03003477CF /* FoderModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		4308BE531BDE028F009DC448 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +191,7 @@
 				4308BE541BDE02BF009DC448 /* Helper */,
 				4308BE531BDE028F009DC448 /* Controllers */,
 				437317341BD770660018B580 /* Assets.xcassets */,
+				366420301BE4BEE0003477CF /* Model */,
 				43921D531BE0BD300032DE28 /* UIViews */,
 				4308BE551BDE02D6009DC448 /* Views */,
 				437317391BD770660018B580 /* Info.plist */,
@@ -421,6 +432,7 @@
 				434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */,
 				43EFB9BF1BDE3D5A0014EDF9 /* ListTableViewCell.swift in Sources */,
 				4380B3521BDA590E0026CED9 /* detailViewController.swift in Sources */,
+				366420321BE4BF03003477CF /* FoderModel.swift in Sources */,
 				43EFB9BD1BDE29130014EDF9 /* ListViewController.swift in Sources */,
 				43921D591BE0D8260032DE28 /* ThinkViewController.swift in Sources */,
 				4373172E1BD770650018B580 /* AppDelegate.swift in Sources */,

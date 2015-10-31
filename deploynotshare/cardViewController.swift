@@ -13,20 +13,30 @@ import DKChainableAnimationKit
 class cardViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
 
     
+    @IBOutlet weak var OverLay: UIView!
     @IBOutlet weak var sorting: SortView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var num = 1
     var shouldSort=true
+//    var touch = UITapGestureRecognizer(target:self, action:"tapFunc")
     
     @IBAction func SortTap(sender: AnyObject) {
-        print(num)
-        print(shouldSort)
+    
+        let a = Folder()
+//        a.create()
+        print("find me find me find me")
+        print(a.find())
+        for row in a.find(){
+            print(row)
+        }
+        
         if shouldSort {
         if (num==1)
         {
             num = 0
             shouldSort=false
+            self.OverLay.animation.makeOpacity(0.5).animate(1.0)
             self.sorting.animation.makeOpacity(1.0).moveY(-1*sorting.frame.size.height+70).animateWithCompletion(0.30, {
                     self.shouldSort=true
 
@@ -36,6 +46,7 @@ class cardViewController: UIViewController,UICollectionViewDataSource,UICollecti
         {
             num = 1;
             shouldSort=false
+            self.OverLay.animation.makeOpacity(0.0).animate(1.0);
             self.sorting.animation.makeOpacity(0.0).moveY(-1*(-1*sorting.frame.size.height+70)).animateWithCompletion(0.30, {
                 self.shouldSort=true
                 
@@ -61,11 +72,17 @@ class cardViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapoverl = UITapGestureRecognizer(target: self, action: "onTap")
+        self.OverLay.addGestureRecognizer(tapoverl)
         
        //        sorting.ch
         //        self.preferredContentSize = CGSizeMake(200, 200);
 //        self.collectionView.collectionViewLayout.invalidateLayout()
         
+    }
+    
+    func onTap(){
+        self.SortTap([]);
     }
     
     override func viewWillAppear(animated: Bool) {

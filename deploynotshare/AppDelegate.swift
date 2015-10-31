@@ -7,16 +7,30 @@
 //
 
 import UIKit
+import SQLiteCipher
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    static func CheckThis() {
+        print("This is just to check")
+    }
+    
+    static func getDatabase () -> Connection {
+        let path = NSSearchPathForDirectoriesInDomains(
+            .DocumentDirectory, .UserDomainMask, true
+            ).first!
+        print(path);
+        let db = try! Connection("\(path)/db.sqlite3")
+        
+        return db;
+    }
+
     
     private func createMenuView() {
         
-        // create viewController code...
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mainViewController = storyboard.instantiateViewControllerWithIdentifier("cardViewController") as! cardViewController
 //        let leftViewController = storyboard.instantiateViewControllerWithIdentifier("MenuView") as! MenuView
@@ -36,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         self.createMenuView()
+        AppDelegate.getDatabase()
         return true
     }
 
