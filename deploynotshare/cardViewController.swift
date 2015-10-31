@@ -16,11 +16,32 @@ class cardViewController: UIViewController,UICollectionViewDataSource,UICollecti
     @IBOutlet weak var sorting: SortView!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var num = 1
+    var shouldSort=true
     
     @IBAction func SortTap(sender: AnyObject) {
-        
-        self.sorting.animation.makeOpacity(1.0).moveY(-1*sorting.frame.size.height+70).animate(1.0)
-        
+        print(num)
+        print(shouldSort)
+        if shouldSort {
+        if (num==1)
+        {
+            num = 0
+            shouldSort=false
+            self.sorting.animation.makeOpacity(1.0).moveY(-1*sorting.frame.size.height+70).animateWithCompletion(0.30, {
+                    self.shouldSort=true
+
+            })
+                    }
+        else
+        {
+            num = 1;
+            shouldSort=false
+            self.sorting.animation.makeOpacity(0.0).moveY(-1*(-1*sorting.frame.size.height+70)).animateWithCompletion(0.30, {
+                self.shouldSort=true
+                
+            })
+        }
+        }
     }
     
     var selected:NSIndexPath = NSIndexPath();
