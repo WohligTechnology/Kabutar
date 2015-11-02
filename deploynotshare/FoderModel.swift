@@ -50,7 +50,7 @@ public class Folder {
         return try! db.prepare(folder)
     }
 
-    func delete(name2:String,id2:String) -> AnySequence<Row>  {
+    func delete(id2:String) -> AnySequence<Row>  {
         let id3 = strtoll(id2,nil,10)
         let fol = folder.filter(id == id3)
         try! db.run(fol.delete())
