@@ -46,6 +46,10 @@ public class Folder {
     func edit(name:String,id:Int) -> AnySequence<Row>  {
         return try! db.prepare(folder)
     }
+    
+    func delete(name:String,id:Int) -> AnySequence<Row>  {
+        return try! db.prepare(folder)
+    }
         
     
 }

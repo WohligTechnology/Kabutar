@@ -103,20 +103,26 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
     {
         
-        let shareAction = UITableViewRowAction(style: .Normal, title: "Share")
-            { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete")
+            {
+                
+                (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
             
             let firstActivityItem = self.notes[indexPath.row]
-            
-            let activityViewController = UIActivityViewController(activityItems: [firstActivityItem], applicationActivities: nil)
-            
-            self.presentViewController(activityViewController, animated: true, completion: nil)
-            }
+                        }
         
+        let editAction = UITableViewRowAction(style: .Normal, title: "Edit")
+            {
+                (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+                
+                let firstActivityItem = self.notes[indexPath.row]
+                
+        }
         
-        shareAction.backgroundColor = mainColor
+        //deleteAction.backgroundColor = mainColor
+        editAction.backgroundColor = mainColor
     
-        return [shareAction]
+        return [deleteAction, editAction]
         
     }
 
