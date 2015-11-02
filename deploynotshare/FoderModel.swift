@@ -12,14 +12,14 @@ import SQLiteCipher
 public class Folder {
     
     
-    let db = AppDelegate.getDatabase()
-    let folder = Table("folder")
-    let id = Expression<Int64>("id")
-    let name = Expression<String?>("name")
-    let creationTime = Expression<Int64>("creationTime")
-    let modificationTime = Expression<Int64>("modificationTime")
-    let order = Expression<Int64>("order")
-    let serverID = Expression<String>("serverid")
+    public let db = AppDelegate.getDatabase()
+    public let folder = Table("folder")
+    public let id = Expression<Int64>("id")
+    public let name = Expression<String?>("name")
+    public let creationTime = Expression<Int64>("creationTime")
+    public let modificationTime = Expression<Int64>("modificationTime")
+    public let order = Expression<Int64>("order")
+    public let serverID = Expression<String>("serverid")
     
     init() {
         
@@ -34,12 +34,16 @@ public class Folder {
         
     }
     
-    func create() {
-        let insert = folder.insert(name <- "alice@mac.com", creationTime <- 12345, modificationTime <- 12345, order <- 1, serverID <- "123")
+    func create(name2:String) {
+        let insert = folder.insert( name <- name2, creationTime <- 12345, modificationTime <- 12345, order <- 1, serverID <- "123")
         try! db.run(insert)
     }
     
     func find() -> AnySequence<Row>  {
+        return try! db.prepare(folder)
+    }
+    
+    func edit(name:String,id:Int) -> AnySequence<Row>  {
         return try! db.prepare(folder)
     }
         

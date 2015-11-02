@@ -9,27 +9,19 @@ import UIKit
 import MapKit
 import DKChainableAnimationKit
 
-
 class cardViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
 
     
     @IBOutlet weak var OverLay: UIView!
     @IBOutlet weak var sorting: SortView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
     var num = 1
     var shouldSort=true
 //    var touch = UITapGestureRecognizer(target:self, action:"tapFunc")
     
     @IBAction func SortTap(sender: AnyObject) {
     
-        let a = Folder()
-//        a.create()
-        print("find me find me find me")
-        print(a.find())
-        for row in a.find(){
-            print(row)
-        }
+       
         
         if shouldSort {
         if (num==1)
@@ -113,7 +105,8 @@ class cardViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)as! CollectionViewCell
-        cell.titleLabel?.text = self.labeltext[indexPath.row]
+        
+                
         cell.descriptionLabel?.text = self.descriptiontext[indexPath.row]
         cell.timestampLabel?.text = self.timestamptext[indexPath.row]
         cell.backgroundColor = UIColor.cyanColor()

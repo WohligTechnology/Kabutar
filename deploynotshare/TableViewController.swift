@@ -1,98 +1,123 @@
 //
 //  TableViewController.swift
-//  deploynotshare
+//  NoteShare
 //
-//  Created by Jagruti Patil on 24/10/15.
-//  Copyright © 2015 Wohlig. All rights reserved.
+//  Created by Tushar Sachde on 21/10/15.
+//  Copyright © 2015 Tushar Sachde. All rights reserved.
 //
 
 import UIKit
 
-class TableViewController: UITableViewController {
+@available(iOS 8.0, *)
 
-    @IBOutlet var tableview: UITableView!
-    var items: [String] = ["We", "Heart", "Swift"]
+class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    let mainColor = UIColor(red: 255.0/255.0, green: 90.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+    let hoverColor = UIColor(red: 255.0/255.0, green: 172.0/255.0, blue: 175.0/255.0, alpha: 1.0)
+    
+    var notes = ["BOTANY: THE CLASSIFICATION OF MANY BOX", "Physics Theory Links", "Maths", "Computer Science", "Graphics"]
+    var filteredNotes = [String]()
+    var resultSearchController = UISearchController!()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.resultSearchController = UISearchController(searchResultsController: nil)
+        self.resultSearchController.searchResultsUpdater = self
+        self.resultSearchController.dimsBackgroundDuringPresentation = false
+        self.resultSearchController.searchBar.sizeToFit()
+        
+        self.tableView.tableHeaderView = self.resultSearchController.searchBar
+        self.tableView.reloadData()
+        
+        //Clear Empty Cells
+        let backgroundView = UIView(frame: CGRectZero)
+        self.tableView.tableFooterView = backgroundView
+        self.tableView.backgroundColor = UIColor.clearColor()
+        
+        //Show search on scroll
+        self.tableView.setContentOffset(CGPoint(x: 0,y: 44), animated: true)
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return self.items.count;
-       
-    }
-
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        cell.textLabel?.text = self.items[indexPath.row]
-        // Configure the cell...
-
-        return cell
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
+        return 1
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if (self.resultSearchController.active)
+        {
+            return self.filteredNotes.count
+        }
+        else
+        {
+            return self.notes.count
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        //Put data into cells
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell?
+        
+        //Set hover color for the Cells
+        let bgView : UIView = UIView()
+        bgView.backgroundColor = hoverColor
+        cell!.selectedBackgroundView = bgView
+        
+        
+        let a = Folder()
+        
+        for row in a.find() {
+            cell!.textLabel?.text = row[a.name]
+            
+        }
+        return cell!
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    func updateSearchResultsForSearchController(searchController: UISearchController)
+    {
+        self.filteredNotes.removeAll(keepCapacity: false)
+        
+        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
+        let array = (self.notes as NSArray).filteredArrayUsingPredicate(searchPredicate)
+        self.filteredNotes = array as! [String]
+        
+        self.tableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
+    {
+        
+        let shareAction = UITableViewRowAction(style: .Normal, title: "Share")
+            { (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+            
+            let firstActivityItem = self.notes[indexPath.row]
+            
+            let activityViewController = UIActivityViewController(activityItems: [firstActivityItem], applicationActivities: nil)
+            
+            self.presentViewController(activityViewController, animated: true, completion: nil)
+            }
+        
+        
+        shareAction.backgroundColor = mainColor
+    
+        return [shareAction]
+        
     }
-    */
 
 }
