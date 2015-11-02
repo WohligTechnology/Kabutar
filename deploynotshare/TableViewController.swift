@@ -22,6 +22,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var filteredNotes = [String]()
     var resultSearchController = UISearchController!()
     var createfolsername = UITextField()
+    var folderobj = Folder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,19 +103,40 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
-    func showalert(){
-        let alert = UIAlertController(title: "Hello!", message: "Message", preferredStyle: UIAlertControllerStyle.Alert)
+    func showedit(name: String, id: String){
+        let editalert = UIAlertController(title: "Edit Folder", message: "Folder name", preferredStyle: UIAlertControllerStyle.Alert)
+        let eidtcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+            print("cancel")
+        }
+        let editesave = UIAlertAction(title: "Edit", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+            print(self.createfolsername.text)
+            self.folderobj.edit(self.createfolsername.text! , id2: id)
+            self.tableView.reloadData()
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
+        }
+        editalert.addAction(eidtcancel)
+        editalert.addAction(editesave)
+        editalert.addTextFieldWithConfigurationHandler { createfoldertext -> Void in
+            createfoldertext.placeholder = "Folder name"
+            createfoldertext.text = name
+            self.createfolsername = createfoldertext
+        }
+        presentViewController(editalert, animated: true) { () -> Void in
+            
+        }
+    }
+    
+    func showalert(id:String){
+        let alert = UIAlertController(title: "Delete Folder", message: "Are you sure !", preferredStyle: UIAlertControllerStyle.Alert)
         let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             print("Ok press")
         }
         let alertdelete = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             print("Delete Press")
-            print(firstActivityItem)
-        }
-        alert.addTextFieldWithConfigurationHandler { textField -> Void in
-            //TextField configuration
-            textField.placeholder = "Folder Name"
-            
+            print(id)
+            self.folderobj.delete(id)
         }
         alert.addAction(alertdelete)
         alert.addAction(alertAction)
@@ -128,8 +150,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         let createsave = UIAlertAction(title: "create", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             print(self.createfolsername.text)
-            var a = Folder()
-            a.create(self.createfolsername.text!)
+            self.folderobj.create(self.createfolsername.text!)
             self.tableView.reloadData()
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
@@ -152,19 +173,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             {
                 
                 (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-                print(self.folderId[indexPath.row])
-                let firstActivityItem = self.notes[indexPath.row]
-                self.showalert()
-//                    let deletealert = UIAlertController(title: "Hello", message: "message", preferredStyle: UIAlertControllerStyle.Alert)
-//                    presentViewController(deletealert, animated: true) { () -> void in}
-                
-                
-            }
+                self.showalert(self.folderId[indexPath.row] as! String)
+        }
         
         let editAction = UITableViewRowAction(style: .Normal, title: "Edit")
             {
                 (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-                
+                self.showedit(self.folderName[indexPath.row] as! String, id: self.folderId[indexPath.row] as! String)
                 let firstActivityItem = self.notes[indexPath.row]
                 
         }
