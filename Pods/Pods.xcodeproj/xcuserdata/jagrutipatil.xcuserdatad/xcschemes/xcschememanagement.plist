@@ -4,7 +4,27 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DKChainableAnimationKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SQLCipher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SQLite.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SQLiteCipher.swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>370D8B09F00B97515CD21C7F705FB20C</key>
+		<key>186526C95A6E6A368E316AEBD475C8CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>732F2977D3B3731782D7932850ACC2D6</key>
+		<key>289C732A8BBD3D08C72FD03F5B15D8B7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3361BD54E53A94C269CA2B9ABA6404C4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7832A5C558CFADC09769C2F2DD9CD20F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>78BF20233A02FC8AF93C8E9955DC007F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CAE74F112CD1F05B13796DCFBF0B67A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

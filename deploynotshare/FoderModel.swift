@@ -43,11 +43,13 @@ public class Folder {
         return try! db.prepare(folder)
     }
     
-    func edit(name:String,id:Int) -> AnySequence<Row>  {
+    func edit(name:String,id:String) -> AnySequence<Row>  {
+        let id2 = strtoll(id,nil,10)
         return try! db.prepare(folder)
     }
-    
-    func delete(name:String,id:Int) -> AnySequence<Row>  {
+
+    func delete(name:String,id:String) -> AnySequence<Row>  {
+        
         return try! db.prepare(folder)
     }
         
