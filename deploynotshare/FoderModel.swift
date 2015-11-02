@@ -34,9 +34,10 @@ public class Folder {
         
     }
     
-    func create(name2:String) {
+    func create(name2:String) -> AnySequence<Row>  {
         let insert = folder.insert( name <- name2, creationTime <- 12345, modificationTime <- 12345, order <- 1, serverID <- "123")
         try! db.run(insert)
+        return try! db.prepare(folder)
     }
     
     func find() -> AnySequence<Row>  {

@@ -18,7 +18,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     let hoverColor = UIColor(red: 255.0/255.0, green: 172.0/255.0, blue: 175.0/255.0, alpha: 1.0)
     var folderName:NSMutableArray = []
     var folderId:NSMutableArray = []
-    var notes = ["BOTANY: THE CLASSIFICATION OF MANY BOX", "Physics Theory Links", "Maths", "Computer Science", "Graphics"]
     var filteredNotes = [String]()
     var resultSearchController = UISearchController!()
     var createfolsername = UITextField()
@@ -26,6 +25,15 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        folderName = []
+        folderId = []
+        let a = Folder();
+        for row in a.find() {
+            folderName.addObject(row[a.name]!)
+            folderId.addObject(String(row[a.id]))
+        }
+        
+        print(folderName);
         
         self.resultSearchController = UISearchController(searchResultsController: nil)
         self.resultSearchController.searchResultsUpdater = self
@@ -35,11 +43,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.tableHeaderView = self.resultSearchController.searchBar
         self.tableView.reloadData()
         
-        let a = Folder();
-        for row in a.find() {
-            folderName.addObject(row[a.name]!)
-            folderId.addObject(String(row[a.id]))
-        }
+        
+        
         //Clear Empty Cells
         let backgroundView = UIView(frame: CGRectZero)
         self.tableView.tableFooterView = backgroundView
@@ -77,12 +82,22 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         //Put data into cells
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell?
         
+        if (self.resultSearchController.active)
+        {
+            cell!.textLabel?.text = self.filteredNotes[indexPath.row] as? String
+        }
+        else
+        {
+            cell!.textLabel?.text = folderName[indexPath.row] as? String
+        }
+        
+        
         //Set hover color for the Cells
         let bgView : UIView = UIView()
         bgView.backgroundColor = hoverColor
         cell!.selectedBackgroundView = bgView
         
-        cell!.textLabel?.text = folderName[indexPath.row] as? String
+        
         
         return cell!
     }
@@ -96,6 +111,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.filteredNotes = array as! [String]
         
         self.tableView.reloadData()
+
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
@@ -111,10 +127,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let editesave = UIAlertAction(title: "Edit", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             print(self.createfolsername.text)
             self.folderobj.edit(self.createfolsername.text! , id2: id)
-            self.tableView.reloadData()
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.tableView.reloadData()
-            })
+            self.viewDidLoad()
+           
         }
         editalert.addAction(eidtcancel)
         editalert.addAction(editesave)
@@ -137,6 +151,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             print("Delete Press")
             print(id)
             self.folderobj.delete(id)
+            
+            self.viewDidLoad()
+            
         }
         alert.addAction(alertdelete)
         alert.addAction(alertAction)
@@ -151,10 +168,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let createsave = UIAlertAction(title: "create", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             print(self.createfolsername.text)
             self.folderobj.create(self.createfolsername.text!)
-            self.tableView.reloadData()
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.tableView.reloadData()
-            })
+            self.viewDidLoad()
         }
         createalert.addAction(createcancel)
         createalert.addAction(createsave)
@@ -162,6 +176,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             createfoldertext.placeholder = "Folder name"
             self.createfolsername = createfoldertext
         }
+        
         presentViewController(createalert, animated: true) { () -> Void in
             
         }
@@ -180,7 +195,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             {
                 (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
                 self.showedit(self.folderName[indexPath.row] as! String, id: self.folderId[indexPath.row] as! String)
-                let firstActivityItem = self.notes[indexPath.row]
+                let firstActivityItem = self.folderName[indexPath.row]
                 
         }
         
