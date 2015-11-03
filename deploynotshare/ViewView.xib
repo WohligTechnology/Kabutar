@@ -28,7 +28,7 @@
                             <constraint firstAttribute="width" constant="32" id="Kle-4a-cb2"/>
                         </constraints>
                     </imageView>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zdr-ba-nKu">
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ox3-Uh-Chp">
                         <rect key="frame" x="0.0" y="44" width="300" height="156"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tableView>
@@ -36,12 +36,12 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="xJe-8I-fBp" firstAttribute="leading" secondItem="exP-cS-hZZ" secondAttribute="leadingMargin" constant="71" id="1G1-fL-QDL"/>
-                    <constraint firstItem="Zdr-ba-nKu" firstAttribute="leading" secondItem="wlK-fk-j4y" secondAttribute="leading" id="69c-Bd-mdB"/>
-                    <constraint firstItem="Zdr-ba-nKu" firstAttribute="bottom" secondItem="Saj-4Z-ReY" secondAttribute="top" id="QnR-OT-kYh"/>
-                    <constraint firstItem="Zdr-ba-nKu" firstAttribute="trailing" secondItem="wlK-fk-j4y" secondAttribute="trailing" id="bot-xs-fUx"/>
-                    <constraint firstItem="Zdr-ba-nKu" firstAttribute="top" secondItem="wlK-fk-j4y" secondAttribute="bottom" id="eV4-PS-338"/>
+                    <constraint firstItem="Ox3-Uh-Chp" firstAttribute="bottom" secondItem="Saj-4Z-ReY" secondAttribute="top" id="BPg-nR-jrH"/>
+                    <constraint firstItem="Ox3-Uh-Chp" firstAttribute="top" secondItem="wlK-fk-j4y" secondAttribute="bottom" id="CjQ-CA-YdO"/>
+                    <constraint firstItem="Ox3-Uh-Chp" firstAttribute="trailing" secondItem="wlK-fk-j4y" secondAttribute="trailing" id="fsx-vf-f69"/>
                     <constraint firstItem="wlK-fk-j4y" firstAttribute="leading" secondItem="exP-cS-hZZ" secondAttribute="leading" id="go6-zn-Yoc"/>
                     <constraint firstItem="xJe-8I-fBp" firstAttribute="top" secondItem="exP-cS-hZZ" secondAttribute="topMargin" constant="12" id="jG9-Cy-d4a"/>
+                    <constraint firstItem="Ox3-Uh-Chp" firstAttribute="leading" secondItem="wlK-fk-j4y" secondAttribute="leading" id="kQq-PU-RPh"/>
                     <constraint firstItem="wlK-fk-j4y" firstAttribute="top" secondItem="exP-cS-hZZ" secondAttribute="top" id="lYf-gd-Jow"/>
                     <constraint firstItem="Saj-4Z-ReY" firstAttribute="top" secondItem="xJe-8I-fBp" secondAttribute="bottom" constant="168" id="okT-o5-7Ga"/>
                     <constraint firstAttribute="trailing" secondItem="wlK-fk-j4y" secondAttribute="trailing" id="ySS-ST-8TE"/>
@@ -49,7 +49,7 @@
             </view>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <size key="freeformSize" width="300" height="200"/>
-            <point key="canvasLocation" x="289" y="204"/>
+            <point key="canvasLocation" x="221" y="82"/>
         </viewController>
     </objects>
     <resources>
