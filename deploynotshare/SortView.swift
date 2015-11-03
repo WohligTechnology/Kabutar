@@ -14,8 +14,6 @@ class SortView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         NSBundle.mainBundle().loadNibNamed("SortView", owner: self, options: nil)
-        
-        
         self.addSubview(self.sortnewview)
     }
     /*
