@@ -18,7 +18,7 @@
                     <rect key="frame" x="0.0" y="-6" width="300" height="44"/>
                     <color key="barTintColor" red="1" green="0.34509803919999998" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <items>
-                        <navigationItem title="Date Time" id="fbz-cS-3FX"/>
+                        <navigationItem title="Date time" id="fbz-cS-3FX"/>
                     </items>
                 </navigationBar>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mvh-X4-G5e">

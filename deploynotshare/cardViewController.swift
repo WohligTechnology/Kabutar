@@ -136,12 +136,14 @@ class cardViewController: UIViewController,UICollectionViewDataSource,UICollecti
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)as! CollectionViewCell
         
+//        print(indexPath);
+        
         print(self.descriptiontext[indexPath.row])
         cell.descriptionLabel?.text = self.descriptiontext[indexPath.row]
         cell.timestampLabel?.text = self.timestamptext[indexPath.row]
         cell.backgroundColor = UIColor.cyanColor()
-                cell.contentView.frame = cell.bounds
-                cell.contentView.autoresizingMask = UIViewAutoresizing.FlexibleHeight
+        cell.contentView.frame = cell.bounds
+        cell.contentView.autoresizingMask = UIViewAutoresizing.FlexibleHeight
         return cell
         
     }

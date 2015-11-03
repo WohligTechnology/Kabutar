@@ -21,7 +21,7 @@
                         <color key="textColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
                     </textAttributes>
                     <items>
-                        <navigationItem title="Sort By" id="5UU-Zv-GH3"/>
+                        <navigationItem title="Sort by" id="5UU-Zv-GH3"/>
                     </items>
                 </navigationBar>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view_pop_up" translatesAutoresizingMaskIntoConstraints="NO" id="u3V-Yi-yba">
