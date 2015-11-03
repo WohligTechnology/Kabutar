@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3611B0931BE740BD00F2FFF9 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3611B0921BE740BD00F2FFF9 /* TableViewController.swift */; };
+		3611B0971BE8A94200F2FFF9 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3611B0961BE8A94200F2FFF9 /* NoteModel.swift */; };
 		366420321BE4BF03003477CF /* FoderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366420311BE4BF03003477CF /* FoderModel.swift */; };
 		36E846A31BE48AF8004109FA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E846A21BE48AF8004109FA /* UIViewControllerExtension.swift */; };
 		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		3611B0921BE740BD00F2FFF9 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		3611B0961BE8A94200F2FFF9 /* NoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		366420311BE4BF03003477CF /* FoderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoderModel.swift; sourceTree = "<group>"; };
 		36E846A21BE48AF8004109FA /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		434E77771BE34B4800684C08 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				366420311BE4BF03003477CF /* FoderModel.swift */,
+				3611B0961BE8A94200F2FFF9 /* NoteModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				437317301BD770650018B580 /* ViewController.swift in Sources */,
+				3611B0971BE8A94200F2FFF9 /* NoteModel.swift in Sources */,
 				437EF0DB1BD8CA5500B7E9BF /* cardViewController.swift in Sources */,
 				3611B0931BE740BD00F2FFF9 /* TableViewController.swift in Sources */,
 				36E846A31BE48AF8004109FA /* UIViewControllerExtension.swift in Sources */,

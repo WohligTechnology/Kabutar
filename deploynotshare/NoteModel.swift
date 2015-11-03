@@ -13,23 +13,38 @@ public class Note {
     
     
     public let db = AppDelegate.getDatabase()
-    public let folder = Table("folder")
+    public let Note = Table("note")
     public let id = Expression<Int64>("id")
-    public let name = Expression<String?>("name")
+    public let title = Expression<String?>("title")
     public let creationTime = Expression<Int64>("creationTime")
     public let modificationTime = Expression<Int64>("modificationTime")
-    public let order = Expression<Int64>("order")
-    public let serverID = Expression<String>("serverid")
+    
+    public let background = Expression<String?>("background")
+    public let color = Expression<String?>("color")
+    public let folder = Expression<Int64>("folder")
+    public let islocked = Expression<Int64>("islocked")
+    public let paper = Expression<String?>("paper")
+    public let remindertime = Expression<Int64>("remindertime")
+    public let serverid = Expression<String?>("serverid")
+    public let tags = Expression<String?>("tags")
+    public let timebomb = Expression<String?>("timebomb")
     
     init() {
         
-        try! db.run(folder.create(ifNotExists: true) { t in
+        try! db.run(Note.create(ifNotExists: true) { t in
             t.column(id, primaryKey: .Autoincrement)
-            t.column(name)
+            t.column(title)
             t.column(creationTime)
             t.column(modificationTime)
-            t.column(order)
-            t.column(serverID)
+            t.column(background)
+            t.column(color)
+            t.column(folder)
+            t.column(islocked)
+            t.column(paper)
+            t.column(remindertime)
+            t.column(serverid)
+            t.column(tags)
+            t.column(timebomb)
             })
         
     }
