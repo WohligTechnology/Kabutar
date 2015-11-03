@@ -14,11 +14,38 @@ class cardViewController: UIViewController,UICollectionViewDataSource,UICollecti
     
     @IBOutlet weak var OverLay: UIView!
     @IBOutlet weak var sorting: SortView!
+    @IBOutlet weak var viewing: ViewView!
     @IBOutlet weak var collectionView: UICollectionView!
     var num = 1
-    var shouldSort=true
+    var num1 = 1
+    var shouldSort = true
+    var shouldView = true
     //    var touch = UITapGestureRecognizer(target:self, action:"tapFunc")
     
+    @IBAction func ViewTap(sender: AnyObject) {
+        if shouldView {
+            if (num1==1)
+            {
+                num1 = 0
+                shouldView=false
+                self.OverLay.animation.makeOpacity(0.5).animate(1.0)
+                self.viewing.animation.makeOpacity(1.0).moveY(-1*viewing.frame.size.height+viewing.frame.size.height).animateWithCompletion(0.30, {
+                    self.shouldView=true
+                    
+                })
+            }
+            else
+            {
+                num1 = 1;
+                shouldView=false
+                self.OverLay.animation.makeOpacity(0.0).animate(1.0);
+                self.viewing.animation.makeOpacity(0.0).moveY(-1*(-1*viewing.frame.size.height+viewing.frame.size.height)).animateWithCompletion(0.30, {
+                    self.shouldView=true
+                    
+                })
+            }
+        }
+    }
     @IBAction func SortTap(sender: AnyObject) {
         
         
@@ -74,7 +101,9 @@ class cardViewController: UIViewController,UICollectionViewDataSource,UICollecti
     }
     
     func onTap(){
-        self.SortTap([]);
+        
+            self.SortTap([]);
+        self.ViewTap([]);
     }
     
     override func viewWillAppear(animated: Bool) {

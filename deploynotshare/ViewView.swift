@@ -10,6 +10,13 @@ import UIKit
 
 class ViewView: UIView {
 
+    @IBOutlet weak var viewpopup: UIView!
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        NSBundle.mainBundle().loadNibNamed("ViewView", owner: self, options: nil)
+        self.addSubview(self.viewpopup)
+    }
+    
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

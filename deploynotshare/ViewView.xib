@@ -2,57 +2,85 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewView" customModule="deploynotshare" customModuleProvider="target">
+            <connections>
+                <outlet property="viewpopup" destination="beB-ov-rZk" id="Gph-q8-gDe"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <viewController id="2Cf-ho-AAv">
-            <layoutGuides>
-                <viewControllerLayoutGuide type="top" id="SYU-uD-YgJ"/>
-                <viewControllerLayoutGuide type="bottom" id="Saj-4Z-ReY"/>
-            </layoutGuides>
-            <view key="view" contentMode="scaleToFill" id="exP-cS-hZZ">
-                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
-                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                <subviews>
-                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wlK-fk-j4y">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
-                        <items>
-                            <navigationItem title="View" id="ZFN-Md-w5Z"/>
-                        </items>
-                    </navigationBar>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view_pop_up" translatesAutoresizingMaskIntoConstraints="NO" id="xJe-8I-fBp">
-                        <rect key="frame" x="87" y="12" width="32" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="32" id="Kle-4a-cb2"/>
-                        </constraints>
-                    </imageView>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ox3-Uh-Chp">
-                        <rect key="frame" x="0.0" y="44" width="300" height="156"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </tableView>
-                </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                <constraints>
-                    <constraint firstItem="xJe-8I-fBp" firstAttribute="leading" secondItem="exP-cS-hZZ" secondAttribute="leadingMargin" constant="71" id="1G1-fL-QDL"/>
-                    <constraint firstItem="Ox3-Uh-Chp" firstAttribute="bottom" secondItem="Saj-4Z-ReY" secondAttribute="top" id="BPg-nR-jrH"/>
-                    <constraint firstItem="Ox3-Uh-Chp" firstAttribute="top" secondItem="wlK-fk-j4y" secondAttribute="bottom" id="CjQ-CA-YdO"/>
-                    <constraint firstItem="Ox3-Uh-Chp" firstAttribute="trailing" secondItem="wlK-fk-j4y" secondAttribute="trailing" id="fsx-vf-f69"/>
-                    <constraint firstItem="wlK-fk-j4y" firstAttribute="leading" secondItem="exP-cS-hZZ" secondAttribute="leading" id="go6-zn-Yoc"/>
-                    <constraint firstItem="xJe-8I-fBp" firstAttribute="top" secondItem="exP-cS-hZZ" secondAttribute="topMargin" constant="12" id="jG9-Cy-d4a"/>
-                    <constraint firstItem="Ox3-Uh-Chp" firstAttribute="leading" secondItem="wlK-fk-j4y" secondAttribute="leading" id="kQq-PU-RPh"/>
-                    <constraint firstItem="wlK-fk-j4y" firstAttribute="top" secondItem="exP-cS-hZZ" secondAttribute="top" id="lYf-gd-Jow"/>
-                    <constraint firstItem="Saj-4Z-ReY" firstAttribute="top" secondItem="xJe-8I-fBp" secondAttribute="bottom" constant="168" id="okT-o5-7Ga"/>
-                    <constraint firstAttribute="trailing" secondItem="wlK-fk-j4y" secondAttribute="trailing" id="ySS-ST-8TE"/>
-                </constraints>
-            </view>
+        <view contentMode="scaleToFill" id="beB-ov-rZk">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wji-oP-SJO">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                    <color key="barTintColor" red="1" green="0.34509803919999998" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
+                    <textAttributes key="titleTextAttributes">
+                        <color key="textColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem title="Sort By" id="5UU-Zv-GH3"/>
+                    </items>
+                </navigationBar>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view_pop_up" translatesAutoresizingMaskIntoConstraints="NO" id="u3V-Yi-yba">
+                    <rect key="frame" x="88" y="13" width="27" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="27" id="EqJ-5o-jXn"/>
+                        <constraint firstAttribute="height" constant="18" id="Q5e-fl-cFe"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z6h-gF-5a5">
+                    <rect key="frame" x="0.0" y="44" width="300" height="106"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJL-HI-CGj">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="29"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Detail" image="detail_view_logo">
+                                <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMX-ZE-FmB">
+                            <rect key="frame" x="0.0" y="39" width="300" height="28"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="List" image="list_view_logo">
+                                <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuE-Y0-oL6">
+                            <rect key="frame" x="0.0" y="77" width="300" height="29"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Detail" image="grid_view_logo">
+                                <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="wji-oP-SJO" firstAttribute="top" secondItem="beB-ov-rZk" secondAttribute="top" id="1NQ-fn-FII"/>
+                <constraint firstItem="u3V-Yi-yba" firstAttribute="leading" secondItem="beB-ov-rZk" secondAttribute="leading" constant="88" id="B3k-2O-UQh"/>
+                <constraint firstItem="u3V-Yi-yba" firstAttribute="centerY" secondItem="wji-oP-SJO" secondAttribute="centerY" id="Bw7-PR-NJw"/>
+                <constraint firstAttribute="bottom" secondItem="z6h-gF-5a5" secondAttribute="bottom" id="CgC-GO-1Un"/>
+                <constraint firstItem="wji-oP-SJO" firstAttribute="leading" secondItem="beB-ov-rZk" secondAttribute="leading" id="WKn-t5-Dof"/>
+                <constraint firstAttribute="trailing" secondItem="wji-oP-SJO" secondAttribute="trailing" id="WcB-br-goG"/>
+                <constraint firstItem="z6h-gF-5a5" firstAttribute="leading" secondItem="beB-ov-rZk" secondAttribute="leading" id="edz-By-2oE"/>
+                <constraint firstAttribute="trailing" secondItem="z6h-gF-5a5" secondAttribute="trailing" id="tbb-6m-t85"/>
+                <constraint firstItem="z6h-gF-5a5" firstAttribute="top" secondItem="wji-oP-SJO" secondAttribute="bottom" id="v83-iX-koy"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <size key="freeformSize" width="300" height="200"/>
-            <point key="canvasLocation" x="221" y="82"/>
-        </viewController>
+            <point key="canvasLocation" x="182" y="109"/>
+        </view>
     </objects>
     <resources>
+        <image name="detail_view_logo" width="28" height="22"/>
+        <image name="grid_view_logo" width="28" height="27"/>
+        <image name="list_view_logo" width="28" height="27"/>
         <image name="view_pop_up" width="47" height="25"/>
     </resources>
 </document>
