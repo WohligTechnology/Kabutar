@@ -1,15 +1,15 @@
 //
-//  FoderModel.swift
+//  NoteModel.swift
 //  deploynotshare
 //
-//  Created by Chintan Shah on 31/10/15.
+//  Created by Chintan Shah on 03/11/15.
 //  Copyright © 2015 Wohlig. All rights reserved.
 //
 
 import Foundation
 import SQLiteCipher
 
-public class Folder {
+public class Note {
     
     
     public let db = AppDelegate.getDatabase()
@@ -35,33 +35,28 @@ public class Folder {
     }
     
     func create(name2:String) -> AnySequence<Row>  {
-        let date = NSDate().timeIntervalSince1970
-        let insert = folder.insert( name <- name2, creationTime <- Int64(date), modificationTime <- Int64(date), order <- 1, serverID <- "")
+        let insert = folder.insert( name <- name2, creationTime <- 12345, modificationTime <- 12345, order <- 1, serverID <- "123")
         try! db.run(insert)
         return try! db.prepare(folder)
     }
     
     func find() -> AnySequence<Row>  {
-        return try! db.prepare(folder.filter(creationTime != 0))
+        return try! db.prepare(folder)
     }
     
     func edit(name2:String,id2:String) -> AnySequence<Row>  {
-        let date = NSDate().timeIntervalSince1970
-
         let id3 = strtoll(id2,nil,10)
         let fol = folder.filter(id == id3)
-        try! db.run(fol.update(name <- name2, modificationTime <- Int64(date)))
+        try! db.run(fol.update(name <- name2))
         return try! db.prepare(folder)
     }
-
+    
     func delete(id2:String) -> AnySequence<Row>  {
-        let date = NSDate().timeIntervalSince1970
-
         let id3 = strtoll(id2,nil,10)
         let fol = folder.filter(id == id3)
-        try! db.run(fol.update(name <- "", modificationTime <- Int64(date), creationTime <- 0))
+        try! db.run(fol.delete())
         return try! db.prepare(folder)
     }
-        
+    
     
 }
