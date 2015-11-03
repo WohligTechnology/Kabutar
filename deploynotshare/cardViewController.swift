@@ -8,7 +8,6 @@
 import UIKit
 import MapKit
 import DKChainableAnimationKit
-
 class cardViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
     
     
@@ -16,6 +15,7 @@ class cardViewController: UIViewController,UICollectionViewDataSource,UICollecti
     @IBOutlet weak var sorting: SortView!
     @IBOutlet weak var viewing: ViewView!
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var num = 1
     var num1 = 1
     var shouldSort = true
@@ -93,7 +93,7 @@ class cardViewController: UIViewController,UICollectionViewDataSource,UICollecti
         super.viewDidLoad()
         let tapoverl = UITapGestureRecognizer(target: self, action: "onTap")
         self.OverLay.addGestureRecognizer(tapoverl)
-        
+//        self.collectionView.addSubview(DateTime)
         //        sorting.ch
         //        self.preferredContentSize = CGSizeMake(200, 200);
         //        self.collectionView.collectionViewLayout.invalidateLayout()
