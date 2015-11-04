@@ -8,13 +8,13 @@
 import UIKit
 import MapKit
 import DKChainableAnimationKit
-class cardViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource ,UICollectionViewDelegate {
     
     
     @IBOutlet weak var OverLay: UIView!
     @IBOutlet weak var sorting: SortView!
     @IBOutlet weak var viewing: ViewView!
-    @IBOutlet weak var collectionView: UICollectionView!
+    var collectionView: UICollectionView!
     
     var num = 1
     var num1 = 1
@@ -93,10 +93,23 @@ class cardViewController: UIViewController,UICollectionViewDataSource,UICollecti
         super.viewDidLoad()
         let tapoverl = UITapGestureRecognizer(target: self, action: "onTap")
         self.OverLay.addGestureRecognizer(tapoverl)
-//        self.collectionView.addSubview(DateTime)
-        //        sorting.ch
-        //        self.preferredContentSize = CGSizeMake(200, 200);
-        //        self.collectionView.collectionViewLayout.invalidateLayout()
+//      
+        
+        let bounds = UIScreen.mainScreen().bounds
+        let width = bounds.size.width
+        let height = bounds.size.height
+        // Do any additional setup after loading the view, typically from a nib.
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: (width-30)/2, height: (height-30)/2)
+        
+        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.backgroundColor = UIColor.whiteColor()
+        self.view.addSubview(collectionView)
+
         
     }
     
@@ -134,16 +147,11 @@ class cardViewController: UIViewController,UICollectionViewDataSource,UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)as! CollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
         
 //        print(indexPath);
         
-        print(self.descriptiontext[indexPath.row])
-        cell.descriptionLabel?.text = self.descriptiontext[indexPath.row]
-        cell.timestampLabel?.text = self.timestamptext[indexPath.row]
-        cell.backgroundColor = UIColor.cyanColor()
-        cell.contentView.frame = cell.bounds
-        cell.contentView.autoresizingMask = UIViewAutoresizing.FlexibleHeight
+        cell.backgroundColor = UIColor.redColor()
         return cell
         
     }
