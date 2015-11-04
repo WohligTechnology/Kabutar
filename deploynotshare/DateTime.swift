@@ -12,8 +12,26 @@ class DateTime: UIView {
     @IBOutlet weak var datetimepopup: UIView!
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        NSBundle.mainBundle().loadNibNamed("DateTime", owner: self, options: nil)
-        self.addSubview(self.datetimepopup)
+        loadViewFromNib ()
+    }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        loadViewFromNib ()
+    }
+    
+    @IBAction func buttonOk(sender: AnyObject) {
+       for view in datetimepopup.subviews{
+                view.removeFromSuperview()
+            }
+    }
+    func loadViewFromNib() {
+        let bundle = NSBundle(forClass: self.dynamicType)
+        let nib = UINib(nibName: "DateTime", bundle: bundle)
+        let datetimepopup = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        datetimepopup.frame = bounds
+        datetimepopup.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        self.addSubview(datetimepopup);
+        
     }
     /*
     // Only override drawRect: if you perform custom drawing.

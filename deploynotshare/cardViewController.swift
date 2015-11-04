@@ -88,6 +88,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     let timestamptext = ["01.04.15","01.04.15","01.04.15","01.04.15","01.04.15","01.04.15","01.04.15","01.04.15"]
     let colorcode = ["84FA88","FA8681","5BFAE0","6365FA"]
     
+    var myview: DateTime!;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,8 +110,9 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(collectionView)
-
         
+//        self.myview =  DateTime(frame: CGRectMake(100, 100, 200, 200))
+//        self.view.addSubview(self.myview!);
     }
     
     func onTap(){

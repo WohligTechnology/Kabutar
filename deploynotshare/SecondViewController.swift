@@ -21,7 +21,8 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     var filteredNotes = [String]()
     var resultSearchController = UISearchController!()
     var createfolsername = UITextField()
-    var noteobj = Folder()
+    var noteobj = Note()
+    var timebomb: DateTime!;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +30,12 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         noteId = []
         
         for row in noteobj.find() {
-            noteTitle.addObject(row[noteobj.name]!)
+            print(row);
+            noteTitle.addObject(row[noteobj.title]!)
             noteId.addObject(String(row[noteobj.id]))
         }
+        print("array ")
+        print(noteTitle)
         
         self.resultSearchController = UISearchController(searchResultsController: nil)
         self.resultSearchController.searchResultsUpdater = self
@@ -50,6 +54,17 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         
         //Show search on scroll
         self.tableView.setContentOffset(CGPoint(x: 0,y: 44), animated: true)
+        
+        self.timebomb = DateTime(frame: CGRectMake(50, 150, 300, 500))
+        
+        
+        // To add datetime subview
+            //self.view.addSubview(timebomb)
+        
+        // To remove datetime subview
+            //for view in timebomb.subviews{
+            //    view.removeFromSuperview()
+            //}
         
     }
     
@@ -83,7 +98,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         if (self.resultSearchController.active)
         {
             print("in if")
-            cell!.textLabel?.text = self.filteredNotes[indexPath.row] as? String
+            cell!.textLabel?.text = self.filteredNotes[indexPath.row] as String
         }
         else
         {
@@ -126,7 +141,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         }
         let editesave = UIAlertAction(title: "Edit", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             print(self.createfolsername.text)
-//            self.noteobj.edit(self.createfolsername.text! , id2: id)
+            self.noteobj.edit(self.createfolsername.text!,background2:"ddsf",color2:"asd",folder2:1,islocked2:2,paper2:"demo",reminderTime2:1,serverid2:"df",tags2:"dsf",timebomb2:0,id2:id)
             self.viewDidLoad()
             
         }
@@ -170,7 +185,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
 //            let name= self.createfolsername.text;
 //            self.noteobj.create(name,"background","111",1,1,"Paper",reminderTime2:Int64,serverid2:String,tags2:String,timebomb2:Int64) {
             
-//            self.noteobj.create(self.createfolsername.text!,background2:"background",color2:"111",folder2: 1,islocked2: 1,paper2: "a",reminderTime2: 2,serverid2: "dfa",tags2: "tab",timebomb2: 23)
+            self.noteobj.create(self.createfolsername.text!,background2: "background",color2: "111", folder2: 1, islocked2: 1,paper2: "a",reminderTime2: 2,serverid2: "dfa",tags2: "tab",timebomb2: 0)
             self.viewDidLoad()
         }
         createalert.addAction(createcancel)
@@ -187,7 +202,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
     {
         
-        let deleteAction = UITableViewRowAction(style: .Normal, title: "Delete")
+        let deleteAction = UITableViewRowAction(style: .Normal, title: "\u{676D}\n Delete")
             {
                 
                 (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
@@ -197,15 +212,47 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         let editAction = UITableViewRowAction(style: .Normal, title: "Edit")
             {
                 (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+                
                 self.showedit(self.noteTitle[indexPath.row] as! String, id: self.noteId[indexPath.row] as! String)
                 let firstActivityItem = self.noteTitle[indexPath.row]
                 
         }
         
+        let moveAction = UITableViewRowAction(style: .Normal, title: "Move")
+            {
+                (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+                
+        }
+        
+        let lockAction = UITableViewRowAction(style: .Normal, title: "Lock")
+            {
+                (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+                
+                self.showedit(self.noteTitle[indexPath.row] as! String, id: self.noteId[indexPath.row] as! String)
+                let firstActivityItem = self.noteTitle[indexPath.row]
+                
+        }
+        
+        let timeBombAction = UITableViewRowAction(style: .Normal, title: "Bomb")
+            {
+                (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+                self.view.addSubview(self.timebomb)
+        }
+        
+        let shareAction = UITableViewRowAction(style: .Normal, title: "share")
+            {
+                (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+                
+                self.showedit(self.noteTitle[indexPath.row] as! String, id: self.noteId[indexPath.row] as! String)
+                let firstActivityItem = self.noteTitle[indexPath.row]
+                
+        }
+        
+        
         //deleteAction.backgroundColor = mainColor
         editAction.backgroundColor = mainColor
         
-        return [deleteAction, editAction]
+        return [deleteAction, editAction, moveAction, lockAction, timeBombAction, shareAction]
         
     }
     

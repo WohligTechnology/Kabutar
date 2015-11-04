@@ -10,7 +10,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="lSI-HE-oBb">
+        <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" id="lSI-HE-oBb">
             <rect key="frame" x="0.0" y="0.0" width="300" height="500"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -46,6 +46,9 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n23-Da-kbS">
                                     <rect key="frame" x="150" y="0.0" width="150" height="30"/>
                                     <state key="normal" title="OK"/>
+                                    <connections>
+                                        <action selector="buttonOk:" destination="-1" eventType="touchUpInside" id="uGg-94-x0Q"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>

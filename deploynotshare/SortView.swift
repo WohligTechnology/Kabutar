@@ -13,8 +13,24 @@ class SortView: UIView {
     @IBOutlet var sortnewview: UIView!
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        NSBundle.mainBundle().loadNibNamed("SortView", owner: self, options: nil)
-        self.addSubview(self.sortnewview)
+        loadViewFromNib ()
+//        NSBundle.mainBundle().loadNibNamed("SortView", owner: self, options: nil)
+//        self.addSubview(self.sortnewview)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        loadViewFromNib ()
+    }
+    
+    func loadViewFromNib() {
+        let bundle = NSBundle(forClass: self.dynamicType)
+        let nib = UINib(nibName: "SortView", bundle: bundle)
+        let sortnewview = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        sortnewview.frame = bounds
+        sortnewview.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        self.addSubview(sortnewview);
+        
     }
     /*
     // Only override drawRect: if you perform custom drawing.
