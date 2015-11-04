@@ -14,6 +14,8 @@
 		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; };
 		434E77871BE3869E00684C08 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */; };
 		434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E778A1BE3979800684C08 /* MenuListViewController.swift */; };
+		4361079E1BE9F4BE0094BB25 /* Detailview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4361079D1BE9F4BE0094BB25 /* Detailview.swift */; settings = {ASSET_TAGS = (); }; };
+		436107A01BE9F6500094BB25 /* mainview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4361079F1BE9F6500094BB25 /* mainview.swift */; settings = {ASSET_TAGS = (); }; };
 		4373172E1BD770650018B580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4373172D1BD770650018B580 /* AppDelegate.swift */; };
 		437317301BD770650018B580 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4373172F1BD770650018B580 /* ViewController.swift */; };
 		437317351BD770660018B580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 437317341BD770660018B580 /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 		43A0049D1BE8BC8100396E47 /* DateTime.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A0049C1BE8BC8100396E47 /* DateTime.xib */; settings = {ASSET_TAGS = (); }; };
 		43E0F2AE1BE8C5E500363F49 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0F2AD1BE8C5E500363F49 /* DateTime.swift */; settings = {ASSET_TAGS = (); }; };
 		43E0F2B01BE8CA4A00363F49 /* Alert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43E0F2AF1BE8CA4A00363F49 /* Alert.xib */; settings = {ASSET_TAGS = (); }; };
+		43E0F2B41BE8E1B300363F49 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0F2B31BE8E1B300363F49 /* SecondViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		43E0F2F01BE9E61C00363F49 /* Listview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0F2EF1BE9E61C00363F49 /* Listview.swift */; settings = {ASSET_TAGS = (); }; };
 		43EFB9BD1BDE29130014EDF9 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EFB9BC1BDE29130014EDF9 /* ListViewController.swift */; };
 		43EFB9BF1BDE3D5A0014EDF9 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EFB9BE1BDE3D5A0014EDF9 /* ListTableViewCell.swift */; };
 		43EFB9C11BDE62380014EDF9 /* footermenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43EFB9C01BDE62380014EDF9 /* footermenu.xib */; };
@@ -65,6 +69,8 @@
 		434E77771BE34B4800684C08 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		434E778A1BE3979800684C08 /* MenuListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuListViewController.swift; sourceTree = "<group>"; };
+		4361079D1BE9F4BE0094BB25 /* Detailview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detailview.swift; sourceTree = "<group>"; };
+		4361079F1BE9F6500094BB25 /* mainview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainview.swift; sourceTree = "<group>"; };
 		4373172A1BD770650018B580 /* deploynotshare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deploynotshare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4373172D1BD770650018B580 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4373172F1BD770650018B580 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +96,8 @@
 		43A0049C1BE8BC8100396E47 /* DateTime.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateTime.xib; sourceTree = "<group>"; };
 		43E0F2AD1BE8C5E500363F49 /* DateTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTime.swift; sourceTree = "<group>"; };
 		43E0F2AF1BE8CA4A00363F49 /* Alert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Alert.xib; sourceTree = "<group>"; };
+		43E0F2B31BE8E1B300363F49 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		43E0F2EF1BE9E61C00363F49 /* Listview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listview.swift; sourceTree = "<group>"; };
 		43EFB9BC1BDE29130014EDF9 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		43EFB9BE1BDE3D5A0014EDF9 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		43EFB9C01BDE62380014EDF9 /* footermenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = footermenu.xib; sourceTree = "<group>"; };
@@ -149,7 +157,11 @@
 				4380B34F1BDA54DF0026CED9 /* popup.swift */,
 				437EF0DA1BD8CA5500B7E9BF /* cardViewController.swift */,
 				3611B0921BE740BD00F2FFF9 /* TableViewController.swift */,
+				43E0F2EF1BE9E61C00363F49 /* Listview.swift */,
+				4361079D1BE9F4BE0094BB25 /* Detailview.swift */,
 				43EFB9BC1BDE29130014EDF9 /* ListViewController.swift */,
+				4361079F1BE9F6500094BB25 /* mainview.swift */,
+				43E0F2B31BE8E1B300363F49 /* SecondViewController.swift */,
 				43921D581BE0D8260032DE28 /* ThinkViewController.swift */,
 				434E778A1BE3979800684C08 /* MenuListViewController.swift */,
 				43EFB9BE1BDE3D5A0014EDF9 /* ListTableViewCell.swift */,
@@ -454,14 +466,18 @@
 				434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */,
 				434E77871BE3869E00684C08 /* SideMenuTableViewController.swift in Sources */,
 				43921D571BE0C4590032DE28 /* SortView.swift in Sources */,
+				4361079E1BE9F4BE0094BB25 /* Detailview.swift in Sources */,
 				43921D5B1BE0E7DA0032DE28 /* PasswordViewController.swift in Sources */,
 				4380B3501BDA54DF0026CED9 /* popup.swift in Sources */,
 				434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */,
 				43EFB9BF1BDE3D5A0014EDF9 /* ListTableViewCell.swift in Sources */,
+				43E0F2F01BE9E61C00363F49 /* Listview.swift in Sources */,
 				4380B3521BDA590E0026CED9 /* detailViewController.swift in Sources */,
+				436107A01BE9F6500094BB25 /* mainview.swift in Sources */,
 				366420321BE4BF03003477CF /* FoderModel.swift in Sources */,
 				43EFB9BD1BDE29130014EDF9 /* ListViewController.swift in Sources */,
 				43921D591BE0D8260032DE28 /* ThinkViewController.swift in Sources */,
+				43E0F2B41BE8E1B300363F49 /* SecondViewController.swift in Sources */,
 				4373172E1BD770650018B580 /* AppDelegate.swift in Sources */,
 				43A004991BE8821600396E47 /* ViewView.swift in Sources */,
 			);
