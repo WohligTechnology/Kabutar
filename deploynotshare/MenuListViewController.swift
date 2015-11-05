@@ -36,18 +36,18 @@ class MenuListViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        if(indexPath.row == 0)
-        {
-            cell.
-        }
-        else {
+//        if(indexPath.row == 0)
+//        {
+////            cell.
+//        }
+//        else {
         cell.textLabel!.text = menuName[indexPath.row]
         cell.imageView?.image = UIImage(named: menuImage[indexPath.row])
-        }
+//        }
         return cell
    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.menuName.count+1
+        return self.menuName.count
     }
 }
