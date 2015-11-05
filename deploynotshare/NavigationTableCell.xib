@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="394" height="108"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KEu-xP-aK8">
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KEu-xP-aK8">
                     <rect key="frame" x="10" y="10" width="374" height="88"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilepic" translatesAutoresizingMaskIntoConstraints="NO" id="NjT-g3-3yD">
@@ -24,16 +24,16 @@
                                 <constraint firstAttribute="width" constant="88" id="R3b-1a-PJF"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glW-F4-wiY">
-                            <rect key="frame" x="98" y="0.0" width="276" height="88"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jagruti patil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glW-F4-wiY">
+                            <rect key="frame" x="108" y="0.0" width="266" height="88"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="0.34509803919999998" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="KEu-xP-aK8" secondAttribute="bottom" constant="10" id="aNk-Aw-tMU"/>
                 <constraint firstItem="KEu-xP-aK8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="kN2-9u-f1g"/>
@@ -41,7 +41,7 @@
                 <constraint firstAttribute="trailing" secondItem="KEu-xP-aK8" secondAttribute="trailing" constant="10" id="xz6-DS-h7Z"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="93" y="75"/>
+            <point key="canvasLocation" x="15" y="75"/>
         </view>
     </objects>
     <resources>

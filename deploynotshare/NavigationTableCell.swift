@@ -22,8 +22,10 @@ class NavigationTableCell: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
         loadViewFromNib ()
     }
+    
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "NavigationTableCell", bundle: bundle)

@@ -38,7 +38,16 @@ class MenuListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         if(indexPath.row == 0)
         {
-        let insideView = NavigationTableCell(frame: CGRectMake(0,0,200,100))
+            let bounds = UIScreen.mainScreen().bounds
+            let width = bounds.size.width
+//            let height = bounds.size.height
+            
+            let insideView = NavigationTableCell(frame: CGRectMake(0,0,width,100))
+           
+            insideView.cellImage!.layer.cornerRadius = insideView.cellImage.frame.size.width / 2 - 2
+            insideView.cellImage.clipsToBounds = true
+            insideView.cellImage.layer.borderWidth = 2.0
+            insideView.cellImage.layer.borderColor = UIColor.whiteColor().CGColor
                 cell.addSubview(insideView);
         }else {
         cell.textLabel!.text = menuName[indexPath.row]
@@ -52,6 +61,7 @@ class MenuListViewController: UITableViewController {
             print("folder select")
             let vc = TableViewController(nibName: "TableViewController", bundle: nil)
             navigationController?.pushViewController(vc, animated: true )
+            
 //            self.storyboard!.instantiateViewControllerWithIdentifier("foldersegue") as! TableViewController
 //            self.performSegueWithIdentifier("foldersegue", sender: self)
         }
