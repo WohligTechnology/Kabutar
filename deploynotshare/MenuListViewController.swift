@@ -15,8 +15,8 @@ class MenuListViewController: UITableViewController {
     @IBOutlet var menuStaticTable: UITableView!
     @IBOutlet weak var profileimage: UIImageView!
     
-    var menuName = ["Notes","Folders","About NoteShare","Terms & Conditions","Notification Center","Rate Us","Like us on Facebook","Send Feedback","Invite Friends","Setting","Logout"]
-    var menuImage = ["note_menu_icon","folder_icon","about_us_icon","termsandcondition_icon","notification_icon","rate_us_icon","likeus_on_icon","send_feedback_icon","invite_icon","setting_icon","logout_icon"]
+    var menuName = ["demo","Notes","Folders","About NoteShare","Terms & Conditions","Notification Center","Rate Us","Like us on Facebook","Send Feedback","Invite Friends","Setting","Logout"]
+    var menuImage = ["demo","note_menu_icon","folder_icon","about_us_icon","termsandcondition_icon","notification_icon","rate_us_icon","likeus_on_icon","send_feedback_icon","invite_icon","setting_icon","logout_icon"]
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.profileimage!.layer.cornerRadius = self.profileimage.frame.size.width / 5
@@ -36,16 +36,26 @@ class MenuListViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-//        if(indexPath.row == 0)
-//        {
-////            cell.
-//        }
-//        else {
+        if(indexPath.row == 0)
+        {
+        let insideView = NavigationTableCell(frame: CGRectMake(0,0,200,100))
+                cell.addSubview(insideView);
+        }else {
         cell.textLabel!.text = menuName[indexPath.row]
         cell.imageView?.image = UIImage(named: menuImage[indexPath.row])
-//        }
+        }
         return cell
    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if(indexPath.row == 2){
+            print("folder select")
+            let vc = TableViewController(nibName: "TableViewController", bundle: nil)
+            navigationController?.pushViewController(vc, animated: true )
+//            self.storyboard!.instantiateViewControllerWithIdentifier("foldersegue") as! TableViewController
+//            self.performSegueWithIdentifier("foldersegue", sender: self)
+        }
+    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.menuName.count

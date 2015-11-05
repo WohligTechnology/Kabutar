@@ -15,14 +15,17 @@
             <rect key="frame" x="0.0" y="0.0" width="394" height="108"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KEu-xP-aK8">
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KEu-xP-aK8">
                     <rect key="frame" x="10" y="10" width="374" height="88"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NjT-g3-3yD">
-                            <rect key="frame" x="0.0" y="44" width="332" height="0.0"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilepic" translatesAutoresizingMaskIntoConstraints="NO" id="NjT-g3-3yD">
+                            <rect key="frame" x="0.0" y="0.0" width="88" height="88"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="88" id="R3b-1a-PJF"/>
+                            </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glW-F4-wiY">
-                            <rect key="frame" x="332" y="34" width="42" height="21"/>
+                            <rect key="frame" x="98" y="0.0" width="276" height="88"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
@@ -41,4 +44,7 @@
             <point key="canvasLocation" x="93" y="75"/>
         </view>
     </objects>
+    <resources>
+        <image name="profilepic" width="800" height="758"/>
+    </resources>
 </document>

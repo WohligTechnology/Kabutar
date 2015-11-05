@@ -26,7 +26,7 @@ class NavigationTableCell: UIView {
     }
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)
-        let nib = UINib(nibName: "SimpleCustomView", bundle: bundle)
+        let nib = UINib(nibName: "NavigationTableCell", bundle: bundle)
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
