@@ -109,8 +109,11 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         collectionView.backgroundColor = UIColor.clearColor();
         self.view.addSubview(collectionView)
         
-        let addView = AddCircle(frame: CGRectMake(width/2 - 35, height-134, 70, 70))
+        let bottomLine = UIView(frame: CGRectMake(0,height-114, width , 1))
+        bottomLine.backgroundColor = UIColor(red: 255.0/255.0, green: 90/255, blue: 96/255, alpha: 1.0)
+        self.view.addSubview(bottomLine)
         
+        let addView = AddCircle(frame: CGRectMake(width/2 - 35, height-134, 70, 70))
         self.view.addSubview(addView)
         
     }

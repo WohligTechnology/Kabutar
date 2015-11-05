@@ -23,7 +23,7 @@ class MenuListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        menuStaticTable.separatorStyle = UITableViewCellSeparatorStyle.None
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let noteViewController = storyboard.instantiateViewControllerWithIdentifier("cardViewController") as! cardViewController
         self.noteViewController = UINavigationController(rootViewController: noteViewController)
@@ -65,8 +65,14 @@ class MenuListViewController: UITableViewController {
             insideView.cellImage.layer.borderColor = UIColor.whiteColor().CGColor
                 cell.addSubview(insideView);
         }else {
-        cell.textLabel!.text = menuName[indexPath.row]
-        cell.imageView?.image = UIImage(named: menuImage[indexPath.row])
+            if(indexPath.row == 3)
+            {
+                let singleline = UIView(frame: CGRectMake(0, 0, cell.frame.width, 1));
+                singleline.backgroundColor = UIColor(red: 255.0/255.0, green: 90/255, blue: 96/255, alpha: 1.0)
+                cell.addSubview(singleline);
+            }
+            cell.textLabel!.text = menuName[indexPath.row]
+            cell.imageView?.image = UIImage(named: menuImage[indexPath.row])
         }
         return cell
    }
