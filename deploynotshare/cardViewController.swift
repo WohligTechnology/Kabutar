@@ -98,6 +98,10 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
 //      
         
         
+        
+        
+        
+        
         let bounds = UIScreen.mainScreen().bounds
         let width = bounds.size.width
         let height = bounds.size.height
@@ -106,20 +110,24 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
         layout.itemSize = CGSize(width: (width-30)/2, height: (height-30)/4)
         
-        collectionView = UICollectionView(frame: CGRectMake(0,55, width,height-135 ), collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: CGRectMake(0,55, width,height-105 ), collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-        collectionView.backgroundColor = UIColor.whiteColor()
+        collectionView.backgroundColor = UIColor.clearColor();
         self.view.addSubview(collectionView)
         
+        
+        let footerAdd = NoteFooterAdd(frame: CGRectMake(0,self.view.frame.height-70,self.view.frame.width,70))
+        
+        self.view.addSubview(footerAdd)
 //        self.myview =  DateTime(frame: CGRectMake(100, 100, 200, 200))
 //        self.view.addSubview(self.myview!);
     }
     
     func onTap(){
         
-            self.SortTap([]);
+        self.SortTap([]);
         self.ViewTap([]);
     }
     
@@ -168,7 +176,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         
 //        print(indexPath);
         
-        cell.backgroundColor = UIColor.redColor()
+        cell.backgroundColor = UIColor.clearColor()
         return cell
         
     }
