@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '278A501A37A20E7F45D2D95A'
-               BlueprintName = 'SQLite.swift'
+               BlueprintIdentifier = '3D466E171B79DB18D7EF9C09'
+               BlueprintName = 'UIColor_Hex_Swift'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SQLite.framework'>
+               BuildableName = 'UIColor_Hex_Swift.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
