@@ -19,14 +19,6 @@ class NoteFooterAdd: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        let bounds = UIScreen.mainScreen().bounds
-        let width = bounds.size.width
-        let height = bounds.size.height
-
-        let viewPopup: ViewView!
-        
-        viewPopup = ViewView(frame: CGRectMake(20,200,300,100))
         loadViewFromNib ()
     }
     func loadViewFromNib() {
@@ -53,12 +45,8 @@ class NoteFooterAdd: UIView {
     
     func closeNewSortView (sender:UITapGestureRecognizer) {
         print("JAgz");
-        for view in newSortView.subviews {
-            view.removeFromSuperview()
-        }
-        for view in blackOut.subviews {
-            view.removeFromSuperview()
-        }
+        newSortView.removeFromSuperview()
+        blackOut.removeFromSuperview()
     }
     
 
