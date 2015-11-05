@@ -10,7 +10,7 @@ import UIKit
 
 class detailViewController: UIViewController {
     
-    let mainColor = UIColor(red: 255.0/255.0, green: 90.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+    let mainColor = PinkColor
 
 //    @IBOutlet weak var detailtext: UILabel!
 //    @IBOutlet weak var detaildescription: UILabel!

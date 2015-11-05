@@ -10,9 +10,10 @@ var newViewView:ViewView!
 var newSortView:SortView!
 var blackOut:UIView!
 
+var transitionTime = 0.3
 
 import UIKit
-
+import DKChainableAnimationKit
 
 class NoteFooterAdd: UIView {
 
@@ -40,12 +41,22 @@ class NoteFooterAdd: UIView {
         blackOut.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
     }
     @IBAction func sortClick(sender: AnyObject) {
+        
+        
+//        self.viewing.animation.makeOpacity(1.0).moveY(-1.height + viewing.frame.size.height).animateWithCompletion(0.30, {
+//            self.shouldView=true
+//            
+//        })
+        
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeNewSortView:")
         self.addBlackView()
         blackOut.addGestureRecognizer(blackOutTap)
         self.window?.addSubview(blackOut);
-        newSortView = SortView(frame: CGRectMake(35, (self.window?.frame.height)!-350, (self.window?.frame.width)!-70,350));
+        newSortView = SortView(frame: CGRectMake(35, (self.window?.frame.height)!, (self.window?.frame.width)!-70,350));
+        
         self.window?.addSubview(newSortView)
+        newSortView.animation.moveY(-350).easeInOut.animate(transitionTime)
+
     }
     
     @IBAction func viewClick(sender: AnyObject) {
@@ -53,20 +64,29 @@ class NoteFooterAdd: UIView {
         self.addBlackView()
         blackOut.addGestureRecognizer(blackOutTap)
         self.window?.addSubview(blackOut);
-        newViewView = ViewView(frame: CGRectMake(35, (self.window?.frame.height)!-150, (self.window?.frame.width)!-70,150));
+        newViewView = ViewView(frame: CGRectMake(35,(self.window?.frame.height)!, (self.window?.frame.width)!-70,188));
         self.window?.addSubview(newViewView)
-        self.window?.addSubview(newViewView)
-
+        newViewView.animation.moveY(-188).easeInOut.animate(transitionTime)
+        
+        
     }
     
     func closeNewViewView (sender:UITapGestureRecognizer?) {
-        newViewView.removeFromSuperview()
         blackOut.removeFromSuperview()
+        newViewView.animation.makeY((self.window?.frame.height)!).easeInOut.animateWithCompletion(transitionTime, {
+            newViewView.removeFromSuperview()
+            
+        })
+        
+        
     }
     
     
     func closeNewSortView (sender:UITapGestureRecognizer?) {
-        newSortView.removeFromSuperview()
+        newSortView.animation.makeY((self.window?.frame.height)!).easeInOut.animateWithCompletion(transitionTime, {
+            newSortView.removeFromSuperview()
+            
+        })
         blackOut.removeFromSuperview()
     }
 

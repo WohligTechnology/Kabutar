@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DKChainableAnimationKit
 
 var slideMenuLeft:Any!;
 
@@ -83,11 +84,15 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
             if(indexPath.row == 3)
             {
                 let singleline = UIView(frame: CGRectMake(0, 0, cell.frame.width, 1));
-                singleline.backgroundColor = UIColor(red: 255.0/255.0, green: 90/255, blue: 96/255, alpha: 1.0)
+                singleline.backgroundColor = PinkColor
                 cell.addSubview(singleline);
             }
+            
             cell.textLabel!.text = menuName[indexPath.row]
+            cell.separatorInset.left = 60
+            cell.imageView?.sizeThatFits(CGSize(width: 26, height: 26))
             cell.imageView?.image = UIImage(named: menuImage[indexPath.row])
+            
         }
         return cell
    }

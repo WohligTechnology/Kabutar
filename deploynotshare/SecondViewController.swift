@@ -9,13 +9,12 @@
 import UIKit
 import UIColor_Hex_Swift
 
-@available(iOS 8.0, *)
 
 class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let mainColor = UIColor(red: 255.0/255.0, green: 90.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+    let mainColor = PinkColor
     let hoverColor = UIColor(red: 255.0/255.0, green: 172.0/255.0, blue: 175.0/255.0, alpha: 1.0)
     var noteTitle:NSMutableArray = []
     var noteId:NSMutableArray = []
@@ -42,7 +41,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         self.resultSearchController.searchResultsUpdater = self
         self.resultSearchController.dimsBackgroundDuringPresentation = false
         self.resultSearchController.searchBar.sizeToFit()
-        self.resultSearchController.searchBar.barTintColor = UIColor(rgba: "#FF5A60")
+        self.resultSearchController.searchBar.barTintColor = PinkColor
         
         self.resultSearchController.searchBar.translucent = false
         

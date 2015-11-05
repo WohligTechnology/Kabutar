@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UIColor_Hex_Swift
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
     
@@ -42,7 +41,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.resultSearchController.dimsBackgroundDuringPresentation = false
         self.resultSearchController.searchBar.sizeToFit()
         
-        self.resultSearchController.searchBar.barTintColor = UIColor(rgba: "#ff5A60")
+        self.resultSearchController.searchBar.barTintColor = PinkColor
         self.resultSearchController.searchBar.translucent = false
         
         self.resultSearchController.searchBar.tintColor = UIColor.whiteColor()
