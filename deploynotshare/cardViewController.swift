@@ -102,9 +102,9 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         // Do any additional setup after loading the view, typically from a nib.
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: (width-30)/2, height: (height-30)/2)
+        layout.itemSize = CGSize(width: (width-30)/2, height: (height-30)/4)
         
-        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: CGRectMake(0,55, width,height-135 ), collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
@@ -150,6 +150,14 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
+        let insideView = NoteCollectionUIView(frame: CGRectMake(0,0,150,150))
+        
+        insideView.titleLabel.text = "Android"
+        insideView.descLabel.text = "Lorum Ipsum"
+        insideView.timeLabel.text = "124"
+        cell.addSubview(insideView);
+        
+        
         
 //        print(indexPath);
         
