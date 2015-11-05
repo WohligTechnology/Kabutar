@@ -110,7 +110,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
         layout.itemSize = CGSize(width: (width-30)/2, height: (height-30)/4)
         
-        collectionView = UICollectionView(frame: CGRectMake(0,55, width,height-105 ), collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: CGRectMake(0,55, width,height-125 ), collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
@@ -119,14 +119,11 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         
         
         let footerAdd = NoteFooterAdd(frame: CGRectMake(0,self.view.frame.height-70,self.view.frame.width,70))
-        
+        footerAdd.backgroundColor = UIColor.clearColor()
         self.view.addSubview(footerAdd)
-//        self.myview =  DateTime(frame: CGRectMake(100, 100, 200, 200))
-//        self.view.addSubview(self.myview!);
     }
     
     func onTap(){
-        
         self.SortTap([]);
         self.ViewTap([]);
     }
@@ -167,16 +164,18 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
         let insideView = NoteCollectionUIView(frame: CGRectMake(0,0,(width-30)/2,(height-30)/4))
         
-        insideView.titleLabel.text = "Android"
-        insideView.descLabel.text = "Lorum Ipsum"
-        insideView.timeLabel.text = "124"
+        insideView.titleLabel.text = labeltext[indexPath.row]
+        insideView.descLabel.text = descriptiontext[indexPath.row]
+        insideView.timeLabel.text = timestamptext[indexPath.row]
+        insideView.view.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+        
         cell.addSubview(insideView);
         
         
         
 //        print(indexPath);
         
-        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor.orangeColor()
         return cell
         
     }
@@ -190,21 +189,9 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
             print(indexPaths)
             let indexPath = indexPaths[0] as NSIndexPath
             let vc = segue.destinationViewController as! detailViewController
-            //            vc.ddescription.text = self.descriptiontext[indexPath.row]
-            //            vc.dtext.text = self.labeltext[indexPath.row]
             vc.title = self.labeltext[indexPath.row]
             
         }
     }
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
     
 }
