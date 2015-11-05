@@ -38,7 +38,7 @@ class NoteFooterAdd: UIView {
     }
     func addBlackView(){
         blackOut = UIView(frame: CGRectMake(0, 0, (self.window?.frame.width)!, (self.window?.frame.height)!))
-        blackOut.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+        blackOut.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
     }
     @IBAction func sortClick(sender: AnyObject) {
         
@@ -51,7 +51,10 @@ class NoteFooterAdd: UIView {
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeNewSortView:")
         self.addBlackView()
         blackOut.addGestureRecognizer(blackOutTap)
+        blackOut.alpha = 0
         self.window?.addSubview(blackOut);
+        blackOut.animation.makeAlpha(1).animate(transitionTime);
+
         newSortView = SortView(frame: CGRectMake(35, (self.window?.frame.height)!, (self.window?.frame.width)!-70,350));
         
         self.window?.addSubview(newSortView)
@@ -63,7 +66,9 @@ class NoteFooterAdd: UIView {
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeNewViewView:")
         self.addBlackView()
         blackOut.addGestureRecognizer(blackOutTap)
+        blackOut.alpha = 0
         self.window?.addSubview(blackOut);
+        blackOut.animation.makeAlpha(1).animate(transitionTime);
         newViewView = ViewView(frame: CGRectMake(35,(self.window?.frame.height)!, (self.window?.frame.width)!-70,188));
         self.window?.addSubview(newViewView)
         newViewView.animation.moveY(-188).easeInOut.animate(transitionTime)
@@ -72,12 +77,15 @@ class NoteFooterAdd: UIView {
     }
     
     func closeNewViewView (sender:UITapGestureRecognizer?) {
-        blackOut.removeFromSuperview()
+        
         newViewView.animation.makeY((self.window?.frame.height)!).easeInOut.animateWithCompletion(transitionTime, {
             newViewView.removeFromSuperview()
             
         })
-        
+        blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
+            blackOut.removeFromSuperview()
+        })
+
         
     }
     
@@ -87,7 +95,11 @@ class NoteFooterAdd: UIView {
             newSortView.removeFromSuperview()
             
         })
-        blackOut.removeFromSuperview()
+        blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
+            blackOut.removeFromSuperview()
+        })
+        
+        
     }
 
 }
