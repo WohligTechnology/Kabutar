@@ -10,9 +10,16 @@ import UIKit
 
 class ViewView: UIView {
 
-    @IBOutlet weak var viewpopup: UIView!    
+    var slideMenu: SlideMenuController! = SlideMenuController()
+    
+    @IBOutlet weak var detailclick: UIButton!
+    @IBOutlet weak var viewpopup: UIView!
+     var detailview:UIViewController!
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        let detailview = storyboard.instantiateViewControllerWithIdentifier("Detailview") as! Detailview
+        self.detailview = UINavigationController(rootViewController: detailview)
         loadViewFromNib ()
         //        NSBundle.mainBundle().loadNibNamed("SortView", owner: self, options: nil)
         //        self.addSubview(self.sortnewview)
@@ -33,6 +40,15 @@ class ViewView: UIView {
         
     }
 
+//    @IBAction func detailClick(sender: AnyObject) {
+//        print("TESTING");
+//        let menu = MenuListViewController();
+//    
+//        let slidemenu = menu.ChangeMyView()
+//        
+//        slidemenu!.changeMainViewController(self.detailview, close: true)
+//        
+//    }
     
     /*
     // Only override drawRect: if you perform custom drawing.

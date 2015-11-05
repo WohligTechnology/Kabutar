@@ -10,8 +10,10 @@ import UIKit
 
 class NoteFooterAdd: UIView {
 
-    var newSortView:ViewView!
+    var newViewView:ViewView!
+    var newSortView:SortView!
     var blackOut:UIView!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadViewFromNib ()
@@ -19,6 +21,7 @@ class NoteFooterAdd: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+       
         loadViewFromNib ()
     }
     func loadViewFromNib() {
@@ -28,23 +31,36 @@ class NoteFooterAdd: UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
-        
-        
-        
     }
-    @IBAction func viewClick(sender: AnyObject) {
-        blackOut = UIView(frame: CGRectMake(0, 0, (self.window?.frame.width)!, (self.window?.frame.height)!));
+    func addBlackView(){
+        blackOut = UIView(frame: CGRectMake(0, 0, (self.window?.frame.width)!, (self.window?.frame.height)!))
         blackOut.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+    }
+    @IBAction func sortClick(sender: AnyObject) {
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeNewSortView:")
+        self.addBlackView()
         blackOut.addGestureRecognizer(blackOutTap)
         self.window?.addSubview(blackOut);
-        
-        newSortView = ViewView(frame: CGRectMake(35, (self.window?.frame.height)!-150, (self.window?.frame.width)!-70,150));
+        newSortView = SortView(frame: CGRectMake(35, (self.window?.frame.height)!-350, (self.window?.frame.width)!-70,350));
         self.window?.addSubview(newSortView)
     }
     
+    @IBAction func viewClick(sender: AnyObject) {
+        let blackOutTap = UITapGestureRecognizer(target: self,action: "closeNewViewView:")
+        self.addBlackView()
+        blackOut.addGestureRecognizer(blackOutTap)
+        self.window?.addSubview(blackOut);
+        newViewView = ViewView(frame: CGRectMake(35, (self.window?.frame.height)!-150, (self.window?.frame.width)!-70,150));
+        self.window?.addSubview(newViewView)
+    }
+    
+    func closeNewViewView (sender:UITapGestureRecognizer) {
+        newViewView.removeFromSuperview()
+        blackOut.removeFromSuperview()
+    }
+    
+    
     func closeNewSortView (sender:UITapGestureRecognizer) {
-        print("JAgz");
         newSortView.removeFromSuperview()
         blackOut.removeFromSuperview()
     }

@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewView" customModule="deploynotshare" customModuleProvider="target">
             <connections>
+                <outlet property="detailclick" destination="mJL-HI-CGj" id="bAi-aM-gYi"/>
                 <outlet property="viewpopup" destination="beB-ov-rZk" id="Gph-q8-gDe"/>
             </connections>
         </placeholder>
@@ -41,6 +42,9 @@
                             <state key="normal" title="Detail" image="detail_view_logo">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="detailClick:" destination="-1" eventType="touchUpInside" id="njn-og-9eV"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMX-ZE-FmB">
                             <rect key="frame" x="0.0" y="39" width="300" height="28"/>

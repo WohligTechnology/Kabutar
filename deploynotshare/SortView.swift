@@ -10,6 +10,7 @@ import UIKit
 
 class SortView: UIView {
 
+    @IBOutlet weak var atoz: UIButton!
     @IBOutlet var sortnewview: UIView!
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

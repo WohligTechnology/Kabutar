@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SortView" customModule="deploynotshare" customModuleProvider="target">
             <connections>
+                <outlet property="atoz" destination="RBV-KP-byg" id="EdN-ve-KL5"/>
                 <outlet property="sortnewview" destination="iN0-l3-epB" id="Xb1-Io-Nmy"/>
             </connections>
         </placeholder>

@@ -21,6 +21,9 @@
                     <state key="normal" title="SORT" image="sort_icon">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="sortClick:" destination="-1" eventType="touchUpInside" id="jrx-YG-REl"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Er-UL-LUq" userLabel="viewbutton">
                     <rect key="frame" x="243" y="7" width="120" height="27"/>

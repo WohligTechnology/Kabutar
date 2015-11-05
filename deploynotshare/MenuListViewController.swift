@@ -13,6 +13,7 @@ class MenuListViewController: UITableViewController {
     var mainViewController: UIViewController!
     
     var folderViewController: UIViewController!
+    var detailview:UIViewController!
     var noteViewController: UIViewController!
     
     @IBOutlet var menuStaticTable: UITableView!
@@ -30,6 +31,9 @@ class MenuListViewController: UITableViewController {
         
         let folderViewController = storyboard.instantiateViewControllerWithIdentifier("TableViewController") as! TableViewController
         self.folderViewController = UINavigationController(rootViewController: folderViewController)
+        
+        let detailview = storyboard.instantiateViewControllerWithIdentifier("Detailview") as! Detailview
+        self.detailview = UINavigationController(rootViewController: detailview)
         
         
         
@@ -93,6 +97,18 @@ class MenuListViewController: UITableViewController {
             
             
         }
+        if(indexPath.row == 3){
+            print("folder select")
+            
+            self.slideMenuController()?.changeMainViewController(self.detailview, close: true)
+            
+            
+        }
+    }
+    
+    func ChangeMyView () -> SlideMenuController? {
+        print("We are in menulist");
+        return self.slideMenuController()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
