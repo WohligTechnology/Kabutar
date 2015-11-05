@@ -25,6 +25,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setNavigationBarItem()
+
         folderName = []
         folderId = []
         let a = Folder();

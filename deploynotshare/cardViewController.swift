@@ -11,8 +11,7 @@ import DKChainableAnimationKit
 class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource ,UICollectionViewDelegate {
     
     
-    @IBOutlet weak var OverLay: UIView!
-    @IBOutlet weak var sorting: SortView!
+       @IBOutlet weak var sorting: SortView!
     @IBOutlet weak var viewing: ViewView!
     var collectionView: UICollectionView!
     
@@ -29,7 +28,6 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
             {
                 num1 = 0
                 shouldView=false
-                self.OverLay.animation.makeOpacity(0.5).animate(1.0)
                 self.viewing.animation.makeOpacity(1.0).moveY(-1*viewing.frame.size.height+viewing.frame.size.height).animateWithCompletion(0.30, {
                     self.shouldView=true
                     
@@ -39,7 +37,6 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
             {
                 num1 = 1;
                 shouldView=false
-                self.OverLay.animation.makeOpacity(0.0).animate(1.0);
                 self.viewing.animation.makeOpacity(0.0).moveY(-1*(-1*viewing.frame.size.height+viewing.frame.size.height)).animateWithCompletion(0.30, {
                     self.shouldView=true
                     
@@ -56,7 +53,6 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
             {
                 num = 0
                 shouldSort=false
-                self.OverLay.animation.makeOpacity(0.5).animate(1.0)
                 self.sorting.animation.makeOpacity(1.0).moveY(-1*sorting.frame.size.height+70).animateWithCompletion(0.30, {
                     self.shouldSort=true
                     
@@ -66,7 +62,6 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
             {
                 num = 1;
                 shouldSort=false
-                self.OverLay.animation.makeOpacity(0.0).animate(1.0);
                 self.sorting.animation.makeOpacity(0.0).moveY(-1*(-1*sorting.frame.size.height+70)).animateWithCompletion(0.30, {
                     self.shouldSort=true
                     
@@ -94,9 +89,6 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapoverl = UITapGestureRecognizer(target: self, action: "onTap")
-        self.OverLay.addGestureRecognizer(tapoverl)
-//      
-        
         
         
         
@@ -110,17 +102,17 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
         layout.itemSize = CGSize(width: (width-30)/2, height: (height-30)/4)
         
-        collectionView = UICollectionView(frame: CGRectMake(0,55, width,height-125 ), collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: CGRectMake(0,-10, width,height-104 ), collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.backgroundColor = UIColor.clearColor();
         self.view.addSubview(collectionView)
         
+        let addView = AddCircle(frame: CGRectMake(width/2 - 35, height-134, 70, 70))
         
-        let footerAdd = NoteFooterAdd(frame: CGRectMake(0,self.view.frame.height-70,self.view.frame.width,70))
-        footerAdd.backgroundColor = UIColor.clearColor()
-        self.view.addSubview(footerAdd)
+        self.view.addSubview(addView)
+        
     }
     
     func onTap(){

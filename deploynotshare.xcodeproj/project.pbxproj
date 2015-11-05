@@ -14,6 +14,8 @@
 		36E416711BEB12E0007EE385 /* NoteCollectionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E416701BEB12E0007EE385 /* NoteCollectionUIView.swift */; };
 		36E416731BEB35EE007EE385 /* NoteFooterAdd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E416721BEB35EE007EE385 /* NoteFooterAdd.xib */; };
 		36E416751BEB3624007EE385 /* NoteFooterAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E416741BEB3624007EE385 /* NoteFooterAdd.swift */; };
+		36E416771BEB6C9C007EE385 /* AddCircle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E416761BEB6C9C007EE385 /* AddCircle.xib */; };
+		36E416791BEB6D18007EE385 /* AddCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E416781BEB6D18007EE385 /* AddCircle.swift */; };
 		36E846A31BE48AF8004109FA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E846A21BE48AF8004109FA /* UIViewControllerExtension.swift */; };
 		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; };
 		434E77871BE3869E00684C08 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */; };
@@ -76,6 +78,8 @@
 		36E416701BEB12E0007EE385 /* NoteCollectionUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCollectionUIView.swift; sourceTree = "<group>"; };
 		36E416721BEB35EE007EE385 /* NoteFooterAdd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteFooterAdd.xib; sourceTree = "<group>"; };
 		36E416741BEB3624007EE385 /* NoteFooterAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteFooterAdd.swift; sourceTree = "<group>"; };
+		36E416761BEB6C9C007EE385 /* AddCircle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCircle.xib; sourceTree = "<group>"; };
+		36E416781BEB6D18007EE385 /* AddCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCircle.swift; sourceTree = "<group>"; };
 		36E846A21BE48AF8004109FA /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		434E77771BE34B4800684C08 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 				43A0049C1BE8BC8100396E47 /* DateTime.xib */,
 				43E0F2AF1BE8CA4A00363F49 /* Alert.xib */,
 				436107A71BEB27890094BB25 /* NavigationTableCell.xib */,
+				36E416761BEB6C9C007EE385 /* AddCircle.xib */,
+				36E416781BEB6D18007EE385 /* AddCircle.swift */,
 				36E416701BEB12E0007EE385 /* NoteCollectionUIView.swift */,
 				436107A51BEB276D0094BB25 /* NavigationTableCell.swift */,
 				43921D561BE0C4590032DE28 /* SortView.swift */,
@@ -400,6 +406,7 @@
 				36E416731BEB35EE007EE385 /* NoteFooterAdd.xib in Resources */,
 				43921D551BE0BD940032DE28 /* SortView.xib in Resources */,
 				436107A81BEB27890094BB25 /* NavigationTableCell.xib in Resources */,
+				36E416771BEB6C9C007EE385 /* AddCircle.xib in Resources */,
 				43F1A29D1BDBA87700F82938 /* Main.storyboard in Resources */,
 				43E0F2B01BE8CA4A00363F49 /* Alert.xib in Resources */,
 				436107A21BEA06320094BB25 /* Move.xib in Resources */,
@@ -494,6 +501,7 @@
 				4361079E1BE9F4BE0094BB25 /* Detailview.swift in Sources */,
 				43921D5B1BE0E7DA0032DE28 /* PasswordViewController.swift in Sources */,
 				4380B3501BDA54DF0026CED9 /* popup.swift in Sources */,
+				36E416791BEB6D18007EE385 /* AddCircle.swift in Sources */,
 				434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */,
 				43EFB9BF1BDE3D5A0014EDF9 /* ListTableViewCell.swift in Sources */,
 				436107A41BEA2A750094BB25 /* Move.swift in Sources */,

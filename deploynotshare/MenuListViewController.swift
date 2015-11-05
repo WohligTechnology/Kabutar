@@ -9,8 +9,11 @@
 import UIKit
 
 class MenuListViewController: UITableViewController {
-
+    
     var mainViewController: UIViewController!
+    
+    var folderViewController: UIViewController!
+    var noteViewController: UIViewController!
     
     @IBOutlet var menuStaticTable: UITableView!
     @IBOutlet weak var profileimage: UIImageView!
@@ -19,6 +22,18 @@ class MenuListViewController: UITableViewController {
     var menuImage = ["demo","note_menu_icon","folder_icon","about_us_icon","termsandcondition_icon","notification_icon","rate_us_icon","likeus_on_icon","send_feedback_icon","invite_icon","setting_icon","logout_icon"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let noteViewController = storyboard.instantiateViewControllerWithIdentifier("cardViewController") as! cardViewController
+        self.noteViewController = UINavigationController(rootViewController: noteViewController)
+        
+        let folderViewController = storyboard.instantiateViewControllerWithIdentifier("TableViewController") as! TableViewController
+        self.folderViewController = UINavigationController(rootViewController: folderViewController)
+        
+        
+        
+        
 //        self.profileimage!.layer.cornerRadius = self.profileimage.frame.size.width / 5
 //        self.profileimage.clipsToBounds = true
 //        self.profileimage.layer.borderWidth = 2.0
@@ -57,13 +72,20 @@ class MenuListViewController: UITableViewController {
    }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print(indexPath.row);
+        if(indexPath.row == 1){
+            print("Note select")
+            
+            self.slideMenuController()?.changeMainViewController(self.noteViewController, close: true)
+            
+        
+        }
         if(indexPath.row == 2){
             print("folder select")
-            let vc = TableViewController(nibName: "TableViewController", bundle: nil)
-            navigationController?.pushViewController(vc, animated: true )
             
-//            self.storyboard!.instantiateViewControllerWithIdentifier("foldersegue") as! TableViewController
-//            self.performSegueWithIdentifier("foldersegue", sender: self)
+            self.slideMenuController()?.changeMainViewController(self.folderViewController, close: true)
+            
+            
         }
     }
     

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationTableCell" customModule="deploynotshare" customModuleProvider="target">
@@ -20,20 +20,24 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilepic" translatesAutoresizingMaskIntoConstraints="NO" id="NjT-g3-3yD">
                             <rect key="frame" x="0.0" y="0.0" width="88" height="88"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="88" id="R3b-1a-PJF"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jagruti patil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glW-F4-wiY">
                             <rect key="frame" x="108" y="0.0" width="266" height="88"/>
+                            <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
+                    <animations/>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.34509803919999998" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
+            <animations/>
+            <color key="backgroundColor" red="1" green="0.3529411764705882" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="KEu-xP-aK8" secondAttribute="bottom" constant="10" id="aNk-Aw-tMU"/>
                 <constraint firstItem="KEu-xP-aK8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="kN2-9u-f1g"/>
