@@ -10,6 +10,8 @@ import UIKit
 
 class NoteFooterAdd: UIView {
 
+    var newSortView:ViewView!
+    var blackOut:UIView!
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadViewFromNib ()
@@ -17,6 +19,14 @@ class NoteFooterAdd: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        let bounds = UIScreen.mainScreen().bounds
+        let width = bounds.size.width
+        let height = bounds.size.height
+
+        let viewPopup: ViewView!
+        
+        viewPopup = ViewView(frame: CGRectMake(20,200,300,100))
         loadViewFromNib ()
     }
     func loadViewFromNib() {
@@ -30,5 +40,26 @@ class NoteFooterAdd: UIView {
         
         
     }
+    @IBAction func viewClick(sender: AnyObject) {
+        blackOut = UIView(frame: CGRectMake(0, 0, (self.window?.frame.width)!, (self.window?.frame.height)!));
+        blackOut.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4)
+        let blackOutTap = UITapGestureRecognizer(target: self,action: "closeNewSortView:")
+        blackOut.addGestureRecognizer(blackOutTap)
+        self.window?.addSubview(blackOut);
+        
+        newSortView = ViewView(frame: CGRectMake(35, (self.window?.frame.height)!-150, (self.window?.frame.width)!-70,150));
+        self.window?.addSubview(newSortView)
+    }
+    
+    func closeNewSortView (sender:UITapGestureRecognizer) {
+        print("JAgz");
+        for view in newSortView.subviews {
+            view.removeFromSuperview()
+        }
+        for view in blackOut.subviews {
+            view.removeFromSuperview()
+        }
+    }
+    
 
 }

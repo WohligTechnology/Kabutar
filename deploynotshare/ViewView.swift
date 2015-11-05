@@ -10,12 +10,29 @@ import UIKit
 
 class ViewView: UIView {
 
-    @IBOutlet weak var viewpopup: UIView!
+    @IBOutlet weak var viewpopup: UIView!    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        NSBundle.mainBundle().loadNibNamed("ViewView", owner: self, options: nil)
-        self.addSubview(self.viewpopup)
+        loadViewFromNib ()
+        //        NSBundle.mainBundle().loadNibNamed("SortView", owner: self, options: nil)
+        //        self.addSubview(self.sortnewview)
     }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        loadViewFromNib ()
+    }
+    
+    func loadViewFromNib() {
+        let bundle = NSBundle(forClass: self.dynamicType)
+        let nib = UINib(nibName: "ViewView", bundle: bundle)
+        let sortnewview = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        sortnewview.frame = bounds
+        sortnewview.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        self.addSubview(sortnewview);
+        
+    }
+
     
     /*
     // Only override drawRect: if you perform custom drawing.

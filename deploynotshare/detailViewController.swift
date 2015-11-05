@@ -17,7 +17,7 @@ class detailViewController: UIViewController {
 //    var dtext = UILabel()
 //    var ddescription = UILabel()
 //    override func viewDidLoad() {
-//        print("detail view")
+//        print("detail view
 //        super.viewDidLoad()
 //        self.detailtext?.text = self.dtext.text
 //        self.detaildescription?.text = self.ddescription.text
