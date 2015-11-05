@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationTableCell" customModule="deploynotshare" customModuleProvider="target">
+            <connections>
+                <outlet property="cellImage" destination="NjT-g3-3yD" id="4xu-3w-oDa"/>
+                <outlet property="titleLabel" destination="glW-F4-wiY" id="j8E-Gr-KHD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="394" height="54"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glW-F4-wiY">
+                    <rect key="frame" x="88" y="16" width="298" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NjT-g3-3yD">
+                    <rect key="frame" x="0.0" y="0.0" width="80" height="54"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="ywq-Lg-3j8"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="NjT-g3-3yD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2kY-Iy-PbF"/>
+                <constraint firstItem="glW-F4-wiY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="88" id="931-Tq-jrZ"/>
+                <constraint firstAttribute="trailing" secondItem="glW-F4-wiY" secondAttribute="trailing" constant="8" id="SRA-ZX-7On"/>
+                <constraint firstAttribute="bottom" secondItem="NjT-g3-3yD" secondAttribute="bottom" id="VXL-ts-KGf"/>
+                <constraint firstItem="glW-F4-wiY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="bOR-XY-3YU"/>
+                <constraint firstItem="NjT-g3-3yD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jxI-mh-nmQ"/>
+                <constraint firstAttribute="bottom" secondItem="glW-F4-wiY" secondAttribute="bottom" constant="17" id="mmJ-3C-ilM"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="93" y="48"/>
+        </view>
+    </objects>
+</document>

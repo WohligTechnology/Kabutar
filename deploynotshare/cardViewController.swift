@@ -16,6 +16,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     @IBOutlet weak var viewing: ViewView!
     var collectionView: UICollectionView!
     
+    
     var num = 1
     var num1 = 1
     var shouldSort = true
@@ -96,6 +97,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         self.OverLay.addGestureRecognizer(tapoverl)
 //      
         
+        
         let bounds = UIScreen.mainScreen().bounds
         let width = bounds.size.width
         let height = bounds.size.height
@@ -149,8 +151,13 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let bounds = UIScreen.mainScreen().bounds
+        let width = bounds.size.width
+        let height = bounds.size.height
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
-        let insideView = NoteCollectionUIView(frame: CGRectMake(0,0,150,150))
+        let insideView = NoteCollectionUIView(frame: CGRectMake(0,0,(width-30)/2,(height-30)/4))
         
         insideView.titleLabel.text = "Android"
         insideView.descLabel.text = "Lorum Ipsum"
