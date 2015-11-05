@@ -13,8 +13,12 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var folderName:NSMutableArray = []
     var folderId:NSMutableArray = []
     var folderobj = Folder()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setNavigationBarItem()
         var folderobj = Folder()
         for row in folderobj.find() {
             folderName.addObject(row[folderobj.name]!)

@@ -6,13 +6,16 @@
 //  Copyright © 2015 Wohlig. All rights reserved.
 //
 
+var newViewView:ViewView!
+var newSortView:SortView!
+var blackOut:UIView!
+
+
 import UIKit
+
 
 class NoteFooterAdd: UIView {
 
-    var newViewView:ViewView!
-    var newSortView:SortView!
-    var blackOut:UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,18 +55,19 @@ class NoteFooterAdd: UIView {
         self.window?.addSubview(blackOut);
         newViewView = ViewView(frame: CGRectMake(35, (self.window?.frame.height)!-150, (self.window?.frame.width)!-70,150));
         self.window?.addSubview(newViewView)
+        self.window?.addSubview(newViewView)
+
     }
     
-    func closeNewViewView (sender:UITapGestureRecognizer) {
+    func closeNewViewView (sender:UITapGestureRecognizer?) {
         newViewView.removeFromSuperview()
         blackOut.removeFromSuperview()
     }
     
     
-    func closeNewSortView (sender:UITapGestureRecognizer) {
+    func closeNewSortView (sender:UITapGestureRecognizer?) {
         newSortView.removeFromSuperview()
         blackOut.removeFromSuperview()
     }
-    
 
 }

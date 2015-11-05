@@ -8,7 +8,13 @@
 
 import UIKit
 
-class MenuListViewController: UITableViewController {
+var slideMenuLeft:Any!;
+
+protocol LeftMenuProtocol : class {
+    func changeViewController(menu: Int)
+}
+
+class MenuListViewController: UITableViewController, LeftMenuProtocol {
     
     var mainViewController: UIViewController!
     
@@ -21,10 +27,14 @@ class MenuListViewController: UITableViewController {
     
     var menuName = ["demo","Notes","Folders","About NoteShare","Terms & Conditions","Notification Center","Rate Us","Like us on Facebook","Send Feedback","Invite Friends","Setting","Logout"]
     var menuImage = ["demo","note_menu_icon","folder_icon","about_us_icon","termsandcondition_icon","notification_icon","rate_us_icon","likeus_on_icon","send_feedback_icon","invite_icon","setting_icon","logout_icon"]
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         menuStaticTable.separatorStyle = UITableViewCellSeparatorStyle.None
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let noteViewController = storyboard.instantiateViewControllerWithIdentifier("cardViewController") as! cardViewController
         self.noteViewController = UINavigationController(rootViewController: noteViewController)
@@ -35,6 +45,7 @@ class MenuListViewController: UITableViewController {
         let detailview = storyboard.instantiateViewControllerWithIdentifier("Detailview") as! Detailview
         self.detailview = UINavigationController(rootViewController: detailview)
         
+        slideMenuLeft = self.slideMenuController()
         
         
         
@@ -93,7 +104,7 @@ class MenuListViewController: UITableViewController {
         if(indexPath.row == 2){
             print("folder select")
             
-            self.slideMenuController()?.changeMainViewController(self.folderViewController, close: true)
+            changeViewController(2)
             
             
         }
@@ -105,6 +116,33 @@ class MenuListViewController: UITableViewController {
             
         }
     }
+    
+    
+    func changeViewController(menu: Int) {
+        if(menu == 1){
+            print("Note select")
+            
+            self.slideMenuController()?.changeMainViewController(self.noteViewController, close: true)
+            
+            
+        }
+        if(menu  == 2){
+            print("folder select")
+            
+            self.slideMenuController()?.changeMainViewController(self.folderViewController, close: true)
+            
+            
+        }
+        if(menu == 3){
+            print("folder select")
+            
+            self.slideMenuController()?.changeMainViewController(self.detailview, close: true)
+            
+            
+        }
+    }
+
+    
     
     func ChangeMyView () -> SlideMenuController? {
         print("We are in menulist");

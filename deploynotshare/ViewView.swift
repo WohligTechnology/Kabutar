@@ -9,24 +9,42 @@
 import UIKit
 
 class ViewView: UIView {
-
-    var slideMenu: SlideMenuController! = SlideMenuController()
     
+    
+    var mainViewController: UIViewController!
+    
+    var folderViewController: UIViewController!
+    var detailview:UIViewController!
+    var noteViewController: UIViewController!
+    
+    var newNoteFooter: NoteFooterAdd!
+    
+
+
+       
     @IBOutlet weak var detailclick: UIButton!
     @IBOutlet weak var viewpopup: UIView!
-     var detailview:UIViewController!
+    
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        let detailview = storyboard.instantiateViewControllerWithIdentifier("Detailview") as! Detailview
-        self.detailview = UINavigationController(rootViewController: detailview)
         loadViewFromNib ()
-        //        NSBundle.mainBundle().loadNibNamed("SortView", owner: self, options: nil)
-        //        self.addSubview(self.sortnewview)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let noteViewController = storyboard.instantiateViewControllerWithIdentifier("cardViewController") as! cardViewController
+        self.noteViewController = UINavigationController(rootViewController: noteViewController)
+        
+        let folderViewController = storyboard.instantiateViewControllerWithIdentifier("TableViewController") as! TableViewController
+        self.folderViewController = UINavigationController(rootViewController: folderViewController)
+        
+        let detailview = storyboard.instantiateViewControllerWithIdentifier("Detailview") as! Detailview
+        self.detailview = UINavigationController(rootViewController: detailview)
+
+        
         loadViewFromNib ()
     }
     
@@ -37,18 +55,21 @@ class ViewView: UIView {
         sortnewview.frame = bounds
         sortnewview.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(sortnewview);
-        
     }
 
-//    @IBAction func detailClick(sender: AnyObject) {
-//        print("TESTING");
-//        let menu = MenuListViewController();
-//    
-//        let slidemenu = menu.ChangeMyView()
-//        
-//        slidemenu!.changeMainViewController(self.detailview, close: true)
-//        
-//    }
+    @IBAction func detailClick(sender: AnyObject) {
+        
+        let abc = slideMenuLeft as! SlideMenuController
+        abc.changeMainViewController(detailview, close: true)
+        
+        newViewView.removeFromSuperview()
+        blackOut.removeFromSuperview()
+    }
+    
+    
+    
+    
+    
     
     /*
     // Only override drawRect: if you perform custom drawing.

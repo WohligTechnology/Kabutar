@@ -7,10 +7,10 @@
 //
 
 import UIKit
-
-@available(iOS 8.0, *)
+import UIColor_Hex_Swift
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
+    
     
     @IBOutlet weak var tableView: UITableView!
     

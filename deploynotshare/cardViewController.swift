@@ -90,10 +90,6 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         super.viewDidLoad()
         let tapoverl = UITapGestureRecognizer(target: self, action: "onTap")
         
-        
-        
-        
-        
         let bounds = UIScreen.mainScreen().bounds
         let width = bounds.size.width
         let height = bounds.size.height

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UIColor_Hex_Swift
 
 @available(iOS 8.0, *)
 
