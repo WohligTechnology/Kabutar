@@ -19,7 +19,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBarItem()
-        var folderobj = Folder()
+        let folderobj = Folder()
         for row in folderobj.find() {
             folderName.addObject(row[folderobj.name]!)
             folderId.addObject(String(row[folderobj.id]))

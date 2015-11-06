@@ -16,7 +16,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var folderobj = Folder()
     override func viewDidLoad() {
         super.viewDidLoad()
-        var folderobj = Folder()
+        let folderobj = Folder()
         for row in folderobj.find() {
             folderName.addObject(row[folderobj.name]!)
             folderId.addObject(String(row[folderobj.id]))
