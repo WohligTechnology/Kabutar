@@ -15,6 +15,7 @@ class ViewView: UIView {
     
     var folderViewController: UIViewController!
     var detailview:UIViewController!
+    var listview:UIViewController!
     var noteViewController: UIViewController!
     
     var newNoteFooter: NoteFooterAdd!
@@ -43,6 +44,10 @@ class ViewView: UIView {
         
         let detailview = storyboard.instantiateViewControllerWithIdentifier("Detailview") as! Detailview
         self.detailview = UINavigationController(rootViewController: detailview)
+        
+        let listview = storyboard.instantiateViewControllerWithIdentifier("Listview") as! Listview
+        self.listview = UINavigationController(rootViewController: listview)
+
 
         
         loadViewFromNib ()
@@ -58,7 +63,7 @@ class ViewView: UIView {
     }
 
     @IBAction func detailClick(sender: AnyObject) {
-        
+        checkstatus = 1
         let abc = slideMenuLeft as! SlideMenuController
         abc.changeMainViewController(detailview, close: true)
         
@@ -66,7 +71,23 @@ class ViewView: UIView {
         blackOut.removeFromSuperview()
     }
     
+    @IBAction func listClick(sender: AnyObject) {
+        checkstatus = 2
+        let abc = slideMenuLeft as! SlideMenuController
+        abc.changeMainViewController(listview, close: true)
+        
+        newViewView.removeFromSuperview()
+        blackOut.removeFromSuperview()
+    }
     
+    @IBAction func tilesClick(sender: AnyObject) {
+        checkstatus = 3
+        let abc = slideMenuLeft as! SlideMenuController
+        abc.changeMainViewController(noteViewController, close: true)
+        
+        newViewView.removeFromSuperview()
+        blackOut.removeFromSuperview()
+    }
     
     
     

@@ -215,5 +215,16 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         return [deleteAction, editAction]
         
     }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("ShowNotes", sender: self)
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "ShowNotes"){
+            let selectedPath = self.tableView!.indexPathForSelectedRow
+            let vc = segue.destinationViewController as! cardViewController
+            vc.title = self.folderName[selectedPath!.row] as? String
+            
+        }
+    }
 
 }

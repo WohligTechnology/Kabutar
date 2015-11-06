@@ -10,89 +10,35 @@ import MapKit
 import DKChainableAnimationKit
 class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource ,UICollectionViewDelegate {
     
-    
-       @IBOutlet weak var sorting: SortView!
+    @IBOutlet weak var sorting: SortView!
     @IBOutlet weak var viewing: ViewView!
     var collectionView: UICollectionView!
-    
-    
-    var num = 1
-    var num1 = 1
-    var shouldSort = true
-    var shouldView = true
-    //    var touch = UITapGestureRecognizer(target:self, action:"tapFunc")
-    
-    @IBAction func ViewTap(sender: AnyObject) {
-        if shouldView {
-            if (num1==1)
-            {
-                num1 = 0
-                shouldView=false
-                self.viewing.animation.makeOpacity(1.0).moveY(-1*viewing.frame.size.height+viewing.frame.size.height).animateWithCompletion(0.30, {
-                    self.shouldView=true
-                    
-                })
-            }
-            else
-            {
-                num1 = 1;
-                shouldView=false
-                self.viewing.animation.makeOpacity(0.0).moveY(-1*(-1*viewing.frame.size.height+viewing.frame.size.height)).animateWithCompletion(0.30, {
-                    self.shouldView=true
-                    
-                })
-            }
-        }
-    }
-    @IBAction func SortTap(sender: AnyObject) {
-        
-        
-        
-        if shouldSort {
-            if (num==1)
-            {
-                num = 0
-                shouldSort=false
-                self.sorting.animation.makeOpacity(1.0).moveY(-1*sorting.frame.size.height+70).animateWithCompletion(0.30, {
-                    self.shouldSort=true
-                    
-                })
-            }
-            else
-            {
-                num = 1;
-                shouldSort=false
-                self.sorting.animation.makeOpacity(0.0).moveY(-1*(-1*sorting.frame.size.height+70)).animateWithCompletion(0.30, {
-                    self.shouldSort=true
-                    
-                })
-            }
-        }
-    }
-    
     var selected:NSIndexPath = NSIndexPath();
-    
-    // Modal cancel button event
-    //    @IBAction func cancelbutton(sender: AnyObject) {
-    //        self.dismissViewControllerAnimated(true, completion: nil)
-    //    }
-    //    @IBAction func cancelbutton(sender: AnyObject) {
-    //        self.dismissViewControllerAnimated(true, completion: nil)
-    //    }
-    var labeltext = ["BIOLOGY","PYSICS","MATHS","ECOLOGY","BIOLOGY","PYSICS","MATHS","ECOLOGY"]
-    let descriptiontext = ["Lorem Ipsum is simply dummy text of the printing and typesetting industry.","Lorem Ipsum is simply dummy text of the","Lorem Ipsum is simply dummy text of the","Lorem Ipsum is simply dummy text of the","Lorem Ipsum is simply dummy text of the printing and typesetting industry.","Lorem Ipsum is simply dummy text of the","Lorem Ipsum is simply dummy text of the","Lorem Ipsum is simply dummy text of the"]
-    let timestamptext = ["01.04.15","01.04.15","01.04.15","01.04.15","01.04.15","01.04.15","01.04.15","01.04.15"]
-    let colorcode = ["84FA88","FA8681","5BFAE0","6365FA"]
     
     var myview: DateTime!;
     
+    var notesTitle:NSMutableArray = []
+    var notesId:NSMutableArray = []
+    var modificationTime: NSMutableArray = []
+    var notesobj = Note()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tapoverl = UITapGestureRecognizer(target: self, action: "onTap")
+        
+        ViewForNotes = self;
+        
         
         let bounds = UIScreen.mainScreen().bounds
         let width = bounds.size.width
         let height = bounds.size.height
+        
+        for row in notesobj.find() {
+            notesTitle.addObject(row[notesobj.title]!)
+            notesId.addObject(String(row[notesobj.id]))
+            modificationTime.addObject(Double(row[notesobj.modificationTime]))
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
@@ -105,19 +51,23 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         collectionView.backgroundColor = UIColor.clearColor();
         self.view.addSubview(collectionView)
         
+//        let createNoteTap = UIGestureRecognizer(target: self, action: "createTap:")
+        
         let bottomLine = UIView(frame: CGRectMake(0,height-114, width , 1))
         bottomLine.backgroundColor = PinkColor
         self.view.addSubview(bottomLine)
         
         let addView = AddCircle(frame: CGRectMake(width/2 - 35, height-134, 70, 70))
+//        addView.addGestureRecognizer(createNoteTap)
         self.view.addSubview(addView)
         
     }
     
-    func onTap(){
-        self.SortTap([]);
-        self.ViewTap([]);
+    func createTap(sender:UITapGestureRecognizer?){
+        print("create tap")
     }
+    
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -137,7 +87,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.labeltext.count
+        return self.notesTitle.count
     }
     
     
@@ -155,16 +105,13 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
         let insideView = NoteCollectionUIView(frame: CGRectMake(0,0,(width-30)/2,(height-30)/4))
         
-        insideView.titleLabel.text = labeltext[indexPath.row]
-        insideView.descLabel.text = descriptiontext[indexPath.row]
-        insideView.timeLabel.text = timestamptext[indexPath.row]
-        insideView.view.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+        insideView.titleLabel.text = notesTitle[indexPath.row] as? String
+        let moddate = NSDate(timeIntervalSince1970: modificationTime[indexPath.row] as! Double)
+        //        insideView.descLabel.text = notesId[indexPath.row] as? String
+        insideView.timeLabel.text = String(moddate)
+        //        insideView.view.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
         
         cell.addSubview(insideView);
-        
-        
-        
-//        print(indexPath);
         
         cell.backgroundColor = UIColor.orangeColor()
         return cell
@@ -180,7 +127,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
             print(indexPaths)
             let indexPath = indexPaths[0] as NSIndexPath
             let vc = segue.destinationViewController as! detailViewController
-            vc.title = self.labeltext[indexPath.row]
+            vc.title = self.notesTitle[indexPath.row] as? String
             
         }
     }

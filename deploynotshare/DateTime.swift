@@ -10,6 +10,7 @@ import UIKit
 
 class DateTime: UIView {
     @IBOutlet weak var datetimepopup: UIView!
+    var blackOut:UIView!
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadViewFromNib ()
@@ -20,17 +21,43 @@ class DateTime: UIView {
     }
     
     @IBAction func buttonOk(sender: AnyObject) {
-       for view in datetimepopup.subviews{
-                view.removeFromSuperview()
-            }
+        if(checkstatus == 2){
+        let mainview = ViewForNotes as! Listview
+            mainview.closeTimeBomb(nil);
+        }else if(checkstatus == 1){
+            let mainview = ViewForNotes as! Detailview
+            mainview.closeTimeBomb(nil);
+        }
+
+       self.removeFromSuperview()
+        
     }
+    
+    func addBlackView(){
+        blackOut = UIView(frame: CGRectMake(0, 0, MainWidth, MainHeight))
+        blackOut.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+    }
+    
     func loadViewFromNib() {
+        
+        
+        
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "DateTime", bundle: bundle)
         let datetimepopup = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         datetimepopup.frame = bounds
         datetimepopup.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(datetimepopup);
+        
+        //let blackOutTap = UITapGestureRecognizer(target: self,action: "closeNewSortView:")
+        print(MainWidth)
+        print(MainHeight)
+        addBlackView()
+        
+//        blackOut.addGestureRecognizer(blackOutTap)
+        //blackOut.alpha = 0.5
+        self.window?.rootViewController?.view.addSubview(blackOut);
+        blackOut.animation.makeAlpha(1).animate(transitionTime);
         
     }
     /*

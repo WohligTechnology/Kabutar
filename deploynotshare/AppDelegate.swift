@@ -9,6 +9,12 @@
 import UIKit
 import SQLiteCipher
 
+var ViewForNotes:Any!
+var checkstatus = 3 as Int64
+
+var MainWidth:CGFloat!
+var MainHeight:CGFloat!
+
 let PinkColor = UIColor(red: 255.0/255.0, green: 90/255, blue: 96/255, alpha: 1.0)
 
 @UIApplicationMain
@@ -44,6 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
         
+        
+        
         self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
         self.window?.rootViewController = slideMenuController
         self.window?.makeKeyAndVisible()
@@ -52,6 +60,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         self.createMenuView()
+        let bounds = UIScreen.mainScreen().bounds
+        MainWidth = bounds.size.width
+        MainHeight = bounds.size.height
+
+        
+        
         AppDelegate.getDatabase()
         return true
     }

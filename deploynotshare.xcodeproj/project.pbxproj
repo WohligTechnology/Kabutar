@@ -35,6 +35,8 @@
 		437EF0DB1BD8CA5500B7E9BF /* cardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437EF0DA1BD8CA5500B7E9BF /* cardViewController.swift */; };
 		4380B3501BDA54DF0026CED9 /* popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4380B34F1BDA54DF0026CED9 /* popup.swift */; };
 		4380B3521BDA590E0026CED9 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4380B3511BDA590E0026CED9 /* detailViewController.swift */; };
+		4389CE251BECB8E7005CF805 /* MoveToFolder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4389CE241BECB8E7005CF805 /* MoveToFolder.xib */; settings = {ASSET_TAGS = (); }; };
+		4389CE271BECBA12005CF805 /* MoveToFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4389CE261BECBA11005CF805 /* MoveToFolder.swift */; settings = {ASSET_TAGS = (); }; };
 		43921D551BE0BD940032DE28 /* SortView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43921D541BE0BD940032DE28 /* SortView.xib */; };
 		43921D571BE0C4590032DE28 /* SortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921D561BE0C4590032DE28 /* SortView.swift */; };
 		43921D591BE0D8260032DE28 /* ThinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921D581BE0D8260032DE28 /* ThinkViewController.swift */; };
@@ -105,6 +107,8 @@
 		437EF0DA1BD8CA5500B7E9BF /* cardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cardViewController.swift; sourceTree = "<group>"; };
 		4380B34F1BDA54DF0026CED9 /* popup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popup.swift; sourceTree = "<group>"; };
 		4380B3511BDA590E0026CED9 /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
+		4389CE241BECB8E7005CF805 /* MoveToFolder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoveToFolder.xib; sourceTree = "<group>"; };
+		4389CE261BECBA11005CF805 /* MoveToFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveToFolder.swift; sourceTree = "<group>"; };
 		43921D541BE0BD940032DE28 /* SortView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SortView.xib; sourceTree = "<group>"; };
 		43921D561BE0C4590032DE28 /* SortView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortView.swift; sourceTree = "<group>"; };
 		43921D581BE0D8260032DE28 /* ThinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThinkViewController.swift; sourceTree = "<group>"; };
@@ -273,11 +277,13 @@
 				436107A11BEA06320094BB25 /* Move.xib */,
 				43A0049A1BE894E300396E47 /* ViewView.xib */,
 				43A0049C1BE8BC8100396E47 /* DateTime.xib */,
+				4389CE241BECB8E7005CF805 /* MoveToFolder.xib */,
 				43E0F2AF1BE8CA4A00363F49 /* Alert.xib */,
 				436107A71BEB27890094BB25 /* NavigationTableCell.xib */,
 				36E416761BEB6C9C007EE385 /* AddCircle.xib */,
 				36E416781BEB6D18007EE385 /* AddCircle.swift */,
 				36E416701BEB12E0007EE385 /* NoteCollectionUIView.swift */,
+				4389CE261BECBA11005CF805 /* MoveToFolder.swift */,
 				436107A51BEB276D0094BB25 /* NavigationTableCell.swift */,
 				43921D561BE0C4590032DE28 /* SortView.swift */,
 				36E416741BEB3624007EE385 /* NoteFooterAdd.swift */,
@@ -416,6 +422,7 @@
 				43A0049D1BE8BC8100396E47 /* DateTime.xib in Resources */,
 				36E4166F1BEB1266007EE385 /* NoteCollectionViewCell.xib in Resources */,
 				43EFB9C11BDE62380014EDF9 /* footermenu.xib in Resources */,
+				4389CE251BECB8E7005CF805 /* MoveToFolder.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +515,7 @@
 				36E416711BEB12E0007EE385 /* NoteCollectionUIView.swift in Sources */,
 				43E0F2F01BE9E61C00363F49 /* Listview.swift in Sources */,
 				4380B3521BDA590E0026CED9 /* detailViewController.swift in Sources */,
+				4389CE271BECBA12005CF805 /* MoveToFolder.swift in Sources */,
 				436107A01BE9F6500094BB25 /* mainview.swift in Sources */,
 				36E416751BEB3624007EE385 /* NoteFooterAdd.swift in Sources */,
 				366420321BE4BF03003477CF /* FoderModel.swift in Sources */,
