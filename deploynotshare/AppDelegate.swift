@@ -14,6 +14,9 @@ var checkstatus = 3 as Int64
 
 var MainWidth:CGFloat!
 var MainHeight:CGFloat!
+var SelectedNoteColor = UIColor()
+var ColorNote = String()
+
 
 let PinkColor = UIColor(red: 255.0/255.0, green: 90/255, blue: 96/255, alpha: 1.0)
 
@@ -21,15 +24,14 @@ let NoteColors = [
     UIColor(rgba:"#96CEEE"),
     UIColor(rgba: "#FAE8CE"),
     UIColor(rgba: "#97E1CC"),
-    
     UIColor(rgba: "#FDFF7F"),
     UIColor(rgba: "#9FDB86"),
     UIColor(rgba: "#BE9FF6"),
-    
     UIColor(rgba: "#B6E29E"),
     UIColor(rgba: "#DCA9AA"),
     UIColor(rgba: "#F0A6EF"),
-    UIColor(rgba: "#D0D0D0")
+    UIColor(rgba: "#D0D0D0"),
+    UIColor(rgba: "#EEEEEE")
 ]
 
 @UIApplicationMain

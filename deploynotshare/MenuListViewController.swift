@@ -99,6 +99,7 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print(indexPath.row);
+        selectedFolderToNoteId = ""
         if(indexPath.row == 1){
             print("Note select")
             

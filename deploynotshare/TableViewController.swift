@@ -7,6 +7,7 @@
 //
 
 import UIKit
+var selectedFolderToNoteId: String = ""
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
     
@@ -223,6 +224,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             let selectedPath = self.tableView!.indexPathForSelectedRow
             let vc = segue.destinationViewController as! cardViewController
             vc.title = self.folderName[selectedPath!.row] as? String
+            selectedFolderToNoteId = (self.folderId[selectedPath!.row] as? String)!
             
         }
     }

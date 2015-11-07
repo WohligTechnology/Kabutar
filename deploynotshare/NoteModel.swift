@@ -58,7 +58,7 @@ public class Note {
     func find() -> AnySequence<Row>  {
         let date = NSDate().timeIntervalSince1970
         let date2 = Int64(date)
-        return try! db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0)  ))
+        return try! db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(id.desc,title) )
     }
     
     func edit(title2:String,background2:String,color2:String,folder2:Int64,islocked2:Int64,paper2:String,reminderTime2:Int64,serverid2:String,tags2:String,timebomb2:Int64,id2:String)  {
@@ -75,11 +75,49 @@ public class Note {
         try! db.run(note2.update(title <- "", creationTime <- 0, modificationTime <- Int64(date), background <- "", color <- "", folder <- 0, islocked <- 0,paper <- "" , reminderTime <- 0, serverid <- "", tags <- "" , timebomb <- 0))
     }
     
-    func getNotesFolder(folder2:Int64) -> AnySequence<Row>  {
+    func getNotesFolder(folder2:String) -> AnySequence<Row>  {
         let date = NSDate().timeIntervalSince1970
         let date2 = Int64(date)
-        return try! db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0)  &&  folder == folder2 ))
+        return try! db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0)  &&  folder == strtoll(folder2,nil,10) ).order(id.desc,title) )
     }
+    
+    func changeNoteFolder(folder2:String,id2:String)  {
+        let date = NSDate().timeIntervalSince1970
+        let id3 = strtoll(id2,nil,10)
+        let note2 = note.filter(id == id3)
+        try! db.run(note2.update(folder <- strtoll(folder2,nil,10),modificationTime <- Int64(date)))
+    }
+    
+    func changeTimeBomb(timebomb2:Int64,id2:String)  {
+        let date = NSDate().timeIntervalSince1970
+        let id3 = strtoll(id2,nil,10)
+        let note2 = note.filter(id == id3)
+        try! db.run(note2.update(timebomb <- timebomb2,modificationTime <- Int64(date)))
+    }
+    
+    func changeLock(islocked2:Int64,id2:String)  {
+        let date = NSDate().timeIntervalSince1970
+        let id3 = strtoll(id2,nil,10)
+        let note2 = note.filter(id == id3)
+        try! db.run(note2.update(islocked <- islocked2,modificationTime <- Int64(date)))
+    }
+
+    func changeReminderTime(reminderTime2:Int64,id2:String)  {
+        let date = NSDate().timeIntervalSince1970
+        let id3 = strtoll(id2,nil,10)
+        let note2 = note.filter(id == id3)
+        try! db.run(note2.update(reminderTime <- reminderTime2,modificationTime <- Int64(date)))
+    }
+    
+    func changeColor(color2:String,id2:String)  {
+        let date = NSDate().timeIntervalSince1970
+        let id3 = strtoll(id2,nil,10)
+        let note2 = note.filter(id == id3)
+        try! db.run(note2.update(color <- color2,modificationTime <- Int64(date)))
+    }
+
+
+    
     
     
 }

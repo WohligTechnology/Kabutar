@@ -42,7 +42,7 @@ public class Folder {
     }
     
     func find() -> AnySequence<Row>  {
-        return try! db.prepare(folder.filter(creationTime != 0))
+        return try! db.prepare(folder.filter(creationTime != 0).order(id.desc))
     }
     
     func edit(name2:String,id2:String) -> AnySequence<Row>  {

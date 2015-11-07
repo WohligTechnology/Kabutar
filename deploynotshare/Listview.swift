@@ -15,6 +15,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var notesTitle:NSMutableArray = []
     var notesId:NSMutableArray = []
     var notesobj = Note()
+    var color: [String] = []
     var noteName = UITextField()
     let width = UIScreen.mainScreen().bounds.size.width
     let height = UIScreen.mainScreen().bounds.size.height
@@ -24,12 +25,8 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         
         ViewForNotes = self;
         
-        self.setNavigationBarItem()
-        
-        for row in notesobj.find() {
-            notesTitle.addObject(row[notesobj.title]!)
-            notesId.addObject(String(row[notesobj.id]))
-        }
+        getAllNotes()
+
         let bottomLine = UIView(frame: CGRectMake(0,height-114, width , 1))
         bottomLine.backgroundColor = PinkColor
         self.view.addSubview(bottomLine)
@@ -37,6 +34,31 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         let addView = AddCircle(frame: CGRectMake(width/2 - 35, height-134, 70, 70))
         self.view.addSubview(addView)
 
+    }
+    
+    func getAllNotes(){
+        notesTitle = []
+        notesId = []
+        color = []
+        
+        
+        self.setNavigationBarItem()
+        
+        if(selectedFolderToNoteId==""){
+            for row in notesobj.find() {
+                notesTitle.addObject(row[notesobj.title]!)
+                notesId.addObject(String(row[notesobj.id]))
+                color.append(row[notesobj.color]!)
+            }
+            
+        }else{
+            for row in notesobj.getNotesFolder(selectedFolderToNoteId) {
+                notesTitle.addObject(row[notesobj.title]!)
+                notesId.addObject(String(row[notesobj.id]))
+                color.append(row[notesobj.color]!)
+            }
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,10 +69,53 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.notesTitle.count
     }
+    var PressCkeck = 0
+    var addColorPattern:ColorPattern!
+    
+    
+    func closeColorPattern(sender:UIGestureRecognizer?){
+        PressCkeck = 0
+        self.addColorPattern.animation.makeY((self.view.frame.height)).easeInOut.animateWithCompletion(transitionTime, {
+            self.addColorPattern.removeFromSuperview()
+            
+        })
+        blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
+            blackOut.removeFromSuperview()
+        })
+        
+    }
+    func colorPattern(sender: UILongPressGestureRecognizer)
+    {
+        let pass = sender.locationInView(self.listView)
+        let indexPath: NSIndexPath = self.listView.indexPathForRowAtPoint(pass)!
+        ColorNote = notesId[indexPath.row] as! String
+        
+        
+        if(PressCkeck == 0){
+            PressCkeck = 1
+            let blackOutTap = UITapGestureRecognizer(target: self,action: "closeColorPattern:")
+            self.addBlackView()
+            blackOut.addGestureRecognizer(blackOutTap)
+            blackOut.alpha = 0
+            self.view.addSubview(blackOut);
+            blackOut.animation.makeAlpha(1).animate(transitionTime);
+            
+            self.addColorPattern = ColorPattern(frame: CGRectMake(MainWidth/4 - 50,MainHeight/4, 300, 150))
+            self.view.addSubview(self.addColorPattern)
+        }
+        
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = listView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell?
         cell!.textLabel?.text = notesTitle[indexPath.row] as? String
+        let colorno = color[indexPath.row]
+        var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
+        cell!.addGestureRecognizer(celllongPress)
+        
+//        var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
+//        cell.addGestureRecognizer(celllongPress)
+        cell?.backgroundColor = NoteColors[Int(colorno)!]
         return cell!
         
     }
@@ -125,7 +190,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     var addDateTimeView:DateTime!
     var addMoveToFolder:MoveToFolder!
-    
+    var selectedNoteId: String = ""
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
     {
         
@@ -170,6 +235,8 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         let moveAction = UITableViewRowAction(style: .Normal, title: "Move")
             {
                 (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+                print(indexPath.row)
+                self.selectedNoteId = self.notesId[indexPath.row] as! String
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMoveToFolder:")
                 self.addBlackView()
                 blackOut.addGestureRecognizer(blackOutTap)

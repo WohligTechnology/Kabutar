@@ -13,8 +13,9 @@ class MoveToFolder: UIView,UITableViewDataSource,UITableViewDelegate{
     var tableView: UITableView!
     var labeltext = ["BIOLOGY","PYSICS","MATHS","ECOLOGY","BIOLOGY","PYSICS","MATHS","ECOLOGY"]
     var folderobj = Folder()
+    var noteobj = Note()
     var folderName: NSMutableArray = []
-    
+    var folderId: NSMutableArray = []
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.folderName.count
     }
@@ -38,6 +39,7 @@ class MoveToFolder: UIView,UITableViewDataSource,UITableViewDelegate{
         
         for row in folderobj.find() {
             folderName.addObject(row[folderobj.name]!)
+            folderId.addObject(String(row[folderobj.id]))
         }
         
         
@@ -58,16 +60,23 @@ class MoveToFolder: UIView,UITableViewDataSource,UITableViewDelegate{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        print(indexPath.row)
         cell.textLabel?.text = folderName[indexPath.row] as! String
         return cell
         
+    }
+    
+    func moveToSelectedFolder(noteID:String,folderID:String){
+        print(noteID)
+        print(folderID)
+        noteobj.changeNoteFolder(folderID, id2: noteID)
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 //        self.removeFromSuperview()
         if(checkstatus == 2){
             let mainview = ViewForNotes as! Listview
+            moveToSelectedFolder(mainview.selectedNoteId,folderID: folderId[indexPath.row] as! String)
+            
             mainview.closeMoveToFolder(nil);
         }else if(checkstatus == 1){
             let mainview = ViewForNotes as! Detailview

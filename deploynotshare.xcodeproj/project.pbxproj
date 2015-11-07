@@ -37,6 +37,8 @@
 		4380B3521BDA590E0026CED9 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4380B3511BDA590E0026CED9 /* detailViewController.swift */; };
 		4389CE251BECB8E7005CF805 /* MoveToFolder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4389CE241BECB8E7005CF805 /* MoveToFolder.xib */; settings = {ASSET_TAGS = (); }; };
 		4389CE271BECBA12005CF805 /* MoveToFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4389CE261BECBA11005CF805 /* MoveToFolder.swift */; settings = {ASSET_TAGS = (); }; };
+		4389CE291BEDDC36005CF805 /* ColorPattern.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4389CE281BEDDC36005CF805 /* ColorPattern.xib */; settings = {ASSET_TAGS = (); }; };
+		4389CE2B1BEDE136005CF805 /* ColorPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4389CE2A1BEDE136005CF805 /* ColorPattern.swift */; settings = {ASSET_TAGS = (); }; };
 		43921D551BE0BD940032DE28 /* SortView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43921D541BE0BD940032DE28 /* SortView.xib */; };
 		43921D571BE0C4590032DE28 /* SortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921D561BE0C4590032DE28 /* SortView.swift */; };
 		43921D591BE0D8260032DE28 /* ThinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921D581BE0D8260032DE28 /* ThinkViewController.swift */; };
@@ -109,6 +111,8 @@
 		4380B3511BDA590E0026CED9 /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
 		4389CE241BECB8E7005CF805 /* MoveToFolder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoveToFolder.xib; sourceTree = "<group>"; };
 		4389CE261BECBA11005CF805 /* MoveToFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveToFolder.swift; sourceTree = "<group>"; };
+		4389CE281BEDDC36005CF805 /* ColorPattern.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPattern.xib; sourceTree = "<group>"; };
+		4389CE2A1BEDE136005CF805 /* ColorPattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPattern.swift; sourceTree = "<group>"; };
 		43921D541BE0BD940032DE28 /* SortView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SortView.xib; sourceTree = "<group>"; };
 		43921D561BE0C4590032DE28 /* SortView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortView.swift; sourceTree = "<group>"; };
 		43921D581BE0D8260032DE28 /* ThinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThinkViewController.swift; sourceTree = "<group>"; };
@@ -278,6 +282,7 @@
 				43A0049A1BE894E300396E47 /* ViewView.xib */,
 				43A0049C1BE8BC8100396E47 /* DateTime.xib */,
 				4389CE241BECB8E7005CF805 /* MoveToFolder.xib */,
+				4389CE281BEDDC36005CF805 /* ColorPattern.xib */,
 				43E0F2AF1BE8CA4A00363F49 /* Alert.xib */,
 				436107A71BEB27890094BB25 /* NavigationTableCell.xib */,
 				36E416761BEB6C9C007EE385 /* AddCircle.xib */,
@@ -285,6 +290,7 @@
 				36E416701BEB12E0007EE385 /* NoteCollectionUIView.swift */,
 				4389CE261BECBA11005CF805 /* MoveToFolder.swift */,
 				436107A51BEB276D0094BB25 /* NavigationTableCell.swift */,
+				4389CE2A1BEDE136005CF805 /* ColorPattern.swift */,
 				43921D561BE0C4590032DE28 /* SortView.swift */,
 				36E416741BEB3624007EE385 /* NoteFooterAdd.swift */,
 				436107A31BEA2A750094BB25 /* Move.swift */,
@@ -418,6 +424,7 @@
 				436107A21BEA06320094BB25 /* Move.xib in Resources */,
 				437317381BD770660018B580 /* LaunchScreen.storyboard in Resources */,
 				43A0049B1BE894E300396E47 /* ViewView.xib in Resources */,
+				4389CE291BEDDC36005CF805 /* ColorPattern.xib in Resources */,
 				437317351BD770660018B580 /* Assets.xcassets in Resources */,
 				43A0049D1BE8BC8100396E47 /* DateTime.xib in Resources */,
 				36E4166F1BEB1266007EE385 /* NoteCollectionViewCell.xib in Resources */,
@@ -507,6 +514,7 @@
 				43921D571BE0C4590032DE28 /* SortView.swift in Sources */,
 				4361079E1BE9F4BE0094BB25 /* Detailview.swift in Sources */,
 				43921D5B1BE0E7DA0032DE28 /* PasswordViewController.swift in Sources */,
+				4389CE2B1BEDE136005CF805 /* ColorPattern.swift in Sources */,
 				4380B3501BDA54DF0026CED9 /* popup.swift in Sources */,
 				36E416791BEB6D18007EE385 /* AddCircle.swift in Sources */,
 				434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */,

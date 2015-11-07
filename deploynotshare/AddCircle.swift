@@ -34,7 +34,11 @@ class AddCircle: UIView {
     }
 
     @IBAction func CreateNoteTap(sender: AnyObject) {
-        switch(checkstatus){
+        print(checkstatus)
+        
+        print("my status")
+        
+        switch(checkstatus) {
         case 1: mainview = ViewForNotes as! Detailview;
         case 2: mainview = ViewForNotes as! Listview;
         case 3: mainview = ViewForNotes as! cardViewController;
@@ -47,8 +51,27 @@ class AddCircle: UIView {
             print("cancel")
         }
         let createsave = UIAlertAction(title: "create", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            self.notesobj.create(createfolsername.text!,background2: "background",color2: "111", folder2: 1, islocked2: 1,paper2: "a",reminderTime2: 2,serverid2: "dfa",tags2: "tab",timebomb2: 0)
-            self.mainview.viewDidLoad()
+            self.notesobj.create(createfolsername.text!,background2: "background",color2: "10", folder2: 1, islocked2: 1,paper2: "a",reminderTime2: 2,serverid2: "dfa",tags2: "tab",timebomb2: 0)
+
+            
+            switch(checkstatus) {
+            case 1:
+                let otherCtrl = ViewForNotes as! Detailview;
+                otherCtrl.getAllNotes()
+                otherCtrl.detailtableview!.reloadData()
+            case 2:
+                let otherCtrl = ViewForNotes as! Listview;
+                otherCtrl.getAllNotes()
+                otherCtrl.listView!.reloadData()
+                
+            case 3:
+                let otherCtrl = ViewForNotes as! cardViewController;
+                otherCtrl.getAllNotes()
+                otherCtrl.collectionView!.reloadData()
+            default : break
+            }
+            
+
         }
         createalert.addAction(createcancel)
         createalert.addAction(createsave)

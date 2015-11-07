@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import DKChainableAnimationKit
+
 class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource ,UICollectionViewDelegate {
     
     @IBOutlet weak var sorting: SortView!
@@ -20,24 +21,19 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     var notesTitle:NSMutableArray = []
     var notesId:NSMutableArray = []
     var modificationTime: NSMutableArray = []
+    var color: [String] = []
     var notesobj = Note()
+    var insideView = NoteCollectionUIView()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ViewForNotes = self;
-        
+        getAllNotes()
         
         let bounds = UIScreen.mainScreen().bounds
         let width = bounds.size.width
         let height = bounds.size.height
-        
-        for row in notesobj.find() {
-            notesTitle.addObject(row[notesobj.title]!)
-            notesId.addObject(String(row[notesobj.id]))
-            modificationTime.addObject(Double(row[notesobj.modificationTime]))
-        }
         
         // Do any additional setup after loading the view, typically from a nib.
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -63,9 +59,45 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         
     }
     
+    func getAllNotes () {
+        
+        ViewForNotes = self;
+        notesTitle = []
+        notesId = []
+        modificationTime = []
+        color = []
+        
+        
+        
+        if(selectedFolderToNoteId==""){
+            for row in notesobj.find() {
+                notesTitle.addObject(row[notesobj.title]!)
+                notesId.addObject(String(row[notesobj.id]))
+                modificationTime.addObject(Double(row[notesobj.modificationTime]))
+                color.append(row[notesobj.color]!)
+            }
+            print("Color");
+            print(color);
+            
+        } else {
+            for row in notesobj.getNotesFolder(selectedFolderToNoteId) {
+                notesTitle.addObject(row[notesobj.title]!)
+                notesId.addObject(String(row[notesobj.id]))
+                modificationTime.addObject(Double(row[notesobj.modificationTime]))
+                color.append(row[notesobj.color]!)
+                
+            }
+            
+        }
+        
+
+    }
+    
     func createTap(sender:UITapGestureRecognizer?){
         print("create tap")
+        
     }
+
     
     
     
@@ -90,10 +122,46 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         return self.notesTitle.count
     }
     
+    func addBlackView(){
+        blackOut = UIView(frame: CGRectMake(0, 0, (self.view.frame.width), (self.view.frame.height)))
+        blackOut.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+    }
     
-    func colorPattern(longpress: UIGestureRecognizer)
+    var addColorPattern:ColorPattern!
+    
+    func closeColorPattern(sender:UIGestureRecognizer?){
+        PressCkeck = 0
+        self.addColorPattern.animation.makeY((self.view.frame.height)).easeInOut.animateWithCompletion(transitionTime, {
+            self.addColorPattern.removeFromSuperview()
+            
+        })
+        blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
+            blackOut.removeFromSuperview()
+        })
+        
+    }
+    
+    var PressCkeck = 0
+    
+    func colorPattern(sender: UILongPressGestureRecognizer)
     {
-        print("long press");
+        let pass = sender.locationInView(self.collectionView)
+        let indexPath: NSIndexPath = self.collectionView.indexPathForItemAtPoint(pass)!
+        ColorNote = notesId[indexPath.row] as! String
+        
+        if(PressCkeck == 0){
+           PressCkeck = 1
+        let blackOutTap = UITapGestureRecognizer(target: self,action: "closeColorPattern:")
+        self.addBlackView()
+        blackOut.addGestureRecognizer(blackOutTap)
+        blackOut.alpha = 0
+        self.view.addSubview(blackOut);
+        blackOut.animation.makeAlpha(1).animate(transitionTime);
+        
+        self.addColorPattern = ColorPattern(frame: CGRectMake(MainWidth/4 - 50,MainHeight/4, 300, 150))
+        self.view.addSubview(self.addColorPattern)
+        }
+
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -103,22 +171,29 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         let height = bounds.size.height
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
-        let insideView = NoteCollectionUIView(frame: CGRectMake(0,0,(width-30)/2,(height-30)/4))
+        
+        insideView = NoteCollectionUIView(frame: CGRectMake(0,0,(width-30)/2,(height-30)/4))
         
         insideView.titleLabel.text = notesTitle[indexPath.row] as? String
         let moddate = NSDate(timeIntervalSince1970: modificationTime[indexPath.row] as! Double)
         //        insideView.descLabel.text = notesId[indexPath.row] as? String
         insideView.timeLabel.text = String(moddate)
-        //        insideView.view.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+        let colorno = color[indexPath.row]
+        print(colorno);
+        insideView.view.backgroundColor = NoteColors[Int(colorno)!]
         
         cell.addSubview(insideView);
         
-        cell.backgroundColor = UIColor.orangeColor()
+        var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
+        cell.addGestureRecognizer(celllongPress)
+        
+        cell.backgroundColor = UIColor(rgba:"#96CEEE")
         return cell
         
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("showdetail", sender: self)
+        print("im selected")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

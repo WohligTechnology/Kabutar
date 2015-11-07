@@ -10,8 +10,11 @@ import UIKit
 
 class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
+    @IBOutlet weak var detailtableview: UITableView!
     var notesTitle:NSMutableArray = []
     var notesId:NSMutableArray = []
+    var modificationTime: NSMutableArray = []
+    var color: [String] = []
     var notesobj = Note()
     var noteName = UITextField()
     let mainColor = PinkColor
@@ -24,14 +27,12 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         ViewForNotes = self;
         
+        getAllNotes()
+        
         self.setNavigationBarItem()
         let bounds = UIScreen.mainScreen().bounds
         let width = bounds.size.width
         let height = bounds.size.height
-        for row in notesobj.find() {
-            notesTitle.addObject(row[notesobj.title]!)
-            notesId.addObject(String(row[notesobj.id]))
-        }
         let bottomLine = UIView(frame: CGRectMake(0,height-114, width , 1))
         bottomLine.backgroundColor = PinkColor
         self.view.addSubview(bottomLine)
@@ -39,6 +40,39 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let addView = AddCircle(frame: CGRectMake(width/2 - 35, height-134, 70, 70))
         self.view.addSubview(addView)
     }
+    
+    func getAllNotes(){
+        ViewForNotes = self;
+        notesTitle = []
+        notesId = []
+        modificationTime = []
+        color = []
+        
+        
+        
+        if(selectedFolderToNoteId==""){
+            for row in notesobj.find() {
+                notesTitle.addObject(row[notesobj.title]!)
+                notesId.addObject(String(row[notesobj.id]))
+                modificationTime.addObject(Double(row[notesobj.modificationTime]))
+                color.append(row[notesobj.color]!)
+            }
+            print("Color");
+            print(color);
+            
+        } else {
+            for row in notesobj.getNotesFolder(selectedFolderToNoteId) {
+                notesTitle.addObject(row[notesobj.title]!)
+                notesId.addObject(String(row[notesobj.id]))
+                modificationTime.addObject(Double(row[notesobj.modificationTime]))
+                color.append(row[notesobj.color]!)
+                
+            }
+            
+        }
+
+    }
+    
     @IBOutlet weak var detailView: UITableView!
 
     override func didReceiveMemoryWarning() {
@@ -51,10 +85,55 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
         return self.notesTitle.count
     }
     
+    var PressCkeck = 0
+    var addColorPattern:ColorPattern!
+    
+    
+    func closeColorPattern(sender:UIGestureRecognizer?){
+        PressCkeck = 0
+        self.addColorPattern.animation.makeY((self.view.frame.height)).easeInOut.animateWithCompletion(transitionTime, {
+            self.addColorPattern.removeFromSuperview()
+            
+        })
+        blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
+            blackOut.removeFromSuperview()
+        })
+        
+    }
+    func colorPattern(sender: UILongPressGestureRecognizer)
+    {
+        let pass = sender.locationInView(self.detailtableview)
+        let indexPath: NSIndexPath = self.detailtableview.indexPathForRowAtPoint(pass)!
+        ColorNote = notesId[indexPath.row] as! String
+        
+        
+        if(PressCkeck == 0){
+            PressCkeck = 1
+            let blackOutTap = UITapGestureRecognizer(target: self,action: "closeColorPattern:")
+            self.addBlackView()
+            blackOut.addGestureRecognizer(blackOutTap)
+            blackOut.alpha = 0
+            self.view.addSubview(blackOut);
+            blackOut.animation.makeAlpha(1).animate(transitionTime);
+            
+            self.addColorPattern = ColorPattern(frame: CGRectMake(MainWidth/4 - 50,MainHeight/4, 300, 150))
+            self.view.addSubview(self.addColorPattern)
+        }
+        
+    }
+
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = detailView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell?
         cell!.textLabel?.text = notesTitle[indexPath.row] as? String
         cell!.detailTextLabel?.text = notesId[indexPath.row] as? String
+        let colorno = color[indexPath.row]
+        var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
+        cell!.addGestureRecognizer(celllongPress)
+        
+        //        var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
+        //        cell.addGestureRecognizer(celllongPress)
+        cell?.backgroundColor = NoteColors[Int(colorno)!]
         return cell!
         
     }
