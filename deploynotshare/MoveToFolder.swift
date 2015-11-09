@@ -75,7 +75,7 @@ class MoveToFolder: UIView,UITableViewDataSource,UITableViewDelegate{
 //        self.removeFromSuperview()
         if(checkstatus == 2){
             let mainview = ViewForNotes as! Listview
-            moveToSelectedFolder(mainview.selectedNoteId,folderID: folderId[indexPath.row] as! String)
+            moveToSelectedFolder(selectedNoteId,folderID: folderId[indexPath.row] as! String)
             
             mainview.closeMoveToFolder(nil);
         }else if(checkstatus == 1){

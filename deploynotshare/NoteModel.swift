@@ -108,6 +108,9 @@ public class Note {
     }
     
     func changeTimeBomb(timebomb2:Int64,id2:String)  {
+        print("im model")
+        print(timebomb2)
+        print(id2)
         let date = NSDate().timeIntervalSince1970
         let id3 = strtoll(id2,nil,10)
         let note2 = note.filter(id == id3)

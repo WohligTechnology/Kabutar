@@ -60,7 +60,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     }
     
     @IBAction func pickimage(sender: AnyObject) {
-        print("image picker click")
         let imagepick = UIImagePickerController()
         imagepick.delegate = self
         imagepick.sourceType = .PhotoLibrary

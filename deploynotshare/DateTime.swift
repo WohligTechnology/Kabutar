@@ -11,6 +11,7 @@ import UIKit
 class DateTime: UIView {
     @IBOutlet weak var datetimepopup: UIView!
     var blackOut:UIView!
+    var notesobj = Note()
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var timePicker: UIDatePicker!
@@ -43,7 +44,8 @@ class DateTime: UIView {
         let finalDate = SumDateFormat.dateFromString(dateFormatter.stringFromDate(datePicker.date) + ", " + timeFormatter.stringFromDate(timePicker.date))
         
         print(finalDate?.timeIntervalSince1970);
-        print(SumDateFormat.stringFromDate(finalDate!));
+        print(selectedNoteId);
+        notesobj.changeTimeBomb(Int64((finalDate?.timeIntervalSince1970)!), id2: selectedNoteId)
         self.removeFromSuperview()
         
     }

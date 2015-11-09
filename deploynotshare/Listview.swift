@@ -123,10 +123,10 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
     func showedit(name: String, id: String){
         let editalert = UIAlertController(title: "Edit Note", message: "Note name", preferredStyle: UIAlertControllerStyle.Alert)
         let eidtcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print("cancel")
+           
         }
         let editesave = UIAlertAction(title: "Edit", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print(self.noteName.text)
+          
             self.notesobj.changeTitle(self.noteName.text!,id2:id)
             self.getAllNotes()
             self.listView!.reloadData()
@@ -147,11 +147,10 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
     func showdelete(id:String){
         let alert = UIAlertController(title: "Delete Note", message: "Are you sure !", preferredStyle: UIAlertControllerStyle.Alert)
         let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print("Ok press")
+            
         }
         let alertdelete = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print("Delete Press")
-            print(id)
+            
             self.notesobj.delete(id)
             self.getAllNotes()
             self.listView!.reloadData()
@@ -190,7 +189,6 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     var addDateTimeView:DateTime!
     var addMoveToFolder:MoveToFolder!
-    var selectedNoteId: String = ""
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
     {
         
@@ -221,6 +219,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         let timeBombAction = UITableViewRowAction(style: .Normal, title: "Bomb")
             {
                 (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+                selectedNoteId = self.notesId[indexPath.row] as! String
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
                 self.addBlackView()
                 blackOut.addGestureRecognizer(blackOutTap)
@@ -235,8 +234,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         let moveAction = UITableViewRowAction(style: .Normal, title: "Move")
             {
                 (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-                print(indexPath.row)
-                self.selectedNoteId = self.notesId[indexPath.row] as! String
+                selectedNoteId = self.notesId[indexPath.row] as! String
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMoveToFolder:")
                 self.addBlackView()
                 blackOut.addGestureRecognizer(blackOutTap)

@@ -17,6 +17,7 @@ var MainHeight:CGFloat!
 var SelectedNoteColor = UIColor()
 var ColorNote = String()
 let config = Config()
+var selectedNoteId = ""
 
 let PinkColor = UIColor(red: 255.0/255.0, green: 90/255, blue: 96/255, alpha: 1.0)
 
