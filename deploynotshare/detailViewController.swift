@@ -12,13 +12,16 @@ import RichEditorView
 class detailViewController: UIViewController {
     
     
-    let mainColor = PinkColor
+    @IBOutlet weak var ScrView: UIScrollView!
+    var vLayout:VerticalLayout!
+    var editor:RichEditorView!
+    var mainColor = PinkColor
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        var vLayout:VerticalLayout!
-        var editor:RichEditorView!
+       
         
-        vLayout = VerticalLayout(width: view.frame.width)
+        vLayout = VerticalFitLayout(width: view.frame.width)
         
         vLayout.backgroundColor = UIColor.cyanColor()
         self.ScrView.insertSubview(vLayout, atIndex: 0)
@@ -45,10 +48,7 @@ class detailViewController: UIViewController {
         
         changeHeight()
 
-        
-        
-        
-        
+    
 
     }
     func changeHeight() {
