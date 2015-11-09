@@ -77,8 +77,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
                 modificationTime.addObject(Double(row[notesobj.modificationTime]))
                 color.append(row[notesobj.color]!)
             }
-            print("Color");
-            print(color);
+         
             
         } else {
             for row in notesobj.getNotesFolder(selectedFolderToNoteId) {
@@ -95,7 +94,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     }
     
     func createTap(sender:UITapGestureRecognizer?){
-        print("create tap")
+        
     }
 
     
@@ -176,7 +175,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         //        insideView.descLabel.text = notesId[indexPath.row] as? String
         insideView.timeLabel.text = String(moddate)
         let colorno = color[indexPath.row]
-        print(colorno);
+      
         insideView.view.backgroundColor = NoteColors[Int(colorno)!]
         
         cell.addSubview(insideView);
@@ -190,13 +189,13 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("showdetail", sender: self)
-        print("im selected")
+
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "showdetail"){
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
-            print(indexPaths)
+          
             let indexPath = indexPaths[0] as NSIndexPath
             let vc = segue.destinationViewController as! detailViewController
             vc.title = self.notesTitle[indexPath.row] as? String
