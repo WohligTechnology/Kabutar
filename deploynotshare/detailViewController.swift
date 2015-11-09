@@ -11,28 +11,16 @@ import UIKit
 class detailViewController: UIViewController {
     
     let mainColor = PinkColor
-
-//    @IBOutlet weak var detailtext: UILabel!
-//    @IBOutlet weak var detaildescription: UILabel!
-//    var dtext = UILabel()
-//    var ddescription = UILabel()
-//    override func viewDidLoad() {
-//        print("detail view
-//        super.viewDidLoad()
-//        self.detailtext?.text = self.dtext.text
-//        self.detaildescription?.text = self.ddescription.text
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
     }
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-     
-        
-    }
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//     
+//        
+//    }
     
 
     override func didReceiveMemoryWarning() {

@@ -14,6 +14,8 @@ class DateTime: UIView {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var timePicker: UIDatePicker!
+    let dateFormatter = NSDateFormatter()
+    let timeFormatter = NSDateFormatter()
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadViewFromNib ()
@@ -31,8 +33,13 @@ class DateTime: UIView {
             let mainview = ViewForNotes as! Detailview
             mainview.closeTimeBomb(nil);
         }
-        print(datePicker.date)
-        print(timePicker.timeZone)
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        let dateTimeDisplay = dateFormatter.stringFromDate(datePicker.date) + " " + timeFormatter.stringFromDate(timePicker.date)
+        print(dateTimeDisplay)
 
        self.removeFromSuperview()
         
