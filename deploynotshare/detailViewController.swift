@@ -4,6 +4,7 @@ import RichEditorView
 var GDetailView:Any!
 
 class detailViewController: UIViewController , UINavigationControllerDelegate,UIImagePickerControllerDelegate {
+    @IBOutlet weak var FooterConstrain: NSLayoutConstraint!
     
     @IBOutlet weak var FooterView: UIView!
     var istoolbaropen = false
@@ -14,11 +15,21 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     var mainColor = PinkColor
     var toolbar:RichEditorToolbar!
     
+    var activeCheckbox : ElementCheckBox!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let b = UIBarButtonItem(image: UIImage(named: "Checkboxicon"), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addCheckBox"))
         
-        self.navigationItem.rightBarButtonItem = b
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name: UIKeyboardWillChangeFrameNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasHidden:"), name:UIKeyboardWillHideNotification, object: nil);
+//
+//        let b = UIBarButtonItem(image: UIImage(named: "Checkboxicon"), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addCheckBox"))
+//        
+//        self.navigationItem.rightBarButtonItem = b
+        
+        let bc = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("doneTap"))
+        
+        self.navigationItem.rightBarButtonItem = bc
         GDetailView = self
         vLayout = VerticalFitLayout(width: view.frame.width)
         
@@ -47,6 +58,28 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         
         
     }
+    
+    func doneTap() {
+        print("DoneTap");
+        editor.blur()
+    }
+    func keyboardWasShown(notification: NSNotification) {
+        var info = notification.userInfo!
+        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        
+        UIView.animateWithDuration(0.1, animations: { () -> Void in
+            self.FooterConstrain.constant = keyboardFrame.size.height
+        })
+    }
+    
+    func keyboardWasHidden(notification: NSNotification) {
+        var info = notification.userInfo!
+        
+        UIView.animateWithDuration(0.1, animations: { () -> Void in
+            self.FooterConstrain.constant = 0
+        })
+    }
+    
     func changeHeight() {
         
         vLayout?.layoutSubviews()
@@ -193,6 +226,9 @@ extension detailViewController: RichEditorDelegate {
     }
     
     func richEditorTookFocus(editor: RichEditorView) {
+        
+        self.editor = editor
+        
         print("How is it");
         toolbar.editor = editor
         if(!istoolbaropen) {

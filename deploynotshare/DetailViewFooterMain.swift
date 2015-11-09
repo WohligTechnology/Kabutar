@@ -35,6 +35,10 @@ class DetailViewFooterMain: UIView {
         DetailViewCtrl.addAudioTap();
     }
     
+    @IBAction func addCheckBox(sender: AnyObject) {
+        let DetailViewCtrl = GDetailView as! detailViewController
+        DetailViewCtrl.addCheckBox();
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadViewFromNib ()

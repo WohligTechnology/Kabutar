@@ -67,6 +67,19 @@
                     </constraints>
                     <state key="normal" image="more_icon_1"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gix-VI-GHY">
+                    <rect key="frame" x="178" y="0.0" width="44" height="44"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="U0V-aQ-gtm"/>
+                        <constraint firstAttribute="width" constant="44" id="bvv-XI-YAN"/>
+                        <constraint firstAttribute="height" constant="44" id="lZQ-rE-INH"/>
+                    </constraints>
+                    <state key="normal" image="Checkboxicon"/>
+                    <connections>
+                        <action selector="addCheckBox:" destination="-1" eventType="touchUpInside" id="NIy-hY-S7X"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="1" green="0.3529411764705882" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
@@ -78,13 +91,16 @@
                 <constraint firstItem="C8o-9M-3oo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="G14-Ff-1iF"/>
                 <constraint firstItem="C8o-9M-3oo" firstAttribute="leading" secondItem="5Ly-NQ-siJ" secondAttribute="trailing" id="H9M-Es-PGi"/>
                 <constraint firstItem="16V-Y4-377" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LS2-oU-qDV"/>
+                <constraint firstAttribute="bottom" secondItem="Gix-VI-GHY" secondAttribute="bottom" id="LsY-D6-kJC"/>
                 <constraint firstAttribute="bottom" secondItem="jqt-UY-Qcu" secondAttribute="bottom" id="R35-Oh-Xzq"/>
                 <constraint firstItem="jqt-UY-Qcu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="XXl-hn-kKv"/>
                 <constraint firstAttribute="bottom" secondItem="Dvb-cN-Tz1" secondAttribute="bottom" id="YAe-Vq-vpq"/>
                 <constraint firstItem="Dvb-cN-Tz1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aav-ju-3gJ"/>
                 <constraint firstAttribute="trailing" secondItem="16V-Y4-377" secondAttribute="trailing" constant="8" id="bxU-TS-aGn"/>
+                <constraint firstItem="Gix-VI-GHY" firstAttribute="leading" secondItem="Dvb-cN-Tz1" secondAttribute="trailing" id="p9r-5L-Lac"/>
                 <constraint firstItem="5Ly-NQ-siJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rmM-t7-CtG"/>
                 <constraint firstItem="Dvb-cN-Tz1" firstAttribute="leading" secondItem="jqt-UY-Qcu" secondAttribute="trailing" id="uEY-3w-XjY"/>
+                <constraint firstItem="Gix-VI-GHY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vZN-XE-kQ7"/>
                 <constraint firstAttribute="bottom" secondItem="C8o-9M-3oo" secondAttribute="bottom" id="yyH-Jw-5N5"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -92,6 +108,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Checkboxicon" width="23" height="20"/>
         <image name="audio_icon_1" width="90" height="90"/>
         <image name="brush_icon_1" width="90" height="90"/>
         <image name="gallary_icon_1" width="90" height="90"/>
