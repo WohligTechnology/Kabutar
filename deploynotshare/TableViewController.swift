@@ -155,7 +155,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func showalert(id:String){
         let alert = UIAlertController(title: "Delete Folder", message: "Are you sure !", preferredStyle: UIAlertControllerStyle.Alert)
-        let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+        let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             print("Ok press")
         }
         let alertdelete = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
@@ -166,8 +166,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.viewDidLoad()
             
         }
-        alert.addAction(alertdelete)
         alert.addAction(alertAction)
+        alert.addAction(alertdelete)
         presentViewController(alert, animated: true) { () -> Void in }
     }
     
@@ -176,7 +176,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let createcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             print("cancel")
         }
-        let createsave = UIAlertAction(title: "create", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+        let createsave = UIAlertAction(title: "Create", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             print(self.createfolsername.text)
             self.folderobj.create(self.createfolsername.text!)
             self.viewDidLoad()
@@ -221,7 +221,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "ShowNotes"){
-            checkstatus = 3 
+            checkstatus = 3
             let selectedPath = self.tableView!.indexPathForSelectedRow
             let vc = segue.destinationViewController as! cardViewController
             vc.title = self.folderName[selectedPath!.row] as? String
