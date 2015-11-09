@@ -180,7 +180,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         
         cell.addSubview(insideView);
         
-        var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
+        let celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
         cell.addGestureRecognizer(celllongPress)
         
         cell.backgroundColor = UIColor(rgba:"#96CEEE")
@@ -199,7 +199,6 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
             let indexPath = indexPaths[0] as NSIndexPath
             let vc = segue.destinationViewController as! detailViewController
             vc.title = self.notesTitle[indexPath.row] as? String
-            
         }
     }
     

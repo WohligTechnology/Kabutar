@@ -9,7 +9,10 @@
 import UIKit
 import RichEditorView
 
+var GDetailView:Any!
+
 class detailViewController: UIViewController {
+    
     
     
     @IBOutlet weak var ScrView: UIScrollView!
@@ -19,7 +22,7 @@ class detailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        GDetailView = self
         vLayout = VerticalFitLayout(width: view.frame.width)
         
         self.ScrView.insertSubview(vLayout, atIndex: 0)
@@ -27,8 +30,8 @@ class detailViewController: UIViewController {
         editor = RichEditorView(frame: CGRectMake(0,0,width,28))
         editor.setHTML("God is great")
         
-        let p = editor.runJS("document.queryCommandValue('Bold')")
-        print("Console");
+//        let p = editor.runJS("document.queryCommandValue('Bold')")
+//        print("Console");
         editor.delegate = self;
         
         vLayout.addSubview(editor)
@@ -36,13 +39,16 @@ class detailViewController: UIViewController {
         editor.setTextBackgroundColor(UIColor.redColor())
         editor.backgroundColor = UIColor.redColor()
         changeHeight()
+        
+        let footerView = DetailViewFooterMain(frame: CGRectMake(0,self.view.frame.height-108,width,44))
+        self.view.addSubview(footerView)
     }
     func changeHeight() {
         
         vLayout?.layoutSubviews()
         self.ScrView.contentSize = vLayout.frame.size
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -20,6 +20,8 @@
 		36F114701BF078CC0023E2DB /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1146F1BF078CC0023E2DB /* ConfigModel.swift */; };
 		36F114721BF08DD30023E2DB /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F114711BF08DD30023E2DB /* Layout.swift */; };
 		36F114741BF08E6B0023E2DB /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F114731BF08E6B0023E2DB /* Checkbox.swift */; };
+		36F114761BF0B6310023E2DB /* DetailViewFooterMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F114751BF0B6310023E2DB /* DetailViewFooterMain.xib */; };
+		36F1147A1BF0BA770023E2DB /* DetailViewFooterMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F114791BF0BA770023E2DB /* DetailViewFooterMain.swift */; };
 		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; };
 		434E77871BE3869E00684C08 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */; };
 		434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E778A1BE3979800684C08 /* MenuListViewController.swift */; };
@@ -91,6 +93,8 @@
 		36F1146F1BF078CC0023E2DB /* ConfigModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
 		36F114711BF08DD30023E2DB /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		36F114731BF08E6B0023E2DB /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		36F114751BF0B6310023E2DB /* DetailViewFooterMain.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewFooterMain.xib; sourceTree = "<group>"; };
+		36F114791BF0BA770023E2DB /* DetailViewFooterMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewFooterMain.swift; sourceTree = "<group>"; };
 		434E77771BE34B4800684C08 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		434E778A1BE3979800684C08 /* MenuListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuListViewController.swift; sourceTree = "<group>"; };
@@ -295,6 +299,8 @@
 				43E0F2AF1BE8CA4A00363F49 /* Alert.xib */,
 				436107A71BEB27890094BB25 /* NavigationTableCell.xib */,
 				36E416761BEB6C9C007EE385 /* AddCircle.xib */,
+				36F114751BF0B6310023E2DB /* DetailViewFooterMain.xib */,
+				36F114791BF0BA770023E2DB /* DetailViewFooterMain.swift */,
 				36E416781BEB6D18007EE385 /* AddCircle.swift */,
 				36E416701BEB12E0007EE385 /* NoteCollectionUIView.swift */,
 				4389CE261BECBA11005CF805 /* MoveToFolder.swift */,
@@ -435,6 +441,7 @@
 				43A0049B1BE894E300396E47 /* ViewView.xib in Resources */,
 				4389CE291BEDDC36005CF805 /* ColorPattern.xib in Resources */,
 				437317351BD770660018B580 /* Assets.xcassets in Resources */,
+				36F114761BF0B6310023E2DB /* DetailViewFooterMain.xib in Resources */,
 				43A0049D1BE8BC8100396E47 /* DateTime.xib in Resources */,
 				36E4166F1BEB1266007EE385 /* NoteCollectionViewCell.xib in Resources */,
 				43EFB9C11BDE62380014EDF9 /* footermenu.xib in Resources */,
@@ -524,6 +531,7 @@
 				434E77871BE3869E00684C08 /* SideMenuTableViewController.swift in Sources */,
 				43921D571BE0C4590032DE28 /* SortView.swift in Sources */,
 				4361079E1BE9F4BE0094BB25 /* Detailview.swift in Sources */,
+				36F1147A1BF0BA770023E2DB /* DetailViewFooterMain.swift in Sources */,
 				43921D5B1BE0E7DA0032DE28 /* PasswordViewController.swift in Sources */,
 				4389CE2B1BEDE136005CF805 /* ColorPattern.swift in Sources */,
 				4380B3501BDA54DF0026CED9 /* popup.swift in Sources */,
