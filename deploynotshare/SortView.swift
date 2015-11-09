@@ -12,6 +12,134 @@ class SortView: UIView {
 
     @IBOutlet weak var atoz: UIButton!
     @IBOutlet var sortnewview: UIView!
+    
+    @IBAction func sortAlpha(sender: AnyObject) {
+        
+        
+        config.set("note_sort",value2: "1")
+        if(checkstatus == 2){
+            let mainview = ViewForNotes as! Listview
+            mainview.getAllNotes()
+            mainview.listView!.reloadData()
+            
+        }else if(checkstatus == 1){
+            let mainview = ViewForNotes as! Detailview
+            mainview.getAllNotes()
+            mainview.detailtableview!.reloadData()
+            
+        }else if(checkstatus == 3){
+            let mainview = ViewForNotes as! cardViewController
+            mainview.getAllNotes()
+            mainview.collectionView!.reloadData()
+        }
+        let newnoteFooter = noteFooter as! NoteFooterAdd
+        newnoteFooter.closeNewSortView(nil)
+    }
+    
+    @IBAction func sortColor(sender: AnyObject) {
+        config.set("note_sort",value2: "2")
+        if(checkstatus == 2){
+            let mainview = ViewForNotes as! Listview
+            mainview.getAllNotes()
+            mainview.listView!.reloadData()
+            
+        }else if(checkstatus == 1){
+            let mainview = ViewForNotes as! Detailview
+            mainview.getAllNotes()
+            mainview.detailtableview!.reloadData()
+            
+        }else if(checkstatus == 3){
+            let mainview = ViewForNotes as! cardViewController
+            mainview.getAllNotes()
+            mainview.collectionView!.reloadData()
+        }
+        let newnoteFooter = noteFooter as! NoteFooterAdd
+        newnoteFooter.closeNewSortView(nil)
+    }
+    
+    @IBAction func sortCreation(sender: AnyObject) {
+        config.set("note_sort",value2: "3")
+        if(checkstatus == 2){
+            let mainview = ViewForNotes as! Listview
+            mainview.getAllNotes()
+            mainview.listView!.reloadData()
+            
+        }else if(checkstatus == 1){
+            let mainview = ViewForNotes as! Detailview
+            mainview.getAllNotes()
+            mainview.detailtableview!.reloadData()
+            
+        }else if(checkstatus == 3){
+            let mainview = ViewForNotes as! cardViewController
+            mainview.getAllNotes()
+            mainview.collectionView!.reloadData()
+        }
+        let newnoteFooter = noteFooter as! NoteFooterAdd
+        newnoteFooter.closeNewSortView(nil)    }
+    
+    @IBAction func sortModification(sender: AnyObject) {
+        config.set("note_sort",value2: "4")
+        if(checkstatus == 2){
+            let mainview = ViewForNotes as! Listview
+            mainview.getAllNotes()
+            mainview.listView!.reloadData()
+            
+        }else if(checkstatus == 1){
+            let mainview = ViewForNotes as! Detailview
+            mainview.getAllNotes()
+            mainview.detailtableview!.reloadData()
+            
+        }else if(checkstatus == 3){
+            let mainview = ViewForNotes as! cardViewController
+            mainview.getAllNotes()
+            mainview.collectionView!.reloadData()
+        }
+        let newnoteFooter = noteFooter as! NoteFooterAdd
+        newnoteFooter.closeNewSortView(nil)
+    }
+    
+    @IBAction func sortReminder(sender: AnyObject) {
+        config.set("note_sort",value2: "5")
+        if(checkstatus == 2){
+            let mainview = ViewForNotes as! Listview
+            mainview.getAllNotes()
+            mainview.listView!.reloadData()
+            
+        }else if(checkstatus == 1){
+            let mainview = ViewForNotes as! Detailview
+            mainview.getAllNotes()
+            mainview.detailtableview!.reloadData()
+            
+        }else if(checkstatus == 3){
+            let mainview = ViewForNotes as! cardViewController
+            mainview.getAllNotes()
+            mainview.collectionView!.reloadData()
+        }
+        let newnoteFooter = noteFooter as! NoteFooterAdd
+        newnoteFooter.closeNewSortView(nil)
+    }
+    
+    @IBAction func sortTimebomb(sender: AnyObject) {
+        config.set("note_sort",value2: "6")
+        if(checkstatus == 2){
+            let mainview = ViewForNotes as! Listview
+            mainview.getAllNotes()
+            mainview.listView!.reloadData()
+            
+        }else if(checkstatus == 1){
+            let mainview = ViewForNotes as! Detailview
+            mainview.getAllNotes()
+            mainview.detailtableview!.reloadData()
+            
+        }else if(checkstatus == 3){
+            let mainview = ViewForNotes as! cardViewController
+            mainview.getAllNotes()
+            mainview.collectionView!.reloadData()
+        }
+        let newnoteFooter = noteFooter as! NoteFooterAdd
+        newnoteFooter.closeNewSortView(nil)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadViewFromNib ()

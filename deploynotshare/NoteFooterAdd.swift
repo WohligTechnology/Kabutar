@@ -10,6 +10,8 @@ var newViewView:ViewView!
 var newSortView:SortView!
 var blackOut:UIView!
 
+var noteFooter:Any!
+
 var transitionTime = 0.3
 
 import UIKit
@@ -25,8 +27,8 @@ class NoteFooterAdd: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-       
         loadViewFromNib ()
+        
     }
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)
@@ -35,6 +37,7 @@ class NoteFooterAdd: UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
+        noteFooter = self;
     }
     func addBlackView(){
         blackOut = UIView(frame: CGRectMake(0, 0, (self.window?.frame.width)!, (self.window?.frame.height)!))
@@ -72,8 +75,6 @@ class NoteFooterAdd: UIView {
         newViewView = ViewView(frame: CGRectMake(35,(self.window?.frame.height)!, (self.window?.frame.width)!-70,188));
         self.window?.addSubview(newViewView)
         newViewView.animation.moveY(-188).easeInOut.animate(transitionTime)
-        
-        
     }
     
     func closeNewViewView (sender:UITapGestureRecognizer?) {

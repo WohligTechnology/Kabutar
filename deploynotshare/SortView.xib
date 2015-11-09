@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SortView" customModule="deploynotshare" customModuleProvider="target">
@@ -46,6 +46,9 @@
                             <state key="normal" title="A-Z alphabetical" image="alphabet_sort_view">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="sortAlpha:" destination="-1" eventType="touchUpInside" id="38M-NG-t8k"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRy-Si-VeN">
                             <rect key="frame" x="0.0" y="51" width="300" height="51"/>
@@ -56,6 +59,9 @@
                             <state key="normal" title="Colours" image="color_sort_view">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="sortColor:" destination="-1" eventType="touchUpInside" id="CLm-iN-hh3"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSd-vb-8ng">
                             <rect key="frame" x="0.0" y="102" width="300" height="51"/>
@@ -65,6 +71,9 @@
                             <state key="normal" title="Created Time" image="createdtime_sort_view">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="sortCreation:" destination="-1" eventType="touchUpInside" id="BHd-fF-t00"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjV-qq-YsI">
                             <rect key="frame" x="0.0" y="153" width="300" height="51"/>
@@ -74,6 +83,9 @@
                             <state key="normal" title="Modified Time" image="modifiedtime_sort_view">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="sortModification:" destination="-1" eventType="touchUpInside" id="3r4-zE-jyE"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMe-8X-jI4">
                             <rect key="frame" x="0.0" y="204" width="300" height="51"/>
@@ -83,6 +95,9 @@
                             <state key="normal" title="Reminder" image="reminder_sort_view">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="sortReminder:" destination="-1" eventType="touchUpInside" id="kX1-eP-2sD"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JiG-I1-BKo">
                             <rect key="frame" x="0.0" y="255" width="300" height="51"/>
@@ -92,6 +107,9 @@
                             <state key="normal" title="Time Bomb" image="createdtime_sort_view">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="sortTimebomb:" destination="-1" eventType="touchUpInside" id="aZf-yj-eOT"/>
+                            </connections>
                         </button>
                     </subviews>
                     <animations/>
