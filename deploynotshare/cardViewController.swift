@@ -103,8 +103,11 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        if(selectedFolderToNoteId=="")
+        {
         self.setNavigationBarItem()
         self.navigationController?.setToolbarHidden(true, animated: animated)
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
