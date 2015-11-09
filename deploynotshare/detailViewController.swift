@@ -20,36 +20,22 @@ class detailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        
         vLayout = VerticalFitLayout(width: view.frame.width)
         
-        vLayout.backgroundColor = UIColor.cyanColor()
         self.ScrView.insertSubview(vLayout, atIndex: 0)
         
-        editor = RichEditorView(frame: CGRectMake(0,40,width,28))
+        editor = RichEditorView(frame: CGRectMake(0,0,width,28))
         editor.setHTML("God is great")
         
         let p = editor.runJS("document.queryCommandValue('Bold')")
         print("Console");
-        print(p);
-        print("Console End")
         editor.delegate = self;
         
         vLayout.addSubview(editor)
         editor.setEditorBackgroundColor(UIColor.redColor())
         editor.setTextBackgroundColor(UIColor.redColor())
         editor.backgroundColor = UIColor.redColor()
-        
-        
-        let view1 = UIView(frame: CGRectMake(0,50,50,100))
-        view1.backgroundColor = UIColor.blueColor()
-        
-        vLayout.addSubview(view1)
-        
         changeHeight()
-
-    
-
     }
     func changeHeight() {
         
