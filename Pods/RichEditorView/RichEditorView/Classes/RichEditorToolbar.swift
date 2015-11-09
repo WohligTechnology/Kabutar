@@ -84,9 +84,9 @@ public class RichEditorToolbar: UIView {
         }
     }
 
-    private var toolbarScroll: UIScrollView
-    private var toolbar: UIToolbar
-    private var backgroundToolbar: UIToolbar
+    public var toolbarScroll: UIScrollView
+    public var toolbar: UIToolbar
+    public var backgroundToolbar: UIToolbar
     
     public override init(frame: CGRect) {
         toolbarScroll = UIScrollView()
@@ -118,7 +118,7 @@ public class RichEditorToolbar: UIView {
         toolbarScroll.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         toolbarScroll.showsHorizontalScrollIndicator = false
         toolbarScroll.showsVerticalScrollIndicator = false
-        toolbarScroll.backgroundColor = UIColor.clearColor()
+        //toolbarScroll.backgroundColor = UIColor.clearColor()
 
         toolbarScroll.addSubview(toolbar)
 

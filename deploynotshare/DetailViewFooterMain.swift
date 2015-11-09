@@ -12,21 +12,27 @@ class DetailViewFooterMain: UIView {
 
  
     
+    
     @IBAction func addTextTap(sender: AnyObject) {
-        GDetailView.addTextTap();
+        let DetailViewCtrl = GDetailView as! detailViewController
+        DetailViewCtrl.addTextTap();
     }
     
     @IBAction func addImageTap(sender: AnyObject) {
-        GDetailView.addImageTap();
+        let DetailViewCtrl = GDetailView as! detailViewController
+        print("Atleast");
+        DetailViewCtrl.addImageTap();
     }
     
   
     @IBAction func addSketchTap(sender: AnyObject) {
-        GDetailView.addSketchTap();
+        let DetailViewCtrl = GDetailView as! detailViewController
+        DetailViewCtrl.addSketchTap();
     }
    
     @IBAction func addAudioTap(sender: AnyObject) {
-        GDetailView.addAudioTap();
+        let DetailViewCtrl = GDetailView as! detailViewController
+        DetailViewCtrl.addAudioTap();
     }
     
     override init(frame: CGRect) {
@@ -47,9 +53,6 @@ class DetailViewFooterMain: UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
-        
-        
-        
     }
 
 

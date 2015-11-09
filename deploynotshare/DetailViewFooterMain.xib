@@ -4,15 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewFooterMain" customModule="deploynotshare" customModuleProvider="target">
-            <connections>
-                <outlet property="addAudio" destination="Dvb-cN-Tz1" id="Nbp-Zg-cxX"/>
-                <outlet property="addAudioTap" destination="Dvb-cN-Tz1" id="Ob3-Oc-LWO"/>
-                <outlet property="addImage" destination="C8o-9M-3oo" id="aaO-Ug-Lyz"/>
-                <outlet property="addSketch" destination="jqt-UY-Qcu" id="fE2-Am-urh"/>
-                <outlet property="addText" destination="5Ly-NQ-siJ" id="ech-4k-I6n"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewFooterMain" customModule="deploynotshare" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>

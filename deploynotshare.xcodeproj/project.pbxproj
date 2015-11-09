@@ -22,6 +22,8 @@
 		36F114741BF08E6B0023E2DB /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F114731BF08E6B0023E2DB /* Checkbox.swift */; };
 		36F114761BF0B6310023E2DB /* DetailViewFooterMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F114751BF0B6310023E2DB /* DetailViewFooterMain.xib */; };
 		36F1147A1BF0BA770023E2DB /* DetailViewFooterMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F114791BF0BA770023E2DB /* DetailViewFooterMain.swift */; };
+		36F1147C1BF0F8990023E2DB /* ElementCheckBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F1147B1BF0F8990023E2DB /* ElementCheckBox.xib */; };
+		36F1147E1BF0F8B10023E2DB /* ElementCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1147D1BF0F8B10023E2DB /* ElementCheckBox.swift */; };
 		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; };
 		434E77871BE3869E00684C08 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */; };
 		434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E778A1BE3979800684C08 /* MenuListViewController.swift */; };
@@ -95,6 +97,8 @@
 		36F114731BF08E6B0023E2DB /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		36F114751BF0B6310023E2DB /* DetailViewFooterMain.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewFooterMain.xib; sourceTree = "<group>"; };
 		36F114791BF0BA770023E2DB /* DetailViewFooterMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewFooterMain.swift; sourceTree = "<group>"; };
+		36F1147B1BF0F8990023E2DB /* ElementCheckBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElementCheckBox.xib; sourceTree = "<group>"; };
+		36F1147D1BF0F8B10023E2DB /* ElementCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementCheckBox.swift; sourceTree = "<group>"; };
 		434E77771BE34B4800684C08 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		434E778A1BE3979800684C08 /* MenuListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuListViewController.swift; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 				36E416761BEB6C9C007EE385 /* AddCircle.xib */,
 				36F114751BF0B6310023E2DB /* DetailViewFooterMain.xib */,
 				36F114791BF0BA770023E2DB /* DetailViewFooterMain.swift */,
+				36F1147B1BF0F8990023E2DB /* ElementCheckBox.xib */,
+				36F1147D1BF0F8B10023E2DB /* ElementCheckBox.swift */,
 				36E416781BEB6D18007EE385 /* AddCircle.swift */,
 				36E416701BEB12E0007EE385 /* NoteCollectionUIView.swift */,
 				4389CE261BECBA11005CF805 /* MoveToFolder.swift */,
@@ -436,6 +442,7 @@
 				36E416771BEB6C9C007EE385 /* AddCircle.xib in Resources */,
 				43F1A29D1BDBA87700F82938 /* Main.storyboard in Resources */,
 				43E0F2B01BE8CA4A00363F49 /* Alert.xib in Resources */,
+				36F1147C1BF0F8990023E2DB /* ElementCheckBox.xib in Resources */,
 				436107A21BEA06320094BB25 /* Move.xib in Resources */,
 				437317381BD770660018B580 /* LaunchScreen.storyboard in Resources */,
 				43A0049B1BE894E300396E47 /* ViewView.xib in Resources */,
@@ -521,6 +528,7 @@
 				43E0F2AE1BE8C5E500363F49 /* DateTime.swift in Sources */,
 				437317301BD770650018B580 /* ViewController.swift in Sources */,
 				436107A61BEB276D0094BB25 /* NavigationTableCell.swift in Sources */,
+				36F1147E1BF0F8B10023E2DB /* ElementCheckBox.swift in Sources */,
 				3611B0971BE8A94200F2FFF9 /* NoteModel.swift in Sources */,
 				437EF0DB1BD8CA5500B7E9BF /* cardViewController.swift in Sources */,
 				36F114721BF08DD30023E2DB /* Layout.swift in Sources */,

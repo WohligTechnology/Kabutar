@@ -2,4 +2,54 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "deploynotshare/detailViewController.swift"
+            timestampString = "468795372.918508"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "imagePickerController(_:didFinishPickingImage:editingInfo:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "deploynotshare.detailViewController.imagePickerController (deploynotshare.detailViewController)(Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIImagePickerController&gt;, didFinishPickingImage : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIImage&gt;, editingInfo : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.NSDictionary&gt;) -&gt; ()"
+                  moduleName = "deploynotshare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chintan/Documents/iOSApp/Kabutar/deploynotshare/detailViewController.swift"
+                  timestampString = "468795372.958707"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
+                  offsetFromSymbolStart = "1106">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "deploynotshare.detailViewController.(imagePickerController (deploynotshare.detailViewController) -&gt; (Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIImagePickerController&gt;, didFinishPickingImage : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIImage&gt;, editingInfo : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.NSDictionary&gt;) -&gt; ()).(closure #3)"
+                  moduleName = "deploynotshare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chintan/Documents/iOSApp/Kabutar/deploynotshare/detailViewController.swift"
+                  timestampString = "468795372.960495"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

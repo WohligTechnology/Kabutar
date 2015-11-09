@@ -46,15 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    static func CheckThis() {
-        print("This is just to check")
-    }
-    
     static func getDatabase () -> Connection {
         let path = NSSearchPathForDirectoriesInDomains(
             .DocumentDirectory, .UserDomainMask, true
             ).first!
-        print(path);
         let db = try! Connection("\(path)/db.sqlite3")
         
         return db;

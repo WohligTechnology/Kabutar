@@ -68,19 +68,12 @@ class DateTime: UIView {
         //let blackOutTap = UITapGestureRecognizer(target: self,action: "closeNewSortView:")
        
         addBlackView()
-        
+        datePicker.minimumDate = NSDate();
 //        blackOut.addGestureRecognizer(blackOutTap)
         //blackOut.alpha = 0.5
         self.window?.rootViewController?.view.addSubview(blackOut);
         blackOut.animation.makeAlpha(1).animate(transitionTime);
         
     }
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
