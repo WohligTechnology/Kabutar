@@ -15,6 +15,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var notesId:NSMutableArray = []
     var modificationTime: NSMutableArray = []
     var color: [String] = []
+    var islocked: [Int64] = []
     var notesobj = Note()
     var noteName = UITextField()
     let mainColor = PinkColor
@@ -47,6 +48,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
         notesId = []
         modificationTime = []
         color = []
+        islocked = []
         
         
         
@@ -56,6 +58,8 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 notesId.addObject(String(row[notesobj.id]))
                 modificationTime.addObject(Double(row[notesobj.modificationTime]))
                 color.append(row[notesobj.color]!)
+                islocked.append(row[notesobj.islocked])
+                
             }
             
         } else {
@@ -64,6 +68,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 notesId.addObject(String(row[notesobj.id]))
                 modificationTime.addObject(Double(row[notesobj.modificationTime]))
                 color.append(row[notesobj.color]!)
+                islocked.append(row[notesobj.islocked])
                 
             }
             
@@ -122,17 +127,24 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = detailView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell?
-        cell!.textLabel?.text = notesTitle[indexPath.row] as? String
-        cell!.detailTextLabel?.text = notesId[indexPath.row] as? String
+        let cell = detailtableview.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ListTableViewCell
+        cell.DetailViewTitle.text = notesTitle[indexPath.row] as? String
+        cell.DetailDescription.text = notesTitle[indexPath.row] as? String
+        if(islocked[indexPath.row] == 0){
+            cell.DetailLock.hidden = true
+        }else{
+            cell.DetailLock.hidden = false
+        }
+        
+        let moddate = NSDate(timeIntervalSince1970: self.modificationTime[indexPath.row] as! Double)
+    
+        cell.DetailTimeStamp.text = String(moddate)
+
         let colorno = color[indexPath.row]
         var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
-        cell!.addGestureRecognizer(celllongPress)
-        
-        //        var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
-        //        cell.addGestureRecognizer(celllongPress)
-        cell?.backgroundColor = NoteColors[Int(colorno)!]
-        return cell!
+        cell.addGestureRecognizer(celllongPress)
+        cell.backgroundColor = NoteColors[Int(colorno)!]
+        return cell
         
     }
     
@@ -235,6 +247,13 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let lockAction = UITableViewRowAction(style: .Normal, title: "Lock")
             {
                 (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+                if(self.islocked[indexPath.row] == 0){
+                    self.notesobj.changeLock(1,id2:self.notesId[indexPath.row] as! String)
+                }else{
+                    self.notesobj.changeLock(0, id2: self.notesId[indexPath.row] as! String)
+                }
+                self.getAllNotes()
+                self.detailtableview.reloadData()
                 
         }
         

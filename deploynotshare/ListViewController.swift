@@ -35,9 +35,9 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ListTableViewCell
-        cell.Ttitle.text = labeltext[indexPath.row]
-        cell.Tdescription.text = descriptiontext[indexPath.row]
-        cell.Ttimestamp.text = timestamptext[indexPath.row]
+//        cell.Ttitle.text = labeltext[indexPath.row]
+//        cell.Tdescription.text = descriptiontext[indexPath.row]
+//        cell.Ttimestamp.text = timestamptext[indexPath.row]
         return cell
         
         

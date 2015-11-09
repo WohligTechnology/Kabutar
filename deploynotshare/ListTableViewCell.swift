@@ -9,10 +9,13 @@
 import UIKit
 
 class ListTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var Ttitle: UILabel!
-    @IBOutlet weak var Tdescription: UILabel!
-    @IBOutlet weak var Ttimestamp: UILabel!
+    
+    @IBOutlet weak var ListViewTitle: UILabel!
+    @IBOutlet weak var ListLock: UIImageView!
+    @IBOutlet weak var DetailViewTitle: UILabel!
+    @IBOutlet weak var DetailDescription: UILabel!
+    @IBOutlet weak var DetailTimeStamp: UILabel!
+    @IBOutlet weak var DetailLock: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

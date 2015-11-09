@@ -16,17 +16,19 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var notesId:NSMutableArray = []
     var notesobj = Note()
     var color: [String] = []
-    var inlocked: [Int64] = []
+    var islocked: [Int64] = []
     var noteName = UITextField()
     let width = UIScreen.mainScreen().bounds.size.width
     let height = UIScreen.mainScreen().bounds.size.height
     
+    @IBOutlet weak var ListViewLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ViewForNotes = self;
         
         getAllNotes()
+//        ConfigObj.set("passcode", value2: "1234")
 
         let bottomLine = UIView(frame: CGRectMake(0,height-114, width , 1))
         bottomLine.backgroundColor = PinkColor
@@ -41,7 +43,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         notesTitle = []
         notesId = []
         color = []
-        inlocked = []
+        islocked = []
         
         
         self.setNavigationBarItem()
@@ -51,7 +53,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
                 notesTitle.addObject(row[notesobj.title]!)
                 notesId.addObject(String(row[notesobj.id]))
                 color.append(row[notesobj.color]!)
-                inlocked.append(row[notesobj.islocked])
+                islocked.append(row[notesobj.islocked])
                 
             }
             
@@ -60,7 +62,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
                 notesTitle.addObject(row[notesobj.title]!)
                 notesId.addObject(String(row[notesobj.id]))
                 color.append(row[notesobj.color]!)
-                inlocked.append(row[notesobj.islocked])
+                islocked.append(row[notesobj.islocked])
             }
             
         }
@@ -112,16 +114,22 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = listView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell?
-        cell!.textLabel?.text = notesTitle[indexPath.row] as? String
+        let cell = listView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ListTableViewCell
+        cell.ListViewTitle.text = notesTitle[indexPath.row] as? String
+        if(islocked[indexPath.row] == 0){
+            cell.ListLock.hidden = true
+        }else{
+            cell.ListLock.hidden = false
+        }
+        
         let colorno = color[indexPath.row]
         var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
-        cell!.addGestureRecognizer(celllongPress)
+        cell.addGestureRecognizer(celllongPress)
         
 //        var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
 //        cell.addGestureRecognizer(celllongPress)
-        cell?.backgroundColor = NoteColors[Int(colorno)!]
-        return cell!
+        cell.backgroundColor = NoteColors[Int(colorno)!]
+        return cell
         
     }
     
@@ -215,9 +223,19 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
                 
         }
         
+        
+        
         let lockAction = UITableViewRowAction(style: .Normal, title: "Lock")
             {
                 (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+                if(self.islocked[indexPath.row] == 0){
+                    self.notesobj.changeLock(1,id2:self.notesId[indexPath.row] as! String)
+                }else{
+                    self.notesobj.changeLock(0, id2: self.notesId[indexPath.row] as! String)
+                }
+                self.getAllNotes()
+                self.listView.reloadData()
+                
                 
         }
         
