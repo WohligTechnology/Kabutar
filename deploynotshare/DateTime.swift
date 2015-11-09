@@ -36,12 +36,15 @@ class DateTime: UIView {
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        let dateTimeDisplay = dateFormatter.stringFromDate(datePicker.date) + " " + timeFormatter.stringFromDate(timePicker.date)
-        print(dateTimeDisplay)
-
-       self.removeFromSuperview()
+        let SumDateFormat = NSDateFormatter()
+        SumDateFormat.dateStyle = NSDateFormatterStyle.ShortStyle
+        SumDateFormat.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        let finalDate = SumDateFormat.dateFromString(dateFormatter.stringFromDate(datePicker.date) + ", " + timeFormatter.stringFromDate(timePicker.date))
+        
+        print(finalDate?.timeIntervalSince1970);
+        print(SumDateFormat.stringFromDate(finalDate!));
+        self.removeFromSuperview()
         
     }
     
