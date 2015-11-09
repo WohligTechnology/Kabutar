@@ -57,8 +57,6 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 modificationTime.addObject(Double(row[notesobj.modificationTime]))
                 color.append(row[notesobj.color]!)
             }
-            print("Color");
-            print(color);
             
         } else {
             for row in notesobj.getNotesFolder(selectedFolderToNoteId) {
@@ -142,10 +140,10 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func showedit(name: String, id: String){
         let editalert = UIAlertController(title: "Edit Note", message: "Note name", preferredStyle: UIAlertControllerStyle.Alert)
         let eidtcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print("cancel")
+           
         }
         let editesave = UIAlertAction(title: "Edit", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print(self.noteName.text)
+            
             self.notesobj.changeTitle(self.noteName.text!,id2:id)
             self.getAllNotes()
             self.detailtableview!.reloadData()
@@ -166,11 +164,10 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func showdelete(id:String){
         let alert = UIAlertController(title: "Delete Note", message: "Are you sure !", preferredStyle: UIAlertControllerStyle.Alert)
         let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print("Ok press")
+            
         }
         let alertdelete = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print("Delete Press")
-            print(id)
+            
             self.notesobj.delete(id)
             self.getAllNotes()
             self.detailtableview!.reloadData()

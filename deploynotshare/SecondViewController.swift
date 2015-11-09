@@ -30,12 +30,10 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         noteId = []
         
         for row in noteobj.find() {
-            print(row);
+            
             noteTitle.addObject(row[noteobj.title]!)
             noteId.addObject(String(row[noteobj.id]))
         }
-        print("array ")
-        print(noteTitle)
         
         self.resultSearchController = UISearchController(searchResultsController: nil)
         self.resultSearchController.searchResultsUpdater = self
@@ -106,12 +104,12 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         
         if (self.resultSearchController.active)
         {
-            print("in if")
+           
             cell!.textLabel?.text = self.filteredNotes[indexPath.row] as String
         }
         else
         {
-            print("in else")
+           
             cell!.textLabel?.text = noteTitle[indexPath.row] as? String
         }
         
@@ -146,10 +144,10 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     func showedit(name: String, id: String){
         let editalert = UIAlertController(title: "Edit Folder", message: "Folder name", preferredStyle: UIAlertControllerStyle.Alert)
         let eidtcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print("cancel")
+            
         }
         let editesave = UIAlertAction(title: "Edit", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print(self.createfolsername.text)
+           
             self.noteobj.edit(self.createfolsername.text!,background2:"ddsf",color2:"asd",folder2:1,islocked2:2,paper2:"demo",reminderTime2:1,serverid2:"df",tags2:"dsf",timebomb2:0,id2:id)
             self.viewDidLoad()
             
@@ -169,11 +167,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     func showalert(id:String){
         let alert = UIAlertController(title: "Delete Folder", message: "Are you sure !", preferredStyle: UIAlertControllerStyle.Alert)
         let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print("Ok press")
-        }
+                    }
         let alertdelete = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print("Delete Press")
-            print(id)
+            
             self.noteobj.delete(id)
             
             self.viewDidLoad()
@@ -187,10 +183,10 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func createFolder(sender: AnyObject) {
         let createalert = UIAlertController(title: "Create Folder", message: "Folder name", preferredStyle: UIAlertControllerStyle.Alert)
         let createcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print("cancel")
+            
         }
         let createsave = UIAlertAction(title: "create", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print(self.createfolsername.text)
+           
 //            let name= self.createfolsername.text;
 //            self.noteobj.create(name,"background","111",1,1,"Paper",reminderTime2:Int64,serverid2:String,tags2:String,timebomb2:Int64) {
             

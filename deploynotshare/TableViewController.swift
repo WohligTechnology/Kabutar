@@ -35,8 +35,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             folderId.addObject(String(row[a.id]))
         }
         
-        print(folderName);
-        
         self.resultSearchController = UISearchController(searchResultsController: nil)
         self.resultSearchController.searchResultsUpdater = self
         self.resultSearchController.dimsBackgroundDuringPresentation = false
@@ -133,10 +131,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     func showedit(name: String, id: String){
         let editalert = UIAlertController(title: "Edit Folder", message: "Folder name", preferredStyle: UIAlertControllerStyle.Alert)
         let eidtcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print("cancel")
+           
         }
         let editesave = UIAlertAction(title: "Edit", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print(self.createfolsername.text)
+            
             self.folderobj.edit(self.createfolsername.text! , id2: id)
             self.viewDidLoad()
            
@@ -156,11 +154,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     func showalert(id:String){
         let alert = UIAlertController(title: "Delete Folder", message: "Are you sure !", preferredStyle: UIAlertControllerStyle.Alert)
         let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print("Ok press")
+            
         }
         let alertdelete = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print("Delete Press")
-            print(id)
+            
             self.folderobj.delete(id)
             
             self.viewDidLoad()
@@ -174,10 +171,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBAction func createFolder(sender: AnyObject) {
         let createalert = UIAlertController(title: "Create Folder", message: "Folder name", preferredStyle: UIAlertControllerStyle.Alert)
         let createcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print("cancel")
+            
         }
         let createsave = UIAlertAction(title: "Create", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print(self.createfolsername.text)
+           
             self.folderobj.create(self.createfolsername.text!)
             self.viewDidLoad()
         }
