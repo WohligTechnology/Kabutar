@@ -66,8 +66,7 @@ class MoveToFolder: UIView,UITableViewDataSource,UITableViewDelegate{
     }
     
     func moveToSelectedFolder(noteID:String,folderID:String){
-        print(noteID)
-        print(folderID)
+ 
         noteobj.changeNoteFolder(folderID, id2: noteID)
     }
     

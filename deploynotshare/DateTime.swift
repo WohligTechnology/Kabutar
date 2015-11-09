@@ -43,8 +43,7 @@ class DateTime: UIView {
         
         let finalDate = SumDateFormat.dateFromString(dateFormatter.stringFromDate(datePicker.date) + ", " + timeFormatter.stringFromDate(timePicker.date))
         
-        print(finalDate?.timeIntervalSince1970);
-        print(selectedNoteId);
+      
         notesobj.changeTimeBomb(Int64((finalDate?.timeIntervalSince1970)!), id2: selectedNoteId)
         self.removeFromSuperview()
         
@@ -67,8 +66,7 @@ class DateTime: UIView {
         self.addSubview(datetimepopup);
         
         //let blackOutTap = UITapGestureRecognizer(target: self,action: "closeNewSortView:")
-        print(MainWidth)
-        print(MainHeight)
+       
         addBlackView()
         
 //        blackOut.addGestureRecognizer(blackOutTap)

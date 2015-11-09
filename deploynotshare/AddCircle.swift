@@ -34,10 +34,7 @@ class AddCircle: UIView {
     }
 
     @IBAction func CreateNoteTap(sender: AnyObject) {
-        print(checkstatus)
-        
-        print("my status")
-        
+                
         switch(checkstatus) {
         case 1: mainview = ViewForNotes as! Detailview;
         case 2: mainview = ViewForNotes as! Listview;
@@ -48,7 +45,7 @@ class AddCircle: UIView {
         var createfolsername: UITextField!
         let createalert = UIAlertController(title: "Create Note", message: "Note name", preferredStyle: UIAlertControllerStyle.Alert)
         let createcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            print("cancel")
+            
         }
         let createsave = UIAlertAction(title: "Create", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             self.notesobj.create(createfolsername.text!,background2: "background",color2: "10", folder2: 1, islocked2: 1,paper2: "a",reminderTime2: 2,serverid2: "dfa",tags2: "tab",timebomb2: 0)
