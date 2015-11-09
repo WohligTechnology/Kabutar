@@ -19,6 +19,10 @@ var ColorNote = String()
 let config = Config()
 var selectedNoteId = ""
 
+let bounds = UIScreen.mainScreen().bounds
+let width = bounds.size.width
+let height = bounds.size.height
+
 let PinkColor = UIColor(red: 255.0/255.0, green: 90/255, blue: 96/255, alpha: 1.0)
 
 let NoteColors = [
@@ -60,8 +64,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func createMenuView() {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+       
+        
         let mainViewController = storyboard.instantiateViewControllerWithIdentifier("cardViewController") as! cardViewController
-//        let leftViewController = storyboard.instantiateViewControllerWithIdentifier("MenuView") as! MenuView
+        
         let leftViewController = storyboard.instantiateViewControllerWithIdentifier("MenuListViewController") as! MenuListViewController
         
         let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
@@ -70,8 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
         
-        
-        
+    
         self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
         self.window?.rootViewController = slideMenuController
         self.window?.makeKeyAndVisible()
