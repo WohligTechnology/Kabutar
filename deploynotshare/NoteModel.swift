@@ -58,7 +58,26 @@ public class Note {
     func find() -> AnySequence<Row>  {
         let date = NSDate().timeIntervalSince1970
         let date2 = Int64(date)
-        return try! db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(id.desc,title) )
+        let returnArr:AnySequence<Row>!
+        var sortwith = config.get("note_sort");
+        switch (sortwith) {
+            case "1":
+            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(title.lowercaseString) )
+            case "2":
+            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(color, id.desc ,title.lowercaseString) )
+            case "3":
+            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(id.desc ,title.lowercaseString) )
+            case "4":
+            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(modificationTime.desc,title.lowercaseString) )
+            case "5":
+            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(reminderTime.desc,title.lowercaseString) )
+            case "6":
+            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(timebomb.desc ,title.lowercaseString) )
+            default:
+            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(id.desc ,title.lowercaseString) )
+        }
+        return returnArr
+        
     }
     
     func edit(title2:String,background2:String,color2:String,folder2:Int64,islocked2:Int64,paper2:String,reminderTime2:Int64,serverid2:String,tags2:String,timebomb2:Int64,id2:String)  {

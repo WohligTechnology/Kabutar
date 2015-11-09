@@ -95,7 +95,6 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     
     func createTap(sender:UITapGestureRecognizer?){
         print("create tap")
-        
     }
 
     
