@@ -59,7 +59,7 @@ public class Note {
         let date = NSDate().timeIntervalSince1970
         let date2 = Int64(date)
         let returnArr:AnySequence<Row>!
-        var sortwith = config.get("note_sort");
+        let sortwith = config.get("note_sort");
         switch (sortwith) {
             case "1":
             returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(title.lowercaseString) )
