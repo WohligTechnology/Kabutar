@@ -279,6 +279,20 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
         return [editAction, deleteAction,lockAction,timeBombAction,moveAction,shareAction]
         
     }
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("showdetaildetailview", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "showdetaildetailview"){
+            let indexPaths = self.detailtableview!.indexPathForSelectedRow
+            let vc = segue.destinationViewController as! detailViewController
+            vc.title = self.notesTitle[indexPaths!.row] as? String
+            
+        }
+    }
 
 
     /*

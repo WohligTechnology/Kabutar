@@ -33,6 +33,8 @@ let NoteColors = [
     UIColor(rgba: "#D0D0D0"),
     UIColor(rgba: "#EEEEEE")
 ]
+let ConfigObj = Config()
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

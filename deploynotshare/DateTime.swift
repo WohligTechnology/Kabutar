@@ -11,6 +11,9 @@ import UIKit
 class DateTime: UIView {
     @IBOutlet weak var datetimepopup: UIView!
     var blackOut:UIView!
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var timePicker: UIDatePicker!
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadViewFromNib ()
@@ -28,6 +31,8 @@ class DateTime: UIView {
             let mainview = ViewForNotes as! Detailview
             mainview.closeTimeBomb(nil);
         }
+        print(datePicker.date)
+        print(timePicker.timeZone)
 
        self.removeFromSuperview()
         

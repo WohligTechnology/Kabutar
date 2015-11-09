@@ -17,6 +17,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     var selected:NSIndexPath = NSIndexPath();
     
     var myview: DateTime!;
+    let ConfigObj = Config()
     
     var notesTitle:NSMutableArray = []
     var notesId:NSMutableArray = []

@@ -259,8 +259,18 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         return [editAction, deleteAction,lockAction,timeBombAction,moveAction,shareAction]
         
     }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("showdetaillistview", sender: self)
+    }
 
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "showdetaillistview"){
+            let indexPaths = self.listView!.indexPathForSelectedRow
+            let vc = segue.destinationViewController as! detailViewController
+            vc.title = self.notesTitle[indexPaths!.row] as? String
+            
+        }
+    }
 
     /*
     // MARK: - Navigation
