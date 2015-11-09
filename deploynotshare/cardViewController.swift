@@ -29,7 +29,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setNavigationBarItem()
         getAllNotes()
         
         let bounds = UIScreen.mainScreen().bounds
@@ -103,16 +103,10 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if(selectedFolderToNoteId=="")
-        {
-        self.setNavigationBarItem()
-        self.navigationController?.setToolbarHidden(true, animated: animated)
-        }
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.setToolbarHidden(false, animated: animated)
     }
     
     override func didReceiveMemoryWarning() {
