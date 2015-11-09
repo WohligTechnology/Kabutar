@@ -140,20 +140,21 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     func showedit(name: String, id: String){
-        let editalert = UIAlertController(title: "Edit Folder", message: "Folder name", preferredStyle: UIAlertControllerStyle.Alert)
+        let editalert = UIAlertController(title: "Edit Note", message: "Note name", preferredStyle: UIAlertControllerStyle.Alert)
         let eidtcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             print("cancel")
         }
         let editesave = UIAlertAction(title: "Edit", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             print(self.noteName.text)
-            self.notesobj.edit(self.noteName.text!,background2:"ddsf",color2:"asd",folder2:1,islocked2:2,paper2:"demo",reminderTime2:1,serverid2:"df",tags2:"dsf",timebomb2:0,id2:id)
-            self.viewDidLoad()
+            self.notesobj.changeTitle(self.noteName.text!,id2:id)
+            self.getAllNotes()
+            self.detailtableview!.reloadData()
             
         }
         editalert.addAction(eidtcancel)
         editalert.addAction(editesave)
         editalert.addTextFieldWithConfigurationHandler { createfoldertext -> Void in
-            createfoldertext.placeholder = "Folder name"
+            createfoldertext.placeholder = "Note name"
             createfoldertext.text = name
             self.noteName = createfoldertext
         }
@@ -163,20 +164,19 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func showdelete(id:String){
-        let alert = UIAlertController(title: "Delete Folder", message: "Are you sure !", preferredStyle: UIAlertControllerStyle.Alert)
-        let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+        let alert = UIAlertController(title: "Delete Note", message: "Are you sure !", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             print("Ok press")
         }
         let alertdelete = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             print("Delete Press")
             print(id)
             self.notesobj.delete(id)
-            
-            self.viewDidLoad()
-            
+            self.getAllNotes()
+            self.detailtableview!.reloadData()
         }
-        alert.addAction(alertdelete)
         alert.addAction(alertAction)
+        alert.addAction(alertdelete)
         presentViewController(alert, animated: true) { () -> Void in }
     }
 

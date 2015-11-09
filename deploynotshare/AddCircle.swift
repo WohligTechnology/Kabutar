@@ -46,11 +46,11 @@ class AddCircle: UIView {
         }
 //        let mainview = ViewForNotes as! cardViewController
         var createfolsername: UITextField!
-        let createalert = UIAlertController(title: "Create Folder", message: "Folder name", preferredStyle: UIAlertControllerStyle.Alert)
+        let createalert = UIAlertController(title: "Create Note", message: "Note name", preferredStyle: UIAlertControllerStyle.Alert)
         let createcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             print("cancel")
         }
-        let createsave = UIAlertAction(title: "create", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+        let createsave = UIAlertAction(title: "Create", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             self.notesobj.create(createfolsername.text!,background2: "background",color2: "10", folder2: 1, islocked2: 1,paper2: "a",reminderTime2: 2,serverid2: "dfa",tags2: "tab",timebomb2: 0)
 
             

@@ -221,6 +221,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "ShowNotes"){
+            checkstatus = 3 
             let selectedPath = self.tableView!.indexPathForSelectedRow
             let vc = segue.destinationViewController as! cardViewController
             vc.title = self.folderName[selectedPath!.row] as? String
