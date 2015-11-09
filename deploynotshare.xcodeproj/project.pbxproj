@@ -18,6 +18,8 @@
 		36E416791BEB6D18007EE385 /* AddCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E416781BEB6D18007EE385 /* AddCircle.swift */; };
 		36E846A31BE48AF8004109FA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E846A21BE48AF8004109FA /* UIViewControllerExtension.swift */; };
 		36F114701BF078CC0023E2DB /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1146F1BF078CC0023E2DB /* ConfigModel.swift */; };
+		36F114721BF08DD30023E2DB /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F114711BF08DD30023E2DB /* Layout.swift */; };
+		36F114741BF08E6B0023E2DB /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F114731BF08E6B0023E2DB /* Checkbox.swift */; };
 		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; };
 		434E77871BE3869E00684C08 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */; };
 		434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E778A1BE3979800684C08 /* MenuListViewController.swift */; };
@@ -87,6 +89,8 @@
 		36E416781BEB6D18007EE385 /* AddCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCircle.swift; sourceTree = "<group>"; };
 		36E846A21BE48AF8004109FA /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		36F1146F1BF078CC0023E2DB /* ConfigModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
+		36F114711BF08DD30023E2DB /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		36F114731BF08E6B0023E2DB /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		434E77771BE34B4800684C08 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		434E778A1BE3979800684C08 /* MenuListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuListViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 		4308BE541BDE02BF009DC448 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				36F114731BF08E6B0023E2DB /* Checkbox.swift */,
+				36F114711BF08DD30023E2DB /* Layout.swift */,
 				434E77771BE34B4800684C08 /* SlideMenuController.swift */,
 				36E846A21BE48AF8004109FA /* UIViewControllerExtension.swift */,
 			);
@@ -510,6 +516,7 @@
 				436107A61BEB276D0094BB25 /* NavigationTableCell.swift in Sources */,
 				3611B0971BE8A94200F2FFF9 /* NoteModel.swift in Sources */,
 				437EF0DB1BD8CA5500B7E9BF /* cardViewController.swift in Sources */,
+				36F114721BF08DD30023E2DB /* Layout.swift in Sources */,
 				3611B0931BE740BD00F2FFF9 /* TableViewController.swift in Sources */,
 				36E846A31BE48AF8004109FA /* UIViewControllerExtension.swift in Sources */,
 				36F114701BF078CC0023E2DB /* ConfigModel.swift in Sources */,
@@ -530,6 +537,7 @@
 				4389CE271BECBA12005CF805 /* MoveToFolder.swift in Sources */,
 				436107A01BE9F6500094BB25 /* mainview.swift in Sources */,
 				36E416751BEB3624007EE385 /* NoteFooterAdd.swift in Sources */,
+				36F114741BF08E6B0023E2DB /* Checkbox.swift in Sources */,
 				366420321BE4BF03003477CF /* FoderModel.swift in Sources */,
 				43EFB9BD1BDE29130014EDF9 /* ListViewController.swift in Sources */,
 				43921D591BE0D8260032DE28 /* ThinkViewController.swift in Sources */,

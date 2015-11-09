@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RichEditorView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SQLCipher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,32 +52,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2D8DAC44E106B4F27BDCFE1F752A44CB</key>
+		<key>505188903BB6076C9B7D82E4214CF56B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>39FC8A583CA4693D5AF9B13DF642CA5F</key>
+		<key>650F9770506F2E2875926363FA759671</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5F3F133713E18AACEDED4988EE1D812C</key>
+		<key>714DB407DF2579CDF50BA6D48E187FDF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6BE86839A1BA983EBFF24EABB0A7F300</key>
+		<key>7CD7EC32399F04C7884AA6CFF1213684</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>71432C6D3D93A99FCB42A0F471DA8901</key>
+		<key>83690D498AAB3F49BA20556935F1DB45</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>829A1574B30AD2FC4B0B800107110442</key>
+		<key>AA4A5FE6009111551A22CDD058EEA53D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BA2CB59E5E82C49749D4721665BFF6D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

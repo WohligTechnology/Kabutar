@@ -14,3 +14,5 @@ pod 'SQLiteCipher.swift',
 git: 'https://github.com/stephencelis/SQLite.swift.git'
 
 pod 'UIColor_Hex_Swift', '~> 1.5'
+
+pod "RichEditorView"
