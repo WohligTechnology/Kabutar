@@ -16,6 +16,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var notesId:NSMutableArray = []
     var notesobj = Note()
     var color: [String] = []
+    var inlocked: [Int64] = []
     var noteName = UITextField()
     let width = UIScreen.mainScreen().bounds.size.width
     let height = UIScreen.mainScreen().bounds.size.height
@@ -40,6 +41,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         notesTitle = []
         notesId = []
         color = []
+        inlocked = []
         
         
         self.setNavigationBarItem()
@@ -49,6 +51,8 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
                 notesTitle.addObject(row[notesobj.title]!)
                 notesId.addObject(String(row[notesobj.id]))
                 color.append(row[notesobj.color]!)
+                inlocked.append(row[notesobj.islocked])
+                
             }
             
         }else{
@@ -56,6 +60,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
                 notesTitle.addObject(row[notesobj.title]!)
                 notesId.addObject(String(row[notesobj.id]))
                 color.append(row[notesobj.color]!)
+                inlocked.append(row[notesobj.islocked])
             }
             
         }
