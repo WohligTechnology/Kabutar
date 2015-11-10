@@ -61,11 +61,11 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     
     func doneTap() {
         print("DoneTap");
-        editor.blur()
+        editor?.blur()
     }
     func keyboardWasShown(notification: NSNotification) {
         var info = notification.userInfo!
-        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         UIView.animateWithDuration(0.1, animations: { () -> Void in
             self.FooterConstrain.constant = keyboardFrame.size.height
@@ -73,7 +73,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     }
     
     func keyboardWasHidden(notification: NSNotification) {
-        var info = notification.userInfo!
+        let info = notification.userInfo!
         
         UIView.animateWithDuration(0.1, animations: { () -> Void in
             self.FooterConstrain.constant = 0
@@ -192,6 +192,11 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
 
     
     func addAudioTap() {
+        
+        let recording = ElementRecording(frame: CGRectMake(0,0,width,50))
+        vLayout.addSubview(recording)
+        changeHeight()
+
         
     }
     func addSketchTap() {
