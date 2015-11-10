@@ -61,6 +61,8 @@ public class Config {
         
     }
     
+    
+    
     func flush() {
         try! db.run(config.delete())
     }

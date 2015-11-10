@@ -18,12 +18,14 @@ var SelectedNoteColor = UIColor()
 var ColorNote = String()
 let config = Config()
 var selectedNoteId = ""
+var selectedNoteIndex = Int()
 
 let bounds = UIScreen.mainScreen().bounds
 let width = bounds.size.width
 let height = bounds.size.height
 
 let PinkColor = UIColor(red: 255.0/255.0, green: 90/255, blue: 96/255, alpha: 1.0)
+let DefaultColor = UIColor(red: 255.0/255.0, green: 255.0/255, blue: 255.0/255, alpha: 1.0)
 
 let NoteColors = [
     UIColor(rgba: "#96CEEE"),

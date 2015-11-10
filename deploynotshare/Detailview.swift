@@ -151,7 +151,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func showedit(name: String, id: String){
         let editalert = UIAlertController(title: "Edit Note", message: "Note name", preferredStyle: UIAlertControllerStyle.Alert)
-        let eidtcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+        let eidtcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
            
         }
         let editesave = UIAlertAction(title: "Edit", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
@@ -175,7 +175,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func showdelete(id:String){
         let alert = UIAlertController(title: "Delete Note", message: "Are you sure !", preferredStyle: UIAlertControllerStyle.Alert)
-        let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+        let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
             
         }
         let alertdelete = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
@@ -247,11 +247,29 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let lockAction = UITableViewRowAction(style: .Normal, title: "Lock")
             {
                 (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-                if(self.islocked[indexPath.row] == 0){
-                    self.notesobj.changeLock(1,id2:self.notesId[indexPath.row] as! String)
+                selectedNoteId = self.notesId[indexPath.row] as! String
+                
+                let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
+                
+                //                ConfigObj.set("demo", value2: "testing")
+                passcodemodal.setLock = String(self.islocked[indexPath.row])
+                
+                let realpasscode = config.get("passcode")
+                if(realpasscode == ""){
+                    passcodemodal.lockValue = 0
+                    self.presentViewController(passcodemodal, animated: true, completion: nil)
                 }else{
-                    self.notesobj.changeLock(0, id2: self.notesId[indexPath.row] as! String)
+                    passcodemodal.lockValue = 1
+                    if(self.islocked[indexPath.row] == 0){
+                        self.notesobj.changeLock(1,id2:self.notesId[indexPath.row] as! String)
+                        
+                    }else{
+                        self.presentViewController(passcodemodal, animated: true, completion: nil)
+                        
+                    }
                 }
+                
+                
                 self.getAllNotes()
                 self.detailtableview.reloadData()
                 
@@ -298,14 +316,33 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("showdetaildetailview", sender: self)
+        if(islocked[indexPath.row] == 0){
+            self.performSegueWithIdentifier("showdetaildetailview", sender: self)
+        }else{
+            selectedNoteId = self.notesId[indexPath.row] as! String
+            selectedNoteIndex = Int(indexPath.row)
+            
+            
+            let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
+            
+            passcodemodal.setLock = String(self.islocked[indexPath.row])
+            
+            let realpasscode = config.get("passcode")
+            passcodemodal.lockValue = 3
+            passcodemodal.titleName = (self.notesTitle[indexPath.row] as? String)!
+            presentViewController(passcodemodal, animated: true, completion: nil)
+            
+            self.getAllNotes()
+            self.detailtableview.reloadData()
+
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "showdetaildetailview"){
             let indexPaths = self.detailtableview!.indexPathForSelectedRow
             let vc = segue.destinationViewController as! detailViewController
-            vc.title = self.notesTitle[indexPaths!.row] as? String
+            vc.title = self.notesTitle[selectedNoteIndex] as? String
             
         }
     }

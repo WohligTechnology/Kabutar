@@ -48,7 +48,7 @@ class AddCircle: UIView {
             
         }
         let createsave = UIAlertAction(title: "Create", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            self.notesobj.create(createfolsername.text!,background2: "background",color2: "10", folder2: 1, islocked2: 1,paper2: "a",reminderTime2: 2,serverid2: "dfa",tags2: "tab",timebomb2: 0)
+            self.notesobj.create(createfolsername.text!,background2: "background",color2: "10", folder2: 1, islocked2: 0,paper2: "a",reminderTime2: 2,serverid2: "dfa",tags2: "tab",timebomb2: 0)
 
             
             switch(checkstatus) {

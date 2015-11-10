@@ -53,6 +53,8 @@
 		43A004991BE8821600396E47 /* ViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A004981BE8821600396E47 /* ViewView.swift */; };
 		43A0049B1BE894E300396E47 /* ViewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A0049A1BE894E300396E47 /* ViewView.xib */; };
 		43A0049D1BE8BC8100396E47 /* DateTime.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A0049C1BE8BC8100396E47 /* DateTime.xib */; };
+		43BE98E61BF21D0F0006CBC4 /* ColorPaper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43BE98E51BF21D0F0006CBC4 /* ColorPaper.xib */; settings = {ASSET_TAGS = (); }; };
+		43BE98E81BF220DE0006CBC4 /* ColorPaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BE98E71BF220DE0006CBC4 /* ColorPaper.swift */; settings = {ASSET_TAGS = (); }; };
 		43E0F2AE1BE8C5E500363F49 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0F2AD1BE8C5E500363F49 /* DateTime.swift */; };
 		43E0F2B01BE8CA4A00363F49 /* Alert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43E0F2AF1BE8CA4A00363F49 /* Alert.xib */; };
 		43E0F2B41BE8E1B300363F49 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0F2B31BE8E1B300363F49 /* SecondViewController.swift */; };
@@ -134,6 +136,8 @@
 		43A004981BE8821600396E47 /* ViewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewView.swift; sourceTree = "<group>"; };
 		43A0049A1BE894E300396E47 /* ViewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewView.xib; sourceTree = "<group>"; };
 		43A0049C1BE8BC8100396E47 /* DateTime.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateTime.xib; sourceTree = "<group>"; };
+		43BE98E51BF21D0F0006CBC4 /* ColorPaper.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPaper.xib; sourceTree = "<group>"; };
+		43BE98E71BF220DE0006CBC4 /* ColorPaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPaper.swift; sourceTree = "<group>"; };
 		43E0F2AD1BE8C5E500363F49 /* DateTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTime.swift; sourceTree = "<group>"; };
 		43E0F2AF1BE8CA4A00363F49 /* Alert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Alert.xib; sourceTree = "<group>"; };
 		43E0F2B31BE8E1B300363F49 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 				36F114751BF0B6310023E2DB /* DetailViewFooterMain.xib */,
 				36F114791BF0BA770023E2DB /* DetailViewFooterMain.swift */,
 				36F1147B1BF0F8990023E2DB /* ElementCheckBox.xib */,
+				43BE98E51BF21D0F0006CBC4 /* ColorPaper.xib */,
 				36F1147D1BF0F8B10023E2DB /* ElementCheckBox.swift */,
 				36E416781BEB6D18007EE385 /* AddCircle.swift */,
 				36E416701BEB12E0007EE385 /* NoteCollectionUIView.swift */,
@@ -313,6 +318,7 @@
 				436107A51BEB276D0094BB25 /* NavigationTableCell.swift */,
 				4389CE2A1BEDE136005CF805 /* ColorPattern.swift */,
 				43921D561BE0C4590032DE28 /* SortView.swift */,
+				43BE98E71BF220DE0006CBC4 /* ColorPaper.swift */,
 				36E416741BEB3624007EE385 /* NoteFooterAdd.swift */,
 				436107A31BEA2A750094BB25 /* Move.swift */,
 				43E0F2AD1BE8C5E500363F49 /* DateTime.swift */,
@@ -440,6 +446,7 @@
 				43921D551BE0BD940032DE28 /* SortView.xib in Resources */,
 				436107A81BEB27890094BB25 /* NavigationTableCell.xib in Resources */,
 				36E416771BEB6C9C007EE385 /* AddCircle.xib in Resources */,
+				43BE98E61BF21D0F0006CBC4 /* ColorPaper.xib in Resources */,
 				43F1A29D1BDBA87700F82938 /* Main.storyboard in Resources */,
 				43E0F2B01BE8CA4A00363F49 /* Alert.xib in Resources */,
 				36F1147C1BF0F8990023E2DB /* ElementCheckBox.xib in Resources */,
@@ -535,6 +542,7 @@
 				3611B0931BE740BD00F2FFF9 /* TableViewController.swift in Sources */,
 				36E846A31BE48AF8004109FA /* UIViewControllerExtension.swift in Sources */,
 				36F114701BF078CC0023E2DB /* ConfigModel.swift in Sources */,
+				43BE98E81BF220DE0006CBC4 /* ColorPaper.swift in Sources */,
 				434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */,
 				434E77871BE3869E00684C08 /* SideMenuTableViewController.swift in Sources */,
 				43921D571BE0C4590032DE28 /* SortView.swift in Sources */,

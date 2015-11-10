@@ -23,6 +23,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     var notesId:NSMutableArray = []
     var modificationTime: NSMutableArray = []
     var color: [String] = []
+    var islocked: [Int64] = []
     var notesobj = Note()
     var insideView = NoteCollectionUIView()
     
@@ -67,6 +68,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         notesId = []
         modificationTime = []
         color = []
+        islocked = []
         
         
         
@@ -76,6 +78,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
                 notesId.addObject(String(row[notesobj.id]))
                 modificationTime.addObject(Double(row[notesobj.modificationTime]))
                 color.append(row[notesobj.color]!)
+                islocked.append(row[notesobj.islocked])
             }
          
             
@@ -85,6 +88,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
                 notesId.addObject(String(row[notesobj.id]))
                 modificationTime.addObject(Double(row[notesobj.modificationTime]))
                 color.append(row[notesobj.color]!)
+                islocked.append(row[notesobj.islocked])
                 
             }
             
@@ -188,17 +192,36 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if(islocked[indexPath.row] == 0){
         self.performSegueWithIdentifier("showdetail", sender: self)
+        }else{
+            selectedNoteId = self.notesId[indexPath.row] as! String
+            selectedNoteIndex = Int(indexPath.row)
+            print(selectedNoteIndex)
+            
+            
+            let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
+            
+            passcodemodal.setLock = String(self.islocked[indexPath.row])
+            
+            let realpasscode = config.get("passcode")
+            passcodemodal.lockValue = 3
+            passcodemodal.titleName = (self.notesTitle[indexPath.row] as? String)!
+            presentViewController(passcodemodal, animated: true, completion: nil)
+            
+            self.getAllNotes()
+            self.collectionView.reloadData()
+        }
 
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "showdetail"){
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
-          
-            let indexPath = indexPaths[0] as NSIndexPath
+            print(self.notesTitle)
+            print(selectedNoteIndex)
             let vc = segue.destinationViewController as! detailViewController
-            vc.title = self.notesTitle[indexPath.row] as? String
+            vc.title = self.notesTitle[selectedNoteIndex] as? String
         }
     }
     

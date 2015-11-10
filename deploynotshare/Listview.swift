@@ -200,8 +200,21 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         
     }
     
+    func closeColorPaper(sender:UIGestureRecognizer?){
+        self.addColorPaper.animation.makeY((self.view.frame.height)).easeInOut.animateWithCompletion(transitionTime, {
+            self.addColorPaper.removeFromSuperview()
+            
+        })
+        blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
+            blackOut.removeFromSuperview()
+        })
+        
+    }
+    
     var addDateTimeView:DateTime!
     var addMoveToFolder:MoveToFolder!
+    var addColorPaper:ColorPaper!
+    
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
     {
         
@@ -228,11 +241,27 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         let lockAction = UITableViewRowAction(style: .Normal, title: "Lock")
             {
                 (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-                if(self.islocked[indexPath.row] == 0){
-                    self.notesobj.changeLock(1,id2:self.notesId[indexPath.row] as! String)
+                selectedNoteId = self.notesId[indexPath.row] as! String
+                
+                let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
+                
+                passcodemodal.setLock = String(self.islocked[indexPath.row])
+                
+                let realpasscode = config.get("passcode")
+                
+                if(realpasscode == ""){
+                    passcodemodal.lockValue = 0
+                    self.presentViewController(passcodemodal, animated: true, completion: nil)
                 }else{
-                    self.notesobj.changeLock(0, id2: self.notesId[indexPath.row] as! String)
+                    passcodemodal.lockValue = 1
+                    if(self.islocked[indexPath.row] == 0){
+                        self.notesobj.changeLock(1,id2:self.notesId[indexPath.row] as! String)
+                    }else{
+                        self.presentViewController(passcodemodal, animated: true, completion: nil)
+                    }
                 }
+                
+                
                 self.getAllNotes()
                 self.listView.reloadData()
                 
@@ -273,6 +302,16 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         let shareAction = UITableViewRowAction(style: .Normal, title: "Share")
             {
                 (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+                selectedNoteId = self.notesId[indexPath.row] as! String
+                let blackOutTap = UITapGestureRecognizer(target: self,action: "closeColorPaper:")
+                self.addBlackView()
+                blackOut.addGestureRecognizer(blackOutTap)
+                blackOut.alpha = 0
+                self.view.addSubview(blackOut);
+                blackOut.animation.makeAlpha(1).animate(transitionTime);
+                
+                self.addColorPaper = ColorPaper(frame: CGRectMake(self.width/4 - 45,self.height/4 - 100, 300, 150))
+                self.view.addSubview(self.addColorPaper)
                 
         }
         editAction.backgroundColor = mainColor
@@ -281,14 +320,35 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if(islocked[indexPath.row] == 0){
+            
         self.performSegueWithIdentifier("showdetaillistview", sender: self)
+        }else{
+            selectedNoteId = self.notesId[indexPath.row] as! String
+            selectedNoteIndex = Int(indexPath.row)
+
+            
+            let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
+            
+            passcodemodal.setLock = String(self.islocked[indexPath.row])
+            
+            let realpasscode = config.get("passcode")
+            passcodemodal.lockValue = 3
+            passcodemodal.titleName = (self.notesTitle[indexPath.row] as? String)!
+            presentViewController(passcodemodal, animated: true, completion: nil)
+            
+            self.getAllNotes()
+            self.listView.reloadData()
+        }
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "showdetaillistview"){
             let indexPaths = self.listView!.indexPathForSelectedRow
             let vc = segue.destinationViewController as! detailViewController
-            vc.title = self.notesTitle[indexPaths!.row] as? String
+            print(self.notesTitle)
+            print(selectedNoteIndex)
+            vc.title = self.notesTitle[selectedNoteIndex] as? String
             
         }
     }
