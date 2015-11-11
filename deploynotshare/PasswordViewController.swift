@@ -148,7 +148,6 @@ class PasswordViewController: UIViewController {
         }else{
             confpass = passcode
             if(pass == confpass){
-                print("same")
                 config.set("passcode", value2: String(confpass))
                 checkPasscode(confpass)
             }else{

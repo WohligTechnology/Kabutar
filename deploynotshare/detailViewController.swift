@@ -1,7 +1,7 @@
 import UIKit
 import RichEditorView
 
-var GDetailView:Any!
+var GDetailView:detailViewController!
 var GSketch:ElementSketch!
 
 class detailViewController: UIViewController , UINavigationControllerDelegate,UIImagePickerControllerDelegate {
@@ -52,7 +52,6 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         toolbar.toolbarScroll.backgroundColor = PinkColor
         for var toolbarItem in toolbar.toolbar.items!
         {
-            //print(toolbarItem.image?.imageAsset)
             toolbarItem.tintColor = UIColor.whiteColor()
         }
         
@@ -64,21 +63,20 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     }
     
     func doneTap() {
-        print("DoneTap");
         editor?.blur()
         sketch?.closeDrawing()
         removeSketchToolbar()
         ScrView.scrollEnabled = true
         
         let topOffset = ScrView.contentOffset.y
-        let DemoImage =  UIImageView(frame: CGRectMake(0,topOffset,width+10,height - 44))
-
         
-        DemoImage.image = sketch?.mainImageView?.image
-        ScrView.insertSubview(DemoImage, atIndex: 2)
         
-        sketch?.removeFromSuperview()
-        sketch?.mainImageView.image = nil
+            let DemoImage =  UIImageView(frame: CGRectMake(0,topOffset, sketch.frame.width, sketch.frame.height))
+            DemoImage.image = sketch?.mainImageView?.image
+            ScrView.insertSubview(DemoImage, atIndex: 10)
+            sketch?.removeFromSuperview()
+            sketch?.mainImageView.image = nil
+        
 
         
 //        sideMenuController.addLeftGestures()
@@ -147,7 +145,6 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     func openCamera () {
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
-            print("Button capture")
             
             
             imagePicker.delegate = self
@@ -163,8 +160,6 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     func openGallery () {
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary){
-            print("Button capture")
-            
             
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary;
@@ -180,7 +175,6 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
         
         })
-        print(editingInfo);
         
         let fullImage = UIAlertAction(title: "Use Full Size", style: UIAlertActionStyle.Default)
         {
@@ -223,9 +217,8 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     func addSketchTap() {
         let topOffset = ScrView.contentOffset.y
         sketch = ElementSketch(frame: CGRectMake(0,topOffset,width+10,height - 44))
-        print(topOffset);
         ScrView.insertSubview(sketch,atIndex: sketchno++)
-        print("NewSketch Added");
+       
         GSketch = sketch
         
         getSketchToolbar()
@@ -280,7 +273,6 @@ extension detailViewController: RichEditorDelegate {
         
         self.editor = editor
         
-        print("How is it");
         toolbar.editor = editor
         if(!istoolbaropen) {
         istoolbaropen  = true
@@ -291,7 +283,6 @@ extension detailViewController: RichEditorDelegate {
     }
     
     func richEditorLostFocus(editor: RichEditorView) {
-        print("Lost it");
         
         let seconds = 0.1
         let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
@@ -301,7 +292,6 @@ extension detailViewController: RichEditorDelegate {
             
             if(!self.istoolbaropen)
             {
-                print("Going in");
                 self.istoolbaropen  = false
                 self.toolbar.frame = CGRectMake(0, 0, width + 10, 44)
                 self.toolbar.animation.moveX(self.FooterView.frame.width).animate(transitionTime)

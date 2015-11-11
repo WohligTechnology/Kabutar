@@ -102,25 +102,18 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
    }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.row);
         selectedFolderToNoteId = ""
         if(indexPath.row == 1){
-            print("Note select")
-            
             self.slideMenuController()?.changeMainViewController(self.noteViewController, close: true)
             
         
         }
         if(indexPath.row == 2){
-            print("folder select")
-            
             changeViewController(2)
             
             
         }
         if(indexPath.row == 3){
-            print("folder select")
-            
             self.slideMenuController()?.changeMainViewController(self.detailview, close: true)
             
             
@@ -133,28 +126,21 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     
     func changeViewController(menu: Int) {
         if(menu == 1){
-            print("Note select")
-            
-            self.slideMenuController()?.changeMainViewController(self.noteViewController, close: true)
+             self.slideMenuController()?.changeMainViewController(self.noteViewController, close: true)
             
             
         }
         if(menu  == 2){
-            print("folder select")
-            
             self.slideMenuController()?.changeMainViewController(self.folderViewController, close: true)
             
             
         }
         if(menu == 3){
-            print("folder select")
-            
             self.slideMenuController()?.changeMainViewController(self.detailview, close: true)
             
             
         }
         if(menu == 7){
-            print("feedback")
             self.slideMenuController()?.changeMainViewController(self.FeedbackView, close: true)
         }
     }
@@ -162,7 +148,6 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     
     
     func ChangeMyView () -> SlideMenuController? {
-        print("We are in menulist");
         return self.slideMenuController()
     }
     

@@ -20,7 +20,6 @@ class DetailViewFooterMain: UIView {
     
     @IBAction func addImageTap(sender: AnyObject) {
         let DetailViewCtrl = GDetailView as! detailViewController
-        print("Atleast");
         DetailViewCtrl.addImageTap();
     }
     

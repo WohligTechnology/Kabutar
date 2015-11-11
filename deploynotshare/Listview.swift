@@ -346,8 +346,6 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         if(segue.identifier == "showdetaillistview"){
             let indexPaths = self.listView!.indexPathForSelectedRow
             let vc = segue.destinationViewController as! detailViewController
-            print(self.notesTitle)
-            print(selectedNoteIndex)
             vc.title = self.notesTitle[selectedNoteIndex] as? String
             
         }

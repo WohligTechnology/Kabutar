@@ -60,7 +60,16 @@ class ElementSketch: UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
-        mainImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        
+//        UIGraphicsBeginImageContextWithOptions(self.frame.size, false, 0)
+//        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext();
+//        
+//        GDetailView.view.drawViewHierarchyInRect(CGRectMake(0, 0, self.frame.size.width, self.frame.size.height), afterScreenUpdates: true)
+//        mainImageView.image  = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//
+        
         
     }
     

@@ -197,7 +197,6 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         }else{
             selectedNoteId = self.notesId[indexPath.row] as! String
             selectedNoteIndex = Int(indexPath.row)
-            print(selectedNoteIndex)
             
             
             let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
@@ -218,8 +217,6 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "showdetail"){
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
-            print(self.notesTitle)
-            print(selectedNoteIndex)
             let vc = segue.destinationViewController as! detailViewController
             vc.title = self.notesTitle[selectedNoteIndex] as? String
         }

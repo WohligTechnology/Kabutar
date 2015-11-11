@@ -52,7 +52,6 @@ class ElementRecording: UIView {
         statusLabel.text = NSString(format: "%02d:%02d", minutes,seconds) as String
         
         let percent = Float(player.currentTime)/Float(player.duration)
-        print(percent);
         timeSlider.value = percent
     }
     
@@ -62,9 +61,6 @@ class ElementRecording: UIView {
         
         player.currentTime = NSTimeInterval(sender.value * Float(player.duration))
         
-        print("CurrenTime");
-        
-        print(player.currentTime);
         updateTime()
         
         player.play()
@@ -79,8 +75,6 @@ class ElementRecording: UIView {
         } else {
             url = self.soundFileURL!
         }
-        print("playing \(url)")
-        
         do {
             self.player = try AVAudioPlayer(contentsOfURL: url!)
             stopButton.enabled = true
