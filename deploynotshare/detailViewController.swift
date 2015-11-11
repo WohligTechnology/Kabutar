@@ -2,6 +2,7 @@ import UIKit
 import RichEditorView
 
 var GDetailView:Any!
+var GSketch:ElementSketch!
 
 class detailViewController: UIViewController , UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     @IBOutlet weak var FooterConstrain: NSLayoutConstraint!
@@ -14,6 +15,10 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     var editor:RichEditorView!
     var mainColor = PinkColor
     var toolbar:RichEditorToolbar!
+    var sketchno = 1
+    var sketch:ElementSketch!
+    var sketchFooter = ElementSketchFooter(frame: CGRectMake(width,0,width+10,44))
+    let sideMenuController  = slideMenuLeft as! SlideMenuController
     
     var activeCheckbox : ElementCheckBox!
     
@@ -22,11 +27,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name: UIKeyboardWillChangeFrameNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasHidden:"), name:UIKeyboardWillHideNotification, object: nil);
-//
-//        let b = UIBarButtonItem(image: UIImage(named: "Checkboxicon"), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("addCheckBox"))
-//        
-//        self.navigationItem.rightBarButtonItem = b
-        
+  
         let bc = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("doneTap"))
         
         self.navigationItem.rightBarButtonItem = bc
@@ -54,6 +55,9 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
             //print(toolbarItem.image?.imageAsset)
             toolbarItem.tintColor = UIColor.whiteColor()
         }
+        
+        self.FooterView.addSubview(sketchFooter)
+        
 
         
         
@@ -62,6 +66,23 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     func doneTap() {
         print("DoneTap");
         editor?.blur()
+        sketch?.closeDrawing()
+        removeSketchToolbar()
+        ScrView.scrollEnabled = true
+        
+        let topOffset = ScrView.contentOffset.y
+        let DemoImage =  UIImageView(frame: CGRectMake(0,topOffset,width+10,height - 44))
+
+        
+        DemoImage.image = sketch?.mainImageView?.image
+        ScrView.insertSubview(DemoImage, atIndex: 2)
+        
+        sketch?.removeFromSuperview()
+        sketch?.mainImageView.image = nil
+
+        
+//        sideMenuController.addLeftGestures()
+//        sideMenuController.addRightGestures()
     }
     func keyboardWasShown(notification: NSNotification) {
         var info = notification.userInfo!
@@ -200,12 +221,37 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         
     }
     func addSketchTap() {
+        let topOffset = ScrView.contentOffset.y
+        sketch = ElementSketch(frame: CGRectMake(0,topOffset,width+10,height - 44))
+        print(topOffset);
+        ScrView.insertSubview(sketch,atIndex: sketchno++)
+        print("NewSketch Added");
+        GSketch = sketch
         
+        getSketchToolbar()
+        
+        
+        ScrView.scrollEnabled = false
+//        sideMenuController.removeLeftGestures()
+//        sideMenuController.removeRightGestures()
+        
+        changeHeight()
     }
     func addCheckBox() {
         let checkbox = ElementCheckBox(frame: CGRectMake(0,0,width,50))
         vLayout.addSubview(checkbox)
         changeHeight()
+    }
+    
+    
+    func getSketchToolbar() {
+        self.sketchFooter.frame = CGRectMake(width, 0, width + 10, 44)
+        self.sketchFooter.animation.moveX(-width).animate(transitionTime)
+        
+    }
+    func removeSketchToolbar() {
+        self.sketchFooter.frame = CGRectMake(0, 0, width + 10, 44)
+        self.sketchFooter.animation.moveX(width).animate(transitionTime)
     }
     
     override func didReceiveMemoryWarning() {

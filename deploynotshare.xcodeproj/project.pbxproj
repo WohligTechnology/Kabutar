@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3611B0931BE740BD00F2FFF9 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3611B0921BE740BD00F2FFF9 /* TableViewController.swift */; };
 		3611B0971BE8A94200F2FFF9 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3611B0961BE8A94200F2FFF9 /* NoteModel.swift */; };
+		36344E6F1BF32D980053EDCD /* ElementSketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36344E6E1BF32D980053EDCD /* ElementSketch.swift */; };
+		36344E711BF32EAC0053EDCD /* ElementSketch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36344E701BF32EAC0053EDCD /* ElementSketch.xib */; };
+		36344E731BF33B2F0053EDCD /* ElementSketchFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36344E721BF33B2F0053EDCD /* ElementSketchFooter.xib */; };
+		36344E751BF3A5F10053EDCD /* ElementSketchFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36344E741BF3A5F10053EDCD /* ElementSketchFooter.swift */; };
 		364EA4611BF1B37A001B7161 /* NoteElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364EA4601BF1B37A001B7161 /* NoteElementModel.swift */; };
 		364EA4631BF20F70001B7161 /* ElementRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364EA4621BF20F70001B7161 /* ElementRecording.swift */; };
 		364EA4651BF20FC6001B7161 /* ElementRecording.xib in Resources */ = {isa = PBXBuildFile; fileRef = 364EA4641BF20FC6001B7161 /* ElementRecording.xib */; };
@@ -28,7 +32,6 @@
 		36F1147C1BF0F8990023E2DB /* ElementCheckBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F1147B1BF0F8990023E2DB /* ElementCheckBox.xib */; };
 		36F1147E1BF0F8B10023E2DB /* ElementCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1147D1BF0F8B10023E2DB /* ElementCheckBox.swift */; };
 		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; };
-		434E77871BE3869E00684C08 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */; };
 		434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E778A1BE3979800684C08 /* MenuListViewController.swift */; };
 		4361079E1BE9F4BE0094BB25 /* Detailview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4361079D1BE9F4BE0094BB25 /* Detailview.swift */; };
 		436107A01BE9F6500094BB25 /* mainview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4361079F1BE9F6500094BB25 /* mainview.swift */; };
@@ -56,8 +59,8 @@
 		43A004991BE8821600396E47 /* ViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A004981BE8821600396E47 /* ViewView.swift */; };
 		43A0049B1BE894E300396E47 /* ViewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A0049A1BE894E300396E47 /* ViewView.xib */; };
 		43A0049D1BE8BC8100396E47 /* DateTime.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A0049C1BE8BC8100396E47 /* DateTime.xib */; };
-		43BE98E61BF21D0F0006CBC4 /* ColorPaper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43BE98E51BF21D0F0006CBC4 /* ColorPaper.xib */; settings = {ASSET_TAGS = (); }; };
-		43BE98E81BF220DE0006CBC4 /* ColorPaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BE98E71BF220DE0006CBC4 /* ColorPaper.swift */; settings = {ASSET_TAGS = (); }; };
+		43BE98E61BF21D0F0006CBC4 /* ColorPaper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43BE98E51BF21D0F0006CBC4 /* ColorPaper.xib */; };
+		43BE98E81BF220DE0006CBC4 /* ColorPaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BE98E71BF220DE0006CBC4 /* ColorPaper.swift */; };
 		43E0F2AE1BE8C5E500363F49 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0F2AD1BE8C5E500363F49 /* DateTime.swift */; };
 		43E0F2B01BE8CA4A00363F49 /* Alert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43E0F2AF1BE8CA4A00363F49 /* Alert.xib */; };
 		43E0F2B41BE8E1B300363F49 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0F2B31BE8E1B300363F49 /* SecondViewController.swift */; };
@@ -89,6 +92,10 @@
 /* Begin PBXFileReference section */
 		3611B0921BE740BD00F2FFF9 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3611B0961BE8A94200F2FFF9 /* NoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		36344E6E1BF32D980053EDCD /* ElementSketch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementSketch.swift; sourceTree = "<group>"; };
+		36344E701BF32EAC0053EDCD /* ElementSketch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElementSketch.xib; sourceTree = "<group>"; };
+		36344E721BF33B2F0053EDCD /* ElementSketchFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElementSketchFooter.xib; sourceTree = "<group>"; };
+		36344E741BF3A5F10053EDCD /* ElementSketchFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementSketchFooter.swift; sourceTree = "<group>"; };
 		364EA4601BF1B37A001B7161 /* NoteElementModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteElementModel.swift; sourceTree = "<group>"; };
 		364EA4621BF20F70001B7161 /* ElementRecording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementRecording.swift; sourceTree = "<group>"; };
 		364EA4641BF20FC6001B7161 /* ElementRecording.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElementRecording.xib; sourceTree = "<group>"; };
@@ -108,7 +115,6 @@
 		36F1147B1BF0F8990023E2DB /* ElementCheckBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElementCheckBox.xib; sourceTree = "<group>"; };
 		36F1147D1BF0F8B10023E2DB /* ElementCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementCheckBox.swift; sourceTree = "<group>"; };
 		434E77771BE34B4800684C08 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
-		434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		434E778A1BE3979800684C08 /* MenuListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuListViewController.swift; sourceTree = "<group>"; };
 		4361079D1BE9F4BE0094BB25 /* Detailview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detailview.swift; sourceTree = "<group>"; };
 		4361079F1BE9F6500094BB25 /* mainview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainview.swift; sourceTree = "<group>"; };
@@ -217,7 +223,6 @@
 				43921D581BE0D8260032DE28 /* ThinkViewController.swift */,
 				434E778A1BE3979800684C08 /* MenuListViewController.swift */,
 				43EFB9BE1BDE3D5A0014EDF9 /* ListTableViewCell.swift */,
-				434E77861BE3869E00684C08 /* SideMenuTableViewController.swift */,
 				43921D5A1BE0E7DA0032DE28 /* PasswordViewController.swift */,
 				4380B3511BDA590E0026CED9 /* detailViewController.swift */,
 			);
@@ -317,6 +322,10 @@
 				364EA4641BF20FC6001B7161 /* ElementRecording.xib */,
 				364EA4621BF20F70001B7161 /* ElementRecording.swift */,
 				36F114751BF0B6310023E2DB /* DetailViewFooterMain.xib */,
+				36344E6E1BF32D980053EDCD /* ElementSketch.swift */,
+				36344E701BF32EAC0053EDCD /* ElementSketch.xib */,
+				36344E721BF33B2F0053EDCD /* ElementSketchFooter.xib */,
+				36344E741BF3A5F10053EDCD /* ElementSketchFooter.swift */,
 				36F114791BF0BA770023E2DB /* DetailViewFooterMain.swift */,
 				36F1147B1BF0F8990023E2DB /* ElementCheckBox.xib */,
 				43BE98E51BF21D0F0006CBC4 /* ColorPaper.xib */,
@@ -453,6 +462,8 @@
 			files = (
 				364EA4651BF20FC6001B7161 /* ElementRecording.xib in Resources */,
 				36E416731BEB35EE007EE385 /* NoteFooterAdd.xib in Resources */,
+				36344E711BF32EAC0053EDCD /* ElementSketch.xib in Resources */,
+				36344E731BF33B2F0053EDCD /* ElementSketchFooter.xib in Resources */,
 				43921D551BE0BD940032DE28 /* SortView.xib in Resources */,
 				436107A81BEB27890094BB25 /* NavigationTableCell.xib in Resources */,
 				36E416771BEB6C9C007EE385 /* AddCircle.xib in Resources */,
@@ -554,7 +565,6 @@
 				36F114701BF078CC0023E2DB /* ConfigModel.swift in Sources */,
 				43BE98E81BF220DE0006CBC4 /* ColorPaper.swift in Sources */,
 				434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */,
-				434E77871BE3869E00684C08 /* SideMenuTableViewController.swift in Sources */,
 				43921D571BE0C4590032DE28 /* SortView.swift in Sources */,
 				4361079E1BE9F4BE0094BB25 /* Detailview.swift in Sources */,
 				36F1147A1BF0BA770023E2DB /* DetailViewFooterMain.swift in Sources */,
@@ -572,12 +582,14 @@
 				4380B3521BDA590E0026CED9 /* detailViewController.swift in Sources */,
 				4389CE271BECBA12005CF805 /* MoveToFolder.swift in Sources */,
 				436107A01BE9F6500094BB25 /* mainview.swift in Sources */,
+				36344E751BF3A5F10053EDCD /* ElementSketchFooter.swift in Sources */,
 				36E416751BEB3624007EE385 /* NoteFooterAdd.swift in Sources */,
 				36F114741BF08E6B0023E2DB /* Checkbox.swift in Sources */,
 				366420321BE4BF03003477CF /* FoderModel.swift in Sources */,
 				43EFB9BD1BDE29130014EDF9 /* ListViewController.swift in Sources */,
 				43921D591BE0D8260032DE28 /* ThinkViewController.swift in Sources */,
 				43E0F2B41BE8E1B300363F49 /* SecondViewController.swift in Sources */,
+				36344E6F1BF32D980053EDCD /* ElementSketch.swift in Sources */,
 				4373172E1BD770650018B580 /* AppDelegate.swift in Sources */,
 				43A004991BE8821600396E47 /* ViewView.swift in Sources */,
 			);

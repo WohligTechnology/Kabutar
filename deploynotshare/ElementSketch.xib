@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ElementSketch" customModule="deploynotshare" customModuleProvider="target">
+            <connections>
+                <outlet property="mainImageView" destination="wIi-kR-7Uy" id="QbV-zY-C6E"/>
+                <outlet property="tempImageView" destination="fsf-De-Q6m" id="KTJ-3b-NHy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="y4D-q6-au3">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wIi-kR-7Uy" userLabel="MainImageView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <animations/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fsf-De-Q6m" userLabel="TempImageView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <animations/>
+                </imageView>
+            </subviews>
+            <animations/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="fsf-De-Q6m" secondAttribute="trailing" id="3Mn-r1-BAA"/>
+                <constraint firstItem="wIi-kR-7Uy" firstAttribute="leading" secondItem="y4D-q6-au3" secondAttribute="leading" id="4CA-kq-5oD"/>
+                <constraint firstAttribute="trailing" secondItem="wIi-kR-7Uy" secondAttribute="trailing" id="5vk-8x-JBE"/>
+                <constraint firstItem="fsf-De-Q6m" firstAttribute="top" secondItem="y4D-q6-au3" secondAttribute="top" id="C9j-Do-Dus"/>
+                <constraint firstAttribute="bottom" secondItem="fsf-De-Q6m" secondAttribute="bottom" id="CM9-UQ-FWg"/>
+                <constraint firstAttribute="bottom" secondItem="wIi-kR-7Uy" secondAttribute="bottom" id="HGp-Ve-KnB"/>
+                <constraint firstItem="fsf-De-Q6m" firstAttribute="leading" secondItem="y4D-q6-au3" secondAttribute="leading" id="Inu-jV-T3J"/>
+                <constraint firstItem="wIi-kR-7Uy" firstAttribute="top" secondItem="y4D-q6-au3" secondAttribute="top" id="cBI-nd-VDc"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
