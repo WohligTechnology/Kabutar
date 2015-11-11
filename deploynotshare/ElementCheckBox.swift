@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class ElementCheckBox: UIView,UITextFieldDelegate {
 
     @IBOutlet weak var checkBoxText: UITextField!
@@ -38,7 +40,7 @@ class ElementCheckBox: UIView,UITextFieldDelegate {
         self.addSubview(cb)
         
         checkBoxText.delegate = self
-        checkBoxText.becomeFirstResponder()
+        //checkBoxText.becomeFirstResponder()
         
     }
     

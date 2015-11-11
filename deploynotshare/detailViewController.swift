@@ -3,6 +3,7 @@ import RichEditorView
 
 var GDetailView:detailViewController!
 var GSketch:ElementSketch!
+var GElementCheckBox:ElementCheckBox!
 
 class detailViewController: UIViewController , UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     @IBOutlet weak var FooterConstrain: NSLayoutConstraint!
@@ -246,7 +247,9 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     func addCheckBox() {
         let checkbox = ElementCheckBox(frame: CGRectMake(0,0,width,50))
         vLayout.addSubview(checkbox)
+        GElementCheckBox = checkbox
         changeHeight()
+        checkbox.checkBoxText.becomeFirstResponder()
     }
     
     
