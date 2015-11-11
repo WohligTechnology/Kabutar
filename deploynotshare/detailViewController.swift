@@ -70,13 +70,14 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         
         let topOffset = ScrView.contentOffset.y
         
-        
+        if (sketch != nil)
+        {
             let DemoImage =  UIImageView(frame: CGRectMake(0,topOffset, sketch.frame.width, sketch.frame.height))
             DemoImage.image = sketch?.mainImageView?.image
             ScrView.insertSubview(DemoImage, atIndex: 10)
             sketch?.removeFromSuperview()
             sketch?.mainImageView.image = nil
-        
+        }
 
         
 //        sideMenuController.addLeftGestures()
@@ -101,9 +102,21 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     
     func changeHeight() {
         
+        let iniHeight = self.ScrView.contentSize.height;
+        
         vLayout?.layoutSubviews()
         let newSize = CGSize(width: vLayout.frame.size.width, height: vLayout.frame.height + 44)
         self.ScrView.contentSize = newSize
+        let newHeight = newSize.height
+        
+        if(iniHeight < newHeight)
+        {
+            if((newHeight  - ScrView.bounds.height) > 0)
+            {
+            ScrView.contentOffset.y = newHeight  - ScrView.bounds.height
+            }
+            
+        }
         
     }
     
@@ -275,31 +288,25 @@ extension detailViewController: RichEditorDelegate {
         
         toolbar.editor = editor
         if(!istoolbaropen) {
-        istoolbaropen  = true
-        self.toolbar.frame = CGRectMake(width, 0, width + 10, 44)
-        self.toolbar.animation.moveX(-FooterView.frame.width).animate(transitionTime)
+            istoolbaropen  = true
+            self.toolbar.frame = CGRectMake(width, 0, width + 10, 44)
+            self.toolbar.animation.moveX(-FooterView.frame.width).animate(transitionTime)
         }
-        
     }
     
     func richEditorLostFocus(editor: RichEditorView) {
-        
         let seconds = 0.1
         let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
         let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         istoolbaropen  = false
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            
             if(!self.istoolbaropen)
             {
                 self.istoolbaropen  = false
                 self.toolbar.frame = CGRectMake(0, 0, width + 10, 44)
                 self.toolbar.animation.moveX(self.FooterView.frame.width).animate(transitionTime)
             }
-
-            
         })
-        
     }
     
     func richEditorDidLoad(editor: RichEditorView) {
