@@ -50,6 +50,25 @@ class ElementRecording: UIView {
         let seconds = currentTime - minutes * 60
         
         statusLabel.text = NSString(format: "%02d:%02d", minutes,seconds) as String
+        
+        let percent = Float(player.currentTime)/Float(player.duration)
+        print(percent);
+        timeSlider.value = percent
+    }
+    
+    @IBAction func sliderValueChanged(sender: UISlider) {
+        
+        player.pause()
+        
+        player.currentTime = NSTimeInterval(sender.value * Float(player.duration))
+        
+        print("CurrenTime");
+        
+        print(player.currentTime);
+        updateTime()
+        
+        player.play()
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: "updateTime", userInfo: nil, repeats: true)
     }
     
     func getDuration() {
@@ -127,9 +146,11 @@ class ElementRecording: UIView {
     @IBAction func stop(sender: UIButton) {
         print("stop")
         
+        
+        
         recorder?.stop()
         player?.stop()
-        
+        timer?.invalidate()
         meterTimer.invalidate()
         
         let session = AVAudioSession.sharedInstance()
@@ -302,6 +323,9 @@ extension ElementRecording : AVAudioRecorderDelegate {
 extension ElementRecording : AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         print("finished playing \(flag)")
+        
+        self.timer?.invalidate()
+        
         stopButton.enabled = false
     }
     
