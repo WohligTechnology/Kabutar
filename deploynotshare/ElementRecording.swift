@@ -64,7 +64,7 @@ class ElementRecording: UIView {
         updateTime()
         
         player.play()
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: "updateTime", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "updateTime", userInfo: nil, repeats: true)
     }
     
     func getDuration() {
@@ -183,7 +183,7 @@ class ElementRecording: UIView {
             player.prepareToPlay()
             player.volume = 1.0
             player.play()
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: "updateTime", userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "updateTime", userInfo: nil, repeats: true)
            
             
         } catch let error as NSError {
