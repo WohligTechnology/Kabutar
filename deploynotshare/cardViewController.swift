@@ -30,7 +30,10 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavigationBarItem()
+        if(isInsideFolder == 0)
+        {
+            self.setNavigationBarItem()
+        }
         getAllNotes()
         
         let bounds = UIScreen.mainScreen().bounds

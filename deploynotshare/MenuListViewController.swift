@@ -9,6 +9,7 @@
 import UIKit
 import DKChainableAnimationKit
 
+var isInsideFolder = 0
 var slideMenuLeft:Any!;
 
 protocol LeftMenuProtocol : class {
@@ -104,11 +105,13 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedFolderToNoteId = ""
         if(indexPath.row == 1){
+            isInsideFolder = 0
             self.slideMenuController()?.changeMainViewController(self.noteViewController, close: true)
-            
+        
         
         }
         if(indexPath.row == 2){
+            isInsideFolder = 1
             changeViewController(2)
             
             
@@ -126,11 +129,11 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     
     func changeViewController(menu: Int) {
         if(menu == 1){
+             isInsideFolder = 0
              self.slideMenuController()?.changeMainViewController(self.noteViewController, close: true)
-            
-            
         }
         if(menu  == 2){
+            isInsideFolder = 1
             self.slideMenuController()?.changeMainViewController(self.folderViewController, close: true)
             
             

@@ -8,6 +8,7 @@
 
 import UIKit
 import SQLiteCipher
+import SwiftyJSON
 
 var ViewForNotes:Any!
 var checkstatus = 3 as Int64
@@ -72,11 +73,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
         
-    
         self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
         self.window?.rootViewController = slideMenuController
         self.window?.makeKeyAndVisible()
-        
+    
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -86,8 +86,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MainWidth = bounds.size.width
         MainHeight = bounds.size.height
 
-        
-        
         AppDelegate.getDatabase()
         return true
     }
