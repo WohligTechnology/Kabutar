@@ -10,6 +10,7 @@ PODS:
   - SQLiteCipher.swift (1.0.0):
     - SQLCipher
   - SwiftHTTP (1.0.2)
+  - SwiftyJSON (2.3.1)
   - UIColor_Hex_Swift (1.5)
 
 DEPENDENCIES:
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
   - SQLiteCipher.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
   - SwiftHTTP (~> 1.0.0)
+  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - UIColor_Hex_Swift (~> 1.5)
 
 EXTERNAL SOURCES:
@@ -25,6 +27,8 @@ EXTERNAL SOURCES:
     :git: https://github.com/stephencelis/SQLite.swift.git
   SQLiteCipher.swift:
     :git: https://github.com/stephencelis/SQLite.swift.git
+  SwiftyJSON:
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
   SQLite.swift:
@@ -33,6 +37,9 @@ CHECKOUT OPTIONS:
   SQLiteCipher.swift:
     :commit: c9d3082d1f5ddc2e55a792a8eb1a677b8a1b15f5
     :git: https://github.com/stephencelis/SQLite.swift.git
+  SwiftyJSON:
+    :commit: ece271ab33839d11c2153d71fb59c53545132cf9
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
   DKChainableAnimationKit: fe28909402825a42cc632b211eadcc39ad2bee38
@@ -41,6 +48,7 @@ SPEC CHECKSUMS:
   SQLite.swift: 3bb75f5a650f08673276bc6d3fb1de1b542b8f4d
   SQLiteCipher.swift: 6405d3937f6afc94614949336fd1fdefa37428b5
   SwiftHTTP: 6d8ca031a9ce613a01e8f18b497503887b0b50c0
+  SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
   UIColor_Hex_Swift: 09997d02e9ba2833569fd048663fddbe90cf2c52
 
 COCOAPODS: 0.39.0

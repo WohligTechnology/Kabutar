@@ -90,6 +90,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/SQLite.framework"
   install_framework "Pods/SQLiteCipher.framework"
   install_framework "Pods/SwiftHTTP.framework"
+  install_framework "Pods/SwiftyJSON.framework"
   install_framework "Pods/UIColor_Hex_Swift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -99,5 +100,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/SQLite.framework"
   install_framework "Pods/SQLiteCipher.framework"
   install_framework "Pods/SwiftHTTP.framework"
+  install_framework "Pods/SwiftyJSON.framework"
   install_framework "Pods/UIColor_Hex_Swift.framework"
 fi
