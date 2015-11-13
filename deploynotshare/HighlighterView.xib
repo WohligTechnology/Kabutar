@@ -11,6 +11,7 @@
                 <outlet property="color1" destination="4Xm-6d-jsx" id="cuV-ID-y93"/>
                 <outlet property="sizeView" destination="UUD-tM-iEd" id="OlQ-QV-np3"/>
                 <outlet property="sliderValue" destination="Sgz-LL-SSg" id="fZ1-Vf-qjl"/>
+                <outlet property="sliderView" destination="Sgz-LL-SSg" id="jWP-56-XHo"/>
                 <outlet property="textValue" destination="JOl-Bs-yE9" id="Bza-RK-iAs"/>
             </connections>
         </placeholder>

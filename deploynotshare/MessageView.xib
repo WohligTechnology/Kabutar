@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageView" customModule="deploynotshare" customModuleProvider="target">
+            <connections>
+                <outlet property="messageText" destination="7qq-zB-Xvm" id="EiJ-z0-7Jb"/>
+                <outlet property="navigationBar" destination="zJ8-Nr-rhr" id="0zf-JC-hOg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bcA-DW-dEe">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                    <subviews>
+                        <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJ8-Nr-rhr">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="Ui9-Hz-qXw"/>
+                            </constraints>
+                            <color key="barTintColor" red="1" green="0.34509803919999998" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
+                            <textAttributes key="titleTextAttributes">
+                                <color key="textColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
+                            </textAttributes>
+                            <items>
+                                <navigationItem title="Title" id="LQo-6u-7on"/>
+                            </items>
+                        </navigationBar>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Message here...." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qq-zB-Xvm">
+                            <rect key="frame" x="0.0" y="44" width="300" height="66"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="P0N-ED-cmr">
+                            <rect key="frame" x="0.0" y="110" width="300" height="40"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJe-4S-zEI">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="Cu2-7Y-xNb"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="Cancel">
+                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIE-1O-sdw">
+                                    <rect key="frame" x="150" y="0.0" width="150" height="40"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="Ok">
+                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="bcA-DW-dEe" secondAttribute="trailing" id="Y97-KE-QEt"/>
+                <constraint firstAttribute="bottom" secondItem="bcA-DW-dEe" secondAttribute="bottom" id="pdg-sd-KAU"/>
+                <constraint firstItem="bcA-DW-dEe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qjp-4h-k71"/>
+                <constraint firstItem="bcA-DW-dEe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tb3-an-lot"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

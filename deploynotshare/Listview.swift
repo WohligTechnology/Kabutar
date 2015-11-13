@@ -310,7 +310,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
                 self.view.addSubview(blackOut);
                 blackOut.animation.makeAlpha(1).animate(transitionTime);
                 
-                self.addColorPaper = ColorPaper(frame: CGRectMake(self.width/4 - 45,self.height/4 - 100, 300, 150))
+                self.addColorPaper = ColorPaper(frame: CGRectMake(self.width/4 - 45,self.height/2 - 150, 300, 150))
                 self.view.addSubview(self.addColorPaper)
                 
         }

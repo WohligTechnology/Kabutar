@@ -96,9 +96,6 @@ class ElementSketchFooter: UIView {
         self.window?.addSubview(highlightView)
         highlightView.animation.moveY(-172).easeInOut.animate(transitionTime)
         
-        //main implementation
-        GSketch.changeColor(0.0, blue2: 0.0, green2: 0.0)
-        GSketch.changeOpacity(0.4)
     }
     @IBAction func eraserChange(sender: AnyObject) {
         //Highlight and black out popup

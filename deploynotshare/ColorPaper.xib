@@ -24,10 +24,13 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cE-4f-qPj">
                             <rect key="frame" x="0.0" y="0.0" width="150" height="40"/>
+                            <color key="backgroundColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="pBi-cu-VMV"/>
                             </constraints>
-                            <state key="normal" title="Color"/>
+                            <state key="normal" title="Color">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
                             <connections>
                                 <action selector="colorClick:" destination="-1" eventType="touchUpInside" id="JDM-S5-XfT"/>
                             </connections>
@@ -186,7 +189,7 @@
                                             <color key="backgroundColor" red="0.94117647059999998" green="0.65098039220000004" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal" image="paper_9"/>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27I-Lc-ik1">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27I-Lc-ik1">
                                             <rect key="frame" x="235" y="0.0" width="49" height="38"/>
                                             <color key="backgroundColor" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal" image="paper_10"/>

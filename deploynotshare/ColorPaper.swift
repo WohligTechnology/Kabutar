@@ -33,18 +33,29 @@ class ColorPaper: UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
-        
-        
-        
+//        ColorButton.backgroundColor = UIColor(rgba: "#ff5a60")
+        ColorButton.backgroundColor = UIColor(rgba: "#ff5a60")
+        ColorButton.titleLabel?.textColor = UIColor(rgba: "#ffffff")
+        PaperButton.backgroundColor = UIColor(rgba: "#ffffff")
+        PaperButton.titleLabel?.textColor = UIColor(rgba: "#ff5a60")
     }
     
     @IBAction func colorClick(sender: AnyObject) {
         self.ColorView.hidden = false
         self.PaperView.hidden = true
+        ColorButton.backgroundColor = UIColor(rgba: "#ff5a60")
+        ColorButton.titleLabel?.textColor = UIColor(rgba: "#ffffff")
+        PaperButton.backgroundColor = UIColor(rgba: "#ffffff")
+        PaperButton.titleLabel?.textColor = UIColor(rgba: "#ff5a60")
+        
     }
     @IBAction func paperClick(sender: AnyObject) {
         self.ColorView.hidden = true
         self.PaperView.hidden = false
+        PaperButton.backgroundColor = UIColor(rgba: "#ff5a60")
+        PaperButton.titleLabel?.textColor = UIColor.whiteColor()
+        ColorButton.backgroundColor = UIColor.whiteColor()
+        ColorButton.titleLabel?.textColor = UIColor(rgba: "#ff5a60")
     }
     /*
     // Only override drawRect: if you perform custom drawing.

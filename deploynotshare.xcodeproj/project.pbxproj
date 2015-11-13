@@ -39,6 +39,8 @@
 		43344B051BF5BCE600AC4802 /* EraserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43344B041BF5BCE600AC4802 /* EraserView.xib */; settings = {ASSET_TAGS = (); }; };
 		43344B071BF5D77A00AC4802 /* BrushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B061BF5D77A00AC4802 /* BrushView.swift */; settings = {ASSET_TAGS = (); }; };
 		43344B091BF5D8F500AC4802 /* EraserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B081BF5D8F500AC4802 /* EraserView.swift */; settings = {ASSET_TAGS = (); }; };
+		43344B0B1BF5FFD600AC4802 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43344B0A1BF5FFD600AC4802 /* MessageView.xib */; settings = {ASSET_TAGS = (); }; };
+		43344B0D1BF602E600AC4802 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B0C1BF602E600AC4802 /* MessageView.swift */; settings = {ASSET_TAGS = (); }; };
 		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; };
 		434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E778A1BE3979800684C08 /* MenuListViewController.swift */; };
 		4361079E1BE9F4BE0094BB25 /* Detailview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4361079D1BE9F4BE0094BB25 /* Detailview.swift */; };
@@ -130,6 +132,8 @@
 		43344B041BF5BCE600AC4802 /* EraserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EraserView.xib; sourceTree = "<group>"; };
 		43344B061BF5D77A00AC4802 /* BrushView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrushView.swift; sourceTree = "<group>"; };
 		43344B081BF5D8F500AC4802 /* EraserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EraserView.swift; sourceTree = "<group>"; };
+		43344B0A1BF5FFD600AC4802 /* MessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageView.xib; sourceTree = "<group>"; };
+		43344B0C1BF602E600AC4802 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		434E77771BE34B4800684C08 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		434E778A1BE3979800684C08 /* MenuListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuListViewController.swift; sourceTree = "<group>"; };
 		4361079D1BE9F4BE0094BB25 /* Detailview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detailview.swift; sourceTree = "<group>"; };
@@ -362,6 +366,8 @@
 				43921D561BE0C4590032DE28 /* SortView.swift */,
 				43BE98E71BF220DE0006CBC4 /* ColorPaper.swift */,
 				36E416741BEB3624007EE385 /* NoteFooterAdd.swift */,
+				43344B0C1BF602E600AC4802 /* MessageView.swift */,
+				43344B0A1BF5FFD600AC4802 /* MessageView.xib */,
 				436107A31BEA2A750094BB25 /* Move.swift */,
 				43E0F2AD1BE8C5E500363F49 /* DateTime.swift */,
 				43A004981BE8821600396E47 /* ViewView.swift */,
@@ -496,6 +502,7 @@
 				43F1A29D1BDBA87700F82938 /* Main.storyboard in Resources */,
 				43E0F2B01BE8CA4A00363F49 /* Alert.xib in Resources */,
 				43344B031BF5BCDA00AC4802 /* BrushView.xib in Resources */,
+				43344B0B1BF5FFD600AC4802 /* MessageView.xib in Resources */,
 				43344B051BF5BCE600AC4802 /* EraserView.xib in Resources */,
 				36F1147C1BF0F8990023E2DB /* ElementCheckBox.xib in Resources */,
 				436107A21BEA06320094BB25 /* Move.xib in Resources */,
@@ -619,6 +626,7 @@
 				43344B091BF5D8F500AC4802 /* EraserView.swift in Sources */,
 				43344AFD1BF5B44200AC4802 /* AboutViewController.swift in Sources */,
 				43EFB9BD1BDE29130014EDF9 /* ListViewController.swift in Sources */,
+				43344B0D1BF602E600AC4802 /* MessageView.swift in Sources */,
 				43921D591BE0D8260032DE28 /* ThinkViewController.swift in Sources */,
 				43E0F2B41BE8E1B300363F49 /* SecondViewController.swift in Sources */,
 				36344E6F1BF32D980053EDCD /* ElementSketch.swift in Sources */,
