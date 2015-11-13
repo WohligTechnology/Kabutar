@@ -37,11 +37,21 @@ class ElementCheckBox: UIView,UITextFieldDelegate {
         cb.borderWidth = 1
         cb.checkColor = PinkColor
         cb.checkWidth = 3
+        cb.checkboxText = checkBoxText
         self.addSubview(cb)
         
+        
+        
+        
         checkBoxText.delegate = self
+       
         //checkBoxText.becomeFirstResponder()
         
     }
     
+  
+
+    
 }
+
+
