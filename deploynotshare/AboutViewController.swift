@@ -1,23 +1,19 @@
 //
-//  ThinkViewController.swift
+//  AboutViewController.swift
 //  deploynotshare
 //
-//  Created by Jagruti Patil on 28/10/15.
+//  Created by Jagruti Patil on 13/11/15.
 //  Copyright © 2015 Wohlig. All rights reserved.
 //
 
 import UIKit
 
-class ThinkViewController: UIViewController {
-    
-//    var mainViewController: UIViewController!
+class AboutViewController: UIViewController {
 
-    @IBOutlet weak var saysomething: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBarItem()
-        self.saysomething.layer.borderWidth = 2
-        self.saysomething.layer.borderColor = UIColor.brownColor().CGColor
+
         // Do any additional setup after loading the view.
     }
 
