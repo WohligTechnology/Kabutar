@@ -6,7 +6,12 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BrushView" customModule="deploynotshare" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BrushView" customModule="deploynotshare" customModuleProvider="target">
+            <connections>
+                <outlet property="slideView" destination="Fbu-yT-hi7" id="tDE-Mb-pcF"/>
+                <outlet property="textValue" destination="H4e-Et-7On" id="jOd-c3-qk2"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1Nv-n9-kfM">
             <rect key="frame" x="0.0" y="0.0" width="350" height="172"/>
@@ -40,7 +45,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fbu-yT-hi7" userLabel="Resizing Slider">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="5" maxValue="32" translatesAutoresizingMaskIntoConstraints="NO" id="Fbu-yT-hi7" userLabel="Resizing Slider">
                     <rect key="frame" x="72" y="121" width="228" height="31"/>
                     <animations/>
                     <constraints>
@@ -54,6 +59,9 @@
                             <exclude reference="CyR-8j-gvc"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="brushResize:" destination="-1" eventType="valueChanged" id="sRT-Ca-qjO"/>
+                    </connections>
                 </slider>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KP6-Nc-2FH" userLabel="ColorView">
                     <rect key="frame" x="19" y="64" width="312" height="44"/>
@@ -67,6 +75,9 @@
                                 <constraint firstAttribute="height" constant="32" id="YeR-Q4-HkV"/>
                                 <constraint firstAttribute="width" constant="32" id="eOG-xt-84y"/>
                             </constraints>
+                            <connections>
+                                <action selector="firstBrush:" destination="-1" eventType="touchUpInside" id="Tbt-NW-QrN"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3W-xs-H5K" userLabel="color2">
                             <rect key="frame" x="60" y="8" width="32" height="32"/>
@@ -77,6 +88,9 @@
                                 <constraint firstAttribute="width" constant="32" id="b11-Lp-hYc"/>
                                 <constraint firstAttribute="height" constant="32" id="olC-LB-AMr"/>
                             </constraints>
+                            <connections>
+                                <action selector="secondBrush:" destination="-1" eventType="touchUpInside" id="nLC-2Y-yei"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbE-LN-1Um" userLabel="color3">
                             <rect key="frame" x="100" y="8" width="32" height="32"/>
@@ -87,6 +101,9 @@
                                 <constraint firstAttribute="width" constant="32" id="Lze-xE-EWa"/>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="hlP-XM-xdK"/>
                             </constraints>
+                            <connections>
+                                <action selector="thirdBrush:" destination="-1" eventType="touchUpInside" id="UKq-2x-c1m"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aq9-bN-hSd" userLabel="color4">
                             <rect key="frame" x="140" y="8" width="32" height="32"/>
@@ -96,6 +113,9 @@
                                 <constraint firstAttribute="height" constant="32" id="AgN-5S-VPf"/>
                                 <constraint firstAttribute="width" constant="32" id="Muk-e8-jcf"/>
                             </constraints>
+                            <connections>
+                                <action selector="fourthBrush:" destination="-1" eventType="touchUpInside" id="ig5-D4-vFz"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brf-iU-rbk" userLabel="color5">
                             <rect key="frame" x="180" y="8" width="32" height="32"/>
@@ -106,6 +126,9 @@
                                 <constraint firstAttribute="height" constant="32" id="MqR-CS-ZMF"/>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="zEJ-8W-Adi"/>
                             </constraints>
+                            <connections>
+                                <action selector="fifthBrush:" destination="-1" eventType="touchUpInside" id="T01-4L-7tD"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6J-ix-ezl" userLabel="color6">
                             <rect key="frame" x="220" y="8" width="32" height="32"/>
@@ -116,6 +139,9 @@
                                 <constraint firstAttribute="width" constant="32" id="FFH-Cl-fj6"/>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="gv2-HR-vhs"/>
                             </constraints>
+                            <connections>
+                                <action selector="sixthBrush:" destination="-1" eventType="touchUpInside" id="wOc-L1-eKh"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxo-5F-yXe" userLabel="color7">
                             <rect key="frame" x="260" y="8" width="32" height="32"/>
@@ -125,6 +151,9 @@
                                 <constraint firstAttribute="width" constant="32" id="HU8-8h-Cal"/>
                                 <constraint firstAttribute="height" constant="32" id="rc3-rq-jI5"/>
                             </constraints>
+                            <connections>
+                                <action selector="seventhBrush:" destination="-1" eventType="touchUpInside" id="xeS-BC-m8o"/>
+                            </connections>
                         </button>
                     </subviews>
                     <animations/>
@@ -352,7 +381,7 @@
                     <exclude reference="2dg-HA-OJk"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="157" y="329"/>
+            <point key="canvasLocation" x="-40" y="331"/>
         </view>
     </objects>
 </document>
