@@ -63,6 +63,7 @@ class ViewView: UIView {
     }
 
     @IBAction func detailClick(sender: AnyObject) {
+        config.set("note_view",value2: "1")
         checkstatus = 1
         let abc = slideMenuLeft as! SlideMenuController
         abc.changeMainViewController(detailview, close: true)
@@ -72,6 +73,7 @@ class ViewView: UIView {
     }
     
     @IBAction func listClick(sender: AnyObject) {
+        config.set("note_view",value2: "2")
         checkstatus = 2
         let abc = slideMenuLeft as! SlideMenuController
         abc.changeMainViewController(listview, close: true)
@@ -81,6 +83,7 @@ class ViewView: UIView {
     }
     
     @IBAction func tilesClick(sender: AnyObject) {
+        config.set("note_view",value2: "3")
         checkstatus = 3
         let abc = slideMenuLeft as! SlideMenuController
         abc.changeMainViewController(noteViewController, close: true)

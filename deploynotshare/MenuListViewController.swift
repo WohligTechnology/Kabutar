@@ -22,6 +22,7 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     
     var folderViewController: UIViewController!
     var detailview:UIViewController!
+    var listView: UIViewController!
     var noteViewController: UIViewController!
     var FeedbackView: UIViewController!
     var TermsView: UIViewController!
@@ -41,8 +42,12 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
         menuStaticTable.separatorStyle = UITableViewCellSeparatorStyle.None
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
         let noteViewController = storyboard.instantiateViewControllerWithIdentifier("cardViewController") as! cardViewController
         self.noteViewController = UINavigationController(rootViewController: noteViewController)
+        
+        let listView = storyboard.instantiateViewControllerWithIdentifier("Listview") as! Listview
+        self.listView = UINavigationController(rootViewController: listView)
         
         let folderViewController = storyboard.instantiateViewControllerWithIdentifier("TableViewController") as! TableViewController
         self.folderViewController = UINavigationController(rootViewController: folderViewController)
@@ -112,13 +117,26 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedFolderToNoteId = ""
-        if(indexPath.row == 1){
+        if(indexPath.row == 1) {
             isInsideFolder = 0
-            self.slideMenuController()?.changeMainViewController(self.noteViewController, close: true)
+            let noteView = config.get("note_view")
+            switch noteView
+            {
+                case "1":
+                    self.slideMenuController()?.changeMainViewController(self.detailview, close: true)
+                case "2":
+                    self.slideMenuController()?.changeMainViewController(self.listView, close: true)
+                case "3":
+                    self.slideMenuController()?.changeMainViewController(self.noteViewController, close: true)
+            default:
+                self.slideMenuController()?.changeMainViewController(self.detailview, close: true)
+                
+            }
+            
         
         
         }
-        if(indexPath.row == 2){
+        if(indexPath.row == 2) {
             isInsideFolder = 1
             changeViewController(2)
             

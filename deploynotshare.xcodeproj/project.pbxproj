@@ -31,16 +31,16 @@
 		36F1147A1BF0BA770023E2DB /* DetailViewFooterMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F114791BF0BA770023E2DB /* DetailViewFooterMain.swift */; };
 		36F1147C1BF0F8990023E2DB /* ElementCheckBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F1147B1BF0F8990023E2DB /* ElementCheckBox.xib */; };
 		36F1147E1BF0F8B10023E2DB /* ElementCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1147D1BF0F8B10023E2DB /* ElementCheckBox.swift */; };
-		43344AFB1BF5B42E00AC4802 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344AFA1BF5B42E00AC4802 /* TermsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		43344AFD1BF5B44200AC4802 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344AFC1BF5B44200AC4802 /* AboutViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		43344AFF1BF5BC9000AC4802 /* HighlighterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43344AFE1BF5BC9000AC4802 /* HighlighterView.xib */; settings = {ASSET_TAGS = (); }; };
-		43344B011BF5BC9A00AC4802 /* HighlighterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B001BF5BC9A00AC4802 /* HighlighterView.swift */; settings = {ASSET_TAGS = (); }; };
-		43344B031BF5BCDA00AC4802 /* BrushView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43344B021BF5BCDA00AC4802 /* BrushView.xib */; settings = {ASSET_TAGS = (); }; };
-		43344B051BF5BCE600AC4802 /* EraserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43344B041BF5BCE600AC4802 /* EraserView.xib */; settings = {ASSET_TAGS = (); }; };
-		43344B071BF5D77A00AC4802 /* BrushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B061BF5D77A00AC4802 /* BrushView.swift */; settings = {ASSET_TAGS = (); }; };
-		43344B091BF5D8F500AC4802 /* EraserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B081BF5D8F500AC4802 /* EraserView.swift */; settings = {ASSET_TAGS = (); }; };
-		43344B0B1BF5FFD600AC4802 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43344B0A1BF5FFD600AC4802 /* MessageView.xib */; settings = {ASSET_TAGS = (); }; };
-		43344B0D1BF602E600AC4802 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B0C1BF602E600AC4802 /* MessageView.swift */; settings = {ASSET_TAGS = (); }; };
+		43344AFB1BF5B42E00AC4802 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344AFA1BF5B42E00AC4802 /* TermsViewController.swift */; };
+		43344AFD1BF5B44200AC4802 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344AFC1BF5B44200AC4802 /* AboutViewController.swift */; };
+		43344AFF1BF5BC9000AC4802 /* HighlighterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43344AFE1BF5BC9000AC4802 /* HighlighterView.xib */; };
+		43344B011BF5BC9A00AC4802 /* HighlighterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B001BF5BC9A00AC4802 /* HighlighterView.swift */; };
+		43344B031BF5BCDA00AC4802 /* BrushView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43344B021BF5BCDA00AC4802 /* BrushView.xib */; };
+		43344B051BF5BCE600AC4802 /* EraserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43344B041BF5BCE600AC4802 /* EraserView.xib */; };
+		43344B071BF5D77A00AC4802 /* BrushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B061BF5D77A00AC4802 /* BrushView.swift */; };
+		43344B091BF5D8F500AC4802 /* EraserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B081BF5D8F500AC4802 /* EraserView.swift */; };
+		43344B0B1BF5FFD600AC4802 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43344B0A1BF5FFD600AC4802 /* MessageView.xib */; };
+		43344B0D1BF602E600AC4802 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B0C1BF602E600AC4802 /* MessageView.swift */; };
 		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; };
 		434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E778A1BE3979800684C08 /* MenuListViewController.swift */; };
 		4361079E1BE9F4BE0094BB25 /* Detailview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4361079D1BE9F4BE0094BB25 /* Detailview.swift */; };
@@ -266,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				43F1A29B1BDBA87700F82938 /* Main.storyboard */,
+				437317361BD770660018B580 /* LaunchScreen.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -330,7 +331,6 @@
 			children = (
 				36E4166E1BEB1266007EE385 /* NoteCollectionViewCell.xib */,
 				36E416721BEB35EE007EE385 /* NoteFooterAdd.xib */,
-				437317361BD770660018B580 /* LaunchScreen.storyboard */,
 				43EFB9C01BDE62380014EDF9 /* footermenu.xib */,
 				43921D541BE0BD940032DE28 /* SortView.xib */,
 				436107A11BEA06320094BB25 /* Move.xib */,

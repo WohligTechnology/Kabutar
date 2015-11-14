@@ -30,7 +30,11 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         getAllNotes()
         
-        self.setNavigationBarItem()
+        if(isInsideFolder == 0)
+        {
+            self.setNavigationBarItem()
+        }
+
         let bounds = UIScreen.mainScreen().bounds
         let width = bounds.size.width
         let height = bounds.size.height

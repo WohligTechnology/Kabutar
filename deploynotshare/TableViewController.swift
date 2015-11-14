@@ -214,12 +214,43 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("ShowNotes", sender: self)
+        let noteView = config.get("note_view");
+        switch noteView
+        {
+            case "1":
+            self.performSegueWithIdentifier("noteDetail", sender: self)
+            case "2":
+            self.performSegueWithIdentifier("noteList", sender: self)
+            case "3":
+            self.performSegueWithIdentifier("ShowNotes", sender: self)
+        default:
+            self.performSegueWithIdentifier("ShowNotes", sender: self)
+        }
     }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "noteDetail"){
+            checkstatus = 3
+            let selectedPath = self.tableView!.indexPathForSelectedRow
+            
+            let vc = segue.destinationViewController as! Detailview
+            vc.title = self.folderName[selectedPath!.row] as? String
+            selectedFolderToNoteId = (self.folderId[selectedPath!.row] as? String)!
+            
+        }
+        if(segue.identifier == "noteList"){
+            checkstatus = 3
+            let selectedPath = self.tableView!.indexPathForSelectedRow
+            
+            let vc = segue.destinationViewController as! Listview
+            vc.title = self.folderName[selectedPath!.row] as? String
+            selectedFolderToNoteId = (self.folderId[selectedPath!.row] as? String)!
+            
+        }
         if(segue.identifier == "ShowNotes"){
             checkstatus = 3
             let selectedPath = self.tableView!.indexPathForSelectedRow
+            
             let vc = segue.destinationViewController as! cardViewController
             vc.title = self.folderName[selectedPath!.row] as? String
             selectedFolderToNoteId = (self.folderId[selectedPath!.row] as? String)!

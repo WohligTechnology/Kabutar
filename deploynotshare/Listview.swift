@@ -46,7 +46,11 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         islocked = []
         
         
-        self.setNavigationBarItem()
+        if(isInsideFolder == 0)
+        {
+            self.setNavigationBarItem()
+        }
+
         
         if(selectedFolderToNoteId==""){
             for row in notesobj.find() {

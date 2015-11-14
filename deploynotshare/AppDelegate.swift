@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .DocumentDirectory, .UserDomainMask, true
             ).first!
         let db = try! Connection("\(path)/db.sqlite3")
-        
+        print(path);
         return db;
     }
 
@@ -63,11 +63,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let mainViewController = storyboard.instantiateViewControllerWithIdentifier("cardViewController") as! cardViewController
+        let noteView = config.get("note_view")
+        var nvc: UINavigationController!
         
         let leftViewController = storyboard.instantiateViewControllerWithIdentifier("MenuListViewController") as! MenuListViewController
+        switch (noteView)
+        {
+        case "1":
+            let mainViewController = storyboard.instantiateViewControllerWithIdentifier("Detailview") as! Detailview
+            nvc = UINavigationController(rootViewController: mainViewController)
+            
+        case "2":
+            let mainViewController = storyboard.instantiateViewControllerWithIdentifier("Listview") as! Listview
+            nvc = UINavigationController(rootViewController: mainViewController)
+            
+        case "3":
+            let mainViewController = storyboard.instantiateViewControllerWithIdentifier("cardViewController") as! cardViewController
+            nvc = UINavigationController(rootViewController: mainViewController)
+            
+        default:
+            let mainViewController = storyboard.instantiateViewControllerWithIdentifier("Detailview") as! Detailview
+            nvc = UINavigationController(rootViewController: mainViewController)
+            
+        }
         
-        let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
+        
+        
+        
+        
+        
         
         leftViewController.mainViewController = nvc
         
@@ -81,12 +105,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        self.createMenuView()
+      
         let bounds = UIScreen.mainScreen().bounds
         MainWidth = bounds.size.width
         MainHeight = bounds.size.height
 
         AppDelegate.getDatabase()
+        self.createMenuView()
         return true
     }
 
