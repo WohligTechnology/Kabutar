@@ -19,6 +19,10 @@
                     <animations/>
                     <attributedString key="attributedText"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    <connections>
+                        <action selector="tapText:" destination="-1" eventType="editingDidBegin" id="DrS-OI-UuV"/>
+                        <action selector="tapText:" destination="-1" eventType="touchDown" id="whh-B5-Uw8"/>
+                    </connections>
                 </textField>
             </subviews>
             <animations/>

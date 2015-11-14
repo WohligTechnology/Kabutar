@@ -70,6 +70,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         ScrView.scrollEnabled = true
         
         let topOffset = ScrView.contentOffset.y
+        GElementCheckBox?.checkBoxText.resignFirstResponder()
         
         if (sketch != nil)
         {

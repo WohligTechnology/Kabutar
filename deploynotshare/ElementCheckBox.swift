@@ -13,6 +13,9 @@ import UIKit
 class ElementCheckBox: UIView,UITextFieldDelegate {
 
     @IBOutlet weak var checkBoxText: UITextField!
+    @IBAction func tapText(sender: AnyObject) {
+        GElementCheckBox = self
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadViewFromNib ()
