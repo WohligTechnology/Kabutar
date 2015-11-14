@@ -8,15 +8,19 @@
 
 import UIKit
 
-class SettingViewController: UIViewController {
+class SettingViewController: UITableViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBarItem()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print(indexPath.row)
+    }
+    
     
 }
