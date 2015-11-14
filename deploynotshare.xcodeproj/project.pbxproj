@@ -72,12 +72,10 @@
 		43BE98E61BF21D0F0006CBC4 /* ColorPaper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43BE98E51BF21D0F0006CBC4 /* ColorPaper.xib */; };
 		43BE98E81BF220DE0006CBC4 /* ColorPaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BE98E71BF220DE0006CBC4 /* ColorPaper.swift */; };
 		43E0F2AE1BE8C5E500363F49 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0F2AD1BE8C5E500363F49 /* DateTime.swift */; };
-		43E0F2B01BE8CA4A00363F49 /* Alert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43E0F2AF1BE8CA4A00363F49 /* Alert.xib */; };
 		43E0F2B41BE8E1B300363F49 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0F2B31BE8E1B300363F49 /* SecondViewController.swift */; };
 		43E0F2F01BE9E61C00363F49 /* Listview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0F2EF1BE9E61C00363F49 /* Listview.swift */; };
 		43EFB9BD1BDE29130014EDF9 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EFB9BC1BDE29130014EDF9 /* ListViewController.swift */; };
 		43EFB9BF1BDE3D5A0014EDF9 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EFB9BE1BDE3D5A0014EDF9 /* ListTableViewCell.swift */; };
-		43EFB9C11BDE62380014EDF9 /* footermenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43EFB9C01BDE62380014EDF9 /* footermenu.xib */; };
 		43F1A29D1BDBA87700F82938 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F1A29B1BDBA87700F82938 /* Main.storyboard */; };
 		CB6D02908480861E8104DBED /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C5E5AA73873D644F4D1844 /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -171,12 +169,10 @@
 		43BE98E51BF21D0F0006CBC4 /* ColorPaper.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPaper.xib; sourceTree = "<group>"; };
 		43BE98E71BF220DE0006CBC4 /* ColorPaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPaper.swift; sourceTree = "<group>"; };
 		43E0F2AD1BE8C5E500363F49 /* DateTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTime.swift; sourceTree = "<group>"; };
-		43E0F2AF1BE8CA4A00363F49 /* Alert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Alert.xib; sourceTree = "<group>"; };
 		43E0F2B31BE8E1B300363F49 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		43E0F2EF1BE9E61C00363F49 /* Listview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listview.swift; sourceTree = "<group>"; };
 		43EFB9BC1BDE29130014EDF9 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		43EFB9BE1BDE3D5A0014EDF9 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
-		43EFB9C01BDE62380014EDF9 /* footermenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = footermenu.xib; sourceTree = "<group>"; };
 		43F1A29C1BDBA87700F82938 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		57ACE2379821B0AE944A6D13 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		92B148ACB4368AC64116F570 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -271,6 +267,186 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		43344B0E1BF735C000AC4802 /* NoteFooterAdd */ = {
+			isa = PBXGroup;
+			children = (
+				36E416721BEB35EE007EE385 /* NoteFooterAdd.xib */,
+				36E416741BEB3624007EE385 /* NoteFooterAdd.swift */,
+			);
+			name = NoteFooterAdd;
+			sourceTree = "<group>";
+		};
+		43344B0F1BF735EE00AC4802 /* SortView */ = {
+			isa = PBXGroup;
+			children = (
+				43921D541BE0BD940032DE28 /* SortView.xib */,
+				43921D561BE0C4590032DE28 /* SortView.swift */,
+			);
+			name = SortView;
+			sourceTree = "<group>";
+		};
+		43344B101BF7361D00AC4802 /* NoteCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				36E4166E1BEB1266007EE385 /* NoteCollectionViewCell.xib */,
+				36E416701BEB12E0007EE385 /* NoteCollectionUIView.swift */,
+			);
+			name = NoteCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		43344B111BF7364F00AC4802 /* MoveToFolder */ = {
+			isa = PBXGroup;
+			children = (
+				4389CE241BECB8E7005CF805 /* MoveToFolder.xib */,
+				4389CE261BECBA11005CF805 /* MoveToFolder.swift */,
+			);
+			name = MoveToFolder;
+			sourceTree = "<group>";
+		};
+		43344B121BF7366200AC4802 /* ViewView */ = {
+			isa = PBXGroup;
+			children = (
+				43A0049A1BE894E300396E47 /* ViewView.xib */,
+				43A004981BE8821600396E47 /* ViewView.swift */,
+			);
+			name = ViewView;
+			sourceTree = "<group>";
+		};
+		43344B131BF736AB00AC4802 /* DateTime */ = {
+			isa = PBXGroup;
+			children = (
+				43A0049C1BE8BC8100396E47 /* DateTime.xib */,
+				43E0F2AD1BE8C5E500363F49 /* DateTime.swift */,
+			);
+			name = DateTime;
+			sourceTree = "<group>";
+		};
+		43344B141BF736D500AC4802 /* Move */ = {
+			isa = PBXGroup;
+			children = (
+				436107A11BEA06320094BB25 /* Move.xib */,
+				436107A31BEA2A750094BB25 /* Move.swift */,
+			);
+			name = Move;
+			sourceTree = "<group>";
+		};
+		43344B151BF736F200AC4802 /* ColorPattern */ = {
+			isa = PBXGroup;
+			children = (
+				4389CE281BEDDC36005CF805 /* ColorPattern.xib */,
+				4389CE2A1BEDE136005CF805 /* ColorPattern.swift */,
+			);
+			name = ColorPattern;
+			sourceTree = "<group>";
+		};
+		43344B161BF7373500AC4802 /* NavigationTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				436107A71BEB27890094BB25 /* NavigationTableCell.xib */,
+				436107A51BEB276D0094BB25 /* NavigationTableCell.swift */,
+			);
+			name = NavigationTableCell;
+			sourceTree = "<group>";
+		};
+		43344B171BF7374100AC4802 /* AddCircle */ = {
+			isa = PBXGroup;
+			children = (
+				36E416761BEB6C9C007EE385 /* AddCircle.xib */,
+				36E416781BEB6D18007EE385 /* AddCircle.swift */,
+			);
+			name = AddCircle;
+			sourceTree = "<group>";
+		};
+		43344B181BF7375600AC4802 /* ElementRecording */ = {
+			isa = PBXGroup;
+			children = (
+				364EA4641BF20FC6001B7161 /* ElementRecording.xib */,
+				364EA4621BF20F70001B7161 /* ElementRecording.swift */,
+			);
+			name = ElementRecording;
+			sourceTree = "<group>";
+		};
+		43344B191BF7376400AC4802 /* DetailViewFooterMain */ = {
+			isa = PBXGroup;
+			children = (
+				36F114751BF0B6310023E2DB /* DetailViewFooterMain.xib */,
+				36F114791BF0BA770023E2DB /* DetailViewFooterMain.swift */,
+			);
+			name = DetailViewFooterMain;
+			sourceTree = "<group>";
+		};
+		43344B1A1BF7376C00AC4802 /* ElementSketch */ = {
+			isa = PBXGroup;
+			children = (
+				36344E701BF32EAC0053EDCD /* ElementSketch.xib */,
+				36344E6E1BF32D980053EDCD /* ElementSketch.swift */,
+			);
+			name = ElementSketch;
+			sourceTree = "<group>";
+		};
+		43344B1B1BF7378800AC4802 /* ElementSketchFooter */ = {
+			isa = PBXGroup;
+			children = (
+				36344E721BF33B2F0053EDCD /* ElementSketchFooter.xib */,
+				36344E741BF3A5F10053EDCD /* ElementSketchFooter.swift */,
+			);
+			name = ElementSketchFooter;
+			sourceTree = "<group>";
+		};
+		43344B1C1BF7379200AC4802 /* ElementCheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				36F1147B1BF0F8990023E2DB /* ElementCheckBox.xib */,
+				36F1147D1BF0F8B10023E2DB /* ElementCheckBox.swift */,
+			);
+			name = ElementCheckBox;
+			sourceTree = "<group>";
+		};
+		43344B1D1BF7379C00AC4802 /* HighlighterView */ = {
+			isa = PBXGroup;
+			children = (
+				43344AFE1BF5BC9000AC4802 /* HighlighterView.xib */,
+				43344B001BF5BC9A00AC4802 /* HighlighterView.swift */,
+			);
+			name = HighlighterView;
+			sourceTree = "<group>";
+		};
+		43344B1E1BF737A700AC4802 /* BrushView */ = {
+			isa = PBXGroup;
+			children = (
+				43344B021BF5BCDA00AC4802 /* BrushView.xib */,
+				43344B061BF5D77A00AC4802 /* BrushView.swift */,
+			);
+			name = BrushView;
+			sourceTree = "<group>";
+		};
+		43344B1F1BF737B300AC4802 /* EraserView */ = {
+			isa = PBXGroup;
+			children = (
+				43344B041BF5BCE600AC4802 /* EraserView.xib */,
+				43344B081BF5D8F500AC4802 /* EraserView.swift */,
+			);
+			name = EraserView;
+			sourceTree = "<group>";
+		};
+		43344B201BF737BF00AC4802 /* ColorPaper */ = {
+			isa = PBXGroup;
+			children = (
+				43BE98E51BF21D0F0006CBC4 /* ColorPaper.xib */,
+				43BE98E71BF220DE0006CBC4 /* ColorPaper.swift */,
+			);
+			name = ColorPaper;
+			sourceTree = "<group>";
+		};
+		43344B211BF737CC00AC4802 /* MessageView */ = {
+			isa = PBXGroup;
+			children = (
+				43344B0C1BF602E600AC4802 /* MessageView.swift */,
+				43344B0A1BF5FFD600AC4802 /* MessageView.xib */,
+			);
+			name = MessageView;
+			sourceTree = "<group>";
+		};
 		437317211BD770650018B580 = {
 			isa = PBXGroup;
 			children = (
@@ -329,48 +505,26 @@
 		43921D531BE0BD300032DE28 /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
-				36E4166E1BEB1266007EE385 /* NoteCollectionViewCell.xib */,
-				36E416721BEB35EE007EE385 /* NoteFooterAdd.xib */,
-				43EFB9C01BDE62380014EDF9 /* footermenu.xib */,
-				43921D541BE0BD940032DE28 /* SortView.xib */,
-				436107A11BEA06320094BB25 /* Move.xib */,
-				43A0049A1BE894E300396E47 /* ViewView.xib */,
-				43A0049C1BE8BC8100396E47 /* DateTime.xib */,
-				4389CE241BECB8E7005CF805 /* MoveToFolder.xib */,
-				4389CE281BEDDC36005CF805 /* ColorPattern.xib */,
-				43E0F2AF1BE8CA4A00363F49 /* Alert.xib */,
-				436107A71BEB27890094BB25 /* NavigationTableCell.xib */,
-				36E416761BEB6C9C007EE385 /* AddCircle.xib */,
-				364EA4641BF20FC6001B7161 /* ElementRecording.xib */,
-				364EA4621BF20F70001B7161 /* ElementRecording.swift */,
-				36F114751BF0B6310023E2DB /* DetailViewFooterMain.xib */,
-				36344E701BF32EAC0053EDCD /* ElementSketch.xib */,
-				36344E6E1BF32D980053EDCD /* ElementSketch.swift */,
-				36344E721BF33B2F0053EDCD /* ElementSketchFooter.xib */,
-				36344E741BF3A5F10053EDCD /* ElementSketchFooter.swift */,
-				36F114791BF0BA770023E2DB /* DetailViewFooterMain.swift */,
-				36F1147B1BF0F8990023E2DB /* ElementCheckBox.xib */,
-				36F1147D1BF0F8B10023E2DB /* ElementCheckBox.swift */,
-				43344AFE1BF5BC9000AC4802 /* HighlighterView.xib */,
-				43344B021BF5BCDA00AC4802 /* BrushView.xib */,
-				43344B041BF5BCE600AC4802 /* EraserView.xib */,
-				43344B001BF5BC9A00AC4802 /* HighlighterView.swift */,
-				43344B061BF5D77A00AC4802 /* BrushView.swift */,
-				43344B081BF5D8F500AC4802 /* EraserView.swift */,
-				43BE98E51BF21D0F0006CBC4 /* ColorPaper.xib */,
-				36E416781BEB6D18007EE385 /* AddCircle.swift */,
-				36E416701BEB12E0007EE385 /* NoteCollectionUIView.swift */,
-				4389CE261BECBA11005CF805 /* MoveToFolder.swift */,
-				436107A51BEB276D0094BB25 /* NavigationTableCell.swift */,
-				4389CE2A1BEDE136005CF805 /* ColorPattern.swift */,
-				43921D561BE0C4590032DE28 /* SortView.swift */,
-				43BE98E71BF220DE0006CBC4 /* ColorPaper.swift */,
-				36E416741BEB3624007EE385 /* NoteFooterAdd.swift */,
-				43344B0C1BF602E600AC4802 /* MessageView.swift */,
-				43344B0A1BF5FFD600AC4802 /* MessageView.xib */,
-				436107A31BEA2A750094BB25 /* Move.swift */,
-				43E0F2AD1BE8C5E500363F49 /* DateTime.swift */,
-				43A004981BE8821600396E47 /* ViewView.swift */,
+				43344B101BF7361D00AC4802 /* NoteCollectionViewCell */,
+				43344B0E1BF735C000AC4802 /* NoteFooterAdd */,
+				43344B0F1BF735EE00AC4802 /* SortView */,
+				43344B141BF736D500AC4802 /* Move */,
+				43344B121BF7366200AC4802 /* ViewView */,
+				43344B131BF736AB00AC4802 /* DateTime */,
+				43344B111BF7364F00AC4802 /* MoveToFolder */,
+				43344B151BF736F200AC4802 /* ColorPattern */,
+				43344B161BF7373500AC4802 /* NavigationTableCell */,
+				43344B171BF7374100AC4802 /* AddCircle */,
+				43344B181BF7375600AC4802 /* ElementRecording */,
+				43344B191BF7376400AC4802 /* DetailViewFooterMain */,
+				43344B1A1BF7376C00AC4802 /* ElementSketch */,
+				43344B1B1BF7378800AC4802 /* ElementSketchFooter */,
+				43344B1C1BF7379200AC4802 /* ElementCheckBox */,
+				43344B1D1BF7379C00AC4802 /* HighlighterView */,
+				43344B1E1BF737A700AC4802 /* BrushView */,
+				43344B1F1BF737B300AC4802 /* EraserView */,
+				43344B201BF737BF00AC4802 /* ColorPaper */,
+				43344B211BF737CC00AC4802 /* MessageView */,
 			);
 			name = UIViews;
 			sourceTree = "<group>";
@@ -500,7 +654,6 @@
 				43BE98E61BF21D0F0006CBC4 /* ColorPaper.xib in Resources */,
 				43344AFF1BF5BC9000AC4802 /* HighlighterView.xib in Resources */,
 				43F1A29D1BDBA87700F82938 /* Main.storyboard in Resources */,
-				43E0F2B01BE8CA4A00363F49 /* Alert.xib in Resources */,
 				43344B031BF5BCDA00AC4802 /* BrushView.xib in Resources */,
 				43344B0B1BF5FFD600AC4802 /* MessageView.xib in Resources */,
 				43344B051BF5BCE600AC4802 /* EraserView.xib in Resources */,
@@ -513,7 +666,6 @@
 				36F114761BF0B6310023E2DB /* DetailViewFooterMain.xib in Resources */,
 				43A0049D1BE8BC8100396E47 /* DateTime.xib in Resources */,
 				36E4166F1BEB1266007EE385 /* NoteCollectionViewCell.xib in Resources */,
-				43EFB9C11BDE62380014EDF9 /* footermenu.xib in Resources */,
 				4389CE251BECB8E7005CF805 /* MoveToFolder.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
