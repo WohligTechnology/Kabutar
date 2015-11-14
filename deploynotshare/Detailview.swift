@@ -329,12 +329,15 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        selectedNoteId = self.notesId[indexPath.row] as! String
+        config.set("note_id", value2: String(selectedNoteId))
+        
         if(islocked[indexPath.row] == 0){
             self.performSegueWithIdentifier("showdetaildetailview", sender: self)
         }else{
             selectedNoteId = self.notesId[indexPath.row] as! String
             selectedNoteIndex = Int(indexPath.row)
-            
             
             let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
             

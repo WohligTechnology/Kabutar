@@ -17,6 +17,7 @@ var MainHeight:CGFloat!
 var SelectedNoteColor = UIColor()
 var ColorNote = String()
 let config = Config()
+var NoteElementModel = NoteElement()
 var selectedNoteId = ""
 var selectedNoteIndex = Int()
 

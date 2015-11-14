@@ -57,8 +57,22 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         }
         
         self.FooterView.addSubview(sketchFooter)
-        
-
+    
+        for noteElement in NoteElementModel.getAllNoteElement()
+        {
+            switch(noteElement[NoteElementModel.type]! as String) {
+            case "text":
+                addTextTap(false)
+                editor.setID(noteElement[NoteElementModel.id])
+                if(noteElement[NoteElementModel.content] != nil)
+                {
+                    editor.setHTML(noteElement[NoteElementModel.content]!)
+                }
+                
+            default :
+                break;
+            }
+        }
         
         
     }
@@ -81,9 +95,6 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
             sketch?.mainImageView.image = nil
         }
 
-        
-//        sideMenuController.addLeftGestures()
-//        sideMenuController.addRightGestures()
     }
     func keyboardWasShown(notification: NSNotification) {
         var info = notification.userInfo!
@@ -122,12 +133,20 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         
     }
     
-    func addTextTap() {
+    func addTextTap(isnew: Bool) {
         
         editor = RichEditorView(frame: CGRectMake(10,5,width-20,28))
         editor.setHTML("")
+        
+        
+        
         editor.delegate = self;
         vLayout.addSubview(editor)
+        if(isnew)
+        {
+            editor.setID(NoteElementModel.create("text"))
+        }
+        
         changeHeight()
     }
     func addImageTap() {
@@ -138,7 +157,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
                 self.openCamera()
         }
         let gallaryAction = UIAlertAction(title: "Gallery", style: UIAlertActionStyle.Default)
-            {
+        {
                 UIAlertAction in
                 self.openGallery()
         }
@@ -252,11 +271,15 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         
         changeHeight()
     }
-    func addCheckBox() {
+    func addCheckBox(isnew: Bool) {
         let checkbox = ElementCheckBox(frame: CGRectMake(0,0,width,50))
         vLayout.addSubview(checkbox)
         GElementCheckBox = checkbox
         changeHeight()
+        if(isnew)
+        {
+            
+        }
         checkbox.checkBoxText.becomeFirstResponder()
     }
     
@@ -291,7 +314,10 @@ extension detailViewController: RichEditorDelegate {
     }
     
     func richEditor(editor: RichEditorView, contentDidChange content: String) {
+        let changeElementId = editor.NoteElementID
+        NoteElementModel.edit(changeElementId, content2: content,contentA2: editor.getText(),contentB2: "" )
     }
+    
     
     func richEditorTookFocus(editor: RichEditorView) {
         

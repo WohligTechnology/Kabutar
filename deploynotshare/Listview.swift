@@ -333,14 +333,15 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedNoteId = self.notesId[indexPath.row] as! String
+        config.set("note_id", value2: String(selectedNoteId))
+        
         if(islocked[indexPath.row] == 0){
-            
-        self.performSegueWithIdentifier("showdetaillistview", sender: self)
+            self.performSegueWithIdentifier("showdetaillistview", sender: self)
         }else{
             selectedNoteId = self.notesId[indexPath.row] as! String
             selectedNoteIndex = Int(indexPath.row)
 
-            
             let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
             
             passcodemodal.setLock = String(self.islocked[indexPath.row])

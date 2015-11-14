@@ -61,6 +61,8 @@ public class RichEditorView: UIView {
         The delegate that will receive callbacks when certain actions are completed.
     */
     public weak var delegate: RichEditorDelegate?
+    
+    public var NoteElementID: Int64!
 
     /**
         Whether or not scroll is enabled on the view.
@@ -135,6 +137,14 @@ public class RichEditorView: UIView {
         super.init(coder: aDecoder)
         setup()
     }
+    
+    public func setID(id:Int64) {
+        self.NoteElementID = id
+    }
+    
+ 
+    
+    
     
     private func setup() {
         self.backgroundColor = UIColor.redColor()

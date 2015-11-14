@@ -46,7 +46,6 @@ public class Note {
             t.column(tags)
             t.column(timebomb)
             })
-        
     }
     
     func create(title2:String,background2:String,color2:String,folder2:Int64,islocked2:Int64,paper2:String,reminderTime2:Int64,serverid2:String,tags2:String,timebomb2:Int64) {

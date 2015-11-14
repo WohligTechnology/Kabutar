@@ -15,7 +15,7 @@ class DetailViewFooterMain: UIView {
     
     @IBAction func addTextTap(sender: AnyObject) {
         let DetailViewCtrl = GDetailView as! detailViewController
-        DetailViewCtrl.addTextTap();
+        DetailViewCtrl.addTextTap(true);
     }
     
     @IBAction func addImageTap(sender: AnyObject) {
@@ -36,7 +36,7 @@ class DetailViewFooterMain: UIView {
     
     @IBAction func addCheckBox(sender: AnyObject) {
         let DetailViewCtrl = GDetailView as! detailViewController
-        DetailViewCtrl.addCheckBox();
+        DetailViewCtrl.addCheckBox(true);
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
