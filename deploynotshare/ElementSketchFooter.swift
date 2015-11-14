@@ -8,6 +8,10 @@
 var highlightView:HighlighterView!
 var brushView: BrushView!
 var eraserView: EraserView!
+var red: CGFloat = 255.0
+var green: CGFloat = 91.0
+var blue: CGFloat = 30.0
+var innerViewSize:CGFloat  = 32
 
 import UIKit
 
@@ -15,7 +19,7 @@ class ElementSketchFooter: UIView {
     
     
     @IBAction func colorChange(sender: AnyObject) {
-        GSketch.changeColor(0, blue2: 1, green2: 0)
+        GSketch.changeColor(0, green2: 0, blue2: 1)
     }
     @IBAction func brushChange(sender: AnyObject) {
         //Highlight and black out popup
@@ -31,7 +35,7 @@ class ElementSketchFooter: UIView {
         self.window?.addSubview(brushView)
         brushView.animation.moveY(-172).easeInOut.animate(transitionTime)
         
-        GSketch.changeColor(0.0,blue2: 0.0,green2: 0.0)
+//        GSketch.changeColor(0.0,blue2: 0.0,green2: 0.0)
         GSketch.changeOpacity(1.0)
     }
     
@@ -114,7 +118,7 @@ class ElementSketchFooter: UIView {
         self.window?.addSubview(eraserView)
         eraserView.animation.moveY(-172).easeInOut.animate(transitionTime)
         
-        GSketch.changeColor(1.0, blue2: 1.0, green2: 1.0)
+        GSketch.changeColor(1.0, green2: 1.0, blue2: 1.0)
         GSketch.changeOpacity(1.0)
     }
     @IBAction func undoChange(sender: AnyObject) {

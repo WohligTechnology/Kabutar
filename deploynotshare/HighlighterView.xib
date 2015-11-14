@@ -9,9 +9,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HighlighterView" customModule="deploynotshare" customModuleProvider="target">
             <connections>
                 <outlet property="color1" destination="4Xm-6d-jsx" id="cuV-ID-y93"/>
-                <outlet property="sizeView" destination="UUD-tM-iEd" id="OlQ-QV-np3"/>
-                <outlet property="sliderValue" destination="Sgz-LL-SSg" id="fZ1-Vf-qjl"/>
-                <outlet property="sliderView" destination="Sgz-LL-SSg" id="jWP-56-XHo"/>
+                <outlet property="innerColorView" destination="e86-29-qvZ" id="0ER-Kb-U1U"/>
+                <outlet property="outerColorView" destination="Xx0-Sa-c8o" id="UCr-sI-OEx"/>
+                <outlet property="slideView" destination="Sgz-LL-SSg" id="bXn-gu-sm8"/>
                 <outlet property="textValue" destination="JOl-Bs-yE9" id="Bza-RK-iAs"/>
             </connections>
         </placeholder>
@@ -48,24 +48,6 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="5" maxValue="32" translatesAutoresizingMaskIntoConstraints="NO" id="Sgz-LL-SSg" userLabel="Resizing Slider">
-                    <rect key="frame" x="72" y="121" width="230" height="31"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="226" id="KCv-87-GWQ"/>
-                        <constraint firstAttribute="width" constant="226" id="kAD-S3-0aK"/>
-                    </constraints>
-                    <color key="minimumTrackTintColor" red="1" green="0.3529411764705882" blue="0.37647058823529411" alpha="1" colorSpace="deviceRGB"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="KCv-87-GWQ"/>
-                            <exclude reference="kAD-S3-0aK"/>
-                        </mask>
-                    </variation>
-                    <connections>
-                        <action selector="resizer:" destination="-1" eventType="valueChanged" id="aoj-dg-3iX"/>
-                    </connections>
-                </slider>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9o-Fk-ojQ" userLabel="ColorView">
                     <rect key="frame" x="19" y="64" width="312" height="44"/>
                     <subviews>
@@ -326,19 +308,40 @@
                         </mask>
                     </variation>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUD-tM-iEd">
-                    <rect key="frame" x="312" y="122" width="30" height="32"/>
-                    <color key="backgroundColor" red="0.87843137250000003" green="0.96862745100000003" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="5" maxValue="32" translatesAutoresizingMaskIntoConstraints="NO" id="Sgz-LL-SSg" userLabel="Resizing Slider">
+                    <rect key="frame" x="72" y="121" width="230" height="31"/>
+                    <animations/>
+                    <color key="minimumTrackTintColor" red="1" green="0.3529411764705882" blue="0.37647058823529411" alpha="1" colorSpace="deviceRGB"/>
+                    <connections>
+                        <action selector="resizer:" destination="-1" eventType="valueChanged" id="aoj-dg-3iX"/>
+                    </connections>
+                </slider>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xx0-Sa-c8o">
+                    <rect key="frame" x="310" y="121" width="32" height="32"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e86-29-qvZ">
+                            <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="2w5-an-dGq"/>
+                                <constraint firstAttribute="height" constant="32" id="ec8-3x-gJO"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="32" id="9i4-jZ-AG7"/>
-                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="32" id="hqL-L6-aqo"/>
+                        <constraint firstItem="e86-29-qvZ" firstAttribute="leading" secondItem="Xx0-Sa-c8o" secondAttribute="leading" id="Jyl-dW-0Ax"/>
+                        <constraint firstItem="e86-29-qvZ" firstAttribute="top" secondItem="Xx0-Sa-c8o" secondAttribute="top" id="KvE-X3-YEk"/>
+                        <constraint firstAttribute="width" constant="32" id="L8o-FL-HcP"/>
+                        <constraint firstAttribute="height" constant="32" id="wiI-TM-R33"/>
                     </constraints>
-                </button>
+                </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Y9o-Fk-ojQ" firstAttribute="top" secondItem="wet-ki-s74" secondAttribute="bottom" constant="20" id="0tC-Tl-aqq"/>
+                <constraint firstItem="Xx0-Sa-c8o" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="1aT-bE-2kQ"/>
                 <constraint firstAttribute="bottom" secondItem="Sgz-LL-SSg" secondAttribute="bottom" constant="20" id="1qW-3l-ymF"/>
                 <constraint firstItem="Y9o-Fk-ojQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="54" id="33S-G1-dJ4"/>
                 <constraint firstItem="Sgz-LL-SSg" firstAttribute="centerY" secondItem="JOl-Bs-yE9" secondAttribute="centerY" id="410-bW-0ra"/>
@@ -346,17 +349,14 @@
                 <constraint firstItem="JOl-Bs-yE9" firstAttribute="bottom" secondItem="Sgz-LL-SSg" secondAttribute="bottom" id="IAH-3x-Xte"/>
                 <constraint firstItem="wet-ki-s74" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Iy6-VE-qKJ"/>
                 <constraint firstItem="JOl-Bs-yE9" firstAttribute="leading" secondItem="PL2-L8-due" secondAttribute="trailing" constant="8" symbolic="YES" id="J6R-ad-lVX"/>
-                <constraint firstAttribute="trailing" secondItem="UUD-tM-iEd" secondAttribute="trailing" constant="8" id="JTL-cb-Kw0"/>
                 <constraint firstItem="Y9o-Fk-ojQ" firstAttribute="centerX" secondItem="wet-ki-s74" secondAttribute="centerX" id="K4m-xz-2Py"/>
                 <constraint firstAttribute="trailing" secondItem="Sgz-LL-SSg" secondAttribute="trailing" constant="86" id="KRx-yd-M6S"/>
                 <constraint firstItem="Sgz-LL-SSg" firstAttribute="leading" secondItem="JOl-Bs-yE9" secondAttribute="trailing" constant="10" id="QFZ-Jt-2Db"/>
-                <constraint firstItem="UUD-tM-iEd" firstAttribute="leading" secondItem="Sgz-LL-SSg" secondAttribute="trailing" constant="12" id="Tbu-9E-kMz"/>
                 <constraint firstItem="wet-ki-s74" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VJT-cA-DDv"/>
-                <constraint firstItem="UUD-tM-iEd" firstAttribute="top" secondItem="Y9o-Fk-ojQ" secondAttribute="bottom" constant="14" id="cah-rI-p24"/>
+                <constraint firstItem="Xx0-Sa-c8o" firstAttribute="top" secondItem="Sgz-LL-SSg" secondAttribute="top" id="X2N-AW-oAX"/>
                 <constraint firstItem="Y9o-Fk-ojQ" firstAttribute="centerX" secondItem="Sgz-LL-SSg" secondAttribute="centerX" id="ce1-FG-QKc"/>
                 <constraint firstAttribute="trailing" secondItem="wet-ki-s74" secondAttribute="trailing" id="dKc-KD-3O5"/>
                 <constraint firstItem="Y9o-Fk-ojQ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="fDc-fa-W0d"/>
-                <constraint firstAttribute="bottom" secondItem="UUD-tM-iEd" secondAttribute="bottom" constant="18" id="fdq-NH-hAc"/>
                 <constraint firstItem="wet-ki-s74" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fgk-mQ-NL7"/>
                 <constraint firstItem="Sgz-LL-SSg" firstAttribute="top" secondItem="Y9o-Fk-ojQ" secondAttribute="bottom" constant="13" id="jHc-E1-7wb"/>
                 <constraint firstItem="JOl-Bs-yE9" firstAttribute="centerY" secondItem="Sgz-LL-SSg" secondAttribute="centerY" id="jOM-xm-4ay"/>
@@ -366,6 +366,7 @@
                 <constraint firstItem="PL2-L8-due" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="t6M-4J-ZVS"/>
                 <constraint firstItem="JOl-Bs-yE9" firstAttribute="leading" secondItem="PL2-L8-due" secondAttribute="trailing" constant="8" symbolic="YES" id="vAK-EN-RUY"/>
                 <constraint firstItem="Sgz-LL-SSg" firstAttribute="leading" secondItem="JOl-Bs-yE9" secondAttribute="trailing" constant="13" id="z4v-EH-E2l"/>
+                <constraint firstItem="Xx0-Sa-c8o" firstAttribute="leading" secondItem="Sgz-LL-SSg" secondAttribute="trailing" constant="10" id="zO4-PV-jUb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
@@ -384,7 +385,7 @@
                     <exclude reference="z4v-EH-E2l"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="140" y="323"/>
+            <point key="canvasLocation" x="113" y="304"/>
         </view>
     </objects>
 </document>

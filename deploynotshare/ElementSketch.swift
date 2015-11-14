@@ -76,7 +76,7 @@ class ElementSketch: UIView {
     
     // MARK: - Actions
     
-    func changeColor(red2: CGFloat, blue2 :CGFloat , green2 : CGFloat) {
+    func changeColor(red2: CGFloat,green2 :CGFloat , blue2 : CGFloat) {
         
         red = red2;
         blue = blue2;

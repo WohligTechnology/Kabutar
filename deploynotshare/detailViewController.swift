@@ -16,7 +16,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     var editor:RichEditorView!
     var mainColor = PinkColor
     var toolbar:RichEditorToolbar!
-    var sketchno = 1
+    var sketchno = 2
     var sketch:ElementSketch!
     var sketchFooter = ElementSketchFooter(frame: CGRectMake(width,0,width+10,44))
     let sideMenuController  = slideMenuLeft as! SlideMenuController
@@ -75,7 +75,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         {
             let DemoImage =  UIImageView(frame: CGRectMake(0,topOffset, sketch.frame.width, sketch.frame.height))
             DemoImage.image = sketch?.mainImageView?.image
-            ScrView.insertSubview(DemoImage, atIndex: 10)
+            ScrView.insertSubview(DemoImage, atIndex: 2)
             sketch?.removeFromSuperview()
             sketch?.mainImageView.image = nil
         }

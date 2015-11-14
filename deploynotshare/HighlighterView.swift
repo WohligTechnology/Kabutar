@@ -11,39 +11,43 @@ var highlight: UIView!
 class HighlighterView: UIView {
     
     @IBOutlet weak var color1: UIButton!
-    @IBOutlet weak var sizeView: UIButton!
     var centerx:CGFloat!
     var centery:CGFloat!
     var allSubview: ElementSketchFooter!
     
-    func changeAndClose(r:CGFloat, b:CGFloat, g:CGFloat){
-        GSketch.changeColor(r/255, blue2: b/255, green2: g/255)
-        blackOut.removeFromSuperview()
-        highlightView.removeFromSuperview()
+    @IBOutlet weak var outerColorView: UIView!
+    @IBOutlet weak var innerColorView: UIView!
+    @IBOutlet weak var slideView: UISlider!
+    func changeAndClose(r:CGFloat, g:CGFloat, b:CGFloat){
+        red = r;
+        green = g;
+        blue = b;
+        GSketch.changeColor(r/255, green2: g/255, blue2: b/255)
+        innerColorView.backgroundColor = UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1)
         
     }
     
     @IBOutlet weak var sliderView: UISlider!
     @IBAction func firstColor(sender: AnyObject) {
-        changeAndClose(255, b: 30, g: 91)
+        changeAndClose(255, g: 91, b: 30)
     }
     @IBAction func secondClick(sender: AnyObject) {
-        changeAndClose(224, b: 78, g: 247)
+        changeAndClose(224, g: 247, b: 78)
     }
     @IBAction func thirdClick(sender: AnyObject) {
-        changeAndClose(106, b: 157, g: 70)
+        changeAndClose(106, g: 70, b: 157)
     }
     @IBAction func fourthClick(sender: AnyObject) {
-        changeAndClose(58, b: 240, g: 168)
+        changeAndClose(58, g: 168, b: 240)
     }
     @IBAction func fifthClick(sender: AnyObject) {
-        changeAndClose(255, b: 148, g: 75)
+        changeAndClose(255, g: 75, b: 148)
     }
     @IBAction func sixthclick(sender: AnyObject) {
-        changeAndClose(55, b: 125, g: 206)
+        changeAndClose(55, g: 206, b: 125)
     }
     @IBAction func seventhClick(sender: AnyObject) {
-        changeAndClose(188, b: 188, g: 188)
+        changeAndClose(188, g: 188, b: 188)
     }
     @IBOutlet weak var sliderValue: UISlider!
     @IBOutlet weak var textValue: UILabel!
@@ -67,13 +71,13 @@ class HighlighterView: UIView {
     }
     
     @IBAction func resizer(sender: UISlider) {
-        print(self.sizeView.frame.size.width)
-        print(sender.value)
-        self.sizeView.frame.size.width = CGFloat(sliderValue.value)
-        self.sizeView.frame.size.height = CGFloat(sliderValue.value)
-        GSketch.brushWidth = CGFloat(sliderValue.value)
-
-        textValue.text = String(Int(sliderValue.value))
+        GSketch.brushWidth = CGFloat(slideView.value)
+        textValue.text = String(Int(slideView.value))
+        innerViewSize = CGFloat(slideView.value)
+        innerColorView.frame.size.width = CGFloat(slideView.value)
+        innerColorView.frame.size.height = CGFloat(slideView.value)
+        self.innerColorView.center = CGPointMake(self.outerColorView.frame.size.width / 2, self.outerColorView.frame.size.height / 2);
+        innerColorView.layer.cornerRadius = self.innerColorView.frame.size.width / 2
     }
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)
@@ -82,13 +86,14 @@ class HighlighterView: UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
-        centerx  = self.center.x
-        centery = self.center.y
-        color1.backgroundColor = UIColor.redColor()
-        sizeView.backgroundColor = UIColor.blackColor()
         textValue.text = String(Int(GSketch.brushWidth))
-        highlight = self
-        sliderView.value = Float(GSketch.brushWidth)
+        slideView.value = Float(GSketch.brushWidth)
+        
+        innerColorView.backgroundColor = UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
+        print(GSketch.brushWidth)
+//        innerColorView.frame.size.width = GSketch.brushWidth
+//        innerColorView.frame.size.height = GSketch.brushWidth
+        innerColorView.layer.cornerRadius = self.innerColorView.frame.size.width / 2
         
     }
     

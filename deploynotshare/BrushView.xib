@@ -8,6 +8,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BrushView" customModule="deploynotshare" customModuleProvider="target">
             <connections>
+                <outlet property="innerColorView" destination="ajH-Is-9xQ" id="ki8-ql-AKh"/>
+                <outlet property="outerColorView" destination="Pgj-h6-KWd" id="qOt-uq-Ukn"/>
                 <outlet property="slideView" destination="Fbu-yT-hi7" id="tDE-Mb-pcF"/>
                 <outlet property="textValue" destination="H4e-Et-7On" id="jOd-c3-qk2"/>
             </connections>
@@ -323,9 +325,17 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgj-h6-KWd" userLabel="Brush Preview">
                     <rect key="frame" x="308" y="120" width="32" height="32"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajH-Is-9xQ" userLabel="Brush Preview">
+                            <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                            <color key="backgroundColor" red="1" green="0.35686274509999999" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                    </subviews>
                     <animations/>
-                    <color key="backgroundColor" red="0.72941176470000002" green="0.85490196080000003" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
+                        <constraint firstItem="ajH-Is-9xQ" firstAttribute="leading" secondItem="Pgj-h6-KWd" secondAttribute="leading" id="6ZU-T6-I4s"/>
+                        <constraint firstItem="ajH-Is-9xQ" firstAttribute="top" secondItem="Pgj-h6-KWd" secondAttribute="top" id="D9u-Ub-26A"/>
                         <constraint firstAttribute="width" constant="32" id="nnV-TL-Pap"/>
                         <constraint firstAttribute="height" constant="32" id="xBs-Oc-LX9"/>
                     </constraints>
