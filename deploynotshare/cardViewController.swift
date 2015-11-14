@@ -46,7 +46,12 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
             }
             else
             {
-                print(last_navigation?.toolbar);
+                self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+                self.navigationController?.navigationBar.titleTextAttributes = [ NSForegroundColorAttributeName : UIColor.whiteColor() ]
+                self.navigationController?.navigationBar.translucent = false
+                self.addLeftBarButtonWithImage(UIImage(named: "ic_menu_black_24dp")!)
+                self.navigationController?.toolbar.barTintColor = PinkColor
+                self.navigationController?.navigationBar.barTintColor = PinkColor
             }
 
         }

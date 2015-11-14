@@ -50,6 +50,15 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         {
             self.setNavigationBarItem()
         }
+        else
+        {
+            self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+            self.navigationController?.navigationBar.titleTextAttributes = [ NSForegroundColorAttributeName : UIColor.whiteColor() ]
+            self.navigationController?.navigationBar.translucent = false
+            self.addLeftBarButtonWithImage(UIImage(named: "ic_menu_black_24dp")!)
+            self.navigationController?.toolbar.barTintColor = PinkColor
+            self.navigationController?.navigationBar.barTintColor = PinkColor
+        }
 
         
         if(selectedFolderToNoteId==""){

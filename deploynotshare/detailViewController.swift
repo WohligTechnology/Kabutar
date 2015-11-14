@@ -211,9 +211,16 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     
     func appendImage(image: UIImage!) {
         let newheight = width / image.size.width * image.size.height
-        
         let imageView = UIImageView(frame: CGRectMake(0,0,width+10,newheight))
+        if(height > ScrView.bounds.height)
+        {
+            imageView.frame.size.height = ScrView.bounds.height
+        }
+    
+        
+        
         imageView.image = image
+        imageView.contentMode = .ScaleAspectFit;
         vLayout.addSubview(imageView)
         changeHeight()
 
