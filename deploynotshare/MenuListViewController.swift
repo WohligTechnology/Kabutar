@@ -27,6 +27,7 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     var FeedbackView: UIViewController!
     var TermsView: UIViewController!
     var AboutView: UIViewController!
+    var SettingView: UIViewController!
     
     @IBOutlet var menuStaticTable: UITableView!
     @IBOutlet weak var profileimage: UIImageView!
@@ -63,6 +64,9 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
         
         let AboutView = storyboard.instantiateViewControllerWithIdentifier("AboutViewController") as! AboutViewController
         self.AboutView = UINavigationController(rootViewController: AboutView)
+        
+        let SettingView = storyboard.instantiateViewControllerWithIdentifier("SettingViewController") as! SettingViewController
+        self.SettingView = UINavigationController(rootViewController: SettingView)
         
         slideMenuLeft = self.slideMenuController()
         
@@ -150,6 +154,9 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
         }
         if(indexPath.row == 8){
             self.slideMenuController()?.changeMainViewController(self.FeedbackView, close: true)
+        }
+        if(indexPath.row == 10){
+            self.slideMenuController()?.changeMainViewController(self.SettingView, close: true)
         }
     }
     
