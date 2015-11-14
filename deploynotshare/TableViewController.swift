@@ -8,8 +8,10 @@
 
 import UIKit
 var selectedFolderToNoteId: String = ""
-
+var last_navigation:UINavigationController!
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
+    
+    
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -230,7 +232,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "noteDetail"){
-            checkstatus = 3
+
             let selectedPath = self.tableView!.indexPathForSelectedRow
             
             let vc = segue.destinationViewController as! Detailview
@@ -239,7 +241,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
         }
         if(segue.identifier == "noteList"){
-            checkstatus = 3
+
             let selectedPath = self.tableView!.indexPathForSelectedRow
             
             let vc = segue.destinationViewController as! Listview
@@ -248,7 +250,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
         }
         if(segue.identifier == "ShowNotes"){
-            checkstatus = 3
+
             let selectedPath = self.tableView!.indexPathForSelectedRow
             
             let vc = segue.destinationViewController as! cardViewController

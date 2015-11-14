@@ -67,19 +67,22 @@ class PasswordViewController: UIViewController {
         {
             if(lockValue == 3){
                 
-                switch(checkstatus) {
-                case 1:
+                let noteView = config.get("note_view")
+                switch(noteView) {
+                case "1":
                     let otherCtrl = ViewForNotes as! Detailview;
                     otherCtrl.performSegueWithIdentifier("showdetaildetailview", sender: self)
 
-                case 2:
+                case "2":
                     let otherCtrl = ViewForNotes as! Listview;
                     otherCtrl.performSegueWithIdentifier("showdetaillistview", sender: self)
 
-                case 3:
+                case "3":
                     let otherCtrl = ViewForNotes as! cardViewController;
                     otherCtrl.performSegueWithIdentifier("showdetail", sender: self)
-                default : break
+                default :
+                    let otherCtrl = ViewForNotes as! Detailview;
+                    otherCtrl.performSegueWithIdentifier("showdetaildetailview", sender: self)
                 }
                 dismissViewControllerAnimated(true, completion: nil)
             }else{
@@ -97,22 +100,27 @@ class PasswordViewController: UIViewController {
                 }
             }
             
-            switch(checkstatus) {
-            case 1:
-                let otherCtrl = ViewForNotes as! Detailview;
-                otherCtrl.getAllNotes()
-                otherCtrl.detailtableview!.reloadData()
-            case 2:
-                let otherCtrl = ViewForNotes as! Listview;
-                otherCtrl.getAllNotes()
-                otherCtrl.listView!.reloadData()
-            case 3:
-                let otherCtrl = ViewForNotes as! cardViewController;
-                otherCtrl.getAllNotes()
-                otherCtrl.collectionView!.reloadData()
-            default : break
-            }
-            dismissViewControllerAnimated(true, completion: nil)
+                let noteView = config.get("note_view")
+                switch(noteView) {
+                case "1":
+                    let otherCtrl = ViewForNotes as! Detailview;
+                    otherCtrl.getAllNotes()
+                    otherCtrl.detailtableview!.reloadData()
+                case "2":
+                    let otherCtrl = ViewForNotes as! Listview;
+                    otherCtrl.getAllNotes()
+                    otherCtrl.listView!.reloadData()
+                case "3":
+                    let otherCtrl = ViewForNotes as! cardViewController;
+                    otherCtrl.getAllNotes()
+                    otherCtrl.collectionView!.reloadData()
+                default :
+                    let otherCtrl = ViewForNotes as! Detailview;
+                    otherCtrl.getAllNotes()
+                    otherCtrl.detailtableview!.reloadData()
+
+                }
+                dismissViewControllerAnimated(true, completion: nil)
             }
         }
         else

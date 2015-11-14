@@ -11,7 +11,6 @@ import SQLiteCipher
 import SwiftyJSON
 
 var ViewForNotes:Any!
-var checkstatus = 3 as Int64
 
 var MainWidth:CGFloat!
 var MainHeight:CGFloat!

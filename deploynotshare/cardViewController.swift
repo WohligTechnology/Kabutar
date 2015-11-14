@@ -9,6 +9,8 @@ import UIKit
 import MapKit
 import DKChainableAnimationKit
 
+
+
 class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource ,UICollectionViewDelegate {
     
     @IBOutlet weak var sorting: SortView!
@@ -33,6 +35,20 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         if(isInsideFolder == 0)
         {
             self.setNavigationBarItem()
+        }
+        else
+        {
+            if(self.navigationController?.toolbar.barTintColor != nil)
+            {
+                last_navigation = self.navigationController
+                print(last_navigation?.toolbar);
+
+            }
+            else
+            {
+                print(last_navigation?.toolbar);
+            }
+
         }
         getAllNotes()
         

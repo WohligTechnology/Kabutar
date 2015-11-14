@@ -22,21 +22,23 @@ class ColorPattern: UIView {
     }
     
     func changeColorFunction(color:String){
-        if(checkstatus == 2){
+        let checkstatus = config.get("note_view")
+        
+        if(checkstatus == "2"){
             let mainview = ViewForNotes as! Listview
             noteobj.changeColor(color,id2: ColorNote)
             mainview.getAllNotes()
             mainview.listView!.reloadData()
             mainview.closeColorPattern(nil);
             
-        }else if(checkstatus == 1){
+        }else if(checkstatus == "1"){
             let mainview = ViewForNotes as! Detailview
             noteobj.changeColor(color,id2: ColorNote)
             mainview.getAllNotes()
             mainview.detailtableview!.reloadData()
             mainview.closeColorPattern(nil);
             
-        }else if(checkstatus == 3){
+        }else if(checkstatus == "3"){
             noteobj.changeColor(color,id2: ColorNote)
             let mainview = ViewForNotes as! cardViewController
             

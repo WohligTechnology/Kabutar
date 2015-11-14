@@ -27,10 +27,11 @@ class DateTime: UIView {
     }
     
     @IBAction func buttonOk(sender: AnyObject) {
-        if(checkstatus == 2){
+        let checkstatus = config.get("note_view")
+        if(checkstatus == "2"){
         let mainview = ViewForNotes as! Listview
             mainview.closeTimeBomb(nil);
-        }else if(checkstatus == 1){
+        }else if(checkstatus == "1"){
             let mainview = ViewForNotes as! Detailview
             mainview.closeTimeBomb(nil);
         }
