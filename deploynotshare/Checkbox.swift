@@ -14,6 +14,8 @@ class Checkbox: UIView {
     
     public var checkboxText:UITextField!
     
+    var mainElementCheckbox:ElementCheckBox!
+    
     // MARK: - Border Properties
     @IBInspectable var borderWidth: CGFloat = 1 {
         didSet {
@@ -150,6 +152,13 @@ class Checkbox: UIView {
     // MARK: - Tap Event
     func didTapView(sender: AnyObject) {
         isChecked = !isChecked
+        makeStrikeOut(isChecked)
+        mainElementCheckbox.textChange(self)
+        
+    }
+    
+    func makeStrikeOut(ischecked: Bool) {
+    
         if(isChecked)
         {
             
@@ -166,5 +175,7 @@ class Checkbox: UIView {
                 attributes: [ NSStrikethroughStyleAttributeName: 0 ])
             checkboxText.attributedText = myMutableString
         }
+
     }
+    
 }

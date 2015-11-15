@@ -22,6 +22,8 @@
                     <connections>
                         <action selector="tapText:" destination="-1" eventType="editingDidBegin" id="DrS-OI-UuV"/>
                         <action selector="tapText:" destination="-1" eventType="touchDown" id="whh-B5-Uw8"/>
+                        <action selector="textChange:" destination="-1" eventType="editingChanged" id="IC8-z3-W2y"/>
+                        <action selector="textChange:" destination="-1" eventType="valueChanged" id="iNa-ee-M1e"/>
                     </connections>
                 </textField>
             </subviews>

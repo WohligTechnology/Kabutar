@@ -12,7 +12,23 @@ import UIKit
 
 class ElementCheckBox: UIView,UITextFieldDelegate {
 
+    var cb:Checkbox!
     @IBOutlet weak var checkBoxText: UITextField!
+    public var NoteElementID:Int64!
+    
+    public func setID(id:Int64) {
+        self.NoteElementID = id
+    }
+    @IBAction func textChange(sender: AnyObject) {
+        print("Text Changes");
+        print(checkBoxText.text);
+        print(cb.isChecked)
+        if(NoteElementID != nil)
+        {
+            NoteElementModel.edit(NoteElementID, content2 : checkBoxText.text! ,contentA2: String(cb.isChecked),contentB2: "")
+        }
+    }
+    
     @IBAction func tapText(sender: AnyObject) {
         GElementCheckBox = self
     }
@@ -35,7 +51,8 @@ class ElementCheckBox: UIView,UITextFieldDelegate {
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
         
-        let cb = Checkbox(frame: CGRect(x: 10, y: 15, width: 20, height: 20))
+        cb = Checkbox(frame: CGRect(x: 10, y: 15, width: 20, height: 20))
+        cb.mainElementCheckbox = self
         cb.borderColor = PinkColor
         cb.borderWidth = 1
         cb.checkColor = PinkColor
