@@ -10,11 +10,32 @@ import UIKit
 
 class SecurityViewController: UIViewController {
 
-    @IBOutlet weak var dashStack: UIStackView!
-    @IBOutlet weak var firstTextBox: UITextField!
+    @IBOutlet weak var oldPasscode: UITextField!
+    @IBOutlet weak var confirmPasscode: UITextField!
+    @IBOutlet weak var newPasscode: UITextField!
+    @IBOutlet weak var setPassword: UIStackView!
+    @IBOutlet weak var changePassword: UIStackView!
+    @IBOutlet weak var firstConfirm: UITextField!
+    @IBOutlet weak var firstPassword: UITextField!
+    var configPassword = config.get("passcode")
+    var checkOldPass = 0
+    var checkNewPass = 0
+    var storeNewPass = ""
+
+    let limitLength = 10
+//    let old
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.firstTextBox.becomeFirstResponder()
+        if(configPassword == ""){
+            setPassword.hidden = true
+            changePassword.hidden = false
+            self.firstPassword.becomeFirstResponder()
+        }else{
+            changePassword.hidden = false
+            setPassword.hidden = true
+            self.oldPasscode.becomeFirstResponder()
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,15 +43,77 @@ class SecurityViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func cancel(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
-    */
-
+    func messagePopup(){
+        let editalert = UIAlertController(title: "Security", message: "Invalid Password", preferredStyle: UIAlertControllerStyle.Alert)
+        let eidtcancel = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+            self.oldPasscode.becomeFirstResponder()
+            self.checkOldPass = 0
+        }
+        editalert.addAction(eidtcancel)
+        presentViewController(editalert, animated: true) { () -> Void in
+            
+        }
+    }
+    
+    
+    @IBAction func changeTextNewPassword(sender: AnyObject) {
+        let newValLen = newPasscode.text?.characters.count
+        
+        if(newValLen >= 4)
+        {
+            checkNewPass = 1
+            storeNewPass = newPasscode.text!
+            confirmPasscode.becomeFirstResponder()
+            
+        }
+    }
+    
+    @IBAction func changeTextConfPassword(sender: AnyObject) {
+        let newValLen = confirmPasscode.text?.characters.count
+        
+        if(newValLen >= 4)
+        {
+            if(checkOldPass == 1 && checkNewPass == 1){
+                print("first check")
+                if(storeNewPass == confirmPasscode.text!){
+                    config.set("passcode", value2: confirmPasscode.text!)
+                    dismissViewControllerAnimated(true, completion: nil)
+                }else{
+                    messagePopup()
+                }
+            }else{
+                messagePopup()
+            }
+            
+        }
+    }
+    @IBAction func changeTextOldPassword(sender: AnyObject) {
+        let newValLen = oldPasscode.text?.characters.count
+        
+        if(newValLen >= 4)
+        {
+            print(configPassword)
+            print(oldPasscode.text)
+            if(configPassword == oldPasscode.text){
+                newPasscode.becomeFirstResponder()
+                checkOldPass = 1
+            }else{
+                messagePopup()
+            }
+            
+            
+        }
+    }
+    
+    @IBAction func changeTextFirstPassword(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func changeTextFirstConfirm(sender: AnyObject) {
+        
+    }
+    
 }
