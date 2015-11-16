@@ -42,7 +42,7 @@ let NoteColors = [
     UIColor(rgba: "#EEEEEE")
 ]
 let ConfigObj = Config()
-
+var path:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

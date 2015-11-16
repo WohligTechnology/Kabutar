@@ -19,7 +19,7 @@ class ElementRecording: UIView {
     var meterTimer:NSTimer!
     
     var soundFileURL:NSURL!
-    
+    var soundFilename: String!
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadViewFromNib ()
@@ -39,8 +39,10 @@ class ElementRecording: UIView {
         stopButton.enabled = false
         playButton.enabled = false
         setSessionPlayback()
-        record()
-        
+        if(loadingCompleted)
+        {
+            record()
+        }
     }
     
     
@@ -56,7 +58,7 @@ class ElementRecording: UIView {
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
-        
+    
         player.pause()
         
         player.currentTime = NSTimeInterval(sender.value * Float(player.duration))
@@ -147,6 +149,9 @@ class ElementRecording: UIView {
         timer?.invalidate()
         meterTimer.invalidate()
         
+        
+        
+        
         let session = AVAudioSession.sharedInstance()
         do {
             try session.setActive(false)
@@ -199,6 +204,7 @@ class ElementRecording: UIView {
         format.dateFormat="yyyy-MM-dd-HH-mm-ss"
         let currentFileName = "recording-\(format.stringFromDate(NSDate())).m4a"
         print(currentFileName)
+        self.soundFilename  = currentFileName
         
         let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
         self.soundFileURL = documentsDirectory.URLByAppendingPathComponent(currentFileName)

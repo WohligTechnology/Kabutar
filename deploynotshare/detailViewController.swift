@@ -4,9 +4,10 @@ import RichEditorView
 var GDetailView:detailViewController!
 var GSketch:ElementSketch!
 var GElementCheckBox:ElementCheckBox!
+var loadingCompleted = false
 
 class detailViewController: UIViewController , UINavigationControllerDelegate,UIImagePickerControllerDelegate {
-    var loadingCompleted = false
+    
     @IBOutlet weak var FooterConstrain: NSLayoutConstraint!
     
     @IBOutlet weak var FooterView: UIView!
@@ -86,12 +87,10 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
             case "image":
                 
                 if(noteElement[NoteElementModel.content] != nil) {
-                    let newImage = UIImage(contentsOfFile: noteElement[NoteElementModel.content]!)
+                    let newImage = UIImage(contentsOfFile: path  + "/" + noteElement[NoteElementModel.content]!)
                     appendImage(newImage, isnew: false)
+    
                 }
-                
-                
-                
                 
             default :
                 break;
@@ -104,7 +103,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            self.loadingCompleted = true
+            loadingCompleted = true
             self.vLayout.alpha = 1.0
         })
         
@@ -278,13 +277,16 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
             
             if(isnew) {
                 let id  = NoteElementModel.create("image")
-                
+                let imagename = "image\(id).jpg"
                 let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-                let destinationPath = String(documentsPath) + "/image\(id).jpg"
+                let destinationPath = String(documentsPath) + "/" + imagename
+                
+                
+                
                 UIImageJPEGRepresentation(image,1.0)!.writeToFile(destinationPath, atomically: true)
                 
                 print(destinationPath);
-                NoteElementModel.edit(id, content2: destinationPath, contentA2: "", contentB2: "")
+                NoteElementModel.edit(id, content2: imagename, contentA2: "", contentB2: "")
             }
             
             
