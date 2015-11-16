@@ -4,6 +4,7 @@ import AVFoundation
 
 class ElementRecording: UIView {
    
+    var NoteElementID:Int64!
     var timer:NSTimer!
     
     var recorder: AVAudioRecorder!
@@ -42,10 +43,20 @@ class ElementRecording: UIView {
         if(loadingCompleted)
         {
             record()
+            let id = NoteElementModel.create("audio")
+            self.setID(id)
+        }
+        else
+        {
+            playButton.enabled = true
         }
     }
     
+    public func setID(id:Int64) {
+        self.NoteElementID = id
+    }
     
+
     func updateTime() {
         let currentTime = Int(player.currentTime)
         let minutes = currentTime/60
@@ -140,17 +151,16 @@ class ElementRecording: UIView {
     }
     
     @IBAction func stop(sender: UIButton) {
-        print("stop")
         
-        
+        if recorder != nil && recorder.recording {
+            
+            NoteElementModel.edit(self.NoteElementID, content2: self.soundFilename, contentA2: "", contentB2: "")
+        }
         
         recorder?.stop()
         player?.stop()
         timer?.invalidate()
         meterTimer.invalidate()
-        
-        
-        
         
         let session = AVAudioSession.sharedInstance()
         do {
@@ -161,8 +171,6 @@ class ElementRecording: UIView {
             print("could not make session inactive")
             print(error.localizedDescription)
         }
-        
-        //recorder = nil
     }
     
     @IBAction func play(sender: UIButton) {
@@ -171,8 +179,6 @@ class ElementRecording: UIView {
     }
     
     func play() {
-        
-        
         var url:NSURL?
         if self.recorder != nil {
             url = self.recorder.url
@@ -180,7 +186,6 @@ class ElementRecording: UIView {
             url = self.soundFileURL!
         }
         print("playing \(url)")
-        
         do {
             self.player = try AVAudioPlayer(contentsOfURL: url!)
             stopButton.enabled = true
@@ -195,7 +200,6 @@ class ElementRecording: UIView {
             self.player = nil
             print(error.localizedDescription)
         }
-        
     }
     
     
@@ -216,10 +220,10 @@ class ElementRecording: UIView {
         
         let recordSettings:[String : AnyObject] = [
             AVFormatIDKey: NSNumber(unsignedInt:kAudioFormatAppleLossless),
-            AVEncoderAudioQualityKey : AVAudioQuality.Max.rawValue,
-            AVEncoderBitRateKey : 320000,
-            AVNumberOfChannelsKey: 2,
-            AVSampleRateKey : 44100.0
+            AVEncoderAudioQualityKey : AVAudioQuality.Low.rawValue,
+            AVEncoderBitRateKey : 16000,
+            AVNumberOfChannelsKey: 1,
+            AVSampleRateKey : 8000.0
         ]
         
         do {

@@ -4,6 +4,7 @@ import RichEditorView
 var GDetailView:detailViewController!
 var GSketch:ElementSketch!
 var GElementCheckBox:ElementCheckBox!
+var GElementAudio:ElementRecording!
 var loadingCompleted = false
 
 class detailViewController: UIViewController , UINavigationControllerDelegate,UIImagePickerControllerDelegate {
@@ -28,6 +29,8 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadingCompleted = false
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name: UIKeyboardWillChangeFrameNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasHidden:"), name:UIKeyboardWillHideNotification, object: nil);
         
@@ -36,7 +39,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         self.navigationItem.rightBarButtonItem = bc
         GDetailView = self
         vLayout = VerticalFitLayout(width: view.frame.width)
-        vLayout.alpha  = 1
+        vLayout.alpha  = 0
         
         self.ScrView.insertSubview(vLayout, atIndex: 0)
         
@@ -91,6 +94,15 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
                     appendImage(newImage, isnew: false)
     
                 }
+            
+            case "audio":
+                
+                if(noteElement[NoteElementModel.content] != nil) {
+                    addAudioTap(false)
+                    GElementAudio.soundFilename = noteElement[NoteElementModel.content]
+                    GElementAudio.soundFileURL = NSURL(fileURLWithPath: path + "/" + GElementAudio.soundFilename)
+                    GElementAudio.getDuration()
+                }
                 
             default :
                 break;
@@ -104,7 +116,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
             loadingCompleted = true
-            self.vLayout.alpha = 1.0
+            self.vLayout.animation.makeOpacity(1.0).animate(transitionTime);
         })
         
         
@@ -168,6 +180,8 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     
     func addTextTap(isnew: Bool) {
         
+        print("Data");
+        
         editor = RichEditorView(frame: CGRectMake(10,5,width-20,28))
         editor.setHTML("")
         
@@ -225,6 +239,8 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     }
     
     func openGallery () {
+        
+        print("Image picker");
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary){
             
@@ -299,9 +315,10 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     }
     
     
-    func addAudioTap() {
+    func addAudioTap(isnew:Bool) {
         
         let recording = ElementRecording(frame: CGRectMake(0,0,width,50))
+        GElementAudio = recording
         vLayout.addSubview(recording)
         changeHeight()
         

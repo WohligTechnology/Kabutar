@@ -31,7 +31,7 @@ class DetailViewFooterMain: UIView {
    
     @IBAction func addAudioTap(sender: AnyObject) {
         let DetailViewCtrl = GDetailView as! detailViewController
-        DetailViewCtrl.addAudioTap();
+        DetailViewCtrl.addAudioTap(true);
     }
     
     @IBAction func addCheckBox(sender: AnyObject) {

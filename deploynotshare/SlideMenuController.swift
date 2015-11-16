@@ -512,9 +512,7 @@ public class SlideMenuController: UIViewController, UIGestureRecognizerDelegate 
     public override func toggleLeft() {
         if isLeftOpen() {
             closeLeft()
-            setCloseWindowLebel()
-            // closeMenuはメニュータップ時にも呼ばれるため、closeタップのトラッキングはここに入れる
-            
+            setCloseWindowLebel()            
             track(.TapClose)
         } else {
             openLeft()
