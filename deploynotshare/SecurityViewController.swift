@@ -1,24 +1,20 @@
 //
-//  ThinkViewController.swift
+//  SecurityViewController.swift
 //  deploynotshare
 //
-//  Created by Jagruti Patil on 28/10/15.
+//  Created by Jagruti Patil on 16/11/15.
 //  Copyright © 2015 Wohlig. All rights reserved.
 //
 
 import UIKit
 
-class ThinkViewController: UIViewController {
-    
-//    var mainViewController: UIViewController!
+class SecurityViewController: UIViewController {
 
-    @IBOutlet weak var saysomething: UITextView!
+    @IBOutlet weak var dashStack: UIStackView!
+    @IBOutlet weak var firstTextBox: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.setNavigationBarItem()
-        self.saysomething.layer.borderWidth = 2
-        self.saysomething.layer.borderColor = UIColor.brownColor().CGColor
-        // Do any additional setup after loading the view.
+        self.firstTextBox.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {

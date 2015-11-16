@@ -20,6 +20,11 @@ class SettingViewController: UITableViewController{
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print(indexPath.row)
+        if(indexPath.section == 1){
+            let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
+            passcodemodal.lockValue = 4
+            self.presentViewController(passcodemodal, animated: true, completion: nil)
+        }
     }
     
     

@@ -67,6 +67,9 @@
 		43921D571BE0C4590032DE28 /* SortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921D561BE0C4590032DE28 /* SortView.swift */; };
 		43921D591BE0D8260032DE28 /* ThinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921D581BE0D8260032DE28 /* ThinkViewController.swift */; };
 		43921D5B1BE0E7DA0032DE28 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921D5A1BE0E7DA0032DE28 /* PasswordViewController.swift */; };
+		4395A63F1BF9A2D800EE4F10 /* SyncTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4395A63E1BF9A2D700EE4F10 /* SyncTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4395A6411BF9AEA600EE4F10 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4395A6401BF9AEA600EE4F10 /* AboutTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4395A6431BF9C2F800EE4F10 /* SecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4395A6421BF9C2F800EE4F10 /* SecurityViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		43A004991BE8821600396E47 /* ViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A004981BE8821600396E47 /* ViewView.swift */; };
 		43A0049B1BE894E300396E47 /* ViewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A0049A1BE894E300396E47 /* ViewView.xib */; };
 		43A0049D1BE8BC8100396E47 /* DateTime.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A0049C1BE8BC8100396E47 /* DateTime.xib */; };
@@ -165,6 +168,9 @@
 		43921D561BE0C4590032DE28 /* SortView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortView.swift; sourceTree = "<group>"; };
 		43921D581BE0D8260032DE28 /* ThinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThinkViewController.swift; sourceTree = "<group>"; };
 		43921D5A1BE0E7DA0032DE28 /* PasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		4395A63E1BF9A2D700EE4F10 /* SyncTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncTableViewController.swift; sourceTree = "<group>"; };
+		4395A6401BF9AEA600EE4F10 /* AboutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
+		4395A6421BF9C2F800EE4F10 /* SecurityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityViewController.swift; sourceTree = "<group>"; };
 		43A004981BE8821600396E47 /* ViewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewView.swift; sourceTree = "<group>"; };
 		43A0049A1BE894E300396E47 /* ViewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewView.xib; sourceTree = "<group>"; };
 		43A0049C1BE8BC8100396E47 /* DateTime.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateTime.xib; sourceTree = "<group>"; };
@@ -241,10 +247,13 @@
 				43921D581BE0D8260032DE28 /* ThinkViewController.swift */,
 				43344AFA1BF5B42E00AC4802 /* TermsViewController.swift */,
 				43344AFC1BF5B44200AC4802 /* AboutViewController.swift */,
+				4395A63E1BF9A2D700EE4F10 /* SyncTableViewController.swift */,
 				43344B241BF7470C00AC4802 /* SettingViewController.swift */,
+				4395A6401BF9AEA600EE4F10 /* AboutTableViewController.swift */,
 				434E778A1BE3979800684C08 /* MenuListViewController.swift */,
 				43EFB9BE1BDE3D5A0014EDF9 /* ListTableViewCell.swift */,
 				43921D5A1BE0E7DA0032DE28 /* PasswordViewController.swift */,
+				4395A6421BF9C2F800EE4F10 /* SecurityViewController.swift */,
 				4380B3511BDA590E0026CED9 /* detailViewController.swift */,
 			);
 			name = Controllers;
@@ -752,10 +761,13 @@
 				36F114721BF08DD30023E2DB /* Layout.swift in Sources */,
 				3611B0931BE740BD00F2FFF9 /* TableViewController.swift in Sources */,
 				36E846A31BE48AF8004109FA /* UIViewControllerExtension.swift in Sources */,
+				4395A6431BF9C2F800EE4F10 /* SecurityViewController.swift in Sources */,
 				36F114701BF078CC0023E2DB /* ConfigModel.swift in Sources */,
+				4395A6411BF9AEA600EE4F10 /* AboutTableViewController.swift in Sources */,
 				43BE98E81BF220DE0006CBC4 /* ColorPaper.swift in Sources */,
 				434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */,
 				43921D571BE0C4590032DE28 /* SortView.swift in Sources */,
+				4395A63F1BF9A2D800EE4F10 /* SyncTableViewController.swift in Sources */,
 				4361079E1BE9F4BE0094BB25 /* Detailview.swift in Sources */,
 				43344AFB1BF5B42E00AC4802 /* TermsViewController.swift in Sources */,
 				36F1147A1BF0BA770023E2DB /* DetailViewFooterMain.swift in Sources */,

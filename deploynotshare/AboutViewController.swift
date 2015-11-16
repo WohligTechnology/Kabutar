@@ -12,7 +12,7 @@ class AboutViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNavigationBarItem()
+//        self.setNavigationBarItem()
 
         // Do any additional setup after loading the view.
     }
