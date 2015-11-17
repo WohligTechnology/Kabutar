@@ -17,7 +17,7 @@ class SecurityViewController: UIViewController {
     @IBOutlet weak var changePassword: UIStackView!
     @IBOutlet weak var firstConfirm: UITextField!
     @IBOutlet weak var firstPassword: UITextField!
-    var configPassword = config.get("passcode")
+    var configPassword = config.get("passcode2")
     var checkOldPass = 0
     var checkNewPass = 0
     var storeNewPass = ""
@@ -27,8 +27,9 @@ class SecurityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if(configPassword == ""){
-            setPassword.hidden = true
-            changePassword.hidden = false
+            print("cassword blanck")
+            setPassword.hidden = false
+            changePassword.hidden = true
             self.firstPassword.becomeFirstResponder()
         }else{
             changePassword.hidden = false
@@ -109,11 +110,35 @@ class SecurityViewController: UIViewController {
     }
     
     @IBAction func changeTextFirstPassword(sender: AnyObject) {
+        let newValLen = firstPassword.text?.characters.count
+        
+        if(newValLen >= 4)
+        {
+            checkNewPass = 1
+            storeNewPass = firstPassword.text!
+            firstConfirm.becomeFirstResponder()
+            
+        }
         
     }
     
     @IBAction func changeTextFirstConfirm(sender: AnyObject) {
+        let newValLen = firstConfirm.text?.characters.count
         
+        if(newValLen >= 4)
+        {
+            if(checkNewPass == 1){
+                if(storeNewPass == firstConfirm.text!){
+                    config.set("passcode", value2: firstConfirm.text!)
+                    dismissViewControllerAnimated(true, completion: nil)
+                }else{
+                    messagePopup()
+                }
+            }else{
+                messagePopup()
+            }
+            
+        }
     }
     
 }
