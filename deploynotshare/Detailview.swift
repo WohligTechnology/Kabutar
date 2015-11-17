@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchResultsUpdating {
 
     @IBOutlet weak var detailtableview: UITableView!
     var notesTitle:NSMutableArray = []
@@ -21,6 +21,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
     let mainColor = PinkColor
     let width = UIScreen.mainScreen().bounds.size.width
     let height = UIScreen.mainScreen().bounds.size.height
+    var resultSearchController = UISearchController!()
     
     
     override func viewDidLoad() {
@@ -53,6 +54,31 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         let addView = AddCircle(frame: CGRectMake(width/2 - 35, height-134, 70, 70))
         self.view.addSubview(addView)
+        
+        //Search bar code
+        self.resultSearchController = UISearchController(searchResultsController: nil)
+        self.resultSearchController.searchResultsUpdater = self
+        self.resultSearchController.dimsBackgroundDuringPresentation = false
+        self.resultSearchController.searchBar.sizeToFit()
+        self.resultSearchController.searchBar.barTintColor = PinkColor //bar color
+        self.resultSearchController.searchBar.translucent = false //Bar translucent false
+        self.resultSearchController.searchBar.tintColor = UIColor.whiteColor() //text color
+        self.definesPresentationContext = true
+        self.detailtableview.tableHeaderView = self.resultSearchController.searchBar
+        self.detailtableview.reloadData()
+        
+        //Clear Empty Cells
+        let backgroundView = UIView(frame: CGRectZero)
+        self.detailtableview.tableFooterView = backgroundView
+        self.detailtableview.backgroundColor = UIColor.clearColor()
+        
+        //Show search on scroll
+        self.detailtableview.setContentOffset(CGPoint(x: 0,y: 44), animated: true)
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController)
+    {
+        
     }
     
     func getAllNotes(){

@@ -11,7 +11,7 @@ import DKChainableAnimationKit
 
 
 
-class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource ,UICollectionViewDelegate {
+class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource ,UICollectionViewDelegate,UISearchResultsUpdating {
     
     @IBOutlet weak var sorting: SortView!
     @IBOutlet weak var viewing: ViewView!
@@ -28,6 +28,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     var islocked: [Int64] = []
     var notesobj = Note()
     var insideView = NoteCollectionUIView()
+    var resultSearchController = UISearchController!()
     
     
     override func viewDidLoad() {
@@ -82,6 +83,26 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         let addView = AddCircle(frame: CGRectMake(width/2 - 35, height-134, 70, 70))
 //        addView.addGestureRecognizer(createNoteTap)
         self.view.addSubview(addView)
+        
+        //Search bar code
+        self.resultSearchController = UISearchController(searchResultsController: nil)
+        self.resultSearchController.searchResultsUpdater = self
+        self.resultSearchController.dimsBackgroundDuringPresentation = false
+        self.resultSearchController.searchBar.sizeToFit()
+        self.resultSearchController.searchBar.barTintColor = PinkColor //bar color
+        self.resultSearchController.searchBar.translucent = false //Bar translucent false
+        self.resultSearchController.searchBar.tintColor = UIColor.whiteColor() //text color
+        self.definesPresentationContext = true
+        self.collectionView.addSubview(self.resultSearchController.searchBar)
+        self.collectionView.reloadData()
+        
+        //Show search on scroll
+        self.collectionView.setContentOffset(CGPoint(x: 0,y: 44), animated: true)
+        
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController)
+    {
         
     }
     

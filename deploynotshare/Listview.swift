@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating {
 
     @IBOutlet weak var listView: UITableView!
     let mainColor = PinkColor
@@ -20,6 +20,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
     var noteName = UITextField()
     let width = UIScreen.mainScreen().bounds.size.width
     let height = UIScreen.mainScreen().bounds.size.height
+    var resultSearchController = UISearchController!()
     
     @IBOutlet weak var ListViewLabel: UILabel!
     override func viewDidLoad() {
@@ -37,7 +38,33 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate {
         let addView = AddCircle(frame: CGRectMake(width/2 - 35, height-134, 70, 70))
         self.view.addSubview(addView)
 
+        //Search bar code
+        self.resultSearchController = UISearchController(searchResultsController: nil)
+        self.resultSearchController.searchResultsUpdater = self
+        self.resultSearchController.dimsBackgroundDuringPresentation = false
+        self.resultSearchController.searchBar.sizeToFit()
+        self.resultSearchController.searchBar.barTintColor = PinkColor //bar color
+        self.resultSearchController.searchBar.translucent = false //Bar translucent false
+        self.resultSearchController.searchBar.tintColor = UIColor.whiteColor() //text color
+        self.definesPresentationContext = true
+        self.listView.tableHeaderView = self.resultSearchController.searchBar
+        self.listView.reloadData()
+        
+        //Clear Empty Cells
+        let backgroundView = UIView(frame: CGRectZero)
+        self.listView.tableFooterView = backgroundView
+        self.listView.backgroundColor = UIColor.clearColor()
+        
+        //Show search on scroll
+        self.listView.setContentOffset(CGPoint(x: 0,y: 44), animated: true)
     }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController)
+    {
+        
+    }
+    
+    
     
     func getAllNotes(){
         notesTitle = []
