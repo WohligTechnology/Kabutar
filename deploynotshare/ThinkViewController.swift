@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftHTTP
+import SwiftyJSON
 
 class ThinkViewController: UIViewController {
     
@@ -24,6 +26,23 @@ class ThinkViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    @IBAction func submitFeedback(sender: AnyObject) {
+        
+        let params = ["user": "560fc12ca89c4c8f043a01c7", "email": "chintan@wohlig.com", "text": saysomething.text]
+        do {
+            let opt = try HTTP.POST(ServerURL+"feed/save", parameters: params)
+            opt.start { response in
+                print(response.data);
+                
+                let json = JSON(data: response.data)
+                print(json)
+                //do things...
+            }
+        } catch let error {
+            print("got an error creating the request: \(error)")
+        }
+        
     }
     
 

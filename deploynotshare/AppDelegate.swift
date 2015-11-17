@@ -12,6 +12,9 @@ import SwiftyJSON
 
 var ViewForNotes:Any!
 
+
+var ServerURL = "http://104.197.122.116/"
+
 var MainWidth:CGFloat!
 var MainHeight:CGFloat!
 var SelectedNoteColor = UIColor()
