@@ -11,37 +11,37 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8o-9M-3oo">
-                    <rect key="frame" x="44" y="0.0" width="44" height="44"/>
+                    <rect key="frame" x="44" y="8" width="28" height="28"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="ms9-RI-O0b"/>
-                        <constraint firstAttribute="width" constant="44" id="sAa-ly-NRa"/>
+                        <constraint firstAttribute="height" constant="28" id="ms9-RI-O0b"/>
+                        <constraint firstAttribute="width" constant="28" id="sAa-ly-NRa"/>
                     </constraints>
-                    <state key="normal" image="gallary_icon_1"/>
+                    <state key="normal" image="imagenew"/>
                     <connections>
                         <action selector="addImageTap:" destination="-1" eventType="touchUpInside" id="Ff6-F8-SoK"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqt-UY-Qcu">
-                    <rect key="frame" x="88" y="0.0" width="44" height="44"/>
+                    <rect key="frame" x="86" y="8" width="28" height="28"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="44" id="ZiV-Bq-DaO"/>
-                        <constraint firstAttribute="height" constant="44" id="goI-YL-wmN"/>
+                        <constraint firstAttribute="width" constant="28" id="ZiV-Bq-DaO"/>
+                        <constraint firstAttribute="height" constant="28" id="goI-YL-wmN"/>
                     </constraints>
-                    <state key="normal" image="brush_icon_1"/>
+                    <state key="normal" image="brushnew"/>
                     <connections>
                         <action selector="addSketchTap:" destination="-1" eventType="touchUpInside" id="cvz-ML-KnU"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dvb-cN-Tz1">
-                    <rect key="frame" x="132" y="0.0" width="44" height="44"/>
+                    <rect key="frame" x="122" y="8" width="28" height="28"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="4oQ-0Y-SmD"/>
-                        <constraint firstAttribute="width" constant="44" id="DbG-Ci-L07"/>
+                        <constraint firstAttribute="height" constant="28" id="4oQ-0Y-SmD"/>
+                        <constraint firstAttribute="width" constant="28" id="DbG-Ci-L07"/>
                     </constraints>
-                    <state key="normal" image="audio_icon_1"/>
+                    <state key="normal" image="audionew"/>
                     <connections>
                         <action selector="addAudioTap:" destination="-1" eventType="touchUpInside" id="Iah-m9-JdU"/>
                     </connections>
@@ -55,53 +55,53 @@
                     </constraints>
                     <state key="normal" image="more_icon_1"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gix-VI-GHY">
-                    <rect key="frame" x="176" y="0.0" width="44" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ly-NQ-siJ">
+                    <rect key="frame" x="8" y="8" width="28" height="28"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="U0V-aQ-gtm"/>
-                        <constraint firstAttribute="width" constant="44" id="bvv-XI-YAN"/>
-                        <constraint firstAttribute="height" constant="44" id="lZQ-rE-INH"/>
+                        <constraint firstAttribute="width" constant="28" id="EVf-5F-yWl"/>
+                        <constraint firstAttribute="height" constant="28" id="uln-qB-y8e"/>
+                    </constraints>
+                    <state key="normal" image="textnew"/>
+                    <connections>
+                        <action selector="addTextTap:" destination="-1" eventType="touchUpInside" id="LUj-SA-2xp"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gix-VI-GHY">
+                    <rect key="frame" x="163" y="8" width="28" height="28"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="28" id="U0V-aQ-gtm"/>
+                        <constraint firstAttribute="width" constant="28" id="bvv-XI-YAN"/>
+                        <constraint firstAttribute="height" constant="28" id="lZQ-rE-INH"/>
                     </constraints>
                     <state key="normal" image="Checkboxicon"/>
                     <connections>
                         <action selector="addCheckBox:" destination="-1" eventType="touchUpInside" id="NIy-hY-S7X"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ly-NQ-siJ">
-                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="44" id="EVf-5F-yWl"/>
-                        <constraint firstAttribute="height" constant="44" id="uln-qB-y8e"/>
-                    </constraints>
-                    <state key="normal" image="text_icon_1"/>
-                    <connections>
-                        <action selector="addTextTap:" destination="-1" eventType="touchUpInside" id="LUj-SA-2xp"/>
-                    </connections>
-                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="1" green="0.3529411764705882" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="5Ly-NQ-siJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4v8-cv-RT1"/>
-                <constraint firstAttribute="bottom" secondItem="5Ly-NQ-siJ" secondAttribute="bottom" id="9m6-Tg-7gk"/>
+                <constraint firstItem="5Ly-NQ-siJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="4v8-cv-RT1"/>
+                <constraint firstAttribute="bottom" secondItem="5Ly-NQ-siJ" secondAttribute="bottom" constant="8" id="9m6-Tg-7gk"/>
                 <constraint firstAttribute="bottom" secondItem="16V-Y4-377" secondAttribute="bottom" id="AjO-1a-0q7"/>
-                <constraint firstItem="jqt-UY-Qcu" firstAttribute="leading" secondItem="C8o-9M-3oo" secondAttribute="trailing" id="F2S-LW-2TY"/>
-                <constraint firstItem="C8o-9M-3oo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="G14-Ff-1iF"/>
-                <constraint firstItem="C8o-9M-3oo" firstAttribute="leading" secondItem="5Ly-NQ-siJ" secondAttribute="trailing" id="H9M-Es-PGi"/>
+                <constraint firstItem="jqt-UY-Qcu" firstAttribute="leading" secondItem="C8o-9M-3oo" secondAttribute="trailing" constant="14" id="F2S-LW-2TY"/>
+                <constraint firstItem="C8o-9M-3oo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="G14-Ff-1iF"/>
+                <constraint firstItem="C8o-9M-3oo" firstAttribute="leading" secondItem="5Ly-NQ-siJ" secondAttribute="trailing" constant="8" id="H9M-Es-PGi"/>
                 <constraint firstItem="16V-Y4-377" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LS2-oU-qDV"/>
-                <constraint firstAttribute="bottom" secondItem="Gix-VI-GHY" secondAttribute="bottom" id="LsY-D6-kJC"/>
-                <constraint firstAttribute="bottom" secondItem="jqt-UY-Qcu" secondAttribute="bottom" id="R35-Oh-Xzq"/>
-                <constraint firstItem="jqt-UY-Qcu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="XXl-hn-kKv"/>
-                <constraint firstAttribute="bottom" secondItem="Dvb-cN-Tz1" secondAttribute="bottom" id="YAe-Vq-vpq"/>
-                <constraint firstItem="Dvb-cN-Tz1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aav-ju-3gJ"/>
+                <constraint firstAttribute="bottom" secondItem="Gix-VI-GHY" secondAttribute="bottom" constant="8" id="LsY-D6-kJC"/>
+                <constraint firstAttribute="bottom" secondItem="jqt-UY-Qcu" secondAttribute="bottom" constant="8" id="R35-Oh-Xzq"/>
+                <constraint firstItem="jqt-UY-Qcu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="XXl-hn-kKv"/>
+                <constraint firstAttribute="bottom" secondItem="Dvb-cN-Tz1" secondAttribute="bottom" constant="8" id="YAe-Vq-vpq"/>
+                <constraint firstItem="Dvb-cN-Tz1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="aav-ju-3gJ"/>
                 <constraint firstAttribute="trailing" secondItem="16V-Y4-377" secondAttribute="trailing" constant="8" id="bxU-TS-aGn"/>
-                <constraint firstItem="Gix-VI-GHY" firstAttribute="leading" secondItem="Dvb-cN-Tz1" secondAttribute="trailing" id="p9r-5L-Lac"/>
-                <constraint firstItem="5Ly-NQ-siJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rmM-t7-CtG"/>
-                <constraint firstItem="Dvb-cN-Tz1" firstAttribute="leading" secondItem="jqt-UY-Qcu" secondAttribute="trailing" id="uEY-3w-XjY"/>
-                <constraint firstItem="Gix-VI-GHY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vZN-XE-kQ7"/>
-                <constraint firstAttribute="bottom" secondItem="C8o-9M-3oo" secondAttribute="bottom" id="yyH-Jw-5N5"/>
+                <constraint firstItem="Gix-VI-GHY" firstAttribute="leading" secondItem="Dvb-cN-Tz1" secondAttribute="trailing" constant="13" id="p9r-5L-Lac"/>
+                <constraint firstItem="5Ly-NQ-siJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="rmM-t7-CtG"/>
+                <constraint firstItem="Dvb-cN-Tz1" firstAttribute="leading" secondItem="jqt-UY-Qcu" secondAttribute="trailing" constant="8" id="uEY-3w-XjY"/>
+                <constraint firstItem="Gix-VI-GHY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="vZN-XE-kQ7"/>
+                <constraint firstAttribute="bottom" secondItem="C8o-9M-3oo" secondAttribute="bottom" constant="8" id="yyH-Jw-5N5"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="316" y="192"/>
@@ -109,10 +109,10 @@
     </objects>
     <resources>
         <image name="Checkboxicon" width="23" height="20"/>
-        <image name="audio_icon_1" width="90" height="90"/>
-        <image name="brush_icon_1" width="90" height="90"/>
-        <image name="gallary_icon_1" width="90" height="90"/>
+        <image name="audionew" width="512" height="512"/>
+        <image name="brushnew" width="512" height="512"/>
+        <image name="imagenew" width="512" height="512"/>
         <image name="more_icon_1" width="90" height="90"/>
-        <image name="text_icon_1" width="90" height="90"/>
+        <image name="textnew" width="512" height="512"/>
     </resources>
 </document>
