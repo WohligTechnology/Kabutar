@@ -14,6 +14,12 @@ class ElementSketch: UIView {
     var oldImages:[UIImage!] = [UIImage()]
     var undoposition = -1;
     var detailView = GDetailView as! detailViewController
+    var NoteElementID:Int64!
+    var topOffset:CGFloat!
+    
+    public func setID(id:Int64) {
+        self.NoteElementID = id
+    }
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
@@ -111,7 +117,10 @@ class ElementSketch: UIView {
             undoposition++
             let oldImage = (oldImages[undoposition+1])
             mainImageView.image = oldImage
+            saveImageIn()
         }
+        
+        
     }
     
     
@@ -122,6 +131,7 @@ class ElementSketch: UIView {
             let oldImage = (oldImages[undoposition])
             undoposition--;
             mainImageView.image = oldImage
+            saveImageIn()
         }
     }
     
@@ -227,10 +237,27 @@ class ElementSketch: UIView {
             oldImages.append(singleOldImage)
             
             
+            saveImageIn()
+            
+            
             UIGraphicsEndImageContext()
             
             tempImageView.image = nil
         }
+    }
+    
+    
+    func saveImageIn() {
+        let sketchname = "sketch\(self.NoteElementID).png"
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        let destinationPath = String(documentsPath) + "/" + sketchname
+        
+        
+        
+        UIImagePNGRepresentation(mainImageView.image!)!.writeToFile(destinationPath, atomically: true)
+        
+        print(destinationPath);
+        NoteElementModel.edit(self.NoteElementID, content2: sketchname, contentA2: String(self.topOffset), contentB2: "")
     }
     
 }

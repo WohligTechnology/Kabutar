@@ -39,7 +39,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         self.navigationItem.rightBarButtonItem = bc
         GDetailView = self
         vLayout = VerticalFitLayout(width: view.frame.width)
-        vLayout.alpha  = 0
+        self.ScrView.alpha  = 0
         
         self.ScrView.insertSubview(vLayout, atIndex: 0)
         
@@ -103,6 +103,22 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
                     GElementAudio.soundFileURL = NSURL(fileURLWithPath: path + "/" + GElementAudio.soundFilename)
                     GElementAudio.getDuration()
                 }
+            case "scribble":
+                
+                if(noteElement[NoteElementModel.content] != nil) {
+                    
+                    print(noteElement[NoteElementModel.content]);
+                    print(noteElement[NoteElementModel.contentA]);
+                    
+                    let newImage = UIImage(contentsOfFile: path  + "/" + noteElement[NoteElementModel.content]!)
+                    
+                    if let n = NSNumberFormatter().numberFromString(noteElement[NoteElementModel.contentA]!) {
+                        let f = CGFloat(n)
+                        appendSketch(f, image:newImage!)
+                    }
+
+                    
+                }
                 
             default :
                 break;
@@ -110,13 +126,13 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         }
         
         
-        let seconds = 1.0
+        let seconds = transitionTime
         let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
         let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
             loadingCompleted = true
-            self.vLayout.animation.makeOpacity(1.0).animate(transitionTime);
+            self.ScrView.animation.makeOpacity(1.0).animate(transitionTime);
         })
         
         
@@ -133,14 +149,20 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         
         if (sketch != nil)
         {
-            let DemoImage =  UIImageView(frame: CGRectMake(0,topOffset, sketch.frame.width, sketch.frame.height))
-            DemoImage.image = sketch?.mainImageView?.image
-            ScrView.insertSubview(DemoImage, atIndex: 2)
+            appendSketch(topOffset, image: (sketch?.mainImageView?.image )!)
             sketch?.removeFromSuperview()
             sketch?.mainImageView.image = nil
         }
         
     }
+    
+    func appendSketch(topOffset:CGFloat , image: UIImage) {
+        print(image.size)
+        let DemoImage =  UIImageView(frame: CGRectMake(0,topOffset, image.size.width, image.size.height))
+        DemoImage.image = image
+        ScrView.insertSubview(DemoImage, atIndex: sketchno++)
+    }
+    
     func keyboardWasShown(notification: NSNotification) {
         var info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
@@ -319,6 +341,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         
         let recording = ElementRecording(frame: CGRectMake(0,0,width,50))
         GElementAudio = recording
+        
         vLayout.addSubview(recording)
         changeHeight()
         
@@ -327,9 +350,14 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     func addSketchTap() {
         let topOffset = ScrView.contentOffset.y
         sketch = ElementSketch(frame: CGRectMake(0,topOffset,width+10,height - 44))
+        
+        
         ScrView.insertSubview(sketch,atIndex: sketchno++)
         
         GSketch = sketch
+        GSketch.setID(NoteElementModel.create("scribble"))
+        GSketch.topOffset = topOffset
+       
         
         getSketchToolbar()
         
