@@ -113,7 +113,10 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedFolderToNoteId = ""
-        if(indexPath.row == 1) {
+        
+        switch(indexPath.row)
+        {
+        case 1:
             isInsideFolder = 0
             let noteView = config.get("note_view")
             switch noteView
@@ -128,17 +131,27 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
                 self.slideMenuController()?.changeMainViewController(self.detailview, close: true)
                 
             }
-        }
-        if(indexPath.row == 2) {
+        case 2:
             isInsideFolder = 1
             self.slideMenuController()?.changeMainViewController(self.folderViewController, close: true)
-        }
-        if(indexPath.row == 6){
-            self.slideMenuController()?.changeMainViewController(self.AboutView, close: true)
-        }
-        if(indexPath.row == 5){
+        case 3:
+            print("Noti");
+            //UIApplication.sharedApplication().openURL(NSURL(string : "http://www.wohlig.com")!);
+            //task.resume()
+        case 4:
+            let textToShare = "Swift is awesome!  Check out this website about it!"
+            let objectsToShare = [textToShare]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            self.presentViewController(activityVC, animated: true, completion: nil)
+            print("Invite");
+        case 5:
             self.slideMenuController()?.changeMainViewController(self.SettingView, close: true)
+        case 6:
+            self.slideMenuController()?.changeMainViewController(self.AboutView, close: true)
+        default:
+            print("Default")
         }
+        
     }
     
     
