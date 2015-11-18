@@ -31,6 +31,8 @@
 		36F1147A1BF0BA770023E2DB /* DetailViewFooterMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F114791BF0BA770023E2DB /* DetailViewFooterMain.swift */; };
 		36F1147C1BF0F8990023E2DB /* ElementCheckBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F1147B1BF0F8990023E2DB /* ElementCheckBox.xib */; };
 		36F1147E1BF0F8B10023E2DB /* ElementCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1147D1BF0F8B10023E2DB /* ElementCheckBox.swift */; };
+		36F7AE1D1BFB813B00596BBF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F7AE1B1BFB813B00596BBF /* FBSDKLoginKit.framework */; };
+		36F7AE1E1BFB813B00596BBF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F7AE1C1BFB813B00596BBF /* FBSDKCoreKit.framework */; };
 		43344AFB1BF5B42E00AC4802 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344AFA1BF5B42E00AC4802 /* TermsViewController.swift */; };
 		43344AFD1BF5B44200AC4802 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344AFC1BF5B44200AC4802 /* AboutViewController.swift */; };
 		43344AFF1BF5BC9000AC4802 /* HighlighterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43344AFE1BF5BC9000AC4802 /* HighlighterView.xib */; };
@@ -41,7 +43,7 @@
 		43344B091BF5D8F500AC4802 /* EraserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B081BF5D8F500AC4802 /* EraserView.swift */; };
 		43344B0B1BF5FFD600AC4802 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43344B0A1BF5FFD600AC4802 /* MessageView.xib */; };
 		43344B0D1BF602E600AC4802 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B0C1BF602E600AC4802 /* MessageView.swift */; };
-		43344B251BF7470C00AC4802 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B241BF7470C00AC4802 /* SettingViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		43344B251BF7470C00AC4802 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B241BF7470C00AC4802 /* SettingViewController.swift */; };
 		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; };
 		434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E778A1BE3979800684C08 /* MenuListViewController.swift */; };
 		4361079E1BE9F4BE0094BB25 /* Detailview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4361079D1BE9F4BE0094BB25 /* Detailview.swift */; };
@@ -67,9 +69,9 @@
 		43921D571BE0C4590032DE28 /* SortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921D561BE0C4590032DE28 /* SortView.swift */; };
 		43921D591BE0D8260032DE28 /* ThinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921D581BE0D8260032DE28 /* ThinkViewController.swift */; };
 		43921D5B1BE0E7DA0032DE28 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43921D5A1BE0E7DA0032DE28 /* PasswordViewController.swift */; };
-		4395A63F1BF9A2D800EE4F10 /* SyncTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4395A63E1BF9A2D700EE4F10 /* SyncTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		4395A6411BF9AEA600EE4F10 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4395A6401BF9AEA600EE4F10 /* AboutTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		4395A6431BF9C2F800EE4F10 /* SecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4395A6421BF9C2F800EE4F10 /* SecurityViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4395A63F1BF9A2D800EE4F10 /* SyncTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4395A63E1BF9A2D700EE4F10 /* SyncTableViewController.swift */; };
+		4395A6411BF9AEA600EE4F10 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4395A6401BF9AEA600EE4F10 /* AboutTableViewController.swift */; };
+		4395A6431BF9C2F800EE4F10 /* SecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4395A6421BF9C2F800EE4F10 /* SecurityViewController.swift */; };
 		43A004991BE8821600396E47 /* ViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A004981BE8821600396E47 /* ViewView.swift */; };
 		43A0049B1BE894E300396E47 /* ViewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A0049A1BE894E300396E47 /* ViewView.xib */; };
 		43A0049D1BE8BC8100396E47 /* DateTime.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A0049C1BE8BC8100396E47 /* DateTime.xib */; };
@@ -126,6 +128,8 @@
 		36F114791BF0BA770023E2DB /* DetailViewFooterMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewFooterMain.swift; sourceTree = "<group>"; };
 		36F1147B1BF0F8990023E2DB /* ElementCheckBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElementCheckBox.xib; sourceTree = "<group>"; };
 		36F1147D1BF0F8B10023E2DB /* ElementCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementCheckBox.swift; sourceTree = "<group>"; };
+		36F7AE1B1BFB813B00596BBF /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		36F7AE1C1BFB813B00596BBF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		43344AFA1BF5B42E00AC4802 /* TermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		43344AFC1BF5B44200AC4802 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		43344AFE1BF5BC9000AC4802 /* HighlighterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighlighterView.xib; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36F7AE1D1BFB813B00596BBF /* FBSDKLoginKit.framework in Frameworks */,
+				36F7AE1E1BFB813B00596BBF /* FBSDKCoreKit.framework in Frameworks */,
 				CB6D02908480861E8104DBED /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,6 +222,8 @@
 		1C7BA6D68224D94EBFF5D85C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				36F7AE1B1BFB813B00596BBF /* FBSDKLoginKit.framework */,
+				36F7AE1C1BFB813B00596BBF /* FBSDKCoreKit.framework */,
 				B5C5E5AA73873D644F4D1844 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -940,6 +948,10 @@
 			baseConfigurationReference = 92B148ACB4368AC64116F570 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = deploynotshare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wohlig.deploynotshare;
@@ -952,6 +964,10 @@
 			baseConfigurationReference = 57ACE2379821B0AE944A6D13 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = deploynotshare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wohlig.deploynotshare;

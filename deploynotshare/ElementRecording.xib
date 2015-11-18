@@ -65,7 +65,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Af7-n5-HpY">
-                    <rect key="frame" x="88" y="10" width="221" height="31"/>
+                    <rect key="frame" x="128" y="10" width="181" height="31"/>
                     <animations/>
                     <connections>
                         <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="XiD-JA-nS6"/>
@@ -82,19 +82,34 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4n-xg-pe9">
+                    <rect key="frame" x="88" y="10" width="30" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Fxp-uf-1o0"/>
+                        <constraint firstAttribute="width" constant="30" id="bak-it-AFL"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="pause_audio"/>
+                    <connections>
+                        <action selector="pause:" destination="-1" eventType="touchUpInside" id="fHd-sd-y1T"/>
+                        <action selector="play:" destination="-1" eventType="touchUpInside" id="6jW-Eo-poY"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="hMp-aW-ah9" secondAttribute="bottom" constant="7" id="BEF-I5-EqZ"/>
                 <constraint firstItem="JxW-Hf-Lgh" firstAttribute="leading" secondItem="N5h-KY-8b4" secondAttribute="trailing" constant="10" id="CDB-cu-2Sy"/>
-                <constraint firstItem="Af7-n5-HpY" firstAttribute="leading" secondItem="JxW-Hf-Lgh" secondAttribute="trailing" constant="10" id="DCS-DY-vVy"/>
+                <constraint firstItem="Af7-n5-HpY" firstAttribute="leading" secondItem="JxW-Hf-Lgh" secondAttribute="trailing" constant="50" id="DCS-DY-vVy"/>
                 <constraint firstAttribute="bottom" secondItem="O19-EW-Biw" secondAttribute="bottom" constant="7" id="ElA-cf-nvy"/>
                 <constraint firstAttribute="bottom" secondItem="Af7-n5-HpY" secondAttribute="bottom" constant="10" id="G5L-3u-73u"/>
                 <constraint firstItem="N5h-KY-8b4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="NUk-3U-gBh"/>
                 <constraint firstItem="F3Q-gR-cRe" firstAttribute="leading" secondItem="O19-EW-Biw" secondAttribute="trailing" constant="2" id="RcV-xC-O5C"/>
+                <constraint firstItem="h4n-xg-pe9" firstAttribute="leading" secondItem="JxW-Hf-Lgh" secondAttribute="trailing" constant="8" symbolic="YES" id="VDB-YT-zec"/>
                 <constraint firstAttribute="trailing" secondItem="F3Q-gR-cRe" secondAttribute="trailing" constant="44" id="a9v-jQ-s7x"/>
                 <constraint firstAttribute="bottom" secondItem="F3Q-gR-cRe" secondAttribute="bottom" constant="8" id="bM4-6n-bOh"/>
+                <constraint firstItem="h4n-xg-pe9" firstAttribute="baseline" secondItem="JxW-Hf-Lgh" secondAttribute="baseline" id="cjB-BM-0hi"/>
                 <constraint firstItem="JxW-Hf-Lgh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="e7H-b1-eLy"/>
                 <constraint firstItem="N5h-KY-8b4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="geG-Mu-lE3"/>
                 <constraint firstAttribute="trailing" secondItem="hMp-aW-ah9" secondAttribute="trailing" constant="8" id="pN5-5T-n4K"/>
@@ -106,6 +121,7 @@
         </view>
     </objects>
     <resources>
+        <image name="pause_audio" width="29" height="29"/>
         <image name="play_audio" width="29" height="29"/>
         <image name="stop_audio" width="29" height="29"/>
     </resources>

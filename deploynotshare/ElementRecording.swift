@@ -150,6 +150,10 @@ class ElementRecording: UIView {
         }
     }
     
+    @IBAction func pause(sender: AnyObject) {
+        record()
+    }
+    
     @IBAction func stop(sender: UIButton) {
         
         if recorder != nil && recorder.recording {

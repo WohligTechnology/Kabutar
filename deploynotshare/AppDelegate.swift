@@ -10,6 +10,8 @@ import UIKit
 import SQLiteCipher
 import SwiftyJSON
 
+import FBSDKCoreKit
+
 var ViewForNotes:Any!
 
 
@@ -89,13 +91,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             nvc = UINavigationController(rootViewController: mainViewController)
             
         }
-        
-        
-        
-        
-        
-        
-        
         leftViewController.mainViewController = nvc
         
         let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
@@ -115,7 +110,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         AppDelegate.getDatabase()
         self.createMenuView()
-        return true
+        
+        
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool
+    {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
 
     func applicationWillResignActive(application: UIApplication) {
