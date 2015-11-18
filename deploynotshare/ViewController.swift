@@ -11,8 +11,9 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 
 
-//import SwiftHTTP'
 
+import SwiftHTTP
+import SwiftyJSON
 
 
 class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,FBSDKLoginButtonDelegate {
@@ -84,6 +85,61 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         {
             print("Login complete.")
             print(result.token.tokenString);
+            
+           
+            do {
+                let opt = try HTTP.GET("https://graph.facebook.com/v2.5/me?"+"fields=id,name,email,picture&access_token=\(result.token.tokenString)")
+                opt.start { response in
+                    print(response.data);
+                    let json = JSON(data: response.data)
+                    print(json)
+                    config.set("user_name",value2: json["name"].string!);
+                    config.set("user_email",value2: json["email"].string!);
+                    config.set("user_facebook_id",value2: json["id"].string!);
+                    config.set("user_id_name",value2: json["id"].string!);
+                    config.set("user_pic_url",value2: json["picture"]["data"]["url"].string!);
+            
+                    
+                    if let url = NSURL(string: json["picture"]["data"]["url"].string!) {
+                        if let data = NSData(contentsOfURL: url) {
+                            
+                            let image = UIImage(data: data)
+                            
+                            let imagename = "profile.jpg"
+                            let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+                            let destinationPath = String(documentsPath) + "/" + imagename
+                            
+                            UIImageJPEGRepresentation(image!,1.0)!.writeToFile(destinationPath, atomically: true)
+                            
+                            config.set("user_pic",value2: imagename);
+                            
+                            
+                            
+                            
+                            let params = ["email": config.get("user_email"), "fbid": config.get("user_facebook_id"), "googleid": config.get("user_google_id"),"profilepic":config.get("user_pic_url"),"name":config.get("user_name")]
+                            do {
+                                let opt = try HTTP.POST(ServerURL+"user/sociallogin", parameters: params)
+                                opt.start { response in
+                                    print(response.data);
+                                    
+                                    let json = JSON(data: response.data)
+                                    
+                                   config.set("user_id", value2: json["_id"].string!)
+                                    print(json)
+                                    //do things...
+                                }
+                            } catch let error {
+                                print("got an error creating the request: \(error)")
+                            }
+                            
+                            //GAppDelegate.createMenuView()
+                        }        
+                    }
+                }
+            } catch let error {
+                print("got an error creating the request: \(error)")
+            }
+            
             self.performSegueWithIdentifier("showNew", sender: self)
         }
         else
@@ -96,8 +152,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     {
         print("User logged out...")
     }
-    
-    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

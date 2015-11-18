@@ -16,7 +16,7 @@ var ViewForNotes:Any!
 
 
 var ServerURL = "http://104.197.122.116/"
-
+var GAppDelegate:AppDelegate!
 var MainWidth:CGFloat!
 var MainHeight:CGFloat!
 var SelectedNoteColor = UIColor()
@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
-    private func createMenuView() {
+    public func createMenuView() {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -102,6 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        GAppDelegate = self
         // Override point for customization after application launch.
       
         let bounds = UIScreen.mainScreen().bounds
@@ -109,7 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MainHeight = bounds.size.height
 
         AppDelegate.getDatabase()
-        self.createMenuView()
+        //self.createMenuView()
         
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
