@@ -360,6 +360,8 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         config.set("note_id", value2: String(selectedNoteId))
         
         if(islocked[indexPath.row] == 0){
+            selectedNoteId = self.notesId[indexPath.row] as! String
+            selectedNoteIndex = Int(indexPath.row)
             self.performSegueWithIdentifier("showdetaildetailview", sender: self)
         }else{
             selectedNoteId = self.notesId[indexPath.row] as! String

@@ -240,10 +240,14 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         
         selectedNoteId = self.notesId[indexPath.row] as! String
         config.set("note_id", value2: String(selectedNoteId))
-        
         if(islocked[indexPath.row] == 0){
-        self.performSegueWithIdentifier("showdetail", sender: self)
-        }else{
+            selectedNoteId = self.notesId[indexPath.row] as! String
+            selectedNoteIndex = Int(indexPath.row)
+
+            self.performSegueWithIdentifier("showdetail", sender: self)
+            
+        }
+        else{
             selectedNoteId = self.notesId[indexPath.row] as! String
             selectedNoteIndex = Int(indexPath.row)
             

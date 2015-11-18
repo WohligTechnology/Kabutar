@@ -364,6 +364,8 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         config.set("note_id", value2: String(selectedNoteId))
         
         if(islocked[indexPath.row] == 0){
+            selectedNoteId = self.notesId[indexPath.row] as! String
+            selectedNoteIndex = Int(indexPath.row)
             self.performSegueWithIdentifier("showdetaillistview", sender: self)
         }else{
             selectedNoteId = self.notesId[indexPath.row] as! String
