@@ -412,7 +412,7 @@ extension detailViewController: RichEditorDelegate {
     
     func richEditor(editor: RichEditorView, contentDidChange content: String) {
         let changeElementId = editor.NoteElementID
-        NoteElementModel.edit(changeElementId, content2: content,contentA2: editor.getText(),contentB2: "" )
+        NoteElementModel.edit(changeElementId, content2: content,contentA2: content.stripHTML() ,contentB2: "" )
     }
     
     
@@ -454,3 +454,25 @@ extension detailViewController: RichEditorDelegate {
     func richEditor(editor: RichEditorView, handleCustomAction content: String) { }
     
 }
+
+
+/**
+The html replacement regular expression
+*/
+let     htmlReplaceString   :   String  =   "<[^>]+>"
+
+
+
+
+extension String {
+    /**
+     Takes the current String struct and strips out HTML using regular expression. All tags get stripped out.
+     
+     :returns: String html text as plain text
+     */
+    func stripHTML() -> String {
+        let abc = self.stringByReplacingOccurrencesOfString(htmlReplaceString, withString: " ", options: NSStringCompareOptions.RegularExpressionSearch, range: nil)
+        return abc.stringByReplacingOccurrencesOfString("&nbsp;", withString:" ")
+    }
+}
+

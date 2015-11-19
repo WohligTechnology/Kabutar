@@ -94,7 +94,6 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         }
 
         
-        if(selectedFolderToNoteId==""){
             for row in notesobj.find2(searchTable) {
                 notesTitle.append(row[1] as! String!)
                 notesId.append(row[0] as! Int64! )
@@ -105,16 +104,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                 
             }
             
-        }else{
-            for row in notesobj.getNotesFolder(selectedFolderToNoteId) {
-//                notesTitle.addObject(row[notesobj.title]!)
-//                notesId.addObject(String(row[notesobj.id]))
-//                color.append(row[notesobj.color]!)
-//                islocked.append(row[notesobj.islocked])
-            }
-            
         }
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -81,8 +81,14 @@ public class Note {
     
     func find2 (txt:String) -> Statement {
         let date = NSDate().timeIntervalSince1970
-        let date2 = Int64(date)
-        var returnArr = db.prepare("SELECT * FROM (SELECT `note`.`id`, `note`.`title`,`note`.`color`,`note`.`islocked`,`NoteElement`.`contentA`,`note`.`modificationTime` FROM `note` LEFT OUTER JOIN `NoteElement` ON `note`.`id` = `NoteElement`.`noteid` AND `NoteElement`.`contentA` != '' AND `NoteElement`.`type` = 'text'  WHERE `note`.`creationTime` != 0 AND  (`note`.`timebomb` = 0 OR  `note`.`timebomb` > \(date)) AND ( `note`.`title` LIKE '%\(txt)%' OR `NoteElement`.`contentA` LIKE '%\(txt)%' ) ORDER BY `NoteElement`.`id` DESC) GROUP BY `id`")
+        let date2 = String(Int64(date))
+        var folderWhere = "";
+        if(selectedFolderToNoteId !=  "")
+        {
+            folderWhere  = " `note`.`folder` =  '\(selectedFolderToNoteId)' AND ";
+        }
+        
+        var returnArr = db.prepare("SELECT `note`.`id`, `note`.`title`,`note`.`color`,`note`.`islocked`,GROUP_CONCAT(`NoteElement`.`contentA`,' '),`note`.`modificationTime` FROM `note` LEFT OUTER JOIN `NoteElement` ON `note`.`id` = `NoteElement`.`noteid` AND `NoteElement`.`contentA` != '' AND `NoteElement`.`type` = 'text'  WHERE \(folderWhere) `note`.`creationTime` != 0 AND  (`note`.`timebomb` = 0 OR  `note`.`timebomb` > \(date2)) AND ( `note`.`title` LIKE '%\(txt)%' OR `NoteElement`.`contentA` LIKE '%\(txt)%' )  GROUP BY `note`.`id`")
         return returnArr
     }
     

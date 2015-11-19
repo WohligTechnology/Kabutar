@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="377" height="40"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLP-by-kHX" userLabel="sortbutton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLP-by-kHX" userLabel="sortbutton">
                     <rect key="frame" x="8" y="7" width="120" height="27"/>
                     <animations/>
                     <constraints>

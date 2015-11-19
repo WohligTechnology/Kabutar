@@ -96,7 +96,6 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         noteDesc = []
         
         
-        if(selectedFolderToNoteId==""){
             for row in notesobj.find2(searchTable) {
                 notesTitle.append(row[1] as! String!)
                 notesId.append(row[0] as! Int64! )
@@ -105,19 +104,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 islocked.append(row[3] as! Int64!)
                 noteDesc.append(row[4] as! String! )
             }
-            
-        } else {
-            for row in notesobj.getNotesFolder(selectedFolderToNoteId) {
-//                notesTitle.addObject(row[notesobj.title]!)
-//                notesId.addObject(String(row[notesobj.id]))
-//                modificationTime.addObject(Double(row[notesobj.modificationTime]))
-//                color.append(row[notesobj.color]!)
-//                islocked.append(row[notesobj.islocked])
-                
-            }
-            
-        }
-
+       
     }
     
     @IBOutlet weak var detailView: UITableView!

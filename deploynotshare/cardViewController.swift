@@ -107,8 +107,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         islocked = []
         
         
-        
-        if(selectedFolderToNoteId==""){
+       
             for row in notesobj.find2("") {
                 notesTitle.append(row[1] as! String!)
                 notesId.append(row[0] as! Int64! )
@@ -117,20 +116,6 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
                 islocked.append(row[3] as! Int64!)
                 noteDesc.append(row[4] as! String! )
             }
-         
-            
-        } else {
-            for row in notesobj.getNotesFolder(selectedFolderToNoteId) {
-//                notesTitle.addObject(row[notesobj.title]!)
-//                notesId.addObject(String(row[notesobj.id]))
-//                modificationTime.addObject(Double(row[notesobj.modificationTime]))
-//                color.append(row[notesobj.color]!)
-//                islocked.append(row[notesobj.islocked])
-                
-            }
-            
-        }
-        
 
     }
     
@@ -214,8 +199,12 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         insideView.titleLabel.text = notesTitle[indexPath.row] as? String
         insideView.descLabel.text = (noteDesc[indexPath.row] as? String?)!
         let moddate = NSDate(timeIntervalSince1970: modificationTime[indexPath.row] as! Double)
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle  = .MediumStyle // superset of OP's format
+        let str = dateFormatter.stringFromDate(moddate)
         //        insideView.descLabel.text = notesId[indexPath.row] as? String
-        insideView.timeLabel.text = String(moddate)
+        insideView.timeLabel.text = str
         let colorno = color[indexPath.row]
       
         insideView.view.backgroundColor = NoteColors[Int(colorno)!]
