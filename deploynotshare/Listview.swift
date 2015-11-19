@@ -169,7 +169,11 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         
         
         cell.rightButtons = [
-            MGSwipeButton(title: "",icon: UIImage(named:"reminder.png"), backgroundColor: mainColor),
+            MGSwipeButton(title: "",icon: UIImage(named:"reminder.png"), backgroundColor: mainColor , callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+                print("Tap !")
+                return true
+            }),
             MGSwipeButton(title: "",icon: UIImage(named:"share.png"), backgroundColor: mainColor),
             MGSwipeButton(title: "",icon: UIImage(named:"delete.png"), backgroundColor: mainColor),
             MGSwipeButton(title: "",icon: UIImage(named:"move.png"), backgroundColor: mainColor),
