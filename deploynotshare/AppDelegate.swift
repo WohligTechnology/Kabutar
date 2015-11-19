@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .DocumentDirectory, .UserDomainMask, true
             ).first!
         let db = try! Connection("\(path)/db.sqlite3")
-        print(path);
+        //print(path);
         return db;
     }
 

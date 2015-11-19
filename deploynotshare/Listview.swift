@@ -13,11 +13,12 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
 
     @IBOutlet weak var listView: UITableView!
     let mainColor = PinkColor
-    var notesTitle:NSMutableArray = []
-    var notesId:NSMutableArray = []
+    var notesTitle:[String] = []
+    var notesId:[Int64] = []
     var notesobj = Note()
     var color: [String] = []
     var islocked: [Int64] = []
+    var noteDesc: [String!] = []
     var noteName = UITextField()
     let width = UIScreen.mainScreen().bounds.size.width
     let height = UIScreen.mainScreen().bounds.size.height
@@ -94,20 +95,22 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
 
         
         if(selectedFolderToNoteId==""){
-            for row in notesobj.find(searchTable) {
-                notesTitle.addObject(row[notesobj.title]!)
-                notesId.addObject(String(row[notesobj.id]))
-                color.append(row[notesobj.color]!)
-                islocked.append(row[notesobj.islocked])
+            for row in notesobj.find2(searchTable) {
+                notesTitle.append(row[1] as! String!)
+                notesId.append(row[0] as! Int64! )
+               
+                color.append(row[2] as! String!)
+                islocked.append(row[3] as! Int64!)
+                noteDesc.append(row[4] as! String! )
                 
             }
             
         }else{
             for row in notesobj.getNotesFolder(selectedFolderToNoteId) {
-                notesTitle.addObject(row[notesobj.title]!)
-                notesId.addObject(String(row[notesobj.id]))
-                color.append(row[notesobj.color]!)
-                islocked.append(row[notesobj.islocked])
+//                notesTitle.addObject(row[notesobj.title]!)
+//                notesId.addObject(String(row[notesobj.id]))
+//                color.append(row[notesobj.color]!)
+//                islocked.append(row[notesobj.islocked])
             }
             
         }
@@ -140,7 +143,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     {
         let pass = sender.locationInView(self.listView)
         let indexPath: NSIndexPath = self.listView.indexPathForRowAtPoint(pass)!
-        ColorNote = notesId[indexPath.row] as! String
+        ColorNote = String(notesId[indexPath.row])
         
         
         if(PressCkeck == 0){
@@ -174,7 +177,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
             }),
             MGSwipeButton(title: "",icon: UIImage(named:"share.png"), backgroundColor: mainColor, callback : {
                 (sender: MGSwipeTableCell!) -> Bool in
-                selectedNoteId = self.notesId[indexPath.row] as! String
+                selectedNoteId = String(self.notesId[indexPath.row])
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeColorPaper:")
                 self.addBlackView()
                 blackOut.addGestureRecognizer(blackOutTap)
@@ -188,12 +191,13 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
             }),
             MGSwipeButton(title: "",icon: UIImage(named:"delete.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
-                    self.showdelete(self.notesId[indexPath.row] as! String)
+                    selectedNoteId = String(self.notesId[indexPath.row])
+                    self.showdelete(selectedNoteId)
                 return true
             }),
             MGSwipeButton(title: "",icon: UIImage(named:"move.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
-                selectedNoteId = self.notesId[indexPath.row] as! String
+                selectedNoteId = String(self.notesId[indexPath.row])
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMoveToFolder:")
                 self.addBlackView()
                 blackOut.addGestureRecognizer(blackOutTap)
@@ -210,7 +214,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                 (sender: MGSwipeTableCell!) -> Bool in
                 
                 
-                selectedNoteId = self.notesId[indexPath.row] as! String
+                selectedNoteId = String(self.notesId[indexPath.row])
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
                 self.addBlackView()
                 blackOut.addGestureRecognizer(blackOutTap)
@@ -227,7 +231,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
             MGSwipeButton(title: "", icon: UIImage(named:"lock.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
-                selectedNoteId = self.notesId[indexPath.row] as! String
+                selectedNoteId = String(self.notesId[indexPath.row])
                 
                 let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
                 
@@ -464,15 +468,13 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     */
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedNoteId = self.notesId[indexPath.row] as! String
+        selectedNoteId = String(self.notesId[indexPath.row])
         config.set("note_id", value2: String(selectedNoteId))
         
         if(islocked[indexPath.row] == 0){
-            selectedNoteId = self.notesId[indexPath.row] as! String
             selectedNoteIndex = Int(indexPath.row)
             self.performSegueWithIdentifier("showdetaillistview", sender: self)
         }else{
-            selectedNoteId = self.notesId[indexPath.row] as! String
             selectedNoteIndex = Int(indexPath.row)
 
             let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController

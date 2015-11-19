@@ -79,6 +79,13 @@ public class Note {
         
     }
     
+    func find2 (txt:String) -> Statement {
+        let date = NSDate().timeIntervalSince1970
+        let date2 = Int64(date)
+        var returnArr = db.prepare("SELECT * FROM (SELECT `note`.`id`, `note`.`title`,`note`.`color`,`note`.`islocked`,`NoteElement`.`contentA`,`note`.`modificationTime` FROM `note` LEFT OUTER JOIN `NoteElement` ON `note`.`id` = `NoteElement`.`noteid` AND `NoteElement`.`contentA` != '' AND `NoteElement`.`type` = 'text'  WHERE `note`.`creationTime` != 0 AND  (`note`.`timebomb` = 0 OR  `note`.`timebomb` > \(date)) AND ( `note`.`title` LIKE '%\(txt)%' OR `NoteElement`.`contentA` LIKE '%\(txt)%' ) ORDER BY `NoteElement`.`id` DESC) GROUP BY `id`")
+        return returnArr
+    }
+    
     func edit(title2:String,background2:String,color2:String,folder2:Int64,islocked2:Int64,paper2:String,reminderTime2:Int64,serverid2:String,tags2:String,timebomb2:Int64,id2:String)  {
         let date = NSDate().timeIntervalSince1970
         let id3 = strtoll(id2,nil,10)

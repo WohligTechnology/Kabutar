@@ -12,9 +12,10 @@ import MGSwipeTableCell
 class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchResultsUpdating {
 
     @IBOutlet weak var detailtableview: UITableView!
-    var notesTitle:NSMutableArray = []
-    var notesId:NSMutableArray = []
-    var modificationTime: NSMutableArray = []
+    var notesTitle:[String] = []
+    var notesId:[Int64] = []
+    var modificationTime: [Double] = []
+    var noteDesc: [String!] = []
     var color: [String] = []
     var islocked: [Int64] = []
     var notesobj = Note()
@@ -92,26 +93,26 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         modificationTime = []
         color = []
         islocked = []
-        
+        noteDesc = []
         
         
         if(selectedFolderToNoteId==""){
-            for row in notesobj.find("") {
-                notesTitle.addObject(row[notesobj.title]!)
-                notesId.addObject(String(row[notesobj.id]))
-                modificationTime.addObject(Double(row[notesobj.modificationTime]))
-                color.append(row[notesobj.color]!)
-                islocked.append(row[notesobj.islocked])
-                
+            for row in notesobj.find2(searchTable) {
+                notesTitle.append(row[1] as! String!)
+                notesId.append(row[0] as! Int64! )
+                modificationTime.append(Double(row[5] as! Int64!) )
+                color.append(row[2] as! String!)
+                islocked.append(row[3] as! Int64!)
+                noteDesc.append(row[4] as! String! )
             }
             
         } else {
             for row in notesobj.getNotesFolder(selectedFolderToNoteId) {
-                notesTitle.addObject(row[notesobj.title]!)
-                notesId.addObject(String(row[notesobj.id]))
-                modificationTime.addObject(Double(row[notesobj.modificationTime]))
-                color.append(row[notesobj.color]!)
-                islocked.append(row[notesobj.islocked])
+//                notesTitle.addObject(row[notesobj.title]!)
+//                notesId.addObject(String(row[notesobj.id]))
+//                modificationTime.addObject(Double(row[notesobj.modificationTime]))
+//                color.append(row[notesobj.color]!)
+//                islocked.append(row[notesobj.islocked])
                 
             }
             
@@ -150,8 +151,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     {
         let pass = sender.locationInView(self.detailtableview)
         let indexPath: NSIndexPath = self.detailtableview.indexPathForRowAtPoint(pass)!
-        ColorNote = notesId[indexPath.row] as! String
-        
+        ColorNote = String(notesId[indexPath.row])
         
         if(PressCkeck == 0){
             PressCkeck = 1
@@ -188,14 +188,15 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
             }),
             MGSwipeButton(title: "",icon: UIImage(named:"delete.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
-                
-                self.showdelete(self.notesId[indexPath.row] as! String)
+                selectedNoteId = String(self.notesId[indexPath.row])
+                self.showdelete(selectedNoteId)
                 
                 return true
             }),
             MGSwipeButton(title: "",icon: UIImage(named:"move.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
-                
+            
+                selectedNoteId = String(self.notesId[indexPath.row])
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMoveToFolder:")
                 self.addBlackView()
                 blackOut.addGestureRecognizer(blackOutTap)
@@ -211,6 +212,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
             MGSwipeButton(title: "",icon: UIImage(named:"timebomb.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
+                selectedNoteId = String(self.notesId[indexPath.row])
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
                 self.addBlackView()
                 blackOut.addGestureRecognizer(blackOutTap)
@@ -226,7 +228,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
             MGSwipeButton(title: "", icon: UIImage(named:"lock.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
-                selectedNoteId = self.notesId[indexPath.row] as! String
+                selectedNoteId = String(self.notesId[indexPath.row])
                 
                 let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
                 
@@ -258,7 +260,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         cell.rightSwipeSettings.transition = MGSwipeTransition.Drag
         
         cell.DetailViewTitle.text = notesTitle[indexPath.row] as? String
-        cell.DetailDescription.text = notesTitle[indexPath.row] as? String
+        cell.DetailDescription.text = (noteDesc[indexPath.row] as? String?)!
         if(islocked[indexPath.row] == 0){
             cell.DetailLock.hidden = true
         }else{
@@ -381,15 +383,14 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        selectedNoteId = self.notesId[indexPath.row] as! String
+        selectedNoteId = String(self.notesId[indexPath.row])
         config.set("note_id", value2: String(selectedNoteId))
         
         if(islocked[indexPath.row] == 0){
-            selectedNoteId = self.notesId[indexPath.row] as! String
             selectedNoteIndex = Int(indexPath.row)
             self.performSegueWithIdentifier("showdetaildetailview", sender: self)
-        }else{
-            selectedNoteId = self.notesId[indexPath.row] as! String
+        }
+        else {
             selectedNoteIndex = Int(indexPath.row)
             
             let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController

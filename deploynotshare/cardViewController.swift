@@ -11,7 +11,7 @@ import DKChainableAnimationKit
 import UIColor_Hex_Swift
 
 
-class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource ,UICollectionViewDelegate,UISearchResultsUpdating {
+class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource ,UICollectionViewDelegate {
     
     @IBOutlet weak var sorting: SortView!
     @IBOutlet weak var viewing: ViewView!
@@ -21,14 +21,14 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     var myview: DateTime!;
     let ConfigObj = Config()
     
-    var notesTitle:NSMutableArray = []
-    var notesId:NSMutableArray = []
-    var modificationTime: NSMutableArray = []
+    var notesTitle:[String] = []
+    var notesId:[Int64] = []
+    var modificationTime: [Double] = []
+    var noteDesc: [String!] = []
     var color: [String] = []
     var islocked: [Int64] = []
     var notesobj = Note()
     var insideView = NoteCollectionUIView()
-    var resultSearchController = UISearchController!()
     
     var searchTable = ""
     
@@ -86,26 +86,13 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
 //        addView.addGestureRecognizer(createNoteTap)
         self.view.addSubview(addView)
         
-        //Search bar code
-        self.resultSearchController = UISearchController(searchResultsController: nil)
-        self.resultSearchController.searchResultsUpdater = self
-        self.resultSearchController.dimsBackgroundDuringPresentation = false
-        self.resultSearchController.searchBar.sizeToFit()
-        self.resultSearchController.searchBar.barTintColor = PinkColor //bar color
-        self.resultSearchController.searchBar.translucent = false //Bar translucent false
-        self.resultSearchController.searchBar.tintColor = UIColor.whiteColor() //text color
-        self.definesPresentationContext = true
-        self.collectionView.addSubview(self.resultSearchController.searchBar)
-        self.collectionView.reloadData()
-        
-        //Show search on scroll
-        self.collectionView.setContentOffset(CGPoint(x: 0,y: 44), animated: true)
+        self.collectionView.setContentOffset(CGPoint(x: 0,y: -44), animated: true)
         
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController)
     {
-        searchTable = searchController.searchBar.text!;
+        searchTable = searchController.searchBar.text!
 //        getAllNotes()
 //        self.listView.reloadData()
     }
@@ -122,22 +109,23 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         
         
         if(selectedFolderToNoteId==""){
-            for row in notesobj.find("") {
-                notesTitle.addObject(row[notesobj.title]!)
-                notesId.addObject(String(row[notesobj.id]))
-                modificationTime.addObject(Double(row[notesobj.modificationTime]))
-                color.append(row[notesobj.color]!)
-                islocked.append(row[notesobj.islocked])
+            for row in notesobj.find2("") {
+                notesTitle.append(row[1] as! String!)
+                notesId.append(row[0] as! Int64! )
+                modificationTime.append(Double(row[5] as! Int64!) )
+                color.append(row[2] as! String!)
+                islocked.append(row[3] as! Int64!)
+                noteDesc.append(row[4] as! String! )
             }
          
             
         } else {
             for row in notesobj.getNotesFolder(selectedFolderToNoteId) {
-                notesTitle.addObject(row[notesobj.title]!)
-                notesId.addObject(String(row[notesobj.id]))
-                modificationTime.addObject(Double(row[notesobj.modificationTime]))
-                color.append(row[notesobj.color]!)
-                islocked.append(row[notesobj.islocked])
+//                notesTitle.addObject(row[notesobj.title]!)
+//                notesId.addObject(String(row[notesobj.id]))
+//                modificationTime.addObject(Double(row[notesobj.modificationTime]))
+//                color.append(row[notesobj.color]!)
+//                islocked.append(row[notesobj.islocked])
                 
             }
             
@@ -196,7 +184,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     {
         let pass = sender.locationInView(self.collectionView)
         let indexPath: NSIndexPath = self.collectionView.indexPathForItemAtPoint(pass)!
-        ColorNote = notesId[indexPath.row] as! String
+        ColorNote = String(notesId[indexPath.row])
         
         if(PressCkeck == 0){
            PressCkeck = 1
@@ -224,6 +212,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         insideView = NoteCollectionUIView(frame: CGRectMake(0,0,(width-30)/2,(height-30)/4))
         
         insideView.titleLabel.text = notesTitle[indexPath.row] as? String
+        insideView.descLabel.text = (noteDesc[indexPath.row] as? String?)!
         let moddate = NSDate(timeIntervalSince1970: modificationTime[indexPath.row] as! Double)
         //        insideView.descLabel.text = notesId[indexPath.row] as? String
         insideView.timeLabel.text = String(moddate)
@@ -242,10 +231,9 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        selectedNoteId = self.notesId[indexPath.row] as! String
+        selectedNoteId = String(self.notesId[indexPath.row])
         config.set("note_id", value2: String(selectedNoteId))
         if(islocked[indexPath.row] == 0){
-            selectedNoteId = self.notesId[indexPath.row] as! String
             selectedNoteIndex = Int(indexPath.row)
 
             self.performSegueWithIdentifier("showdetail", sender: self)
