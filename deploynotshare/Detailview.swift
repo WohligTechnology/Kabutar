@@ -255,8 +255,10 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         }
         
         let moddate = NSDate(timeIntervalSince1970: self.modificationTime[indexPath.row] as! Double)
-    
-        cell.DetailTimeStamp.text = String(moddate)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle  = .MediumStyle // superset of OP's format
+        let str = dateFormatter.stringFromDate(moddate)
+        cell.DetailTimeStamp.text = String(str)
 
         let colorno = color[indexPath.row]
         var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
