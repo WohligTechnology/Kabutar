@@ -168,8 +168,15 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         //var cell = listView.dequeueReusableCellWithIdentifier("cell") as! MGSwipeTableCell!
         
         
-        cell.rightButtons = [MGSwipeButton(title: "", icon: UIImage(named:"lock.png"), backgroundColor: mainColor)
-            ,MGSwipeButton(title: "",icon: UIImage(named:"timebomb.png"), backgroundColor: mainColor),MGSwipeButton(title: "",icon: UIImage(named:"move.png"), backgroundColor: mainColor),MGSwipeButton(title: "",icon: UIImage(named:"delete.png"), backgroundColor: mainColor),MGSwipeButton(title: "",icon: UIImage(named:"share.png"), backgroundColor: mainColor),MGSwipeButton(title: "",icon: UIImage(named:"reminder.png"), backgroundColor: mainColor)]
+        cell.rightButtons = [
+            MGSwipeButton(title: "",icon: UIImage(named:"reminder.png"), backgroundColor: mainColor),
+            MGSwipeButton(title: "",icon: UIImage(named:"share.png"), backgroundColor: mainColor),
+            MGSwipeButton(title: "",icon: UIImage(named:"delete.png"), backgroundColor: mainColor),
+            MGSwipeButton(title: "",icon: UIImage(named:"move.png"), backgroundColor: mainColor),
+            MGSwipeButton(title: "",icon: UIImage(named:"timebomb.png"), backgroundColor: mainColor),
+            MGSwipeButton(title: "", icon: UIImage(named:"lock.png"), backgroundColor: mainColor)
+        ]
+        cell.rightSwipeSettings.transition = MGSwipeTransition.Drag
         
         cell.ListViewTitle.text = notesTitle[indexPath.row] as? String
         if(islocked[indexPath.row] == 0){
