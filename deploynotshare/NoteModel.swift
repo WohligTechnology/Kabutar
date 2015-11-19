@@ -88,7 +88,29 @@ public class Note {
             folderWhere  = " `note`.`folder` =  '\(selectedFolderToNoteId)' AND ";
         }
         
-        var returnArr = db.prepare("SELECT `note`.`id`, `note`.`title`,`note`.`color`,`note`.`islocked`,GROUP_CONCAT(`NoteElement`.`contentA`,' '),`note`.`modificationTime` FROM `note` LEFT OUTER JOIN `NoteElement` ON `note`.`id` = `NoteElement`.`noteid` AND `NoteElement`.`contentA` != '' AND `NoteElement`.`type` = 'text'  WHERE \(folderWhere) `note`.`creationTime` != 0 AND  (`note`.`timebomb` = 0 OR  `note`.`timebomb` > \(date2)) AND ( `note`.`title` LIKE '%\(txt)%' OR `NoteElement`.`contentA` LIKE '%\(txt)%' )  GROUP BY `note`.`id`")
+        let sortwith = config.get("note_sort");
+        var sortwithText = ""
+        switch (sortwith) {
+        case "1":
+            sortwithText = " LOWER(`note`.`title`) "
+        case "2":
+             sortwithText = "`note`.`color`,`note`.`id` DESC ,LOWER(`note`.`title`) "
+            
+        case "3":
+            sortwithText = "`note`.`id` DESC ,LOWER(`note`.`title`) "
+        case "4":
+            sortwithText = "`note`.`modificationTime`,`note`.`id` DESC ,LOWER(`note`.`title`) "
+           
+        case "5":
+            sortwithText = "`note`.`reminderTime`,`note`.`id` DESC ,LOWER(`note`.`title`) "
+        case "6":
+            sortwithText = "`note`.`timebomb` DESC ,`note`.`id` DESC ,LOWER(`note`.`title`) "
+            
+        default:
+            sortwithText = "`note`.`id` DESC ,LOWER(`note`.`title`) "
+        }
+        
+        var returnArr = db.prepare("SELECT `note`.`id`, `note`.`title`,`note`.`color`,`note`.`islocked`,GROUP_CONCAT(`NoteElement`.`contentA`,' '),`note`.`modificationTime` FROM `note` LEFT OUTER JOIN `NoteElement` ON `note`.`id` = `NoteElement`.`noteid` AND `NoteElement`.`contentA` != '' AND `NoteElement`.`type` = 'text'  WHERE \(folderWhere) `note`.`creationTime` != 0 AND  (`note`.`timebomb` = 0 OR  `note`.`timebomb` > \(date2)) AND ( `note`.`title` LIKE '%\(txt)%' OR `NoteElement`.`contentA` LIKE '%\(txt)%' )  GROUP BY `note`.`id` ORDER BY \(sortwithText)")
         return returnArr
     }
     
