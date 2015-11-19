@@ -22,11 +22,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     @IBOutlet weak var profileimage: UIImageView!
     @IBOutlet weak var nametext: UITextField!
     
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,8 +54,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         
         if result?.token?.tokenString != nil
         {
-            print("CHINTANNNNNAmdfhdjkfhkdfdjfhkdjf");
-             print(result?.token?.tokenString);
+            
             do {
                 let opt = try! HTTP.GET("https://graph.facebook.com/v2.5/me?"+"fields=id,name,email,picture&access_token=\(result.token.tokenString)")
                 opt.start { response in
