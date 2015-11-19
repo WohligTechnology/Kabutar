@@ -8,46 +8,69 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>MGSwipeTableCell.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>RichEditorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>SQLCipher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>SQLite.swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>SQLiteCipher.swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>SwiftHTTP.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
 		</dict>
 		<key>UIColor_Hex_Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>9</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -68,6 +91,36 @@
 			<true/>
 		</dict>
 		<key>42ABA6A107EFBB090BB5C4B3FE943A61</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>666B4E407B551BD4EE7AD72E8C4C5704</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>71196E99DCC8D73833AA1C1EE9600097</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>75F106540A67FB6263019F46A7B6DCB6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9D4E06EC129D323F8B52B67CC564A694</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A5B9C9B173463F533E1EB41420FA7D96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -93,6 +146,21 @@
 			<true/>
 		</dict>
 		<key>BF9D5D4F55C1324D401A4FDC62CE54CB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D0F557143861E2800340E7CAC8668284</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D67A6045B3F04785327311F285FACD52</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DE3B2CCC0526FA5E62EE882A7D8576A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
