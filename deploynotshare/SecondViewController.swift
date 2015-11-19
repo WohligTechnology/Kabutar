@@ -29,7 +29,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         noteTitle = []
         noteId = []
         
-        for row in noteobj.find() {
+        for row in noteobj.find("") {
             
             noteTitle.addObject(row[noteobj.title]!)
             noteId.addObject(String(row[noteobj.id]))

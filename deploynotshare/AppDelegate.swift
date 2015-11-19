@@ -110,7 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MainHeight = bounds.size.height
 
         AppDelegate.getDatabase()
-        //self.createMenuView()
+        self.createMenuView()
         
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

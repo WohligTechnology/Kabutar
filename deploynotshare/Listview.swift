@@ -22,6 +22,8 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     let height = UIScreen.mainScreen().bounds.size.height
     var resultSearchController = UISearchController!()
     
+    var searchTable = ""
+    
     @IBOutlet weak var ListViewLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +63,9 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     
     func updateSearchResultsForSearchController(searchController: UISearchController)
     {
-        
+        searchTable = searchController.searchBar.text!;
+        getAllNotes()
+        self.listView.reloadData()
     }
     
     
@@ -89,7 +93,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
 
         
         if(selectedFolderToNoteId==""){
-            for row in notesobj.find() {
+            for row in notesobj.find(searchTable) {
                 notesTitle.addObject(row[notesobj.title]!)
                 notesId.addObject(String(row[notesobj.id]))
                 color.append(row[notesobj.color]!)

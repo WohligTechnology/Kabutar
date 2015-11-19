@@ -54,26 +54,26 @@ public class Note {
         try! db.run(insert)
     }
     
-    func find() -> AnySequence<Row>  {
+    func find(txt:String) -> AnySequence<Row>  {
         let date = NSDate().timeIntervalSince1970
         let date2 = Int64(date)
         let returnArr:AnySequence<Row>!
         let sortwith = config.get("note_sort");
         switch (sortwith) {
             case "1":
-            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(title.lowercaseString) )
+            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(title.lowercaseString) )
             case "2":
-            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(color, id.desc ,title.lowercaseString) )
+            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(color, id.desc ,title.lowercaseString) )
             case "3":
-            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(id.desc ,title.lowercaseString) )
+            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(id.desc ,title.lowercaseString) )
             case "4":
-            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(modificationTime.desc,title.lowercaseString) )
+            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(modificationTime.desc,title.lowercaseString) )
             case "5":
-            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(reminderTime.desc,title.lowercaseString) )
+            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(reminderTime.desc,title.lowercaseString) )
             case "6":
-            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(timebomb.desc ,title.lowercaseString) )
+            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(timebomb.desc ,title.lowercaseString) )
             default:
-            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) ).order(id.desc ,title.lowercaseString) )
+            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(id.desc ,title.lowercaseString) )
         }
         return returnArr
         

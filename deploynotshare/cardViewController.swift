@@ -30,6 +30,8 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     var insideView = NoteCollectionUIView()
     var resultSearchController = UISearchController!()
     
+    var searchTable = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,7 +105,9 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     
     func updateSearchResultsForSearchController(searchController: UISearchController)
     {
-        
+        searchTable = searchController.searchBar.text!;
+//        getAllNotes()
+//        self.listView.reloadData()
     }
     
     func getAllNotes () {
@@ -118,7 +122,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         
         
         if(selectedFolderToNoteId==""){
-            for row in notesobj.find() {
+            for row in notesobj.find("") {
                 notesTitle.addObject(row[notesobj.title]!)
                 notesId.addObject(String(row[notesobj.id]))
                 modificationTime.addObject(Double(row[notesobj.modificationTime]))

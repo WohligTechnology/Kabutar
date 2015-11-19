@@ -23,6 +23,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     let height = UIScreen.mainScreen().bounds.size.height
     var resultSearchController = UISearchController!()
     
+    var searchTable = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +79,9 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     
     func updateSearchResultsForSearchController(searchController: UISearchController)
     {
-        
+        searchTable = searchController.searchBar.text!;
+        getAllNotes()
+        self.detailtableview.reloadData()
     }
     
     func getAllNotes(){
@@ -92,7 +95,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         
         
         if(selectedFolderToNoteId==""){
-            for row in notesobj.find() {
+            for row in notesobj.find("") {
                 notesTitle.addObject(row[notesobj.title]!)
                 notesId.addObject(String(row[notesobj.id]))
                 modificationTime.addObject(Double(row[notesobj.modificationTime]))
