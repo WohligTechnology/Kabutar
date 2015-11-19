@@ -116,7 +116,7 @@ public enum RichEditorOptions: RichEditorOption {
     
     public static func someOptions() -> [RichEditorOption] {
         return [
-            Undo, Redo, Bold, Italic,Underline,Header(1), Header(2), Header(3), Header(4), Header(5),Header(6),
+            Undo, Redo, Bold, Italic,Underline,Header(1), Header(2), Header(3), Header(4), Header(5),Header(6),OrderedList, UnorderedList,
             AlignLeft, AlignCenter, AlignRight
         ]
     }
