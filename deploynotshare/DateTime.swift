@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import EventKit
 
 class DateTime: UIView {
+    var savedEventId : String = ""
     @IBOutlet weak var datetimepopup: UIView!
     var blackOut:UIView!
     var notesobj = Note()
@@ -26,6 +28,22 @@ class DateTime: UIView {
         loadViewFromNib ()
     }
     
+    func createEvent(eventStore: EKEventStore, title: String, startDate: NSDate, endDate: NSDate) {
+        let event = EKEvent(eventStore: eventStore)
+        
+        event.title = title
+        event.startDate = startDate
+        event.endDate = endDate
+        event.calendar = eventStore.defaultCalendarForNewEvents
+        do {
+            try eventStore.saveEvent(event, span: .ThisEvent)
+            savedEventId = event.eventIdentifier
+        } catch {
+            print("Bad things happened")
+        }
+    }
+
+    
     @IBAction func buttonOk(sender: AnyObject) {
         let checkstatus = config.get("note_view")
         if(checkstatus == "2"){
@@ -35,6 +53,11 @@ class DateTime: UIView {
             let mainview = ViewForNotes as! Detailview
             mainview.closeTimeBomb(nil);
         }
+        
+        
+        
+        
+        
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
@@ -44,8 +67,32 @@ class DateTime: UIView {
         
         let finalDate = SumDateFormat.dateFromString(dateFormatter.stringFromDate(datePicker.date) + ", " + timeFormatter.stringFromDate(timePicker.date))
         
-      
-        notesobj.changeTimeBomb(Int64((finalDate?.timeIntervalSince1970)!), id2: selectedNoteId)
+        
+        let singlenote = notesobj.findOne(strtoll(selectedNoteId,nil,10))
+    
+        
+        
+        if(datetimepopupType == "reminder")
+        {
+            let eventStore = EKEventStore()
+            
+            let startDate = finalDate
+            let endDate = startDate!.dateByAddingTimeInterval(60 * 60) // One hour
+            
+            if (EKEventStore.authorizationStatusForEntityType(.Event) != EKAuthorizationStatus.Authorized) {
+                eventStore.requestAccessToEntityType(.Event, completion: {
+                    granted, error in
+                    self.createEvent(eventStore, title: singlenote![self.notesobj.title]!, startDate: startDate!, endDate: endDate)
+                })
+            } else {
+                createEvent(eventStore, title: singlenote![self.notesobj.title]!, startDate: startDate!, endDate: endDate)
+            }
+
+        }
+        else if(datetimepopupType == "timebomb")
+        {
+            notesobj.changeTimeBomb(Int64((finalDate?.timeIntervalSince1970)!), id2: selectedNoteId)
+        }
         self.removeFromSuperview()
         
     }

@@ -34,10 +34,6 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         
         getAllNotes()
 //        ConfigObj.set("passcode", value2: "1234")
-
-        let bottomLine = UIView(frame: CGRectMake(0,height-114, width , 1))
-        bottomLine.backgroundColor = PinkColor
-        self.view.addSubview(bottomLine)
         
         let addView = AddCircle(frame: CGRectMake(width/2 - 35, height-134, 70, 70))
         self.view.addSubview(addView)
@@ -161,7 +157,18 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
             MGSwipeButton(title: "",icon: UIImage(named:"reminder.png"), backgroundColor: mainColor , callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
+                datetimepopupType = "reminder"
                 
+                selectedNoteId = String(self.notesId[indexPath.row])
+                let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
+                self.addBlackView()
+                blackOut.addGestureRecognizer(blackOutTap)
+                blackOut.alpha = 0
+                self.view.addSubview(blackOut);
+                blackOut.animation.makeAlpha(1).animate(transitionTime);
+                
+                self.addDateTimeView = DateTime(frame: CGRectMake(self.width-335,self.height-600, 300, 500))
+                self.view.addSubview(self.addDateTimeView)
                 
                 return true
             }),
@@ -203,6 +210,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
             MGSwipeButton(title: "",icon: UIImage(named:"timebomb.png"), backgroundColor: mainColor,callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
+                datetimepopupType = "timebomb"
                 
                 selectedNoteId = String(self.notesId[indexPath.row])
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")

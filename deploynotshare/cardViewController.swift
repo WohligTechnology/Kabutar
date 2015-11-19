@@ -78,15 +78,13 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         
 //        let createNoteTap = UIGestureRecognizer(target: self, action: "createTap:")
         
-        let bottomLine = UIView(frame: CGRectMake(0,height-114, width , 1))
-        bottomLine.backgroundColor = PinkColor
-        self.view.addSubview(bottomLine)
+     
         
         let addView = AddCircle(frame: CGRectMake(width/2 - 35, height-134, 70, 70))
 //        addView.addGestureRecognizer(createNoteTap)
         self.view.addSubview(addView)
         
-        self.collectionView.setContentOffset(CGPoint(x: 0,y: -44), animated: true)
+       
         
     }
     

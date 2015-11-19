@@ -26,7 +26,7 @@ let config = Config()
 var NoteElementModel = NoteElement()
 var selectedNoteId = ""
 var selectedNoteIndex = Int()
-
+var datetimepopupType = ""
 let bounds = UIScreen.mainScreen().bounds
 let width = bounds.size.width
 let height = bounds.size.height

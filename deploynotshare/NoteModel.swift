@@ -54,6 +54,13 @@ public class Note {
         try! db.run(insert)
     }
     
+    func findOne(id2:Int64) -> Row?  {
+        
+        let newval =  db.pluck(note.filter(id == id2) )
+        return newval
+        
+    }
+    
     func find(txt:String) -> AnySequence<Row>  {
         let date = NSDate().timeIntervalSince1970
         let date2 = Int64(date)

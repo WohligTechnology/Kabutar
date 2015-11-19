@@ -9,7 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
-import EventKit
+
 
 import SwiftHTTP
 import SwiftyJSON
@@ -25,38 +25,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     
     
-    func insertEvent(store: EKEventStore) {
-        // 1
-        let calendars = store.calendarsForEntityType(EKEntityType.Event)
-            as! [EKCalendar]
-        
-        for calendar in calendars {
-            // 2
-            if calendar.title == "ioscreator" {
-                // 3
-                let startDate = NSDate()
-                // 2 hours
-                let endDate = startDate.dateByAddingTimeInterval(2 * 60 * 60)
-                
-                // 4
-                // Create Event
-                var event = EKEvent(eventStore: store)
-                event.calendar = calendar
-                
-                event.title = "New Meeting"
-                event.startDate = startDate
-                event.endDate = endDate
-                
-                // 5
-                // Save Event in Calendar
-                var error: NSError?
-                let result = try! store.saveEvent(event, span: EKSpan.ThisEvent)
-                
-                
-            }
-        }
-    }
-    
     
     
     override func viewDidLoad() {
@@ -65,20 +33,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         if(config.get("user_id") != "")
         {
             self.changeView()
-        }
-        
-        
-        let eventStore = EKEventStore()
-        
-        // 2
-        switch EKEventStore.authorizationStatusForEntityType(EKEntityType.Event) {
-        case .Authorized:
-            insertEvent(eventStore)
-        case .Denied:
-            print("Access denied")
-        default:
-            insertEvent(eventStore)
-            print("Case Default")
         }
         
         

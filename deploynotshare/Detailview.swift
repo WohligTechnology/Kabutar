@@ -8,6 +8,7 @@
 
 import UIKit
 import MGSwipeTableCell
+import EventKit
 
 class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchResultsUpdating {
 
@@ -51,9 +52,6 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         let bounds = UIScreen.mainScreen().bounds
         let width = bounds.size.width
         let height = bounds.size.height
-        let bottomLine = UIView(frame: CGRectMake(0,height-114, width , 1))
-        bottomLine.backgroundColor = PinkColor
-        self.view.addSubview(bottomLine)
         
         let addView = AddCircle(frame: CGRectMake(width/2 - 35, height-134, 70, 70))
         self.view.addSubview(addView)
@@ -163,9 +161,20 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         cell.rightButtons = [
             MGSwipeButton(title: "",icon: UIImage(named:"reminder.png"), backgroundColor: mainColor , callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
-
+                datetimepopupType  = "reminder"
+                selectedNoteId = String(self.notesId[indexPath.row])
+                let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
+                self.addBlackView()
+                blackOut.addGestureRecognizer(blackOutTap)
+                blackOut.alpha = 0
+                self.view.addSubview(blackOut);
+                blackOut.animation.makeAlpha(1).animate(transitionTime);
+                
+                self.addDateTimeView = DateTime(frame: CGRectMake(10,self.height/2 - 300, self.width-20, 500))
+                self.view.addSubview(self.addDateTimeView)
                 
                 return true
+
             }),
             MGSwipeButton(title: "",icon: UIImage(named:"share.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
@@ -199,6 +208,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
             MGSwipeButton(title: "",icon: UIImage(named:"timebomb.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
+                datetimepopupType  = "timebomb"
                 selectedNoteId = String(self.notesId[indexPath.row])
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
                 self.addBlackView()
