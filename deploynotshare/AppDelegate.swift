@@ -9,6 +9,7 @@
 import UIKit
 import SQLiteCipher
 import SwiftyJSON
+import UIColor_Hex_Swift
 
 import FBSDKCoreKit
 

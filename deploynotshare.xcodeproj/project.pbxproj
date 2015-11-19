@@ -78,7 +78,6 @@
 		43BE98E61BF21D0F0006CBC4 /* ColorPaper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43BE98E51BF21D0F0006CBC4 /* ColorPaper.xib */; };
 		43BE98E81BF220DE0006CBC4 /* ColorPaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BE98E71BF220DE0006CBC4 /* ColorPaper.swift */; };
 		43E0F2AE1BE8C5E500363F49 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0F2AD1BE8C5E500363F49 /* DateTime.swift */; };
-		43E0F2B41BE8E1B300363F49 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0F2B31BE8E1B300363F49 /* SecondViewController.swift */; };
 		43E0F2F01BE9E61C00363F49 /* Listview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0F2EF1BE9E61C00363F49 /* Listview.swift */; };
 		43EFB9BD1BDE29130014EDF9 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EFB9BC1BDE29130014EDF9 /* ListViewController.swift */; };
 		43EFB9BF1BDE3D5A0014EDF9 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EFB9BE1BDE3D5A0014EDF9 /* ListTableViewCell.swift */; };
@@ -199,7 +198,6 @@
 		43BE98E51BF21D0F0006CBC4 /* ColorPaper.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPaper.xib; sourceTree = "<group>"; };
 		43BE98E71BF220DE0006CBC4 /* ColorPaper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPaper.swift; sourceTree = "<group>"; };
 		43E0F2AD1BE8C5E500363F49 /* DateTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTime.swift; sourceTree = "<group>"; };
-		43E0F2B31BE8E1B300363F49 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		43E0F2EF1BE9E61C00363F49 /* Listview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listview.swift; sourceTree = "<group>"; };
 		43EFB9BC1BDE29130014EDF9 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		43EFB9BE1BDE3D5A0014EDF9 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
@@ -287,7 +285,6 @@
 				4361079D1BE9F4BE0094BB25 /* Detailview.swift */,
 				43EFB9BC1BDE29130014EDF9 /* ListViewController.swift */,
 				4361079F1BE9F6500094BB25 /* mainview.swift */,
-				43E0F2B31BE8E1B300363F49 /* SecondViewController.swift */,
 				43921D581BE0D8260032DE28 /* ThinkViewController.swift */,
 				43344AFA1BF5B42E00AC4802 /* TermsViewController.swift */,
 				43344AFC1BF5B44200AC4802 /* AboutViewController.swift */,
@@ -884,7 +881,6 @@
 				43344B0D1BF602E600AC4802 /* MessageView.swift in Sources */,
 				43921D591BE0D8260032DE28 /* ThinkViewController.swift in Sources */,
 				43344B251BF7470C00AC4802 /* SettingViewController.swift in Sources */,
-				43E0F2B41BE8E1B300363F49 /* SecondViewController.swift in Sources */,
 				36344E6F1BF32D980053EDCD /* ElementSketch.swift in Sources */,
 				4373172E1BD770650018B580 /* AppDelegate.swift in Sources */,
 				43A004991BE8821600396E47 /* ViewView.swift in Sources */,

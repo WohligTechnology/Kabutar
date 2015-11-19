@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 import DKChainableAnimationKit
-
+import UIColor_Hex_Swift
 
 
 class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource ,UICollectionViewDelegate,UISearchResultsUpdating {
