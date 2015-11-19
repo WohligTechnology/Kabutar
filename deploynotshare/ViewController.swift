@@ -9,13 +9,15 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
-
+import Google
 
 import SwiftHTTP
 import SwiftyJSON
 
 
-class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,FBSDKLoginButtonDelegate {
+class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,FBSDKLoginButtonDelegate,GIDSignInUIDelegate {
+    
+    @IBOutlet weak var signInButton: GIDSignInButton!
     
     @IBOutlet weak var facebookView: UIView!
     @IBOutlet weak var facebookButtomImage: UIButton!
@@ -24,6 +26,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+                
+        GIDSignIn.sharedInstance().uiDelegate = self
+
         
         if(config.get("user_id") != "")
         {
@@ -48,6 +54,24 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         loginButton.frame = CGRectMake(0, 0, facebookView.frame.width+55, facebookView.frame.height)
     }
     
+    
+    func signInWillDispatch(signIn: GIDSignIn!, error: NSError!) {
+        //myActivityIndicator.stopAnimating()
+    }
+    
+    // Present a view that prompts the user to sign in with Google
+    func signIn(signIn: GIDSignIn!,
+        presentViewController viewController: UIViewController!) {
+            self.presentViewController(viewController, animated: true, completion: nil)
+    }
+    
+    // Dismiss the "Sign in with Google" view
+    func signIn(signIn: GIDSignIn!,
+        dismissViewController viewController: UIViewController!) {
+            self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
     {
         
@@ -63,7 +87,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
                     config.set("user_name",value2: json["name"].string!);
                     config.set("user_email",value2: json["email"].string!);
                     config.set("user_facebook_id",value2: json["id"].string!);
-                    config.set("user_id_name",value2: json["id"].string!);
                     config.set("user_pic_url",value2: json["picture"]["data"]["url"].string!);
                     
                     

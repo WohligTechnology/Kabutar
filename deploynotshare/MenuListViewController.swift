@@ -10,6 +10,7 @@ import UIKit
 import DKChainableAnimationKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Google
 
 var isInsideFolder = 0
 var slideMenuLeft:Any!;
@@ -156,6 +157,11 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
         case 7:
             let loginManager = FBSDKLoginManager()
             loginManager.logOut()
+            
+            let GIDSignInStat = GIDSignIn()
+            GIDSignInStat.signOut()
+
+            
             config.logoutFlush()
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let secondViewController = storyboard.instantiateViewControllerWithIdentifier("LoginScreen") as! ViewController

@@ -8,10 +8,13 @@
 
 import UIKit
 import SQLiteCipher
-import SwiftyJSON
 import UIColor_Hex_Swift
-
+import Google
 import FBSDKCoreKit
+
+
+import SwiftHTTP
+import SwiftyJSON
 
 var ViewForNotes:Any!
 
@@ -51,7 +54,7 @@ let ConfigObj = Config()
 var path:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
 var onlyOnce = true
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
 
     var window: UIWindow?
     
@@ -115,7 +118,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MainHeight = bounds.size.height
 
         AppDelegate.getDatabase()
+        
+        
         //self.createMenuView()
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        
+        GIDSignIn.sharedInstance().delegate = self
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
@@ -125,7 +135,78 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool
     {
         FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
-        return true
+        return GIDSignIn.sharedInstance().handleURL(url,
+            sourceApplication: sourceApplication,
+            annotation: annotation)
+    }
+    
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
+        withError error: NSError!) {
+            if (error == nil) {
+                // Perform any operations on signed in user here.
+                print(user);
+                let userId = user.userID                  // For client-side use only!
+                let idToken = user.authentication.idToken // Safe to send to the server
+                let name = user.profile.name
+                let email = user.profile.email
+                let imageurl = user.profile.imageURLWithDimension(100)
+
+                print(imageurl)
+                var imageurlStr = "http://www.wohlig.com/";
+                try! imageurlStr = String(imageurl)
+                
+                config.set("user_name",value2: name);
+                config.set("user_email",value2: email);
+                config.set("user_google_id",value2: userId);
+                try! config.set("user_pic_url",value2: imageurlStr);
+                
+                
+                if let url = imageurl {
+                    if let data = NSData(contentsOfURL: url) {
+                        
+                        let image = UIImage(data: data)
+                        
+                        let imagename = "profile.jpg"
+                        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+                        let destinationPath = String(documentsPath) + "/" + imagename
+                        
+                        UIImageJPEGRepresentation(image!,1.0)!.writeToFile(destinationPath, atomically: true)
+                        
+                        config.set("user_pic",value2: imagename);
+                        
+                        
+                        
+                        
+                        let params = ["email": config.get("user_email"), "fbid": config.get("user_facebook_id"), "googleid": config.get("user_google_id"),"profilepic":config.get("user_pic_url"),"name":config.get("user_name")]
+                        do {
+                            let opt = try HTTP.POST(ServerURL+"user/sociallogin", parameters: params)
+                            opt.start { response in
+                                let json = JSON(data: response.data)
+                                print(json);
+                                config.set("user_id", value2: json["_id"].string!)
+                                
+                                let seconds = 0.2
+                                let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                                let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                                
+                                dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                                   self.createMenuView()
+                                    
+                                })
+                                
+                            }
+                            
+                        } catch let error {
+                            print("got an error creating the request: \(error)")
+                        }
+                        
+                        
+                    }
+                }
+                
+            } else {
+                print("\(error.localizedDescription)")
+            }
     }
 
     func applicationWillResignActive(application: UIApplication) {
