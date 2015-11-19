@@ -162,23 +162,99 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         
         
         let cell = listView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ListTableViewCell
-        
-        let reuseIdentifier = "programmaticCell"
-        
-        //var cell = listView.dequeueReusableCellWithIdentifier("cell") as! MGSwipeTableCell!
-        
+       
         
         cell.rightButtons = [
             MGSwipeButton(title: "",icon: UIImage(named:"reminder.png"), backgroundColor: mainColor , callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
-                print("Tap !")
+                
+                
+                
                 return true
             }),
-            MGSwipeButton(title: "",icon: UIImage(named:"share.png"), backgroundColor: mainColor),
-            MGSwipeButton(title: "",icon: UIImage(named:"delete.png"), backgroundColor: mainColor),
-            MGSwipeButton(title: "",icon: UIImage(named:"move.png"), backgroundColor: mainColor),
-            MGSwipeButton(title: "",icon: UIImage(named:"timebomb.png"), backgroundColor: mainColor),
-            MGSwipeButton(title: "", icon: UIImage(named:"lock.png"), backgroundColor: mainColor)
+            MGSwipeButton(title: "",icon: UIImage(named:"share.png"), backgroundColor: mainColor, callback : {
+                (sender: MGSwipeTableCell!) -> Bool in
+                selectedNoteId = self.notesId[indexPath.row] as! String
+                let blackOutTap = UITapGestureRecognizer(target: self,action: "closeColorPaper:")
+                self.addBlackView()
+                blackOut.addGestureRecognizer(blackOutTap)
+                blackOut.alpha = 0
+                self.view.addSubview(blackOut);
+                blackOut.animation.makeAlpha(1).animate(transitionTime);
+                
+                self.addColorPaper = ColorPaper(frame: CGRectMake(self.width/4 - 45,self.height/2 - 150, 300, 150))
+                self.view.addSubview(self.addColorPaper)
+                return true;
+            }),
+            MGSwipeButton(title: "",icon: UIImage(named:"delete.png"), backgroundColor: mainColor, callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+                    self.showdelete(self.notesId[indexPath.row] as! String)
+                return true
+            }),
+            MGSwipeButton(title: "",icon: UIImage(named:"move.png"), backgroundColor: mainColor, callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+                selectedNoteId = self.notesId[indexPath.row] as! String
+                let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMoveToFolder:")
+                self.addBlackView()
+                blackOut.addGestureRecognizer(blackOutTap)
+                blackOut.alpha = 0
+                self.view.addSubview(blackOut);
+                blackOut.animation.makeAlpha(1).animate(transitionTime);
+                
+                self.addMoveToFolder = MoveToFolder(frame: CGRectMake(self.width/4 - 45,self.height/4 - 100, 300, 300))
+                self.view.addSubview(self.addMoveToFolder)
+                return true;
+            
+            }),
+            MGSwipeButton(title: "",icon: UIImage(named:"timebomb.png"), backgroundColor: mainColor,callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+                
+                
+                selectedNoteId = self.notesId[indexPath.row] as! String
+                let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
+                self.addBlackView()
+                blackOut.addGestureRecognizer(blackOutTap)
+                blackOut.alpha = 0
+                self.view.addSubview(blackOut);
+                blackOut.animation.makeAlpha(1).animate(transitionTime);
+                
+                self.addDateTimeView = DateTime(frame: CGRectMake(self.width-335,self.height-600, 300, 500))
+                self.view.addSubview(self.addDateTimeView)
+                
+                
+                return true;
+            }),
+            MGSwipeButton(title: "", icon: UIImage(named:"lock.png"), backgroundColor: mainColor, callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+                
+                selectedNoteId = self.notesId[indexPath.row] as! String
+                
+                let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
+                
+                passcodemodal.setLock = String(self.islocked[indexPath.row])
+                
+                let realpasscode = config.get("passcode")
+                
+                if(realpasscode == ""){
+                    passcodemodal.lockValue = 0
+                    self.presentViewController(passcodemodal, animated: true, completion: nil)
+                }else{
+                    passcodemodal.lockValue = 1
+                    if(self.islocked[indexPath.row] == 0){
+                        self.notesobj.changeLock(1,id2:self.notesId[indexPath.row] as! String)
+                    }else{
+                        self.presentViewController(passcodemodal, animated: true, completion: nil)
+                    }
+                }
+                
+                
+                self.getAllNotes()
+                self.listView.reloadData()
+                
+                
+                return true
+                
+            })
         ]
         cell.rightSwipeSettings.transition = MGSwipeTransition.Drag
         
@@ -286,6 +362,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     var addMoveToFolder:MoveToFolder!
     var addColorPaper:ColorPaper!
     
+   /*
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
     {
         
@@ -342,21 +419,13 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         let timeBombAction = UITableViewRowAction(style: .Normal, title: "Bomb")
             {
                 (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-                selectedNoteId = self.notesId[indexPath.row] as! String
-                let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
-                self.addBlackView()
-                blackOut.addGestureRecognizer(blackOutTap)
-                blackOut.alpha = 0
-                self.view.addSubview(blackOut);
-                blackOut.animation.makeAlpha(1).animate(transitionTime);
                 
-                self.addDateTimeView = DateTime(frame: CGRectMake(self.width-335,self.height-600, 300, 500))
-                self.view.addSubview(self.addDateTimeView)
         }
         
         let moveAction = UITableViewRowAction(style: .Normal, title: "Move")
             {
                 (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+                
                 selectedNoteId = self.notesId[indexPath.row] as! String
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMoveToFolder:")
                 self.addBlackView()
@@ -373,6 +442,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         let shareAction = UITableViewRowAction(style: .Normal, title: "Share")
             {
                 (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+                
                 selectedNoteId = self.notesId[indexPath.row] as! String
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeColorPaper:")
                 self.addBlackView()
@@ -390,6 +460,9 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         return [editAction, deleteAction,lockAction,timeBombAction,moveAction,shareAction]
         
     }
+
+    */
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedNoteId = self.notesId[indexPath.row] as! String
         config.set("note_id", value2: String(selectedNoteId))
