@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
 class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchResultsUpdating {
 
@@ -169,7 +170,49 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = detailtableview.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ListTableViewCell
+        
+        cell.rightButtons = [
+            MGSwipeButton(title: "",icon: UIImage(named:"reminder.png"), backgroundColor: mainColor , callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+
+                
+                return true
+            }),
+            MGSwipeButton(title: "",icon: UIImage(named:"share.png"), backgroundColor: mainColor, callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+                
+                
+                return true
+            }),
+            MGSwipeButton(title: "",icon: UIImage(named:"delete.png"), backgroundColor: mainColor, callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+                
+                
+                return true
+            }),
+            MGSwipeButton(title: "",icon: UIImage(named:"move.png"), backgroundColor: mainColor, callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+                
+                
+                return true
+            }),
+            MGSwipeButton(title: "",icon: UIImage(named:"timebomb.png"), backgroundColor: mainColor, callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+                
+                
+                return true
+            }),
+            MGSwipeButton(title: "", icon: UIImage(named:"lock.png"), backgroundColor: mainColor, callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+                
+                
+                return true
+            })
+        ]
+        cell.rightSwipeSettings.transition = MGSwipeTransition.Drag
+        
         cell.DetailViewTitle.text = notesTitle[indexPath.row] as? String
         cell.DetailDescription.text = notesTitle[indexPath.row] as? String
         if(islocked[indexPath.row] == 0){
