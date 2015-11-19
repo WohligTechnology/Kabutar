@@ -30,7 +30,7 @@ public class Note {
     public let timebomb = Expression<Int64>("timebomb")
     
     init() {
-        
+        NoteElement()
         try! db.run(note.create(ifNotExists: true) { t in
             t.column(id, primaryKey: .Autoincrement)
             t.column(title)
@@ -110,7 +110,7 @@ public class Note {
             sortwithText = "`note`.`id` DESC ,LOWER(`note`.`title`) "
         }
         
-        var returnArr = db.prepare("SELECT `note`.`id`, `note`.`title`,`note`.`color`,`note`.`islocked`,GROUP_CONCAT(`NoteElement`.`contentA`,' '),`note`.`modificationTime` FROM `note` LEFT OUTER JOIN `NoteElement` ON `note`.`id` = `NoteElement`.`noteid` AND `NoteElement`.`contentA` != '' AND `NoteElement`.`type` = 'text'  WHERE \(folderWhere) `note`.`creationTime` != 0 AND  (`note`.`timebomb` = 0 OR  `note`.`timebomb` > \(date2)) AND ( `note`.`title` LIKE '%\(txt)%' OR `NoteElement`.`contentA` LIKE '%\(txt)%' )  GROUP BY `note`.`id` ORDER BY \(sortwithText)")
+        let returnArr = db.prepare("SELECT `note`.`id`, `note`.`title`,`note`.`color`,`note`.`islocked`,GROUP_CONCAT(`NoteElement`.`contentA`,' '),`note`.`modificationTime` FROM `note` LEFT OUTER JOIN `NoteElement` ON `note`.`id` = `NoteElement`.`noteid` AND `NoteElement`.`contentA` != '' AND `NoteElement`.`type` = 'text'  WHERE \(folderWhere) `note`.`creationTime` != 0 AND  (`note`.`timebomb` = 0 OR  `note`.`timebomb` > \(date2)) AND ( `note`.`title` LIKE '%\(txt)%' OR `NoteElement`.`contentA` LIKE '%\(txt)%' )  GROUP BY `note`.`id` ORDER BY \(sortwithText)")
         return returnArr
     }
     

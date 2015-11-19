@@ -278,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				4373172F1BD770650018B580 /* ViewController.swift */,
+				434E778A1BE3979800684C08 /* MenuListViewController.swift */,
 				4380B34F1BDA54DF0026CED9 /* popup.swift */,
 				437EF0DA1BD8CA5500B7E9BF /* cardViewController.swift */,
 				3611B0921BE740BD00F2FFF9 /* TableViewController.swift */,
@@ -291,7 +292,6 @@
 				4395A63E1BF9A2D700EE4F10 /* SyncTableViewController.swift */,
 				43344B241BF7470C00AC4802 /* SettingViewController.swift */,
 				4395A6401BF9AEA600EE4F10 /* AboutTableViewController.swift */,
-				434E778A1BE3979800684C08 /* MenuListViewController.swift */,
 				43EFB9BE1BDE3D5A0014EDF9 /* ListTableViewCell.swift */,
 				43921D5A1BE0E7DA0032DE28 /* PasswordViewController.swift */,
 				4395A6421BF9C2F800EE4F10 /* SecurityViewController.swift */,

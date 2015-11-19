@@ -16,9 +16,13 @@ import SwiftyJSON
 
 
 class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,FBSDKLoginButtonDelegate {
-
+    
+    @IBOutlet weak var facebookView: UIView!
+    @IBOutlet weak var facebookButtomImage: UIButton!
     @IBOutlet weak var profileimage: UIImageView!
     @IBOutlet weak var nametext: UITextField!
+    
+    
     
     
     func insertEvent(store: EKEventStore) {
@@ -58,6 +62,11 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if(config.get("user_id") != "")
+        {
+            self.changeView()
+        }
+        
         
         let eventStore = EKEventStore()
         
@@ -74,77 +83,41 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         
         
         
-            if (FBSDKAccessToken.currentAccessToken() == nil)
-            {
-                print("Not logged in..")
-            }
-            else
-            {
-                print("Logged in..")
-            }
-            
-            var loginButton = FBSDKLoginButton()
-            loginButton.readPermissions = ["public_profile", "email", "user_friends"]
-            loginButton.center = self.view.center
-            loginButton.delegate = self
-            self.view.addSubview(loginButton)
+        if (FBSDKAccessToken.currentAccessToken() == nil)
+        {
+            print("Not logged in..")
+        }
+        else
+        {
+            print("Logged in..")
+        }
         
-        
-        
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
-//        self.profileimage!.layer.cornerRadius = self.profileimage.frame.size.width / 2.0
-//        self.profileimage.clipsToBounds = true
-//        self.profileimage.layer.borderWidth = 2.0
-//        self.profileimage.layer.borderColor = UIColor.whiteColor().CGColor
-        
-//        let border = CALayer()
-//        let width = CGFloat(2.0)
-        //border.borderColor = UIColor.whiteColor().CGColor
-        //border.frame = CGRect(x: 0, y: nametext.frame.size.height - width, width:  nametext.frame.size.width, height: nametext.frame.size.height)
-        
-//        border.borderWidth = width
-//        nametext.layer.addSublayer(border)
-//        nametext.layer.masksToBounds = true
-//                do {
-//            let opt = try HTTP.GET("http://wohlig.co.in/wordpresstest/wp-json")
-//            opt.start { response in
-//                if let err = response.error {
-//                    print("error: \(err.localizedDescription)")
-//                    return //also notify app of failure as needed
-//                }
-//                let json = JSON(data: response.data)
-//                print(json["routes"])
-//                //print("data is: \(response.data)") access the response of the data with response.data
-//            }
-//        } catch let error {
-//            print("got an error creating the request: \(error)")
-//        }
-        
-        
+        let loginButton = FBSDKLoginButton()
+        loginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        loginButton.delegate = self
+        self.facebookView.addSubview(loginButton)
+        loginButton.frame = CGRectMake(0, 0, facebookView.frame.width+55, facebookView.frame.height)
     }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
     {
-        if error == nil
+        
+        
+        if result?.token?.tokenString != nil
         {
-            print("Login complete.")
-            print(result.token.tokenString);
-            
-           
+            print("CHINTANNNNNAmdfhdjkfhkdfdjfhkdjf");
+             print(result?.token?.tokenString);
             do {
-                let opt = try HTTP.GET("https://graph.facebook.com/v2.5/me?"+"fields=id,name,email,picture&access_token=\(result.token.tokenString)")
+                let opt = try! HTTP.GET("https://graph.facebook.com/v2.5/me?"+"fields=id,name,email,picture&access_token=\(result.token.tokenString)")
                 opt.start { response in
-                    print(response.data);
                     let json = JSON(data: response.data)
-                    print(json)
+                    print(json);
                     config.set("user_name",value2: json["name"].string!);
                     config.set("user_email",value2: json["email"].string!);
                     config.set("user_facebook_id",value2: json["id"].string!);
                     config.set("user_id_name",value2: json["id"].string!);
                     config.set("user_pic_url",value2: json["picture"]["data"]["url"].string!);
-            
+                    
                     
                     if let url = NSURL(string: json["picture"]["data"]["url"].string!) {
                         if let data = NSData(contentsOfURL: url) {
@@ -166,32 +139,44 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
                             do {
                                 let opt = try HTTP.POST(ServerURL+"user/sociallogin", parameters: params)
                                 opt.start { response in
-                                    print(response.data);
-                                    
                                     let json = JSON(data: response.data)
+                                    config.set("user_id", value2: json["_id"].string!)
                                     
-                                   config.set("user_id", value2: json["_id"].string!)
-                                    print(json)
-                                    //do things...
+                                    let seconds = 0.2
+                                    let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                                    let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                                    
+                                    dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                                      self.changeView()
+                                        
+                                    })
+                                    
                                 }
+                            
                             } catch let error {
                                 print("got an error creating the request: \(error)")
                             }
                             
-                            //GAppDelegate.createMenuView()
-                        }        
+                            
+                        }
                     }
                 }
             } catch let error {
                 print("got an error creating the request: \(error)")
             }
+           
             
-            self.performSegueWithIdentifier("showNew", sender: self)
         }
         else
         {
-            print(error.localizedDescription)
+            //print(error.localizedDescription)
         }
+    }
+    
+    func changeView() {
+        let appDelegate = UIApplication.sharedApplication().delegate
+            as? AppDelegate
+        appDelegate?.createMenuView()
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
@@ -221,12 +206,12 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         self.dismissViewControllerAnimated(false, completion: nil)
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
 }
 

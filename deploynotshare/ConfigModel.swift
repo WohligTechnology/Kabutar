@@ -67,4 +67,11 @@ public class Config {
         try! db.run(config.delete())
     }
     
+    func logoutFlush() {
+        self.flush()
+        try! db.execute("DROP TABLE note")
+        try! db.execute("DROP TABLE NoteElement")
+        try! db.execute("DROP TABLE folder")
+    }
+    
 }

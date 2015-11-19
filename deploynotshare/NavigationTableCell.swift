@@ -32,8 +32,9 @@ class NavigationTableCell: UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
-        
-        
+        titleLabel.text = config.get("user_name")
+        cellImage.contentMode = .ScaleAspectFill
+        cellImage.image = UIImage(contentsOfFile: path + "/" + config.get("user_pic") );
         
     }
     

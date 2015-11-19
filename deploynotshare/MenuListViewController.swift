@@ -8,6 +8,8 @@
 
 import UIKit
 import DKChainableAnimationKit
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 var isInsideFolder = 0
 var slideMenuLeft:Any!;
@@ -17,6 +19,8 @@ protocol LeftMenuProtocol : class {
 }
 
 class MenuListViewController: UITableViewController, LeftMenuProtocol {
+    
+    
     
     var mainViewController: UIViewController!
     
@@ -93,6 +97,7 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
             insideView.cellImage.clipsToBounds = true
             insideView.cellImage.layer.borderWidth = 2.0
             insideView.cellImage.layer.borderColor = UIColor.whiteColor().CGColor
+            
             cell.addSubview(insideView);
         }else {
             if(indexPath.row == 3)
@@ -148,6 +153,15 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
             self.slideMenuController()?.changeMainViewController(self.SettingView, close: true)
         case 6:
             self.slideMenuController()?.changeMainViewController(self.AboutView, close: true)
+        case 7:
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut()
+            config.logoutFlush()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let secondViewController = storyboard.instantiateViewControllerWithIdentifier("LoginScreen") as! ViewController
+            //self.slideMenuController()?.changeMainViewController(secondViewController, close: true)
+            self.presentViewController(secondViewController as UIViewController, animated: true, completion: nil)
+            //self.slideMenuController()?.view.removeFromSuperview()
         default:
             print("Default")
         }

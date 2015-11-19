@@ -49,18 +49,22 @@ let NoteColors = [
 ]
 let ConfigObj = Config()
 var path:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-
+var onlyOnce = true
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
     static func getDatabase () -> Connection {
         let path = NSSearchPathForDirectoriesInDomains(
             .DocumentDirectory, .UserDomainMask, true
             ).first!
         let db = try! Connection("\(path)/db.sqlite3")
-        //print(path);
+        if(onlyOnce)
+        {
+            onlyOnce = false;
+            print(path);
+        }
         return db;
     }
 
@@ -111,7 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MainHeight = bounds.size.height
 
         AppDelegate.getDatabase()
-        self.createMenuView()
+        //self.createMenuView()
         
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
