@@ -87,7 +87,8 @@ class DateTime: UIView {
             } else {
                 createEvent(eventStore, title: singlenote![self.notesobj.title]!, startDate: startDate!, endDate: endDate)
             }
-
+            notesobj.changeReminderTime(Int64((finalDate?.timeIntervalSince1970)!), id2: selectedNoteId)
+            
         }
         else if(datetimepopupType == "timebomb")
         {
