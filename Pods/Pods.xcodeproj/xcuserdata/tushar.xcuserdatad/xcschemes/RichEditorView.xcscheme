@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '91874EA15916FEDDFA284434'
-               BlueprintName = 'SQLCipher'
+               BlueprintIdentifier = '82F22BB8B6294D9092013278'
+               BlueprintName = 'RichEditorView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SQLCipher.framework'>
+               BuildableName = 'RichEditorView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

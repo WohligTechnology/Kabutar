@@ -1,5 +1,6 @@
 PODS:
   - DKChainableAnimationKit (1.6.0)
+  - MGSwipeTableCell (1.5.3)
   - RichEditorView (2.0.1)
   - SQLCipher (3.1.0):
     - SQLCipher/standard (= 3.1.0)
@@ -15,6 +16,7 @@ PODS:
 
 DEPENDENCIES:
   - DKChainableAnimationKit (~> 1.6.0)
+  - MGSwipeTableCell
   - RichEditorView
   - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
   - SQLiteCipher.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
@@ -43,6 +45,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   DKChainableAnimationKit: fe28909402825a42cc632b211eadcc39ad2bee38
+  MGSwipeTableCell: 5ae3b9a15efda26b201adc8676b24040febe6ff6
   RichEditorView: 1606b9b3e02afe3ccd0de0d8fa3ddb55247e868f
   SQLCipher: c44fcca49c31483c2489cfb79aa7a69407f3794a
   SQLite.swift: 3bb75f5a650f08673276bc6d3fb1de1b542b8f4d

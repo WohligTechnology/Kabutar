@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
 class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating {
 
@@ -158,7 +159,18 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        
         let cell = listView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ListTableViewCell
+        
+        let reuseIdentifier = "programmaticCell"
+        
+        //var cell = listView.dequeueReusableCellWithIdentifier("cell") as! MGSwipeTableCell!
+        
+        
+        cell.rightButtons = [MGSwipeButton(title: "", icon: UIImage(named:"lock.png"), backgroundColor: mainColor)
+            ,MGSwipeButton(title: "",icon: UIImage(named:"timebomb.png"), backgroundColor: mainColor),MGSwipeButton(title: "",icon: UIImage(named:"move.png"), backgroundColor: mainColor),MGSwipeButton(title: "",icon: UIImage(named:"delete.png"), backgroundColor: mainColor),MGSwipeButton(title: "",icon: UIImage(named:"share.png"), backgroundColor: mainColor),MGSwipeButton(title: "",icon: UIImage(named:"reminder.png"), backgroundColor: mainColor)]
+        
         cell.ListViewTitle.text = notesTitle[indexPath.row] as? String
         if(islocked[indexPath.row] == 0){
             cell.ListLock.hidden = true
@@ -167,12 +179,16 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         }
         
         let colorno = color[indexPath.row]
+        
         var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
+        
         cell.addGestureRecognizer(celllongPress)
         
 //        var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
 //        cell.addGestureRecognizer(celllongPress)
+        
         cell.backgroundColor = NoteColors[Int(colorno)!]
+        
         return cell
         
     }

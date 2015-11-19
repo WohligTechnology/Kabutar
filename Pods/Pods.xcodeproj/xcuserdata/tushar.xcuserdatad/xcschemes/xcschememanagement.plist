@@ -6,38 +6,53 @@
 	<dict>
 		<key>DKChainableAnimationKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MGSwipeTableCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RichEditorView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SQLCipher.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SQLite.swift.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SQLiteCipher.swift.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SwiftHTTP.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>UIColor_Hex_Swift.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -47,32 +62,47 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2D8DAC44E106B4F27BDCFE1F752A44CB</key>
+		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>39FC8A583CA4693D5AF9B13DF642CA5F</key>
+		<key>666B4E407B551BD4EE7AD72E8C4C5704</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5F3F133713E18AACEDED4988EE1D812C</key>
+		<key>71196E99DCC8D73833AA1C1EE9600097</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6BE86839A1BA983EBFF24EABB0A7F300</key>
+		<key>75F106540A67FB6263019F46A7B6DCB6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>71432C6D3D93A99FCB42A0F471DA8901</key>
+		<key>9D4E06EC129D323F8B52B67CC564A694</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>829A1574B30AD2FC4B0B800107110442</key>
+		<key>A5B9C9B173463F533E1EB41420FA7D96</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D0F557143861E2800340E7CAC8668284</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D67A6045B3F04785327311F285FACD52</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DE3B2CCC0526FA5E62EE882A7D8576A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

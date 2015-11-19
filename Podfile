@@ -19,3 +19,5 @@ pod "RichEditorView"
 
 pod 'SwiftyJSON',
 git: ’https://github.com/SwiftyJSON/SwiftyJSON.git'
+
+pod 'MGSwipeTableCell'

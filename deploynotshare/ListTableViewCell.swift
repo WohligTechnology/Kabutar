@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-class ListTableViewCell: UITableViewCell {
+import MGSwipeTableCell
+class ListTableViewCell: MGSwipeTableCell {
     
     @IBOutlet weak var ListViewTitle: UILabel!
     @IBOutlet weak var ListLock: UIImageView!
