@@ -189,24 +189,68 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
             MGSwipeButton(title: "",icon: UIImage(named:"delete.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
+                self.showdelete(self.notesId[indexPath.row] as! String)
                 
                 return true
             }),
             MGSwipeButton(title: "",icon: UIImage(named:"move.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
+                let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMoveToFolder:")
+                self.addBlackView()
+                blackOut.addGestureRecognizer(blackOutTap)
+                blackOut.alpha = 0
+                self.view.addSubview(blackOut);
+                blackOut.animation.makeAlpha(1).animate(transitionTime);
+                
+                self.addMoveToFolder = MoveToFolder(frame: CGRectMake(self.width/4 - 45,self.height/4 - 100, 300, 300))
+                self.view.addSubview(self.addMoveToFolder)
                 
                 return true
             }),
             MGSwipeButton(title: "",icon: UIImage(named:"timebomb.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
+                let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
+                self.addBlackView()
+                blackOut.addGestureRecognizer(blackOutTap)
+                blackOut.alpha = 0
+                self.view.addSubview(blackOut);
+                blackOut.animation.makeAlpha(1).animate(transitionTime);
+                
+                self.addDateTimeView = DateTime(frame: CGRectMake(10,self.height/2 - 300, self.width-20, 500))
+                self.view.addSubview(self.addDateTimeView)
                 
                 return true
             }),
             MGSwipeButton(title: "", icon: UIImage(named:"lock.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
+                selectedNoteId = self.notesId[indexPath.row] as! String
+                
+                let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
+                
+                //                ConfigObj.set("demo", value2: "testing")
+                passcodemodal.setLock = String(self.islocked[indexPath.row])
+                
+                let realpasscode = config.get("passcode")
+                if(realpasscode == ""){
+                    passcodemodal.lockValue = 0
+                    self.presentViewController(passcodemodal, animated: true, completion: nil)
+                }else{
+                    passcodemodal.lockValue = 1
+                    if(self.islocked[indexPath.row] == 0){
+                        self.notesobj.changeLock(1,id2:self.notesId[indexPath.row] as! String)
+                        
+                    }else{
+                        self.presentViewController(passcodemodal, animated: true, completion: nil)
+                        
+                    }
+                }
+                
+                
+                self.getAllNotes()
+                self.detailtableview.reloadData()
                 
                 return true
             })
@@ -308,7 +352,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     var addDateTimeView:DateTime!
     var addMoveToFolder:MoveToFolder!
     
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
+    /*func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
     {
         
         
@@ -321,72 +365,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 
         }
         
-        let deleteAction = UITableViewRowAction(style: .Normal, title: "Delete")
-            {
-                (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-                self.showdelete(self.notesId[indexPath.row] as! String)
-                
-                
-        }
         
-        let lockAction = UITableViewRowAction(style: .Normal, title: "Lock")
-            {
-                (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-                selectedNoteId = self.notesId[indexPath.row] as! String
-                
-                let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
-                
-                //                ConfigObj.set("demo", value2: "testing")
-                passcodemodal.setLock = String(self.islocked[indexPath.row])
-                
-                let realpasscode = config.get("passcode")
-                if(realpasscode == ""){
-                    passcodemodal.lockValue = 0
-                    self.presentViewController(passcodemodal, animated: true, completion: nil)
-                }else{
-                    passcodemodal.lockValue = 1
-                    if(self.islocked[indexPath.row] == 0){
-                        self.notesobj.changeLock(1,id2:self.notesId[indexPath.row] as! String)
-                        
-                    }else{
-                        self.presentViewController(passcodemodal, animated: true, completion: nil)
-                        
-                    }
-                }
-                
-                
-                self.getAllNotes()
-                self.detailtableview.reloadData()
-                
-        }
-        
-        let timeBombAction = UITableViewRowAction(style: .Normal, title: "Bomb")
-            {
-                (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-                let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
-                self.addBlackView()
-                blackOut.addGestureRecognizer(blackOutTap)
-                blackOut.alpha = 0
-                self.view.addSubview(blackOut);
-                blackOut.animation.makeAlpha(1).animate(transitionTime);
-                
-                self.addDateTimeView = DateTime(frame: CGRectMake(10,self.height/2 - 300, self.width-20, 500))
-                self.view.addSubview(self.addDateTimeView)
-        }
-        
-        let moveAction = UITableViewRowAction(style: .Normal, title: "Move")
-            {
-                (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-                let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMoveToFolder:")
-                self.addBlackView()
-                blackOut.addGestureRecognizer(blackOutTap)
-                blackOut.alpha = 0
-                self.view.addSubview(blackOut);
-                blackOut.animation.makeAlpha(1).animate(transitionTime);
-                
-                self.addMoveToFolder = MoveToFolder(frame: CGRectMake(self.width/4 - 45,self.height/4 - 100, 300, 300))
-                self.view.addSubview(self.addMoveToFolder)
-        }
         
         let shareAction = UITableViewRowAction(style: .Normal, title: "Share")
             {
@@ -397,7 +376,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         
         return [editAction, deleteAction,lockAction,timeBombAction,moveAction,shareAction]
         
-    }
+    }*/
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
