@@ -7,8 +7,12 @@
 //
 
 import UIKit
-
+import Toucan
 class ElementSketch: UIView {
+    
+    var leastValue:CGFloat = 10000.0
+    var maxValue: CGFloat = 0
+    var maxRadius: CGFloat = 30
     
     
     var oldImages:[UIImage!] = [UIImage()]
@@ -186,10 +190,26 @@ class ElementSketch: UIView {
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         // 6
+        
+        
         if(drawingOn)
         {
             swiped = true
             if let touch = touches.first as UITouch? {
+                
+                let centerY  = touch.locationInView(detailView.view).y
+                let centerYtop = centerY - maxRadius
+                let centerYbottom = centerY + maxRadius
+                
+                if(centerYtop < leastValue)
+                {
+                    leastValue = centerYtop
+                }
+                if(centerYbottom > maxValue)
+                {
+                    maxValue = centerYbottom
+                }
+                
                 let currentPoint = touch.locationInView(detailView.view)
                 drawLineFrom(lastPoint, toPoint: currentPoint)
                 
@@ -214,7 +234,6 @@ class ElementSketch: UIView {
             mainImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: finalwidth, height: finalheight), blendMode: CGBlendMode.Normal, alpha: 1.0)
             if(red == 1 && green == 1 && blue == 1 )
             {
-                print("inside");
                 tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: finalwidth, height: finalheight), blendMode: CGBlendMode.DestinationOut, alpha: opacity)
             }
             else
@@ -229,7 +248,6 @@ class ElementSketch: UIView {
             let  difference = (oldImages.count-undoposition)-2
             for (var i=0; i < (difference);i++)
             {
-                print("EXEC");
                 oldImages.removeLast()
             }
             undoposition++;
@@ -248,16 +266,29 @@ class ElementSketch: UIView {
     
     
     func saveImageIn() {
+        
+        let imagesize = mainImageView.frame.size
+        
+        
+        let rect: CGRect = CGRectMake(0, leastValue, imagesize.width, maxValue - leastValue)
+        
+        // Create bitmap image from context using the rect
+        let imageRef: CGImageRef = CGImageCreateWithImageInRect(mainImageView.image!.CGImage, rect)!
+        
+        // Create a new image based on the imageRef and rotate back to the original orientation
+        let image: UIImage = UIImage(CGImage: imageRef)
+
+        
+        
         let sketchname = "sketch\(self.NoteElementID).png"
         let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         let destinationPath = String(documentsPath) + "/" + sketchname
         
         
         
-        UIImagePNGRepresentation(mainImageView.image!)!.writeToFile(destinationPath, atomically: true)
+        UIImagePNGRepresentation(image)!.writeToFile(destinationPath, atomically: true)
         
-        print(destinationPath);
-        NoteElementModel.edit(self.NoteElementID, content2: sketchname, contentA2: String(self.topOffset), contentB2: "")
+        NoteElementModel.edit(self.NoteElementID, content2: sketchname, contentA2: String(self.topOffset + leastValue), contentB2: "")
     }
     
 }

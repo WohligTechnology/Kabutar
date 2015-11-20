@@ -8,6 +8,7 @@ var GElementAudio:ElementRecording!
 var loadingCompleted = false
 
 class detailViewController: UIViewController , UINavigationControllerDelegate,UIImagePickerControllerDelegate {
+    var keyboardOn = false
     
     @IBOutlet weak var FooterConstrain: NSLayoutConstraint!
     
@@ -30,6 +31,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         super.viewDidLoad()
         
         loadingCompleted = false
+        
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name: UIKeyboardWillChangeFrameNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasHidden:"), name:UIKeyboardWillHideNotification, object: nil);
@@ -164,6 +166,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     }
     
     func keyboardWasShown(notification: NSNotification) {
+        self.keyboardOn = true;
         var info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
@@ -173,6 +176,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     }
     
     func keyboardWasHidden(notification: NSNotification) {
+        keyboardOn = false
         let info = notification.userInfo!
         
         UIView.animateWithDuration(0.1, animations: { () -> Void in
@@ -185,15 +189,21 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         let iniHeight = self.ScrView.contentSize.height;
         
         vLayout?.layoutSubviews()
-        let newSize = CGSize(width: vLayout.frame.size.width, height: vLayout.frame.height + 44)
+        print("lllllllllllll")
+        let newSize = CGSize(width: vLayout.frame.size.width, height: vLayout.frame.height + ScrView.bounds.height)
         self.ScrView.contentSize = newSize
         let newHeight = newSize.height
         
         if(iniHeight < newHeight)
         {
-            if((newHeight  - ScrView.bounds.height) > 0)
+            
+            print(ScrView.contentOffset.y);
+            print(newHeight)
+            let diff = newHeight - ScrView.contentOffset.y
+            print(diff)
+            if(diff < 1200 && diff > 930)
             {
-                ScrView.contentOffset.y = newHeight  - ScrView.bounds.height
+                ScrView.contentOffset.y = (newHeight  - 2*ScrView.bounds.height + 250)
             }
             
         }
@@ -370,6 +380,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     }
     func addCheckBox(isnew: Bool) {
         let checkbox = ElementCheckBox(frame: CGRectMake(0,0,width,50))
+        
         vLayout.addSubview(checkbox)
         GElementCheckBox = checkbox
         changeHeight()

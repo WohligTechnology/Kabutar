@@ -19,7 +19,7 @@ import SwiftyJSON
 var ViewForNotes:Any!
 
 
-var ServerURL = "http://192.168.0.121:81/"
+var ServerURL = "http://104.197.122.116/"
 var GAppDelegate:AppDelegate!
 var MainWidth:CGFloat!
 var MainHeight:CGFloat!
