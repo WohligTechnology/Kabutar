@@ -28,7 +28,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBarItem()
-
+        
         folderName = []
         folderId = []
         let a = Folder();
@@ -36,6 +36,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             folderName.addObject(row[a.name]!)
             folderId.addObject(String(row[a.id]))
         }
+        a.localtoserver()
         
         self.resultSearchController = UISearchController(searchResultsController: nil)
         self.resultSearchController.searchResultsUpdater = self
