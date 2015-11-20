@@ -1,5 +1,5 @@
 //
-//  FoderModel.swift
+//  FolderModel.swift
 //  deploynotshare
 //
 //  Created by Chintan Shah on 31/10/15.
@@ -32,7 +32,7 @@ public class Folder {
             t.column(modificationTime)
             t.column(order)
             t.column(serverID)
-            })
+        })
         
     }
     
@@ -181,7 +181,6 @@ public class Folder {
             //ServerDateFormatter.timeStyle = .FullStyle
             //ServerDateFormatter.timeZone = NSTimeZone(name: "UTC")
 
-            
             let rowid = String(row[0] as! Int64!)
             let creationDate2 =  NSDate(timeIntervalSince1970: NSTimeInterval(row[2] as! Int64!))
             var creationDateStr = ServerDateFormatter.stringFromDate(creationDate2)
@@ -193,8 +192,6 @@ public class Folder {
             }
             let mofificationDate2  = NSDate(timeIntervalSince1970: NSTimeInterval(row[3] as! Int64!))
             
-            
-            
             let params = ["name":row[1] as! String!,
                 "creationtime":  creationDateStr ,
                 "modifytime": ServerDateFormatter.stringFromDate(mofificationDate2) ,
@@ -202,7 +199,6 @@ public class Folder {
                 "user":config.get("user_id"),
                 "_id":row[5] as! String! ]
             
-            print(params)
             do  {
                 let opt = try HTTP.POST(ServerURL+"folder/localtoserver", parameters: params)
                 opt.start { response in
@@ -224,7 +220,6 @@ public class Folder {
             } catch let error {
                 print("got an error creating the request: \(error)")
             }
-
             
         }
         

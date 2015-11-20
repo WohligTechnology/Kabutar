@@ -16,7 +16,7 @@
 		364EA4611BF1B37A001B7161 /* NoteElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364EA4601BF1B37A001B7161 /* NoteElementModel.swift */; };
 		364EA4631BF20F70001B7161 /* ElementRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364EA4621BF20F70001B7161 /* ElementRecording.swift */; };
 		364EA4651BF20FC6001B7161 /* ElementRecording.xib in Resources */ = {isa = PBXBuildFile; fileRef = 364EA4641BF20FC6001B7161 /* ElementRecording.xib */; };
-		366420321BE4BF03003477CF /* FoderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366420311BE4BF03003477CF /* FoderModel.swift */; };
+		366420321BE4BF03003477CF /* FolderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366420311BE4BF03003477CF /* FolderModel.swift */; };
 		366CE6011BFE6F550002A0C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 366CE6001BFE6F550002A0C7 /* GoogleService-Info.plist */; };
 		36E4166F1BEB1266007EE385 /* NoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E4166E1BEB1266007EE385 /* NoteCollectionViewCell.xib */; };
 		36E416711BEB12E0007EE385 /* NoteCollectionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E416701BEB12E0007EE385 /* NoteCollectionUIView.swift */; };
@@ -131,7 +131,7 @@
 		364EA4601BF1B37A001B7161 /* NoteElementModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteElementModel.swift; sourceTree = "<group>"; };
 		364EA4621BF20F70001B7161 /* ElementRecording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementRecording.swift; sourceTree = "<group>"; };
 		364EA4641BF20FC6001B7161 /* ElementRecording.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElementRecording.xib; sourceTree = "<group>"; };
-		366420311BE4BF03003477CF /* FoderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoderModel.swift; sourceTree = "<group>"; };
+		366420311BE4BF03003477CF /* FolderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderModel.swift; sourceTree = "<group>"; };
 		366CE6001BFE6F550002A0C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36E4166E1BEB1266007EE385 /* NoteCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteCollectionViewCell.xib; sourceTree = "<group>"; };
 		36E416701BEB12E0007EE385 /* NoteCollectionUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCollectionUIView.swift; sourceTree = "<group>"; };
@@ -268,7 +268,7 @@
 		366420301BE4BEE0003477CF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				366420311BE4BF03003477CF /* FoderModel.swift */,
+				366420311BE4BF03003477CF /* FolderModel.swift */,
 				36F1146F1BF078CC0023E2DB /* ConfigModel.swift */,
 				3611B0961BE8A94200F2FFF9 /* NoteModel.swift */,
 				364EA4601BF1B37A001B7161 /* NoteElementModel.swift */,
@@ -878,7 +878,7 @@
 				36E416751BEB3624007EE385 /* NoteFooterAdd.swift in Sources */,
 				43344B011BF5BC9A00AC4802 /* HighlighterView.swift in Sources */,
 				36F114741BF08E6B0023E2DB /* Checkbox.swift in Sources */,
-				366420321BE4BF03003477CF /* FoderModel.swift in Sources */,
+				366420321BE4BF03003477CF /* FolderModel.swift in Sources */,
 				43344B091BF5D8F500AC4802 /* EraserView.swift in Sources */,
 				43344AFD1BF5B44200AC4802 /* AboutViewController.swift in Sources */,
 				43EFB9BD1BDE29130014EDF9 /* ListViewController.swift in Sources */,
