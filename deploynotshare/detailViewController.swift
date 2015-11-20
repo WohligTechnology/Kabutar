@@ -78,7 +78,9 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
                 }
                 
             case "checkbox":
+                NoteElementModel.addHeightOffset(vLayout,order2: noteElement[NoteElementModel.order]!)
                 addCheckBox(false)
+                
                 GElementCheckBox.NoteElementID = noteElement[NoteElementModel.id]
                 if(noteElement[NoteElementModel.content] != nil) {
                     GElementCheckBox.checkBoxText.text = noteElement[NoteElementModel.content]!
@@ -149,7 +151,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         let topOffset = ScrView.contentOffset.y
         GElementCheckBox?.checkBoxText.resignFirstResponder()
         
-        if (sketch != nil)
+        if (sketch?.mainImageView?.image != nil)
         {
             appendSketch(topOffset, image: (sketch?.mainImageView?.image )!)
             sketch?.removeFromSuperview()
@@ -159,6 +161,8 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     }
     
     func appendSketch(topOffset:CGFloat , image: UIImage) {
+        
+        
         print(image.size)
         let DemoImage =  UIImageView(frame: CGRectMake(0,topOffset, image.size.width, image.size.height))
         DemoImage.image = image
@@ -189,7 +193,6 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         let iniHeight = self.ScrView.contentSize.height;
         
         vLayout?.layoutSubviews()
-        print("lllllllllllll")
         let newSize = CGSize(width: vLayout.frame.size.width, height: vLayout.frame.height + ScrView.bounds.height)
         self.ScrView.contentSize = newSize
         let newHeight = newSize.height
@@ -197,10 +200,8 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         if(iniHeight < newHeight)
         {
             
-            print(ScrView.contentOffset.y);
-            print(newHeight)
             let diff = newHeight - ScrView.contentOffset.y
-            print(diff)
+          
             if(diff < 1200 && diff > 930)
             {
                 ScrView.contentOffset.y = (newHeight  - 2*ScrView.bounds.height + 250)
@@ -216,7 +217,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         
         editor = RichEditorView(frame: CGRectMake(10,5,width-20,28))
         editor.setHTML("")
-        
+        print(vLayout.frame.size.height)
         
         
         editor.delegate = self;
@@ -379,6 +380,9 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         changeHeight()
     }
     func addCheckBox(isnew: Bool) {
+        
+        
+        
         let checkbox = ElementCheckBox(frame: CGRectMake(0,0,width,50))
         
         vLayout.addSubview(checkbox)

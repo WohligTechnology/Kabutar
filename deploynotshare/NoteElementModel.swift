@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import SQLiteCipher
 
 public class NoteElement {
@@ -34,6 +35,31 @@ public class NoteElement {
             t.column(order)
             t.column(noteid)
         })
+    }
+    func addHeightOffset(layout:VerticalLayout) {
+        let noteid2 = Int64(config.get("note_id"))
+        let query = noteelement.filter(noteid == noteid2).order(contentB.desc)
+        let value = db.pluck( query );
+        let value2 = strtol(value![contentB] as String!,nil,10)
+        let diff =  CGFloat(value2) - layout.frame.height
+        if(diff > 0)
+        {
+            let newView = UIView(frame: CGRectMake(0,0,1, diff))
+            layout.addSubview(newView)
+        }
+    }
+    
+    func addHeightOffset(layout:VerticalLayout,order2: Int64) {
+        let noteid2 = Int64(config.get("note_id"))
+        let query = noteelement.filter(noteid == noteid2 && order < order2).order(contentB.desc)
+        let value = db.pluck( query );
+        let value2 = strtol(value![contentB] as String!,nil,10)
+        let diff =  CGFloat(value2) - layout.frame.height
+        if(diff > 0)
+        {
+            let newView = UIView(frame: CGRectMake(0,0,1, diff))
+            layout.addSubview(newView)
+        }
     }
     
     func get(id2 : Int64) -> Row? {

@@ -288,7 +288,7 @@ class ElementSketch: UIView {
         
         UIImagePNGRepresentation(image)!.writeToFile(destinationPath, atomically: true)
         
-        NoteElementModel.edit(self.NoteElementID, content2: sketchname, contentA2: String(self.topOffset + leastValue), contentB2: "")
+        NoteElementModel.edit(self.NoteElementID, content2: sketchname, contentA2: String(self.topOffset + leastValue), contentB2: String(self.topOffset + leastValue + maxValue))
     }
     
 }
