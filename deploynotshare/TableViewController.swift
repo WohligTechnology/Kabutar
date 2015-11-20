@@ -8,6 +8,8 @@
 
 import UIKit
 var selectedFolderToNoteId: String = ""
+
+var FolderViewController : TableViewController!
 var last_navigation:UINavigationController!
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
     
@@ -29,6 +31,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         self.setNavigationBarItem()
         
+        FolderViewController = self;
+        
         folderName = []
         folderId = []
         let a = Folder();
@@ -36,7 +40,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             folderName.addObject(row[a.name]!)
             folderId.addObject(String(row[a.id]))
         }
-        a.localtoserver()
+        a.servertolocal()
         
         self.resultSearchController = UISearchController(searchResultsController: nil)
         self.resultSearchController.searchResultsUpdater = self
@@ -50,12 +54,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         self.definesPresentationContext = true
         
-
-        
         self.tableView.tableHeaderView = self.resultSearchController.searchBar
         self.tableView.reloadData()
-        
-        
         
         //Clear Empty Cells
         let backgroundView = UIView(frame: CGRectZero)

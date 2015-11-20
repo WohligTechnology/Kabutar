@@ -27,6 +27,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
                 
         GIDSignIn.sharedInstance().uiDelegate = self
 
@@ -111,6 +112,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
                                 let opt = try HTTP.POST(ServerURL+"user/sociallogin", parameters: params)
                                 opt.start { response in
                                     let json = JSON(data: response.data)
+                                    print(json);
                                     config.set("user_id", value2: json["_id"].string!)
                                     
                                     let seconds = 0.2
