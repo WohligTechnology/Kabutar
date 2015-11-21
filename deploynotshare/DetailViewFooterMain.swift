@@ -14,11 +14,13 @@ class DetailViewFooterMain: UIView {
     
     
     @IBAction func addTextTap(sender: AnyObject) {
+        NoteElementModel.addHeightOffset(GvLayout)
         let DetailViewCtrl = GDetailView as! detailViewController
         DetailViewCtrl.addTextTap(true);
     }
     
     @IBAction func addImageTap(sender: AnyObject) {
+        NoteElementModel.addHeightOffset(GvLayout)
         let DetailViewCtrl = GDetailView as! detailViewController
         DetailViewCtrl.addImageTap();
     }
@@ -30,11 +32,13 @@ class DetailViewFooterMain: UIView {
     }
    
     @IBAction func addAudioTap(sender: AnyObject) {
+        NoteElementModel.addHeightOffset(GvLayout)
         let DetailViewCtrl = GDetailView as! detailViewController
         DetailViewCtrl.addAudioTap(true);
     }
     
     @IBAction func addCheckBox(sender: AnyObject) {
+        NoteElementModel.addHeightOffset(GvLayout)
         let DetailViewCtrl = GDetailView as! detailViewController
         DetailViewCtrl.addCheckBox(true);
     }

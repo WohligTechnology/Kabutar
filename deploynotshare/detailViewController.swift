@@ -6,7 +6,7 @@ var GSketch:ElementSketch!
 var GElementCheckBox:ElementCheckBox!
 var GElementAudio:ElementRecording!
 var loadingCompleted = false
-
+var GvLayout:VerticalLayout!
 class detailViewController: UIViewController , UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     var keyboardOn = false
     
@@ -41,6 +41,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         self.navigationItem.rightBarButtonItem = bc
         GDetailView = self
         vLayout = VerticalFitLayout(width: view.frame.width)
+        GvLayout = vLayout
         self.ScrView.alpha  = 0
         
         self.ScrView.insertSubview(vLayout, atIndex: 0)
@@ -68,8 +69,10 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         
         for noteElement in NoteElementModel.getAllNoteElement()
         {
+            
             switch(noteElement[NoteElementModel.type]! as String) {
             case "text":
+                NoteElementModel.addHeightOffset(vLayout,order2: noteElement[NoteElementModel.order]!)
                 addTextTap(false)
                 editor.setID(noteElement[NoteElementModel.id])
                 if(noteElement[NoteElementModel.content] != nil)
@@ -92,7 +95,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
                 }
                 
             case "image":
-                
+                NoteElementModel.addHeightOffset(vLayout,order2: noteElement[NoteElementModel.order]!)
                 if(noteElement[NoteElementModel.content] != nil) {
                     let newImage = UIImage(contentsOfFile: path  + "/" + noteElement[NoteElementModel.content]!)
                     appendImage(newImage, isnew: false)
@@ -100,7 +103,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
                 }
             
             case "audio":
-                
+                NoteElementModel.addHeightOffset(vLayout,order2: noteElement[NoteElementModel.order]!)
                 if(noteElement[NoteElementModel.content] != nil) {
                     addAudioTap(false)
                     GElementAudio.soundFilename = noteElement[NoteElementModel.content]
