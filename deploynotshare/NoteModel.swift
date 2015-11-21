@@ -90,6 +90,9 @@ public class Note {
     }
     
     func find2 (txt:String) -> Statement {
+        
+        self.localtoserver()
+        
         let date = NSDate().timeIntervalSince1970
         let date2 = String(Int64(date))
         var folderWhere = "";
@@ -238,55 +241,55 @@ public class Note {
             "user":config.get("user_id")]
         
         print(params)
-        do  {
-            let opt = try HTTP.POST(ServerURL+"folder/servertolocal", parameters: params)
-            opt.start { response in
-                let json = JSON(data: response.data)
-                
-                print(json);
-                for (key,subJson):(String, JSON) in json {
-                    //Do something you want
-                    
-                    print(key)
-                    print(subJson)
-                    
-                    if(subJson["folderid"] != nil)
-                    {
-                        print("Inside 1");
-                        if(subJson["creationtime"].string == "")
-                        {
-                            self.deleteServer(subJson["folderid"].string!)
-                        }
-                        else {
-                            print("Inside 2")
-                            self.syncSave(subJson["folderid"].string!, creationTime2: subJson["creationtime"].string!, modificationTime2: subJson["modifytime"].string!, order2: subJson["order"].string!, name2: subJson["name"].string!)
-                        }
-                        
-                        // change modify time to server
-                        let dateFormatter = NSDateFormatter()
-                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                        dateFormatter.timeZone = NSTimeZone(name: "UTC")
-                        let modval = dateFormatter.dateFromString(subJson["modifytime"].string!)! as NSDate
-                        
-                        config.set("folder_server_to_local", value2: String(modval.timeIntervalSince1970))
-                    }
-                    
-                    
-                }
-                
-                self.localtoserver()
-            }
-            
-        } catch let error {
-            print("got an error creating the request: \(error)")
-        }
+//        do  {
+//            let opt = try request.POST(ServerURL+"folder/servertolocal", parameters: params)
+//            opt.start { response in
+//                let json = JSON(data: response.data)
+//                
+//                print(json);
+//                for (key,subJson):(String, JSON) in json {
+//                    //Do something you want
+//                    
+//                    print(key)
+//                    print(subJson)
+//                    
+//                    if(subJson["folderid"] != nil)
+//                    {
+//                        print("Inside 1");
+//                        if(subJson["creationtime"].string == "")
+//                        {
+//                            self.deleteServer(subJson["folderid"].string!)
+//                        }
+//                        else {
+//                            print("Inside 2")
+//                            self.syncSave(subJson["folderid"].string!, creationTime2: subJson["creationtime"].string!, modificationTime2: subJson["modifytime"].string!, order2: subJson["order"].string!, name2: subJson["name"].string!)
+//                        }
+//                        
+//                        // change modify time to server
+//                        let dateFormatter = NSDateFormatter()
+//                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+//                        dateFormatter.timeZone = NSTimeZone(name: "UTC")
+//                        let modval = dateFormatter.dateFromString(subJson["modifytime"].string!)! as NSDate
+//                        
+//                        config.set("folder_server_to_local", value2: String(modval.timeIntervalSince1970))
+//                    }
+//                    
+//                    
+//                }
+//                
+//                self.localtoserver()
+//            }
+//            
+//        } catch let error {
+//            print("got an error creating the request: \(error)")
+//        }
         
         
     }
     
     func getFolderStatementToSync() -> Statement {
         let lastLocaltoServer = strtoll(config.get("note_local_to_server"),nil,10)
-        let query = db.prepare("SELECT * FROM (SELECT * FROM `note` ORDER BY `note`.`modificationTime` ASC) WHERE `modificationTime` > \(lastLocaltoServer) ")
+        let query = db.prepare("SELECT * FROM (SELECT `note`.`id`,`note`.`title`,`note`.`creationTime`,`note`.`modificationTime`,`note`.`background`,`color`, `folder`.`id` as `folder` ,`note`.`islocked`,`note`.`paper`,`note`.`reminderTime`,`note`.`serverid`,`note`.`tags`,`note`.`timebomb` FROM `note` LEFT OUTER JOIN `folder` ON `folder`.`id` =  `note`.`folder` ORDER BY `note`.`modificationTime` ASC) WHERE `modificationTime` > \(lastLocaltoServer) ")
         return query
     }
     
@@ -312,34 +315,51 @@ public class Note {
             }
             let mofificationDate2  = NSDate(timeIntervalSince1970: NSTimeInterval(row[3] as! Int64!))
             
-            let params = ["name":row[1] as! String!,
+            
+            
+            var folder2 = row[6] as! String!
+            if(folder2 == nil)
+            {
+                folder2 = ""
+            }
+            
+            let params : Dictionary<String,AnyObject>  = ["title":row[1] as! String!,
                 "creationtime":  creationDateStr ,
                 "modifytime": ServerDateFormatter.stringFromDate(mofificationDate2) ,
-                "order":String(row[4] as! Int64!),
                 "user":config.get("user_id"),
-                "_id":row[5] as! String! ]
+                "_id":row[10] as! String!,
+                "background": row[4] as! String!,
+                "color": row[5] as! String!,
+                "folder": folder2,
+                "islocked": String(row[7] as! Int64!),
+                "paper": row[8] as! String!,
+                "reminderTime": String(row[9] as! Int64!),
+                "tags": row[11] as! String!,
+                "timebomb": String(row[12] as! Int64!),
+                "noteElement" : [ ["name","data"], ["name2","data2"] ]
+            ]
+            print(params);
+            print("GOINT INSIDE");
             
-            do  {
-                let opt = try HTTP.POST(ServerURL+"folder/localtoserver", parameters: params)
-                opt.start { response in
-                    let json = JSON(data: response.data)
-                    
-                    if(json["id"].string != nil)
-                    {
-                        config.set("note_local_to_server",value2: String(row[3] as! Int64!))
-                        self.setServerId(json["id"].string!,id2:rowid)
-                        
-                        if(creationDateStr == "0")
-                        {
-                            self.delete(rowid)
-                        }
-                    }
-                    
-                }
+            request.POST(ServerURL+"note/localtoserver", parameters: params, completionHandler: {(response: HTTPResponse) in
                 
-            } catch let error {
-                print("got an error creating the request: \(error)")
-            }
+                let json = JSON(data: response.responseObject as! NSData)
+                print(json);
+                if(json["id"].string != nil)
+                {
+                    config.set("note_local_to_server",value2: String(row[3] as! Int64!))
+                    self.setServerId(json["id"].string!,id2:rowid)
+                    
+                    if(creationDateStr == "0")
+                    {
+                        self.delete(rowid)
+                    }
+                }
+
+                
+            })
+            
+           
         }
     }
 }

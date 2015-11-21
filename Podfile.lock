@@ -35,7 +35,7 @@ PODS:
   - SQLite.swift (1.0.0)
   - SQLiteCipher.swift (1.0.0):
     - SQLCipher
-  - SwiftHTTP (1.0.2)
+  - SwiftHTTP (0.9.5)
   - SwiftyJSON (2.3.1)
   - UIColor_Hex_Swift (1.5)
 
@@ -46,7 +46,7 @@ DEPENDENCIES:
   - RichEditorView
   - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
   - SQLiteCipher.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
-  - SwiftHTTP (~> 1.0.0)
+  - SwiftHTTP (from `https://github.com/daltoniam/SwiftHTTP`, branch `swift-2-bc`)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - UIColor_Hex_Swift (~> 1.5)
 
@@ -55,6 +55,9 @@ EXTERNAL SOURCES:
     :git: https://github.com/stephencelis/SQLite.swift.git
   SQLiteCipher.swift:
     :git: https://github.com/stephencelis/SQLite.swift.git
+  SwiftHTTP:
+    :branch: swift-2-bc
+    :git: https://github.com/daltoniam/SwiftHTTP
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
@@ -65,6 +68,9 @@ CHECKOUT OPTIONS:
   SQLiteCipher.swift:
     :commit: c9d3082d1f5ddc2e55a792a8eb1a677b8a1b15f5
     :git: https://github.com/stephencelis/SQLite.swift.git
+  SwiftHTTP:
+    :commit: 40f1874b3a3764a0e0d0dc879e3c81f5f7bc02b5
+    :git: https://github.com/daltoniam/SwiftHTTP
   SwiftyJSON:
     :commit: ece271ab33839d11c2153d71fb59c53545132cf9
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
@@ -84,7 +90,7 @@ SPEC CHECKSUMS:
   SQLCipher: c44fcca49c31483c2489cfb79aa7a69407f3794a
   SQLite.swift: 3bb75f5a650f08673276bc6d3fb1de1b542b8f4d
   SQLiteCipher.swift: 6405d3937f6afc94614949336fd1fdefa37428b5
-  SwiftHTTP: 6d8ca031a9ce613a01e8f18b497503887b0b50c0
+  SwiftHTTP: cd7b248bc07db02926ff54cf19b580b78f7abfa1
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
   UIColor_Hex_Swift: 09997d02e9ba2833569fd048663fddbe90cf2c52
 

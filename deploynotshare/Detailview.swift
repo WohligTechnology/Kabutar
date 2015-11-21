@@ -31,6 +31,8 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        config.set("note_local_to_server",value2: "")
+        
         ViewForNotes = self;
         
         getAllNotes()

@@ -29,16 +29,16 @@ class ThinkViewController: UIViewController {
     }
     @IBAction func submitFeedback(sender: AnyObject) {
         
-        let params = ["user": "560fc12ca89c4c8f043a01c7", "email": "chintan@wohlig.com", "text": saysomething.text]
+        let params = ["user": config.get("user_id"), "email": "chintan@wohlig.com", "text": saysomething.text]
         do {
-            let opt = try HTTP.POST(ServerURL+"feed/save", parameters: params)
-            opt.start { response in
-                print(response.data);
-                
-                let json = JSON(data: response.data)
-                print(json)
-                //do things...
-            }
+//            let opt = try HTTP.POST(ServerURL+"feed/save", parameters: params)
+//            opt.start { response in
+//                print(response.data);
+//                
+//                let json = JSON(data: response.data)
+//                print(json)
+//                //do things...
+//            }
         } catch let error {
             print("got an error creating the request: \(error)")
         }

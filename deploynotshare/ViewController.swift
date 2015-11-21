@@ -80,63 +80,60 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         if result?.token?.tokenString != nil
         {
             
-            do {
-                let opt = try! HTTP.GET("https://graph.facebook.com/v2.5/me?"+"fields=id,name,email,picture&access_token=\(result.token.tokenString)")
-                opt.start { response in
-                    let json = JSON(data: response.data)
-                    print(json);
-                    config.set("user_name",value2: json["name"].string!);
-                    config.set("user_email",value2: json["email"].string!);
-                    config.set("user_facebook_id",value2: json["id"].string!);
-                    config.set("user_pic_url",value2: json["picture"]["data"]["url"].string!);
-                    
-                    
-                    if let url = NSURL(string: json["picture"]["data"]["url"].string!) {
-                        if let data = NSData(contentsOfURL: url) {
+            
+            request.GET("https://graph.facebook.com/v2.5/me?"+"fields=id,name,email,picture&access_token=\(result.token.tokenString)", parameters: nil, completionHandler: {(response: HTTPResponse) in
+            
+                let json = JSON(data: response.responseObject as! NSData)
+                
+                config.set("user_name",value2: json["name"].string!);
+                config.set("user_email",value2: json["email"].string!);
+                config.set("user_facebook_id",value2: json["id"].string!);
+                config.set("user_pic_url",value2: json["picture"]["data"]["url"].string!);
+                
+                
+                if let url = NSURL(string: json["picture"]["data"]["url"].string!) {
+                    if let data = NSData(contentsOfURL: url) {
+                        
+                        let image = UIImage(data: data)
+                        
+                        let imagename = "profile.jpg"
+                        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+                        let destinationPath = String(documentsPath) + "/" + imagename
+                        
+                        UIImageJPEGRepresentation(image!,1.0)!.writeToFile(destinationPath, atomically: true)
+                        
+                        config.set("user_pic",value2: imagename);
+                        
+                        
+                        
+                        
+                        let params: Dictionary<String,AnyObject>  = ["email": config.get("user_email"), "fbid": config.get("user_facebook_id"), "googleid": config.get("user_google_id"),"profilepic":config.get("user_pic_url"),"name":config.get("user_name")]
+                        
+                        request.POST(ServerURL+"user/sociallogin", parameters: params, completionHandler: {(response: HTTPResponse) in
                             
-                            let image = UIImage(data: data)
+                            let json = JSON(data: response.responseObject as! NSData)
+                            print(json);
+                            config.set("user_id", value2: json["_id"].string!)
                             
-                            let imagename = "profile.jpg"
-                            let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-                            let destinationPath = String(documentsPath) + "/" + imagename
+                            let seconds = 0.2
+                            let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                            let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
                             
-                            UIImageJPEGRepresentation(image!,1.0)!.writeToFile(destinationPath, atomically: true)
+                            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                                self.changeView()
+                                
+                            })
                             
-                            config.set("user_pic",value2: imagename);
-                            
-                            
-                            
-                            
-                            let params = ["email": config.get("user_email"), "fbid": config.get("user_facebook_id"), "googleid": config.get("user_google_id"),"profilepic":config.get("user_pic_url"),"name":config.get("user_name")]
-                            do {
-                                let opt = try HTTP.POST(ServerURL+"user/sociallogin", parameters: params)
-                                opt.start { response in
-                                    let json = JSON(data: response.data)
-                                    print(json);
-                                    config.set("user_id", value2: json["_id"].string!)
-                                    
-                                    let seconds = 0.2
-                                    let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-                                    let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-                                    
-                                    dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-                                      self.changeView()
-                                        
-                                    })
-                                    
-                                }
-                            
-                            } catch let error {
-                                print("got an error creating the request: \(error)")
-                            }
-                            
-                            
-                        }
+                        })
+                        
+                        
+                        
                     }
                 }
-            } catch let error {
-                print("got an error creating the request: \(error)")
-            }
+
+                
+            })
+            
            
             
         }

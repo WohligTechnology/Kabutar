@@ -122,50 +122,46 @@ public class Folder {
         let params = ["modifytime": ServerToLocal,
         "user":config.get("user_id")]
         
-        print(params)
-        do  {
-            let opt = try HTTP.POST(ServerURL+"folder/servertolocal", parameters: params)
-            opt.start { response in
-                let json = JSON(data: response.data)
+        request.POST(ServerURL+"folder/servertolocal", parameters: params, completionHandler: {(response: HTTPResponse) in
+            
+            let json = JSON(data: (response.responseObject as? NSData)!)
+            
+            print(json);
+            for (key,subJson):(String, JSON) in json {
+                //Do something you want
                 
-                print(json);
-                for (key,subJson):(String, JSON) in json {
-                    //Do something you want
-                    
-                    print(key)
-                    print(subJson)
-                    
-                    if(subJson["folderid"] != nil)
+                print(key)
+                print(subJson)
+                
+                if(subJson["folderid"] != nil)
+                {
+                    print("Inside 1");
+                    if(subJson["creationtime"].string == "")
                     {
-                        print("Inside 1");
-                        if(subJson["creationtime"].string == "")
-                        {
-                            self.deleteServer(subJson["folderid"].string!)
-                        }
-                        else {
-                            print("Inside 2")
-                            self.syncSave(subJson["folderid"].string!, creationTime2: subJson["creationtime"].string!, modificationTime2: subJson["modifytime"].string!, order2: subJson["order"].string!, name2: subJson["name"].string!)
-                        }
-                        
-                        // change modify time to server
-                        let dateFormatter = NSDateFormatter()
-                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                        dateFormatter.timeZone = NSTimeZone(name: "UTC")
-                        let modval = dateFormatter.dateFromString(subJson["modifytime"].string!)! as NSDate
-                        
-                        config.set("folder_server_to_local", value2: String(modval.timeIntervalSince1970))
+                        self.deleteServer(subJson["folderid"].string!)
                     }
-
+                    else {
+                        print("Inside 2")
+                        self.syncSave(subJson["folderid"].string!, creationTime2: subJson["creationtime"].string!, modificationTime2: subJson["modifytime"].string!, order2: subJson["order"].string!, name2: subJson["name"].string!)
+                    }
                     
+                    // change modify time to server
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                    dateFormatter.timeZone = NSTimeZone(name: "UTC")
+                    let modval = dateFormatter.dateFromString(subJson["modifytime"].string!)! as NSDate
+                    
+                    config.set("folder_server_to_local", value2: String(modval.timeIntervalSince1970))
                 }
                 
-                self.localtoserver()
+                
             }
             
-        } catch let error {
-            print("got an error creating the request: \(error)")
-        }
-
+            self.localtoserver()
+            
+        })
+        
+       
         
     }
     
@@ -200,22 +196,22 @@ public class Folder {
                 "_id":row[5] as! String! ]
             
             do  {
-                let opt = try HTTP.POST(ServerURL+"folder/localtoserver", parameters: params)
-                opt.start { response in
-                    let json = JSON(data: response.data)
-                    
-                    if(json["id"].string != nil)
-                    {
-                        config.set("folder_local_to_server",value2: String(row[3] as! Int64!))
-                        self.setServerId(json["id"].string!,id2:rowid)
-                        
-                        if(creationDateStr == "0")
-                        {
-                            self.delete(rowid)
-                        }
-                    }
-                    
-                }
+//                let opt = try request.POST(ServerURL+"folder/localtoserver", parameters: params)
+//                opt.start { response in
+//                    let json = JSON(data: response.data)
+//                    
+//                    if(json["id"].string != nil)
+//                    {
+//                        config.set("folder_local_to_server",value2: String(row[3] as! Int64!))
+//                        self.setServerId(json["id"].string!,id2:rowid)
+//                        
+//                        if(creationDateStr == "0")
+//                        {
+//                            self.delete(rowid)
+//                        }
+//                    }
+//                    
+//                }
                 
             } catch let error {
                 print("got an error creating the request: \(error)")
