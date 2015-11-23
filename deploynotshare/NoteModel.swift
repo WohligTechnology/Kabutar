@@ -195,7 +195,7 @@ public class Note {
         try! db.run(note2.update(title <- title2,modificationTime <- Int64(date)))
     }
 
-    func syncSave(title2:String,background2:String,color2:String,folder2:Int64,islocked2:Int64,paper2:String,reminderTime2:Int64,serverid2:String,tags2:String,timebomb2:Int64,creationTime2: String, modificationTime2: String) {
+    func syncSave(title2:String,background2:String,color2:String,folder2:Int64,islocked2:Int64,paper2:String,reminderTime2:Int64,serverid2:String,tags2:String,timebomb2:Int64,creationTime2: String, modificationTime2: String,noteelements2:JSON) {
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
@@ -206,15 +206,40 @@ public class Note {
         let modificationTime4 = Int64((modificationTime3?.timeIntervalSince1970)!)
         let count = try db.scalar(note.filter(serverid == serverid2).count)
         
+        
+        var noteLocalId:Int64!
         if(count > 0)
         {
+            
+        
             let fol2 = note.filter(serverid == serverid2 && modificationTime < modificationTime4  )
+            let id2 = db.pluck(fol2)
+            noteLocalId = id2![id]
+            noteElement.deleteAllNoteElement(noteLocalId)
+            
+            
             try! db.run(fol2.update(title <- title2, background <- background2, color <- color2, folder <- folder2 , islocked <- islocked2, paper <- paper2,reminderTime <- reminderTime2, tags <- tags2, timebomb <- timebomb2, modificationTime <- modificationTime4 ) )
         }
         else
         {
             let insert = note.insert( title <- title2, background <- background2, color <- color2, folder <- folder2 , islocked <- islocked2, paper <- paper2,reminderTime <- reminderTime2, tags <- tags2, timebomb <- timebomb2, modificationTime <- modificationTime4 , creationTime <-  creationTime4,serverid <- serverid2 )
-            try! db.run(insert)
+            
+            noteLocalId = try! db.run(insert)
+        }
+        
+        if(noteLocalId != nil)
+        {
+            print(noteelements2);
+            for noteElement2 in noteelements2.array! {
+                noteElement.create(
+                    noteElement2["content"].string! ,
+                    contentA2: noteElement2["contentA"].string!,
+                    contentB2: noteElement2["contentB"].string!,
+                    type2: noteElement2["type"].string!,
+                    order2: strtoll( noteElement2["order"].string!,nil,10 ),
+                    noteid2: noteLocalId
+                )
+            }
         }
         
     }
@@ -227,7 +252,9 @@ public class Note {
     
     func deleteServer(serverID2: String) {
         let fol = note.filter(serverid == serverID2)
+        let noteid1 =  db.pluck(fol)
         try! db.run(fol.delete())
+        noteElement.deleteAllNoteElement(noteid1![id])
     }
     
     func servertolocal() {
@@ -284,7 +311,8 @@ public class Note {
                             tags2:subJson["tags"].string!,
                             timebomb2:strtoll(subJson["timebomb"].string!,nil,10),
                             creationTime2: subJson["creationtime"].string!,
-                            modificationTime2: subJson["modifytime"].string!
+                            modificationTime2: subJson["modifytime"].string!,
+                            noteelements2: subJson["noteelements"]
                         )
                     }
                     
@@ -293,7 +321,7 @@ public class Note {
                     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
                     dateFormatter.timeZone = NSTimeZone(name: "UTC")
                     let modval = dateFormatter.dateFromString(subJson["modifytime"].string!)! as NSDate
-                    config.set("note_server_to_local", value2: String(modval.timeIntervalSince1970))
+                    config.set("note_server_to_local", value2: String(Int64(modval.timeIntervalSince1970)))
                 }
                 
                 

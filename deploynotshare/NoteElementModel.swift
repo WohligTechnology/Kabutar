@@ -93,6 +93,14 @@ public class NoteElement {
         
     }
     
+    
+    func create(content2 : String,contentA2: String, contentB2 : String,type2:String,order2:Int64,noteid2:Int64) -> Int64 {
+        let query = noteelement.insert(type <- type2, order <- order2, noteid <- noteid2, content <- content2 , contentA <- contentA2, contentB <- contentB2)
+        let insert = try! db.run(query)
+        return insert
+    }
+
+    
     func edit(id2:Int64,content2 : String,contentA2: String, contentB2 : String) {
         let toUpdate = noteelement.filter(id == id2)
         try! db.run(toUpdate.update(content <- content2,contentA <- contentA2,contentB <- contentB2))
@@ -113,6 +121,10 @@ public class NoteElement {
     
     func deleteAllNoteElement() {
         let noteid2 = Int64(config.get("note_id"))
+        let todelete = noteelement.filter(noteid == noteid2)
+        try! db.run(todelete.delete())
+    }
+    func deleteAllNoteElement(noteid2:Int64) {
         let todelete = noteelement.filter(noteid == noteid2)
         try! db.run(todelete.delete())
     }
