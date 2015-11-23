@@ -355,11 +355,7 @@ public class Note {
                         self.delete(rowid)
                     }
                 }
-
-                
             })
-            
-           
         }
     }
 }

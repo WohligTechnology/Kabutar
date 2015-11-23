@@ -124,7 +124,7 @@ public class Folder {
         
         request.POST(ServerURL+"folder/servertolocal", parameters: params, completionHandler: {(response: HTTPResponse) in
             
-            let json = JSON(data: (response.responseObject as? NSData)!)
+            let json = JSON(data: response.responseObject as! NSData)
             
             print(json);
             for (key,subJson):(String, JSON) in json {
@@ -195,28 +195,25 @@ public class Folder {
                 "user":config.get("user_id"),
                 "_id":row[5] as! String! ]
             
-            do  {
-//                let opt = try request.POST(ServerURL+"folder/localtoserver", parameters: params)
-//                opt.start { response in
-//                    let json = JSON(data: response.data)
-//                    
-//                    if(json["id"].string != nil)
-//                    {
-//                        config.set("folder_local_to_server",value2: String(row[3] as! Int64!))
-//                        self.setServerId(json["id"].string!,id2:rowid)
-//                        
-//                        if(creationDateStr == "0")
-//                        {
-//                            self.delete(rowid)
-//                        }
-//                    }
-//                    
-//                }
+            request.POST(ServerURL+"folder/localtoserver", parameters: params, completionHandler: {(response: HTTPResponse) in
+               
+                let json = JSON(data: response.responseObject as! NSData)
                 
-            } catch let error {
-                print("got an error creating the request: \(error)")
-            }
-            
+                if(json["id"].string != nil)
+                {
+                    config.set("folder_local_to_server",value2: String(row[3] as! Int64!))
+                    self.setServerId(json["id"].string!,id2:rowid)
+                    
+                    if(creationDateStr == "0")
+                    {
+                        self.delete(rowid)
+                    }
+                }
+
+                
+                
+            })
+        
         }
         
         

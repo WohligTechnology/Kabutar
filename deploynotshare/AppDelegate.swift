@@ -180,30 +180,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
                         
                         
                         
-                        let params = ["email": config.get("user_email"), "fbid": config.get("user_facebook_id"), "googleid": config.get("user_google_id"),"profilepic":config.get("user_pic_url"),"name":config.get("user_name")]
-//                        do {
-//                            let opt = try HTTP.POST(ServerURL+"user/sociallogin", parameters: params)
-//                            opt.start { response in
-//                                let json = JSON(data: response.data)
-//                                print(json);
-//                                config.set("user_id", value2: json["_id"].string!)
-//                                
-//                                let seconds = 0.2
-//                                let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-//                                let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-//                                
-//                                dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-//                                   self.createMenuView()
-//                                    
-//                                })
-//                                
-//                            }
-//                            
-//                        } catch let error {
-//                            print("got an error creating the request: \(error)")
-//                        }
+                        let params: Dictionary<String,AnyObject>= ["email": config.get("user_email"), "fbid": config.get("user_facebook_id"), "googleid": config.get("user_google_id"),"profilepic":config.get("user_pic_url"),"name":config.get("user_name")]
                         
+                        request.POST(ServerURL+"user/sociallogin", parameters: params, completionHandler: {(response: HTTPResponse) in
+                            
+                            
+                                let json = JSON(data: response.responseObject as! NSData)
+                                print(json);
+                                config.set("user_id", value2: json["_id"].string!)
+                                
+                                let seconds = 0.2
+                                let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                                let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                                
+                                dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                                    self.createMenuView()
+                                    
+                                })
+                            
+
                         
+                        })
                     }
                 }
                 

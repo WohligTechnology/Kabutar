@@ -29,7 +29,14 @@ class ThinkViewController: UIViewController {
     }
     @IBAction func submitFeedback(sender: AnyObject) {
         
-        let params = ["user": config.get("user_id"), "email": "chintan@wohlig.com", "text": saysomething.text]
+        let params:Dictionary<String,AnyObject> = ["user": config.get("user_id"), "email": "chintan@wohlig.com", "text": saysomething.text]
+        
+        request.POST(ServerURL+"feed/save", parameters: params, completionHandler: {(response: HTTPResponse) in
+        
+            let json = JSON(data: response.responseObject as! NSData)
+            print(json);
+        })
+        
         do {
 //            let opt = try HTTP.POST(ServerURL+"feed/save", parameters: params)
 //            opt.start { response in
