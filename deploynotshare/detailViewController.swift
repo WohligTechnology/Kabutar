@@ -430,7 +430,10 @@ extension detailViewController: RichEditorDelegate {
     
     func richEditor(editor: RichEditorView, contentDidChange content: String) {
         let changeElementId = editor.NoteElementID
-        NoteElementModel.edit(changeElementId, content2: content,contentA2: content.stripHTML() ,contentB2: "" )
+        if(loadingCompleted)
+        {
+            NoteElementModel.edit(changeElementId, content2: content,contentA2: content.stripHTML() ,contentB2: "" )
+        }
     }
     
     

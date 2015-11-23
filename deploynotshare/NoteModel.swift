@@ -31,9 +31,9 @@ public class Note {
     public let serverid = Expression<String?>("serverid")
     public let tags = Expression<String?>("tags")
     public let timebomb = Expression<Int64>("timebomb")
+    public var noteElement = NoteElement();
     
     init() {
-        NoteElement()
         try! db.run(note.create(ifNotExists: true) { t in
             t.column(id, primaryKey: .Autoincrement)
             t.column(title)
@@ -54,6 +54,9 @@ public class Note {
     func create(title2:String,background2:String,color2:String,folder2:Int64,islocked2:Int64,paper2:String,reminderTime2:Int64,serverid2:String,tags2:String,timebomb2:Int64) {
         let date = NSDate().timeIntervalSince1970
         let insert = note.insert( title <- title2, creationTime <- Int64(date), modificationTime <- Int64(date), background <- background2, color <- color2, folder <- folder2, islocked <- islocked2,paper <- paper2 , reminderTime <- reminderTime2, serverid <- serverid2, tags <- tags2 , timebomb <- timebomb2)
+        
+       
+        
         try! db.run(insert)
     }
     
@@ -134,11 +137,17 @@ public class Note {
         try! db.run(note2.update(title <- title2, creationTime <- Int64(date), modificationTime <- Int64(date), background <- background2, color <- color2, folder <- folder2, islocked <- islocked2,paper <- paper2 , reminderTime <- reminderTime2, serverid <- serverid2, tags <- tags2 , timebomb <- timebomb2))
     }
     
+    func changeModificationDate(id2: Int64) {
+        let date = NSDate().timeIntervalSince1970
+        let note2 = note.filter(id == id2)
+        try! db.run(note2.update(modificationTime <- Int64(date)))
+    }
+    
     func delete(id2:String) {
         let date = NSDate().timeIntervalSince1970
         let id3 = strtoll(id2,nil,10)
         let note2 = note.filter(id == id3)
-        try! db.run(note2.update(title <- "", creationTime <- 0, modificationTime <- Int64(date), background <- "", color <- "", folder <- 0, islocked <- 0,paper <- "" , reminderTime <- 0, serverid <- "", tags <- "" , timebomb <- 0))
+        try! db.run(note2.update(title <- "", creationTime <- 0, modificationTime <- Int64(date), background <- "", color <- "", folder <- 0, islocked <- 0,paper <- "" , reminderTime <- 0, tags <- "" , timebomb <- 0))
     }
     
     func getNotesFolder(folder2:String) -> AnySequence<Row>  {
@@ -287,15 +296,19 @@ public class Note {
         
     }
     
-    func getFolderStatementToSync() -> Statement {
+    func getNoteStatementToSync() -> Statement {
         let lastLocaltoServer = strtoll(config.get("note_local_to_server"),nil,10)
+        
+        
+        print(lastLocaltoServer)
+        print("SELECT * FROM (SELECT `note`.`id`,`note`.`title`,`note`.`creationTime`,`note`.`modificationTime`,`note`.`background`,`color`, `folder`.`id` as `folder` ,`note`.`islocked`,`note`.`paper`,`note`.`reminderTime`,`note`.`serverid`,`note`.`tags`,`note`.`timebomb` FROM `note` LEFT OUTER JOIN `folder` ON `folder`.`id` =  `note`.`folder` ORDER BY `note`.`modificationTime` ASC) WHERE `modificationTime` > \(lastLocaltoServer) ")
         let query = db.prepare("SELECT * FROM (SELECT `note`.`id`,`note`.`title`,`note`.`creationTime`,`note`.`modificationTime`,`note`.`background`,`color`, `folder`.`id` as `folder` ,`note`.`islocked`,`note`.`paper`,`note`.`reminderTime`,`note`.`serverid`,`note`.`tags`,`note`.`timebomb` FROM `note` LEFT OUTER JOIN `folder` ON `folder`.`id` =  `note`.`folder` ORDER BY `note`.`modificationTime` ASC) WHERE `modificationTime` > \(lastLocaltoServer) ")
         return query
     }
     
     func localtoserver() {
         
-        let rows = getFolderStatementToSync()
+        let rows = getNoteStatementToSync()
         for row in rows {
             let ServerDateFormatter = NSDateFormatter()
             ServerDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -305,6 +318,39 @@ public class Note {
             //ServerDateFormatter.timeZone = NSTimeZone(name: "UTC")
             
             let rowid = String(row[0] as! Int64!)
+            
+            
+            let ElementRows = noteElement.getAllNoteElement( strtoll(rowid,nil,10) );
+            
+            
+            
+            var jsonNoteElement = " [ "
+            
+            var i=0
+            
+            for row in ElementRows
+            {
+                
+                if(i == 0)
+                {
+                    
+                }
+                else
+                {
+                        jsonNoteElement += ","
+                }
+                i++
+                
+                jsonNoteElement += "{ \"id\": \"\(row[noteElement.id])\" , \"content\" : \"\(row[noteElement.content]!)\" , \"contentA\": \"\(row[noteElement.contentA]!)\" , \"contentB\": \"\(row[noteElement.contentB]!)\" , \"type\": \"\(row[noteElement.type]!)\", \"order\": \"\(row[noteElement.order]!)\"  }"
+                
+            }
+            
+            let index1 = jsonNoteElement.endIndex.advancedBy(-2)
+            
+            var substring1 = jsonNoteElement.substringToIndex(index1)
+            
+            jsonNoteElement += " ] "
+            
             let creationDate2 =  NSDate(timeIntervalSince1970: NSTimeInterval(row[2] as! Int64!))
             var creationDateStr = ServerDateFormatter.stringFromDate(creationDate2)
             let checkcreation = row[2] as! Int64!
@@ -323,6 +369,8 @@ public class Note {
                 folder2 = ""
             }
             
+            
+            
             let params : Dictionary<String,AnyObject>  = ["title":row[1] as! String!,
                 "creationtime":  creationDateStr ,
                 "modifytime": ServerDateFormatter.stringFromDate(mofificationDate2) ,
@@ -333,10 +381,10 @@ public class Note {
                 "folder": folder2,
                 "islocked": String(row[7] as! Int64!),
                 "paper": row[8] as! String!,
-                "reminderTime": String(row[9] as! Int64!),
+                "remindertime": String(row[9] as! Int64!),
                 "tags": row[11] as! String!,
                 "timebomb": String(row[12] as! Int64!),
-                "noteElement" : [ ["name","data"], ["name2","data2"] ]
+                "noteelements" : jsonNoteElement,
             ]
             print(params);
             print("GOINT INSIDE");
@@ -345,9 +393,11 @@ public class Note {
                 
                 let json = JSON(data: response.responseObject as! NSData)
                 print(json);
+                
+                config.set("note_local_to_server",value2: String(row[3] as! Int64!))
+                
                 if(json["id"].string != nil)
                 {
-                    config.set("note_local_to_server",value2: String(row[3] as! Int64!))
                     self.setServerId(json["id"].string!,id2:rowid)
                     
                     if(creationDateStr == "0")

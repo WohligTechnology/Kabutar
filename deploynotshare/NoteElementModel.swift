@@ -24,7 +24,6 @@ public class NoteElement {
     public let noteid = Expression<Int64?>("noteid")
     
     
-    
     init() {
         try! db.run(noteelement.create(ifNotExists: true) { t in
             t.column(id, primaryKey: .Autoincrement)
@@ -40,26 +39,33 @@ public class NoteElement {
         let noteid2 = Int64(config.get("note_id"))
         let query = noteelement.filter(noteid == noteid2).order(contentB.desc)
         let value = db.pluck( query );
-        let value2 = strtol(value![contentB] as String!,nil,10)
-        let diff =  CGFloat(value2) - layout.frame.height
-        if(diff > 0)
-        {
-            let newView = UIView(frame: CGRectMake(0,0,1, diff))
-            layout.addSubview(newView)
+        if(value != nil) {
+            let value2 = strtol(value![contentB] as String!,nil,10)
+            let diff =  CGFloat(value2) - layout.frame.height
+            if(diff > 0)
+            {
+                let newView = UIView(frame: CGRectMake(0,0,1, diff))
+                layout.addSubview(newView)
+            }
         }
+        
     }
     
     func addHeightOffset(layout:VerticalLayout,order2: Int64) {
         let noteid2 = Int64(config.get("note_id"))
         let query = noteelement.filter(noteid == noteid2 && order < order2).order(contentB.desc)
         let value = db.pluck( query );
-        let value2 = strtol(value![contentB] as String!,nil,10)
-        let diff =  CGFloat(value2) - layout.frame.height
-        if(diff > 0)
+        if(value != nil)
         {
-            let newView = UIView(frame: CGRectMake(0,0,1, diff))
-            layout.addSubview(newView)
+            let value2 = strtol(value![contentB] as String!,nil,10)
+            let diff =  CGFloat(value2) - layout.frame.height
+            if(diff > 0)
+            {
+                let newView = UIView(frame: CGRectMake(0,0,1, diff))
+                layout.addSubview(newView)
+            }
         }
+        
     }
     
     func get(id2 : Int64) -> Row? {
@@ -78,18 +84,30 @@ public class NoteElement {
         }
         let query = noteelement.insert(type <- type2, order <- order2, noteid <- noteid2 )
         let insert = try! db.run(query)
+        
+        noteModel.changeModificationDate(noteid2!);
+        
         return insert
+        
+        
+        
     }
     
     func edit(id2:Int64,content2 : String,contentA2: String, contentB2 : String) {
         let toUpdate = noteelement.filter(id == id2)
         try! db.run(toUpdate.update(content <- content2,contentA <- contentA2,contentB <- contentB2))
         
+        let noteid2 = Int64(config.get("note_id"))
+        noteModel.changeModificationDate(noteid2!);
+        
     }
     
     func delete(id2:Int64) {
         let todelete = noteelement.filter(id == id2)
         try! db.run(todelete.delete())
+        
+        let noteid2 = Int64(config.get("note_id"))
+        noteModel.changeModificationDate(noteid2!);
     }
 
     
@@ -101,6 +119,10 @@ public class NoteElement {
 
     func getAllNoteElement() -> AnySequence<Row> {
         let noteid2 = Int64(config.get("note_id"))
+        let query = noteelement.filter(noteid == noteid2)
+        return db.prepare( query );
+    }
+    func getAllNoteElement(noteid2:Int64) -> AnySequence<Row> {
         let query = noteelement.filter(noteid == noteid2)
         return db.prepare( query );
     }

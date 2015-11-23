@@ -199,9 +199,11 @@ public class Folder {
                
                 let json = JSON(data: response.responseObject as! NSData)
                 
+                config.set("folder_local_to_server",value2: String(row[3] as! Int64!))
+                
                 if(json["id"].string != nil)
                 {
-                    config.set("folder_local_to_server",value2: String(row[3] as! Int64!))
+                    
                     self.setServerId(json["id"].string!,id2:rowid)
                     
                     if(creationDateStr == "0")
