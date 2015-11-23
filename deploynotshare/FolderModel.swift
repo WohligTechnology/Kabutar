@@ -67,7 +67,7 @@ public class Folder {
         let modificationTime4 = Int64((modificationTime3?.timeIntervalSince1970)!)
         let order3 = strtoll(order2,nil,10)
         
-        let count = try db.scalar(folder.filter(serverID == serverID2).count)
+        let count = try! db.scalar(folder.filter(serverID == serverID2).count)
         if(count > 0)
         {
             let fol2 = folder.filter(serverID == serverID2 && modificationTime < modificationTime4  )
@@ -79,6 +79,12 @@ public class Folder {
             try! db.run(insert)
         }
         
+    }
+    
+    func  getIdFromServerID(serverID2: String) -> Int64 {
+        let query = folder.filter(serverID == serverID2)
+        let val = db.pluck( query );
+        return val![id]
     }
     
     func setServerId(serverid2:String,id2:String) {
@@ -105,6 +111,7 @@ public class Folder {
     func deleteServer(serverID2: String) {
         let fol = folder.filter(serverID == serverID2)
         try! db.run(fol.delete())
+        
     }
     
     func servertolocal() {
