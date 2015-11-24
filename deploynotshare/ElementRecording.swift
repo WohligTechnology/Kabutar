@@ -210,7 +210,12 @@ class ElementRecording: UIView {
     func setupRecorder() {
         let format = NSDateFormatter()
         format.dateFormat="yyyy-MM-dd-HH-mm-ss"
-        let currentFileName = "recording-\(format.stringFromDate(NSDate())).m4a"
+        
+        let userid = config.get("user_id")
+        let currenttimestamp = String(NSDate().timeIntervalSince1970)
+        let randomNum = String(arc4random_uniform(9999));
+        let currentFileName = "AUD_" + userid + "_" + currenttimestamp + "_" + randomNum + ".m4a";
+        
         print(currentFileName)
         self.soundFilename  = currentFileName
         

@@ -208,14 +208,21 @@ public class Note {
         
         
         var noteLocalId:Int64!
+        
+        
+        
         if(count > 0)
         {
             
         
             let fol2 = note.filter(serverid == serverid2 && modificationTime < modificationTime4  )
             let id2 = db.pluck(fol2)
-            noteLocalId = id2![id]
-            noteElement.deleteAllNoteElement(noteLocalId)
+            if((id2) != nil)
+            {
+                noteLocalId = id2![id]
+                noteElement.deleteAllNoteElement(noteLocalId)
+            }
+            
             
             
             try! db.run(fol2.update(title <- title2, background <- background2, color <- color2, folder <- folder2 , islocked <- islocked2, paper <- paper2,reminderTime <- reminderTime2, tags <- tags2, timebomb <- timebomb2, modificationTime <- modificationTime4 ) )
@@ -231,6 +238,45 @@ public class Note {
         {
             print(noteelements2);
             for noteElement2 in noteelements2.array! {
+                
+                let getFilePath = path + "/" + "SavedFile.jpg"
+                
+                let checkValidation = NSFileManager.defaultManager()
+                let fileType = noteElement2["type"].string!
+                if (checkValidation.fileExistsAtPath(getFilePath) && (fileType == "image" || fileType == "scribble" || fileType == "audio" ))
+                {
+                    print("FILE AVAILABLE");
+                }
+                else if(fileType == "image" || fileType == "scribble" || fileType == "audio" )
+                {
+                    print("FILE NOT AVAILABLE");
+                    
+                    let filename = noteElement2["content"].string!
+                    request.download(ServerURL + "user/getmedia?file=" + filename, parameters: nil, progress: {(complete: Double) in
+                        print("percent complete: \(complete)")
+                        }, completionHandler: {(response: HTTPResponse) in
+                            print("download finished!")
+                            if let err = response.error {
+                                print("error: \(err.localizedDescription)")
+                                return //also notify app of failure as needed
+                            }
+                            if let url = response.responseObject as? NSURL {
+                                //we MUST copy the file from its temp location to a permanent location.
+                                if let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as String! {
+                                    if let fileName = response.suggestedFilename {
+                                        print(path + "/" + filename);
+                                        let newPath = NSURL(fileURLWithPath: path + "/" + filename )
+                                        let fileManager = NSFileManager.defaultManager()
+                                        
+                                        try! fileManager.moveItemAtURL(url, toURL: newPath)
+                                    }
+                                }
+                            }
+                            
+                    })
+                    
+                }
+                
                 noteElement.create(
                     noteElement2["content"].string! ,
                     contentA2: noteElement2["contentA"].string!,
@@ -328,7 +374,7 @@ public class Note {
             }
             
             
-            
+            //config.set("note_local_to_server", value2: "0")
             
             self.localtoserver()
 
@@ -365,12 +411,32 @@ public class Note {
             
             
             
+            
             var jsonNoteElement = " [ "
             
             var i=0
             
             for row in ElementRows
             {
+               
+                if(row[noteElement.type] == "image" || row[noteElement.type] == "scribble" || row[noteElement.type] == "audio"  )
+                {
+                     request.GET(ServerURL+"user/searchmedia?file="+row[noteElement.content]!, parameters: nil, completionHandler: {(response: HTTPResponse) in
+                        let json = JSON(data: response.responseObject as! NSData)
+                        if(json["value"].string == "false")
+                        {
+                            print("Upload file" + row[self.noteElement.content]!)
+                            print(path);
+                            let fileUrl = NSURL(fileURLWithPath: path+"/"+row[self.noteElement.content]!)
+                            request.upload(ServerURL + "user/mediaupload", method: .POST, parameters: ["file": HTTPUpload(fileUrl: fileUrl)], progress: { (value: Double) in
+                                print("progress: \(value)")
+                                }, completionHandler: { (response: HTTPResponse) in
+                            })
+                            
+                            
+                        }
+                     })
+                }
                 
                 if(i == 0)
                 {
@@ -378,7 +444,7 @@ public class Note {
                 }
                 else
                 {
-                        jsonNoteElement += ","
+                    jsonNoteElement += ","
                 }
                 i++
                 
@@ -425,6 +491,9 @@ public class Note {
             ]
             print(params);
             print("GOINT INSIDE");
+            
+            print("CHECKING THE NOTE ELEMENT");
+            print(params);
             
             request.POST(ServerURL+"note/localtoserver", parameters: params, completionHandler: {(response: HTTPResponse) in
                 

@@ -164,6 +164,7 @@ public class Folder {
                 
             }
             
+            
             self.localtoserver()
             
         })
@@ -201,6 +202,8 @@ public class Folder {
                 "order":String(row[4] as! Int64!),
                 "user":config.get("user_id"),
                 "_id":row[5] as! String! ]
+            
+           
             
             request.POST(ServerURL+"folder/localtoserver", parameters: params, completionHandler: {(response: HTTPResponse) in
                

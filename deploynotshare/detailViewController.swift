@@ -328,8 +328,12 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
             }
             
             if(isnew) {
+                
                 let id  = NoteElementModel.create("image")
-                let imagename = "image\(id).jpg"
+                let userid = config.get("user_id")
+                let currenttimestamp = String(NSDate().timeIntervalSince1970)
+                let randomNum = String(arc4random_uniform(9999));
+                let imagename = "IMG_" + userid + "_" + currenttimestamp + "_" + randomNum + ".jpg"  ;
                 let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
                 let destinationPath = String(documentsPath) + "/" + imagename
                 

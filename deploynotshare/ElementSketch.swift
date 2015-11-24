@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Toucan
+
 class ElementSketch: UIView {
     
     var leastValue:CGFloat = 10000.0
@@ -279,8 +279,11 @@ class ElementSketch: UIView {
         let image: UIImage = UIImage(CGImage: imageRef)
 
         
+        let userid = config.get("user_id")
+        let currenttimestamp = String(NSDate().timeIntervalSince1970)
+        let randomNum = String(arc4random_uniform(9999));
+        let sketchname = "SCR_" + userid + "_" + currenttimestamp + "_" + randomNum + ".png";
         
-        let sketchname = "sketch\(self.NoteElementID).png"
         let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         let destinationPath = String(documentsPath) + "/" + sketchname
         

@@ -117,13 +117,13 @@ public class NoteElement {
         let noteid2 = Int64(config.get("note_id"))
         noteModel.changeModificationDate(noteid2!);
     }
-
     
     func deleteAllNoteElement() {
         let noteid2 = Int64(config.get("note_id"))
         let todelete = noteelement.filter(noteid == noteid2)
         try! db.run(todelete.delete())
     }
+    
     func deleteAllNoteElement(noteid2:Int64) {
         let todelete = noteelement.filter(noteid == noteid2)
         try! db.run(todelete.delete())
@@ -134,8 +134,10 @@ public class NoteElement {
         let query = noteelement.filter(noteid == noteid2)
         return db.prepare( query );
     }
+    
     func getAllNoteElement(noteid2:Int64) -> AnySequence<Row> {
         let query = noteelement.filter(noteid == noteid2)
         return db.prepare( query );
     }
+    
 }
