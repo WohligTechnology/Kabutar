@@ -122,7 +122,8 @@ class ElementSketchFooter: UIView {
         GSketch.changeOpacity(1.0)
     }
     @IBAction func undoChange(sender: AnyObject) {
-        GSketch.touchedUndo(sender)
+        GSketch.mainImageView.image = UIImage()
+        //GSketch.touchedUndo(sender)
     }
    
     override init(frame: CGRect) {

@@ -322,9 +322,8 @@ public class Note {
         
         request.POST(ServerURL+"note/servertolocal", parameters: params, completionHandler: {(response: HTTPResponse) in
            
-            let json = JSON(data: response.responseObject as! NSData)
             
-            print(json);
+            let json = JSON(data: response.responseObject as! NSData)
             
             
             

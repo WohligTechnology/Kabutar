@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CrS-bz-hfS">
-                    <rect key="frame" x="44" y="10" width="24" height="24"/>
+                    <rect key="frame" x="8" y="10" width="24" height="24"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="3Dk-pT-0BE"/>
@@ -23,7 +23,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hH2-Ed-eED">
-                    <rect key="frame" x="78" y="10" width="24" height="24"/>
+                    <rect key="frame" x="40" y="10" width="24" height="24"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="arA-Hb-c2z"/>
@@ -33,8 +33,19 @@
                         <action selector="highlightChange:" destination="-1" eventType="touchUpInside" id="q6N-BU-6Xz"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19x-D7-Xm7">
+                    <rect key="frame" x="104" y="10" width="25" height="24"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="Wuk-so-7hv"/>
+                    </constraints>
+                    <state key="normal" image="clear"/>
+                    <connections>
+                        <action selector="undoChange:" destination="-1" eventType="touchUpInside" id="yj2-07-AGa"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNM-kR-f1z">
-                    <rect key="frame" x="110" y="10" width="24" height="26"/>
+                    <rect key="frame" x="72" y="10" width="24" height="26"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="tax-k8-IF9"/>
@@ -42,28 +53,6 @@
                     <state key="normal" image="erasersketch"/>
                     <connections>
                         <action selector="eraserChange:" destination="-1" eventType="touchUpInside" id="o3d-Wj-s9Q"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7V-FQ-igw">
-                    <rect key="frame" x="10" y="10" width="24" height="24"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="24" id="zmw-1W-xom"/>
-                    </constraints>
-                    <state key="normal" image="colorsketch"/>
-                    <connections>
-                        <action selector="colorChange:" destination="-1" eventType="touchUpInside" id="gWj-pi-ba0"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19x-D7-Xm7">
-                    <rect key="frame" x="142" y="10" width="25" height="24"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="25" id="Wuk-so-7hv"/>
-                    </constraints>
-                    <state key="normal" image="undosketch"/>
-                    <connections>
-                        <action selector="undoChange:" destination="-1" eventType="touchUpInside" id="yj2-07-AGa"/>
                     </connections>
                 </button>
             </subviews>
@@ -74,17 +63,14 @@
                 <constraint firstItem="hH2-Ed-eED" firstAttribute="top" secondItem="CrS-bz-hfS" secondAttribute="top" id="7s2-uA-ac0"/>
                 <constraint firstItem="wNM-kR-f1z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="8DF-AP-fEd"/>
                 <constraint firstItem="wNM-kR-f1z" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="AZz-Jf-nWa"/>
-                <constraint firstAttribute="bottom" secondItem="o7V-FQ-igw" secondAttribute="bottom" constant="10" id="Oum-zC-uRV"/>
-                <constraint firstItem="o7V-FQ-igw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="RJo-Ku-Aiv"/>
+                <constraint firstItem="CrS-bz-hfS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="R80-C3-68E"/>
                 <constraint firstItem="wNM-kR-f1z" firstAttribute="leading" secondItem="hH2-Ed-eED" secondAttribute="trailing" constant="8" symbolic="YES" id="Uf8-zR-Ot3"/>
                 <constraint firstItem="CrS-bz-hfS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Y0c-G4-y3Q"/>
                 <constraint firstAttribute="bottom" secondItem="19x-D7-Xm7" secondAttribute="bottom" constant="10" id="pQQ-uj-MbS"/>
-                <constraint firstItem="o7V-FQ-igw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="rXN-R6-5Dk"/>
-                <constraint firstItem="hH2-Ed-eED" firstAttribute="leading" secondItem="CrS-bz-hfS" secondAttribute="trailing" constant="10" id="tCT-fd-SS5"/>
+                <constraint firstItem="hH2-Ed-eED" firstAttribute="leading" secondItem="CrS-bz-hfS" secondAttribute="trailing" constant="8" id="tCT-fd-SS5"/>
                 <constraint firstItem="19x-D7-Xm7" firstAttribute="leading" secondItem="wNM-kR-f1z" secondAttribute="trailing" constant="8" id="vbg-IN-rFa"/>
                 <constraint firstItem="hH2-Ed-eED" firstAttribute="bottom" secondItem="CrS-bz-hfS" secondAttribute="bottom" id="xH9-8E-rDW"/>
                 <constraint firstItem="19x-D7-Xm7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="xx7-YP-m6j"/>
-                <constraint firstItem="CrS-bz-hfS" firstAttribute="leading" secondItem="o7V-FQ-igw" secondAttribute="trailing" constant="10" id="yho-nY-q7H"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="276" y="149"/>
@@ -92,9 +78,8 @@
     </objects>
     <resources>
         <image name="brushsketch" width="32" height="37"/>
-        <image name="colorsketch" width="36" height="34"/>
+        <image name="clear" width="150" height="156"/>
         <image name="erasersketch" width="44" height="31"/>
         <image name="highlightsketch" width="49" height="43"/>
-        <image name="undosketch" width="37" height="46"/>
     </resources>
 </document>
