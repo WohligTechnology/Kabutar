@@ -31,7 +31,11 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         super.viewDidLoad()
         
         loadingCompleted = false
+        initNavigationItemTitleView();
         
+//        let recognizer = UITapGestureRecognizer(target: self.title, action: "titleWasTapped")
+//        self.title.userInteractionEnabled = true
+//        self.title.addGestureRecognizer(recognizer)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name: UIKeyboardWillChangeFrameNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasHidden:"), name:UIKeyboardWillHideNotification, object: nil);
@@ -417,6 +421,25 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    private func initNavigationItemTitleView() {
+        let titleView = UILabel()
+        titleView.text = self.title
+        titleView.textColor = UIColor.whiteColor()
+        let width = titleView.sizeThatFits(CGSizeMake(CGFloat.max, CGFloat.max)).width
+        titleView.frame = CGRect(origin:CGPointZero, size:CGSizeMake(width, 500))
+        self.navigationItem.titleView = titleView
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: "titleWasTapped")
+        titleView.userInteractionEnabled = true
+        titleView.addGestureRecognizer(recognizer)
+    }
+    
+    @objc private func titleWasTapped() {
+        NSLog("Hello, titleWasTapped!")
+    }
+
+    
     
 }
 
