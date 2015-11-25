@@ -74,6 +74,7 @@ class HighlighterView: UIView {
         GSketch.brushWidth = CGFloat(slideView.value)
         textValue.text = String(Int(slideView.value))
         innerViewSize = CGFloat(slideView.value)
+        innerColorView.alpha = 1.0;
         innerColorView.frame.size.width = CGFloat(slideView.value)
         innerColorView.frame.size.height = CGFloat(slideView.value)
         self.innerColorView.center = CGPointMake(self.outerColorView.frame.size.width / 2, self.outerColorView.frame.size.height / 2);
@@ -94,6 +95,17 @@ class HighlighterView: UIView {
 //        innerColorView.frame.size.width = GSketch.brushWidth
 //        innerColorView.frame.size.height = GSketch.brushWidth
         innerColorView.layer.cornerRadius = self.innerColorView.frame.size.width / 2
+        
+        let seconds = 0.1
+        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            
+            self.resizer(self.slideView);
+            
+        })
+
         
     }
     

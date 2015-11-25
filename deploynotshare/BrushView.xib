@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -37,17 +37,17 @@
                     <rect key="frame" x="8" y="126" width="37" height="21"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4e-Et-7On">
                     <rect key="frame" x="53" y="126" width="11" height="21"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="5" maxValue="32" translatesAutoresizingMaskIntoConstraints="NO" id="Fbu-yT-hi7" userLabel="Resizing Slider">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="35" translatesAutoresizingMaskIntoConstraints="NO" id="Fbu-yT-hi7" userLabel="Resizing Slider">
                     <rect key="frame" x="72" y="121" width="228" height="31"/>
                     <animations/>
                     <constraints>
@@ -326,8 +326,9 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgj-h6-KWd" userLabel="Brush Preview">
                     <rect key="frame" x="308" y="120" width="32" height="32"/>
                     <subviews>
-                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajH-Is-9xQ" userLabel="Brush Preview">
+                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ajH-Is-9xQ" userLabel="Brush Preview">
                             <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                            <animations/>
                             <color key="backgroundColor" red="1" green="0.35686274509999999" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
@@ -336,6 +337,8 @@
                     <constraints>
                         <constraint firstItem="ajH-Is-9xQ" firstAttribute="leading" secondItem="Pgj-h6-KWd" secondAttribute="leading" id="6ZU-T6-I4s"/>
                         <constraint firstItem="ajH-Is-9xQ" firstAttribute="top" secondItem="Pgj-h6-KWd" secondAttribute="top" id="D9u-Ub-26A"/>
+                        <constraint firstAttribute="trailing" secondItem="ajH-Is-9xQ" secondAttribute="trailing" id="NeV-FF-m6Y"/>
+                        <constraint firstAttribute="bottom" secondItem="ajH-Is-9xQ" secondAttribute="bottom" id="ZDo-Xa-aRZ"/>
                         <constraint firstAttribute="width" constant="32" id="nnV-TL-Pap"/>
                         <constraint firstAttribute="height" constant="32" id="xBs-Oc-LX9"/>
                     </constraints>

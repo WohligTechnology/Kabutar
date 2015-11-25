@@ -47,6 +47,7 @@ class BrushView: UIView {
     @IBAction func brushResize(sender: UISlider) {
         GSketch.brushWidth = CGFloat(slideView.value)
         textValue.text = String(Int(slideView.value))
+        innerColorView.alpha = 1.0
         innerViewSize = CGFloat(slideView.value)
         innerColorView.frame.size.width = CGFloat(slideView.value)
         innerColorView.frame.size.height = CGFloat(slideView.value)
@@ -85,11 +86,24 @@ class BrushView: UIView {
         textValue.text = String(Int(GSketch.brushWidth))
         slideView.value = Float(GSketch.brushWidth)
         
+        
+        
         innerColorView.backgroundColor = UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
         print(GSketch.brushWidth)
-        innerColorView.frame.size.width = GSketch.brushWidth
-        innerColorView.frame.size.height = GSketch.brushWidth
+        //        innerColorView.frame.size.width = GSketch.brushWidth
+        //        innerColorView.frame.size.height = GSketch.brushWidth
         innerColorView.layer.cornerRadius = self.innerColorView.frame.size.width / 2
+    
+        let seconds = 0.1
+        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            
+            self.brushResize(self.slideView);
+            
+        })
+
     }
 
 
