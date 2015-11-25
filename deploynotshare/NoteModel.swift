@@ -465,10 +465,10 @@ public class Note {
             
             
             
-            var folder2 = row[6] as! String!
+            var folder2 = row[6] as! Int64!
             if(folder2 == nil)
             {
-                folder2 = ""
+                folder2 = 0
             }
             
             
@@ -480,7 +480,7 @@ public class Note {
                 "_id":row[10] as! String!,
                 "background": row[4] as! String!,
                 "color": row[5] as! String!,
-                "folder": folder2,
+                "folder": String(folder2),
                 "islocked": String(row[7] as! Int64!),
                 "paper": row[8] as! String!,
                 "remindertime": String(row[9] as! Int64!),

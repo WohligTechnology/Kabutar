@@ -35,7 +35,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         ViewForNotes = self;
         
         let note2 = Note()
-        note2.servertolocal();
+        //note2.servertolocal();
         
         getAllNotes()
         
