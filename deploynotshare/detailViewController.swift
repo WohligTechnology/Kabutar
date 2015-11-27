@@ -5,6 +5,7 @@ var GDetailView:detailViewController!
 var GSketch:ElementSketch!
 var GElementCheckBox:ElementCheckBox!
 var GElementAudio:ElementRecording!
+var GElementImage:ElementImage!
 var loadingCompleted = false
 var GvLayout:VerticalLayout!
 
@@ -109,8 +110,9 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
                 NoteElementModel.addHeightOffset(vLayout,order2: noteElement[NoteElementModel.order]!)
                 if(noteElement[NoteElementModel.content] != nil) {
                     let newImage = UIImage(contentsOfFile: path  + "/" + noteElement[NoteElementModel.content]!)
+                    
                     appendImage(newImage, isnew: false)
-    
+                    GElementImage.setID(noteElement[NoteElementModel.id])
                 }
             
             case "audio":
@@ -193,7 +195,8 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
                 element2.showDelete();
                 
             case "image":
-                break;
+                let element2 = element as! ElementImage
+                element2.showDelete();
                 
             case "audio":
                 let element2 = element as! ElementRecording
@@ -369,8 +372,12 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     
     func appendImage(image: UIImage!, isnew:Bool) {
         if(image != nil) {
+            
+            
+            
+            
             let newheight = width / image.size.width * image.size.height
-            let imageView = UIImageView(frame: CGRectMake(0,0,width+10,newheight))
+            let imageView = ElementImage(frame: CGRectMake(0,0,width+10,newheight))
             imageView.contentMode = .ScaleAspectFit
             if(newheight > ScrView.bounds.height)
             {
@@ -380,6 +387,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
             if(isnew) {
                 
                 let id  = NoteElementModel.create("image")
+                imageView.setID(id)
                 let userid = config.get("user_id")
                 let currenttimestamp = String(NSDate().timeIntervalSince1970)
                 let randomNum = String(arc4random_uniform(9999));
@@ -397,8 +405,17 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
             
             
         				
-            imageView.image = image
+            imageView.imageView.image = image
+            
+            
+            
+            
             vLayout.addSubview(imageView)
+            
+            AllNoteElement.append(imageView)
+            AllNoteElementType.append("image")
+            GElementImage = imageView
+            
             changeHeight()
         }
         

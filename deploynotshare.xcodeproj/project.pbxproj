@@ -35,6 +35,8 @@
 		36F5682B1C08373A00CBE128 /* DeleteSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F568291C08373A00CBE128 /* DeleteSection.swift */; };
 		36F5682C1C08373A00CBE128 /* DeleteSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F5682A1C08373A00CBE128 /* DeleteSection.xib */; };
 		36F568BA1C08398600CBE128 /* RichEditorNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F568B91C08398600CBE128 /* RichEditorNew.swift */; };
+		36F568BD1C08476400CBE128 /* ElementImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F568BC1C08476400CBE128 /* ElementImage.swift */; };
+		36F568BF1C08540900CBE128 /* ElementImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F568BE1C08540900CBE128 /* ElementImage.xib */; };
 		36F7AE1D1BFB813B00596BBF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F7AE1B1BFB813B00596BBF /* FBSDKLoginKit.framework */; };
 		36F7AE1E1BFB813B00596BBF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F7AE1C1BFB813B00596BBF /* FBSDKCoreKit.framework */; };
 		43344AFB1BF5B42E00AC4802 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344AFA1BF5B42E00AC4802 /* TermsViewController.swift */; };
@@ -153,6 +155,8 @@
 		36F568291C08373A00CBE128 /* DeleteSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteSection.swift; sourceTree = "<group>"; };
 		36F5682A1C08373A00CBE128 /* DeleteSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeleteSection.xib; sourceTree = "<group>"; };
 		36F568B91C08398600CBE128 /* RichEditorNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichEditorNew.swift; sourceTree = "<group>"; };
+		36F568BC1C08476400CBE128 /* ElementImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementImage.swift; sourceTree = "<group>"; };
+		36F568BE1C08540900CBE128 /* ElementImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElementImage.xib; sourceTree = "<group>"; };
 		36F7AE1B1BFB813B00596BBF /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		36F7AE1C1BFB813B00596BBF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		43344AFA1BF5B42E00AC4802 /* TermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +293,15 @@
 				36F5682A1C08373A00CBE128 /* DeleteSection.xib */,
 			);
 			name = DeleteSection;
+			sourceTree = "<group>";
+		};
+		36F568BB1C08475300CBE128 /* ElementImage */ = {
+			isa = PBXGroup;
+			children = (
+				36F568BC1C08476400CBE128 /* ElementImage.swift */,
+				36F568BE1C08540900CBE128 /* ElementImage.xib */,
+			);
+			name = ElementImage;
 			sourceTree = "<group>";
 		};
 		4308BE531BDE028F009DC448 /* Controllers */ = {
@@ -578,6 +591,7 @@
 		43921D531BE0BD300032DE28 /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				36F568BB1C08475300CBE128 /* ElementImage */,
 				36F568281C08372000CBE128 /* DeleteSection */,
 				43344B101BF7361D00AC4802 /* NoteCollectionViewCell */,
 				43344B0E1BF735C000AC4802 /* NoteFooterAdd */,
@@ -765,6 +779,7 @@
 				782721A51BFDAC8C00241D44 /* share.png in Resources */,
 				43344B031BF5BCDA00AC4802 /* BrushView.xib in Resources */,
 				43344B0B1BF5FFD600AC4802 /* MessageView.xib in Resources */,
+				36F568BF1C08540900CBE128 /* ElementImage.xib in Resources */,
 				782721A41BFDAC8C00241D44 /* reminder@3x.png in Resources */,
 				782721AA1BFDAC8C00241D44 /* timebomb@3x.png in Resources */,
 				43344B051BF5BCE600AC4802 /* EraserView.xib in Resources */,
@@ -907,6 +922,7 @@
 				43344B251BF7470C00AC4802 /* SettingViewController.swift in Sources */,
 				36344E6F1BF32D980053EDCD /* ElementSketch.swift in Sources */,
 				4373172E1BD770650018B580 /* AppDelegate.swift in Sources */,
+				36F568BD1C08476400CBE128 /* ElementImage.swift in Sources */,
 				43A004991BE8821600396E47 /* ViewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

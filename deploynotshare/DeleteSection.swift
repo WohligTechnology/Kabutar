@@ -41,10 +41,5 @@ class DeleteSection: UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
-        noteFooter = self;
-        
-        let bottomLine = UIView(frame: CGRectMake(0,0, width , 1))
-        bottomLine.backgroundColor = PinkColor
-        self.addSubview(bottomLine)
     }
 }
