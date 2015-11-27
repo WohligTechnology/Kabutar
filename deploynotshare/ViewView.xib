@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewView" customModule="deploynotshare" customModuleProvider="target">
@@ -23,10 +23,10 @@
                         <color key="textColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
                     </textAttributes>
                     <items>
-                        <navigationItem title="Sort by" id="5UU-Zv-GH3"/>
+                        <navigationItem title="View by" id="5UU-Zv-GH3"/>
                     </items>
                 </navigationBar>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view_pop_up" translatesAutoresizingMaskIntoConstraints="NO" id="u3V-Yi-yba">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view" translatesAutoresizingMaskIntoConstraints="NO" id="u3V-Yi-yba">
                     <rect key="frame" x="88" y="13" width="27" height="18"/>
                     <animations/>
                     <constraints>
@@ -38,11 +38,11 @@
                     <rect key="frame" x="0.0" y="44" width="300" height="144"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJL-HI-CGj">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="42"/>
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="41"/>
                             <animations/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Detail" image="detail_view_logo">
+                            <state key="normal" title="Detail" image="view_detail">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -50,11 +50,11 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMX-ZE-FmB">
-                            <rect key="frame" x="0.0" y="52" width="300" height="41"/>
+                            <rect key="frame" x="0.0" y="51" width="300" height="42"/>
                             <animations/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="List" image="list_view_logo">
+                            <state key="normal" title="List" image="view_list">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -62,11 +62,11 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuE-Y0-oL6">
-                            <rect key="frame" x="0.0" y="103" width="300" height="42"/>
+                            <rect key="frame" x="0.0" y="103" width="300" height="41"/>
                             <animations/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Tiled" image="grid_view_logo">
+                            <state key="normal" title="Tiled" image="view_grid">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -95,9 +95,9 @@
         </view>
     </objects>
     <resources>
-        <image name="detail_view_logo" width="28" height="22"/>
-        <image name="grid_view_logo" width="28" height="27"/>
-        <image name="list_view_logo" width="28" height="27"/>
-        <image name="view_pop_up" width="47" height="25"/>
+        <image name="view" width="58" height="32"/>
+        <image name="view_detail" width="45" height="37"/>
+        <image name="view_grid" width="41" height="40"/>
+        <image name="view_list" width="147" height="137"/>
     </resources>
 </document>
