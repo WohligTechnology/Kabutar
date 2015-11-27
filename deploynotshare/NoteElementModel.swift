@@ -44,7 +44,7 @@ public class NoteElement {
         
         for row in value {
              value5 = row[0] as! Int64!
-            value5 = value5 - 300
+            value5 = value5 - 150
         }
         
         if(value5 != nil) {
@@ -71,7 +71,7 @@ public class NoteElement {
             print(row[0].dynamicType)
             
             value5 = row[0] as! Int64!
-            value5 = value5 - 180
+            value5 = value5 - 150
         }
         
         if(value5 != nil) {

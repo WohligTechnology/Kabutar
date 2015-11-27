@@ -343,7 +343,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         
     }
     
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!) {
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
             
         })
@@ -351,17 +351,15 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         print(editingInfo[UIImagePickerControllerMediaURL])
         
         let fullImage = UIAlertAction(title: "Use Full Size", style: UIAlertActionStyle.Default)
-            {
-                UIAlertAction in
-                self.appendImage(editingInfo[UIImagePickerControllerOriginalImage] as! UIImage,isnew: true)
-                
+        {
+            UIAlertAction in
+            self.appendImage(editingInfo[UIImagePickerControllerOriginalImage] as! UIImage,isnew: true)
         }
         let cropImage = UIAlertAction(title: "Use Crop Size", style: UIAlertActionStyle.Default)
-            {
-                UIAlertAction in
-                self.appendImage(image,isnew: true)
+        {
+            UIAlertAction in
+            self.appendImage(image,isnew: true)
         }
-        
         
         let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         alert.addAction(fullImage)
@@ -372,10 +370,6 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     
     func appendImage(image: UIImage!, isnew:Bool) {
         if(image != nil) {
-            
-            
-            
-            
             let newheight = width / image.size.width * image.size.height
             let imageView = ElementImage(frame: CGRectMake(0,0,width+10,newheight))
             imageView.contentMode = .ScaleAspectFit
@@ -385,7 +379,6 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
             }
             
             if(isnew) {
-                
                 let id  = NoteElementModel.create("image")
                 imageView.setID(id)
                 let userid = config.get("user_id")
@@ -394,28 +387,15 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
                 let imagename = "IMG_" + userid + "_" + currenttimestamp + "_" + randomNum + ".jpg"  ;
                 let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
                 let destinationPath = String(documentsPath) + "/" + imagename
-                
-                
-                
                 UIImageJPEGRepresentation(image,1.0)!.writeToFile(destinationPath, atomically: true)
-                
                 print(destinationPath);
                 NoteElementModel.edit(id, content2: imagename, contentA2: "", contentB2: "")
             }
-            
-            
-        				
             imageView.imageView.image = image
-            
-            
-            
-            
             vLayout.addSubview(imageView)
-            
             AllNoteElement.append(imageView)
             AllNoteElementType.append("image")
             GElementImage = imageView
-            
             changeHeight()
         }
         
@@ -423,50 +403,28 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     
     
     func addAudioTap(isnew:Bool) {
-        
         let recording = ElementRecording(frame: CGRectMake(0,0,width,50))
         GElementAudio = recording
-        
-        
         AllNoteElement.append(recording)
         AllNoteElementType.append("audio")
-        
         vLayout.addSubview(recording)
         changeHeight()
-        
-        
     }
     func addSketchTap() {
         let topOffset = ScrView.contentOffset.y
         sketch = ElementSketch(frame: CGRectMake(0,topOffset,width+10,height - 44))
-        
-        
         ScrView.insertSubview(sketch,atIndex: sketchno++)
-        
         GSketch = sketch
         GSketch.setID(NoteElementModel.create("scribble"))
         GSketch.topOffset = topOffset
-       
-        
         getSketchToolbar()
-        
-        
         ScrView.scrollEnabled = false
-        //        sideMenuController.removeLeftGestures()
-        //        sideMenuController.removeRightGestures()
-        
         changeHeight()
     }
     func addCheckBox(isnew: Bool) {
-        
-        
-        
         let checkbox = ElementCheckBox(frame: CGRectMake(0,0,width,50))
-        
-        
         AllNoteElement.append(checkbox)
         AllNoteElementType.append("checkbox")
-        
         vLayout.addSubview(checkbox)
         GElementCheckBox = checkbox
         changeHeight()
