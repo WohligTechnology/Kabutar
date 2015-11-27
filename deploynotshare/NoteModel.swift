@@ -91,7 +91,7 @@ public class Note {
     
     func find2 (txt:String) -> Statement {
         
-        self.localtoserver()
+        
         
         let date = NSDate().timeIntervalSince1970
         let date2 = String(Int64(date))

@@ -1,6 +1,7 @@
 
 import UIKit
 import AVFoundation
+import DKChainableAnimationKit
 
 class ElementRecording: UIView {
    
@@ -9,6 +10,8 @@ class ElementRecording: UIView {
     
     var recorder: AVAudioRecorder!
     @IBOutlet weak var timeSlider: UISlider!
+    
+    var deleteView:DeleteSection!
     
     var player:AVAudioPlayer!
     @IBOutlet weak var stopButton: UIButton!
@@ -50,7 +53,26 @@ class ElementRecording: UIView {
         {
             playButton.enabled = true
         }
+        
+        deleteView = DeleteSection(frame: CGRectMake(self.frame.size.width + 5, 0, 30, 30))
+        self.addSubview(deleteView)
+        
     }
+    
+    func showDelete () {
+        print(self.NoteElementID);
+        deleteView.setID(self.NoteElementID)
+        deleteView.topView = self
+        deleteView.frame = CGRectMake(self.frame.size.width + 5, 0, 30, 30)
+        deleteView.animation.moveX(-30).animate(transitionTime)
+        
+    }
+    func hideDelete() {
+        deleteView.frame = CGRectMake(self.frame.size.width+10 - 30 , 0, 30, 30)
+        deleteView.animation.moveX(30).animate(transitionTime)
+    }
+    
+    
     
     public func setID(id:Int64) {
         self.NoteElementID = id

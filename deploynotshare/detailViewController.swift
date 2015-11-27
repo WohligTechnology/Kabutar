@@ -7,11 +7,15 @@ var GElementCheckBox:ElementCheckBox!
 var GElementAudio:ElementRecording!
 var loadingCompleted = false
 var GvLayout:VerticalLayout!
+
+var AllNoteElement:[Any] = [];
+var AllNoteElementType:[String] = [];
+
 class detailViewController: UIViewController , UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     var keyboardOn = false
     
     @IBOutlet weak var FooterConstrain: NSLayoutConstraint!
-    
+    var isDelete = false;
     @IBOutlet weak var FooterView: UIView!
     var istoolbaropen = false
     var imagePicker = UIImagePickerController()
@@ -36,6 +40,9 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
 //        let recognizer = UITapGestureRecognizer(target: self.title, action: "titleWasTapped")
 //        self.title.userInteractionEnabled = true
 //        self.title.addGestureRecognizer(recognizer)
+        
+        
+        
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name: UIKeyboardWillChangeFrameNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasHidden:"), name:UIKeyboardWillHideNotification, object: nil);
@@ -110,6 +117,9 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
                 NoteElementModel.addHeightOffset(vLayout,order2: noteElement[NoteElementModel.order]!)
                 if(noteElement[NoteElementModel.content] != nil) {
                     addAudioTap(false)
+                    
+                    GElementAudio.setID(noteElement[NoteElementModel.id])
+                    
                     GElementAudio.soundFilename = noteElement[NoteElementModel.content]
                     GElementAudio.soundFileURL = NSURL(fileURLWithPath: path + "/" + GElementAudio.soundFilename)
                     GElementAudio.getDuration()
@@ -150,20 +160,42 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     }
     
     func doneTap() {
-        editor?.blur()
-        sketch?.closeDrawing()
-        removeSketchToolbar()
-        ScrView.scrollEnabled = true
         
-        let topOffset = ScrView.contentOffset.y
-        GElementCheckBox?.checkBoxText.resignFirstResponder()
-        
-        if (sketch?.mainImageView?.image != nil)
-        {
-            appendSketch(topOffset, image: (sketch?.mainImageView?.image )!)
-            sketch?.removeFromSuperview()
-            sketch?.mainImageView.image = nil
+        for element in AllNoteElement {
+            
+            
+            let element2 = element as! ElementRecording
+            if(isDelete) {
+                element2.hideDelete()
+                
+            }
+            else
+            {
+                element2.showDelete()
+                
+            }
+            
+            
         }
+        isDelete = !isDelete;
+        
+        
+        
+        
+//        editor?.blur()
+//        sketch?.closeDrawing()
+//        removeSketchToolbar()
+//        ScrView.scrollEnabled = true
+//        
+//        let topOffset = ScrView.contentOffset.y
+//        GElementCheckBox?.checkBoxText.resignFirstResponder()
+//        
+//        if (sketch?.mainImageView?.image != nil)
+//        {
+//            appendSketch(topOffset, image: (sketch?.mainImageView?.image )!)
+//            sketch?.removeFromSuperview()
+//            sketch?.mainImageView.image = nil
+//        }
         
     }
     
@@ -364,6 +396,10 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         let recording = ElementRecording(frame: CGRectMake(0,0,width,50))
         GElementAudio = recording
         
+        
+        AllNoteElement.append(recording)
+        AllNoteElementType.append("audio")
+        
         vLayout.addSubview(recording)
         changeHeight()
         
@@ -442,7 +478,6 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     
     
 }
-
 
 
 extension detailViewController: RichEditorDelegate {

@@ -32,6 +32,8 @@
 		36F1147A1BF0BA770023E2DB /* DetailViewFooterMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F114791BF0BA770023E2DB /* DetailViewFooterMain.swift */; };
 		36F1147C1BF0F8990023E2DB /* ElementCheckBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F1147B1BF0F8990023E2DB /* ElementCheckBox.xib */; };
 		36F1147E1BF0F8B10023E2DB /* ElementCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1147D1BF0F8B10023E2DB /* ElementCheckBox.swift */; };
+		36F5682B1C08373A00CBE128 /* DeleteSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F568291C08373A00CBE128 /* DeleteSection.swift */; };
+		36F5682C1C08373A00CBE128 /* DeleteSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F5682A1C08373A00CBE128 /* DeleteSection.xib */; };
 		36F7AE1D1BFB813B00596BBF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F7AE1B1BFB813B00596BBF /* FBSDKLoginKit.framework */; };
 		36F7AE1E1BFB813B00596BBF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F7AE1C1BFB813B00596BBF /* FBSDKCoreKit.framework */; };
 		43344AFB1BF5B42E00AC4802 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344AFA1BF5B42E00AC4802 /* TermsViewController.swift */; };
@@ -147,6 +149,8 @@
 		36F114791BF0BA770023E2DB /* DetailViewFooterMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewFooterMain.swift; sourceTree = "<group>"; };
 		36F1147B1BF0F8990023E2DB /* ElementCheckBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElementCheckBox.xib; sourceTree = "<group>"; };
 		36F1147D1BF0F8B10023E2DB /* ElementCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementCheckBox.swift; sourceTree = "<group>"; };
+		36F568291C08373A00CBE128 /* DeleteSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteSection.swift; sourceTree = "<group>"; };
+		36F5682A1C08373A00CBE128 /* DeleteSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeleteSection.xib; sourceTree = "<group>"; };
 		36F7AE1B1BFB813B00596BBF /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		36F7AE1C1BFB813B00596BBF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		43344AFA1BF5B42E00AC4802 /* TermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +278,15 @@
 				364EA4601BF1B37A001B7161 /* NoteElementModel.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		36F568281C08372000CBE128 /* DeleteSection */ = {
+			isa = PBXGroup;
+			children = (
+				36F568291C08373A00CBE128 /* DeleteSection.swift */,
+				36F5682A1C08373A00CBE128 /* DeleteSection.xib */,
+			);
+			name = DeleteSection;
 			sourceTree = "<group>";
 		};
 		4308BE531BDE028F009DC448 /* Controllers */ = {
@@ -562,6 +575,7 @@
 		43921D531BE0BD300032DE28 /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				36F568281C08372000CBE128 /* DeleteSection */,
 				43344B101BF7361D00AC4802 /* NoteCollectionViewCell */,
 				43344B0E1BF735C000AC4802 /* NoteFooterAdd */,
 				43344B0F1BF735EE00AC4802 /* SortView */,
@@ -755,6 +769,7 @@
 				782721A71BFDAC8C00241D44 /* share@3x.png in Resources */,
 				436107A21BEA06320094BB25 /* Move.xib in Resources */,
 				782721A91BFDAC8C00241D44 /* timebomb@2x.png in Resources */,
+				36F5682C1C08373A00CBE128 /* DeleteSection.xib in Resources */,
 				437317381BD770660018B580 /* LaunchScreen.storyboard in Resources */,
 				43A0049B1BE894E300396E47 /* ViewView.xib in Resources */,
 				7827219D1BFDAC8C00241D44 /* lock@2x.png in Resources */,
@@ -859,6 +874,7 @@
 				4395A63F1BF9A2D800EE4F10 /* SyncTableViewController.swift in Sources */,
 				4361079E1BE9F4BE0094BB25 /* Detailview.swift in Sources */,
 				43344AFB1BF5B42E00AC4802 /* TermsViewController.swift in Sources */,
+				36F5682B1C08373A00CBE128 /* DeleteSection.swift in Sources */,
 				36F1147A1BF0BA770023E2DB /* DetailViewFooterMain.swift in Sources */,
 				43921D5B1BE0E7DA0032DE28 /* PasswordViewController.swift in Sources */,
 				4389CE2B1BEDE136005CF805 /* ColorPattern.swift in Sources */,
