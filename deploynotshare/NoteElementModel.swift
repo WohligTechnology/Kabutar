@@ -43,7 +43,7 @@ public class NoteElement {
         var value5:Int64!
         
         for row in value {
-             value5 = row[0] as! Int64!
+            value5 = row[0] as! Int64!
             value5 = value5 - 150
         }
         

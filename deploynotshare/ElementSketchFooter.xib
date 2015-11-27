@@ -33,17 +33,6 @@
                         <action selector="highlightChange:" destination="-1" eventType="touchUpInside" id="q6N-BU-6Xz"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19x-D7-Xm7">
-                    <rect key="frame" x="104" y="10" width="25" height="24"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="25" id="Wuk-so-7hv"/>
-                    </constraints>
-                    <state key="normal" image="clear"/>
-                    <connections>
-                        <action selector="undoChange:" destination="-1" eventType="touchUpInside" id="yj2-07-AGa"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNM-kR-f1z">
                     <rect key="frame" x="72" y="10" width="24" height="26"/>
                     <animations/>
@@ -53,6 +42,17 @@
                     <state key="normal" image="erasersketch"/>
                     <connections>
                         <action selector="eraserChange:" destination="-1" eventType="touchUpInside" id="o3d-Wj-s9Q"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19x-D7-Xm7">
+                    <rect key="frame" x="104" y="10" width="25" height="24"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="Wuk-so-7hv"/>
+                    </constraints>
+                    <state key="normal" image="clear"/>
+                    <connections>
+                        <action selector="undoChange:" destination="-1" eventType="touchUpInside" id="yj2-07-AGa"/>
                     </connections>
                 </button>
             </subviews>

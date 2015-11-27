@@ -2,35 +2,37 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoteFooterAdd" customModule="deploynotshare" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="377" height="40"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLP-by-kHX" userLabel="sortbutton">
-                    <rect key="frame" x="8" y="7" width="120" height="27"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLP-by-kHX" userLabel="sortbutton">
+                    <rect key="frame" x="0.0" y="5" width="127" height="40"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="120" id="uEj-7X-IcB"/>
+                        <constraint firstAttribute="height" constant="40" id="2W7-Yr-VcP"/>
+                        <constraint firstAttribute="width" constant="120" id="j3V-fR-Gtb"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="SORT" image="sort_icon">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="j3V-fR-Gtb"/>
+                        </mask>
+                    </variation>
                     <connections>
                         <action selector="sortClick:" destination="-1" eventType="touchUpInside" id="jrx-YG-REl"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Er-UL-LUq" userLabel="viewbutton">
-                    <rect key="frame" x="243" y="7" width="120" height="27"/>
+                    <rect key="frame" x="188" y="5" width="188.5" height="40"/>
                     <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="120" id="l3D-fU-Y7n"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="VIEW" image="view_icon">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,13 +45,28 @@
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="4Er-UL-LUq" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Djo-dL-Krk"/>
-                <constraint firstItem="OLP-by-kHX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="SaZ-Tu-7wU"/>
-                <constraint firstItem="4Er-UL-LUq" firstAttribute="baseline" secondItem="OLP-by-kHX" secondAttribute="baseline" id="TXc-5w-jHg"/>
-                <constraint firstAttribute="trailing" secondItem="4Er-UL-LUq" secondAttribute="trailing" constant="14" id="YaY-FV-he7"/>
+                <constraint firstAttribute="trailing" secondItem="4Er-UL-LUq" secondAttribute="trailing" constant="110" id="5Mr-h3-EWB"/>
+                <constraint firstItem="OLP-by-kHX" firstAttribute="height" secondItem="4Er-UL-LUq" secondAttribute="height" id="9o5-sH-1xI"/>
+                <constraint firstItem="OLP-by-kHX" firstAttribute="width" secondItem="4Er-UL-LUq" secondAttribute="width" constant="-13" id="FbJ-zq-jFU"/>
+                <constraint firstItem="OLP-by-kHX" firstAttribute="baseline" secondItem="4Er-UL-LUq" secondAttribute="baseline" id="SW0-2L-6f0"/>
+                <constraint firstItem="OLP-by-kHX" firstAttribute="width" secondItem="4Er-UL-LUq" secondAttribute="width" constant="-61.5" id="V0f-7V-Nlq"/>
+                <constraint firstItem="4Er-UL-LUq" firstAttribute="height" secondItem="OLP-by-kHX" secondAttribute="height" id="blc-20-5en"/>
+                <constraint firstItem="4Er-UL-LUq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="cNf-Hp-tnE"/>
+                <constraint firstAttribute="trailing" secondItem="4Er-UL-LUq" secondAttribute="trailing" id="fIy-TN-tZe"/>
+                <constraint firstItem="OLP-by-kHX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nFE-jl-Msr"/>
+                <constraint firstItem="4Er-UL-LUq" firstAttribute="leading" secondItem="OLP-by-kHX" secondAttribute="trailing" constant="61.5" id="nRG-nd-QOs"/>
+                <constraint firstItem="OLP-by-kHX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="si8-iC-NBT"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="300.5" y="-95"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="9o5-sH-1xI"/>
+                    <exclude reference="FbJ-zq-jFU"/>
+                    <exclude reference="SW0-2L-6f0"/>
+                    <exclude reference="5Mr-h3-EWB"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="278.5" y="-24"/>
         </view>
     </objects>
     <resources>
