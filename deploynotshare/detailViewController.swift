@@ -21,7 +21,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     var imagePicker = UIImagePickerController()
     @IBOutlet weak var ScrView: UIScrollView!
     var vLayout:VerticalLayout!
-    var editor:RichEditorView!
+    var editor:RichEditorNew!
     var mainColor = PinkColor
     var toolbar:RichEditorToolbar!
     var sketchno = 2
@@ -160,43 +160,55 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     }
     
     func doneTap() {
+    
+        editor?.blur()
+        sketch?.closeDrawing()
+        removeSketchToolbar()
+        ScrView.scrollEnabled = true
         
+        let topOffset = ScrView.contentOffset.y
+        GElementCheckBox?.checkBoxText.resignFirstResponder()
+        
+        if (sketch?.mainImageView?.image != nil)
+        {
+            appendSketch(topOffset, image: (sketch?.mainImageView?.image )!)
+            sketch?.removeFromSuperview()
+            sketch?.mainImageView.image = nil
+        }
+        
+    }
+    
+    func deleteTap( ) {
+        
+        var i = 0;
         for element in AllNoteElement {
             
-            
-            let element2 = element as! ElementRecording
-            if(isDelete) {
-                element2.hideDelete()
+            switch(AllNoteElementType[i]) {
+            case "text":
+                let element2 = element as! RichEditorNew
+                element2.showDelete();
                 
-            }
-            else
-            {
-                element2.showDelete()
+            case "checkbox":
+                let element2 = element as! ElementCheckBox
+                element2.showDelete();
                 
+            case "image":
+                break;
+                
+            case "audio":
+                let element2 = element as! ElementRecording
+                element2.showDelete();
+                
+            default :
+                break;
             }
+
             
             
+            i++;
         }
+        
         isDelete = !isDelete;
-        
-        
-        
-        
-//        editor?.blur()
-//        sketch?.closeDrawing()
-//        removeSketchToolbar()
-//        ScrView.scrollEnabled = true
-//        
-//        let topOffset = ScrView.contentOffset.y
-//        GElementCheckBox?.checkBoxText.resignFirstResponder()
-//        
-//        if (sketch?.mainImageView?.image != nil)
-//        {
-//            appendSketch(topOffset, image: (sketch?.mainImageView?.image )!)
-//            sketch?.removeFromSuperview()
-//            sketch?.mainImageView.image = nil
-//        }
-        
     }
     
     func appendSketch(topOffset:CGFloat , image: UIImage) {
@@ -254,10 +266,12 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         
         print("Data");
         
-        editor = RichEditorView(frame: CGRectMake(10,5,width-20,28))
+        editor = RichEditorNew(frame: CGRectMake(10,5,width-20,28))
         editor.setHTML("")
         print(vLayout.frame.size.height)
         
+        AllNoteElement.append(editor)
+        AllNoteElementType.append("text")
         
         editor.delegate = self;
         vLayout.addSubview(editor)
@@ -432,6 +446,10 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         
         let checkbox = ElementCheckBox(frame: CGRectMake(0,0,width,50))
         
+        
+        AllNoteElement.append(checkbox)
+        AllNoteElementType.append("checkbox")
+        
         vLayout.addSubview(checkbox)
         GElementCheckBox = checkbox
         changeHeight()
@@ -501,7 +519,7 @@ extension detailViewController: RichEditorDelegate {
     
     func richEditorTookFocus(editor: RichEditorView) {
         
-        self.editor = editor
+        self.editor = editor as! RichEditorNew
         
         toolbar.editor = editor
         if(!istoolbaropen) {

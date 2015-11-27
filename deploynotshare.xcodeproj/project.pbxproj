@@ -34,6 +34,7 @@
 		36F1147E1BF0F8B10023E2DB /* ElementCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F1147D1BF0F8B10023E2DB /* ElementCheckBox.swift */; };
 		36F5682B1C08373A00CBE128 /* DeleteSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F568291C08373A00CBE128 /* DeleteSection.swift */; };
 		36F5682C1C08373A00CBE128 /* DeleteSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F5682A1C08373A00CBE128 /* DeleteSection.xib */; };
+		36F568BA1C08398600CBE128 /* RichEditorNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F568B91C08398600CBE128 /* RichEditorNew.swift */; };
 		36F7AE1D1BFB813B00596BBF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F7AE1B1BFB813B00596BBF /* FBSDKLoginKit.framework */; };
 		36F7AE1E1BFB813B00596BBF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F7AE1C1BFB813B00596BBF /* FBSDKCoreKit.framework */; };
 		43344AFB1BF5B42E00AC4802 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344AFA1BF5B42E00AC4802 /* TermsViewController.swift */; };
@@ -151,6 +152,7 @@
 		36F1147D1BF0F8B10023E2DB /* ElementCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementCheckBox.swift; sourceTree = "<group>"; };
 		36F568291C08373A00CBE128 /* DeleteSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteSection.swift; sourceTree = "<group>"; };
 		36F5682A1C08373A00CBE128 /* DeleteSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeleteSection.xib; sourceTree = "<group>"; };
+		36F568B91C08398600CBE128 /* RichEditorNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichEditorNew.swift; sourceTree = "<group>"; };
 		36F7AE1B1BFB813B00596BBF /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		36F7AE1C1BFB813B00596BBF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		43344AFA1BF5B42E00AC4802 /* TermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				36F114711BF08DD30023E2DB /* Layout.swift */,
 				434E77771BE34B4800684C08 /* SlideMenuController.swift */,
 				36E846A21BE48AF8004109FA /* UIViewControllerExtension.swift */,
+				36F568B91C08398600CBE128 /* RichEditorNew.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -900,6 +903,7 @@
 				43EFB9BD1BDE29130014EDF9 /* ListViewController.swift in Sources */,
 				43344B0D1BF602E600AC4802 /* MessageView.swift in Sources */,
 				43921D591BE0D8260032DE28 /* ThinkViewController.swift in Sources */,
+				36F568BA1C08398600CBE128 /* RichEditorNew.swift in Sources */,
 				43344B251BF7470C00AC4802 /* SettingViewController.swift in Sources */,
 				36344E6F1BF32D980053EDCD /* ElementSketch.swift in Sources */,
 				4373172E1BD770650018B580 /* AppDelegate.swift in Sources */,

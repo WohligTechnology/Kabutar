@@ -14,6 +14,7 @@ class ElementCheckBox: UIView,UITextFieldDelegate {
 
     var cb:Checkbox!
     @IBOutlet weak var checkBoxText: UITextField!
+    var deleteView: DeleteSection!
     public var NoteElementID:Int64!
     
     public func setID(id:Int64) {
@@ -65,10 +66,24 @@ class ElementCheckBox: UIView,UITextFieldDelegate {
         
         checkBoxText.delegate = self
        
-        //checkBoxText.becomeFirstResponder()
+        deleteView = DeleteSection(frame: CGRectMake(self.frame.size.width + 5, 0, 30, 30))
+        self.addSubview(deleteView)
         
     }
     
+    func showDelete () {
+        print(self.NoteElementID);
+        deleteView.setID(self.NoteElementID)
+        deleteView.topView = self
+        deleteView.frame = CGRectMake(self.frame.size.width + 5, 0, 30, 30)
+        deleteView.animation.moveX(-30).animate(transitionTime)
+        
+    }
+    func hideDelete() {
+        deleteView.frame = CGRectMake(self.frame.size.width+10 - 30 , 0, 30, 30)
+        deleteView.animation.moveX(30).animate(transitionTime)
+    }
+
   
 
     

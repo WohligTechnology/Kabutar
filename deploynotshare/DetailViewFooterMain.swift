@@ -12,6 +12,10 @@ class DetailViewFooterMain: UIView {
 
  
     
+    @IBAction func deleteSectionTap(sender: AnyObject) {
+        let DetailViewCtrl = GDetailView as! detailViewController
+        DetailViewCtrl.deleteTap();
+    }
     
     @IBAction func addTextTap(sender: AnyObject) {
         NoteElementModel.addHeightOffset(GvLayout)
