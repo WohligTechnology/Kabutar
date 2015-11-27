@@ -43,7 +43,7 @@
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="A-Z alphabetical" image="alphabet_sort_view">
+                            <state key="normal" title="A-Z alphabetical" image="sort_atoz">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -56,7 +56,7 @@
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="33" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Colours" image="color_sort_view">
+                            <state key="normal" title="Colours" image="sort_color">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -68,7 +68,7 @@
                             <animations/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="28" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Created Time" image="createdtime_sort_view">
+                            <state key="normal" title="Created Time" image="sort_creation">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -80,7 +80,7 @@
                             <animations/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Modified Time" image="modifiedtime_sort_view">
+                            <state key="normal" title="Modified Time" image="sort_modification">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -133,11 +133,12 @@
         </view>
     </objects>
     <resources>
-        <image name="alphabet_sort_view" width="43" height="18"/>
-        <image name="color_sort_view" width="28" height="28"/>
         <image name="createdtime_sort_view" width="32" height="30"/>
-        <image name="modifiedtime_sort_view" width="29" height="27"/>
         <image name="reminder_sort_view" width="27" height="29"/>
+        <image name="sort_atoz" width="42" height="38"/>
+        <image name="sort_color" width="32" height="32"/>
+        <image name="sort_creation" width="40" height="37"/>
+        <image name="sort_modification" width="38" height="38"/>
         <image name="sort_pop_up" width="18" height="30"/>
     </resources>
 </document>

@@ -102,6 +102,7 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
             cell.addSubview(insideView);
         }
             else {
+            
             if(indexPath.row == 3)
             {
                 let singleline = UIView(frame: CGRectMake(0, 0, cell.frame.width, 1));
@@ -112,9 +113,18 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
             cell.textLabel!.text = menuName[indexPath.row]
             cell.textLabel?.textColor = UIColor(rgba: "#636363");
             cell.separatorInset.left = 60
-            cell.imageView?.sizeThatFits(CGSize(width: 26, height: 26))
-            cell.imageView?.image = UIImage(named: menuImage[indexPath.row])
-            cell.imageView?.tintColor = UIColor(rgba: "#636363");
+            
+            let imageview = UIImageView(frame: CGRectMake(15,10,24,24))
+            imageview.image = UIImage(named: menuImage[indexPath.row])
+            
+            imageview.contentMode = UIViewContentMode.ScaleAspectFit
+            imageview.image = imageview.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+            imageview.tintColor = UIColor(rgba: "#636363")
+            cell.addSubview(imageview)
+            
+            //cell.imageView?.sizeThatFits(CGSize(width: 10, height: 10))
+            //cell.imageView?.image = UIImage(named: menuImage[indexPath.row])
+            //cell.imageView?.tintColor = UIColor(rgba: "#636363");
             
         }
         return cell
