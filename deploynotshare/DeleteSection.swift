@@ -16,8 +16,23 @@ class DeleteSection: UIView {
     @IBOutlet weak var deleteButton: UIButton!
     
     @IBAction func deleteButtonTap(sender: AnyObject) {
-        NoteElementModel.delete(NoteElementID)
-        topView.removeFromSuperview()
+        
+        let editalert = UIAlertController(title: "Delete Section", message: "Are you sure you want to delete this section.", preferredStyle: UIAlertControllerStyle.Alert)
+        let eidtcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+            
+        }
+        let editesave = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+            
+            NoteElementModel.delete(self.NoteElementID)
+            self.topView.removeFromSuperview()
+        }
+        editalert.addAction(eidtcancel)
+        editalert.addAction(editesave)
+       
+        let controller = GDetailView as! detailViewController!
+        controller.presentViewController(editalert, animated: true) { () -> Void in
+            
+        }
     }
     
     func setID(id:Int64) {
@@ -25,7 +40,6 @@ class DeleteSection: UIView {
     }
     
     override init(frame: CGRect) {
-       
         super.init(frame: frame)
         loadViewFromNib ()
     }
@@ -41,5 +55,6 @@ class DeleteSection: UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
+        
     }
 }

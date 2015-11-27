@@ -39,6 +39,8 @@ class ElementImage:UIView {
         deleteView = DeleteSection(frame: CGRectMake(self.frame.size.width - left , 0, 30, 30))
         self.addSubview(deleteView)
         
+        
+        
     }
     
     func showDelete () {
@@ -53,7 +55,4 @@ class ElementImage:UIView {
         deleteView.frame = CGRectMake(self.frame.size.width - left - 30 , 0, 30, 30)
         deleteView.animation.moveX(30).animate(transitionTime)
     }
-
-    
-    
 }

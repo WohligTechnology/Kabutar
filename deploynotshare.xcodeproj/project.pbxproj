@@ -289,8 +289,8 @@
 		36F568281C08372000CBE128 /* DeleteSection */ = {
 			isa = PBXGroup;
 			children = (
-				36F568291C08373A00CBE128 /* DeleteSection.swift */,
 				36F5682A1C08373A00CBE128 /* DeleteSection.xib */,
+				36F568291C08373A00CBE128 /* DeleteSection.swift */,
 			);
 			name = DeleteSection;
 			sourceTree = "<group>";
