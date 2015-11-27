@@ -23,6 +23,7 @@ html {
 body {
     min-height: 100%;
     overflow: hidden;
+    background: transparent;
 }
 
 body, h1, p {
@@ -51,4 +52,5 @@ body, h1, p {
 	color:#666666; 
 	line-height:28px; 
 	font-size: 12pt;
+    background: transparent;
 }

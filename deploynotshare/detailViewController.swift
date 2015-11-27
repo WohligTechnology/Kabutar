@@ -52,6 +52,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         
         self.navigationItem.rightBarButtonItem = bc
         GDetailView = self
+        self.view.backgroundColor = UIColor.redColor()
         vLayout = VerticalFitLayout(width: view.frame.width)
         GvLayout = vLayout
         self.ScrView.alpha  = 0

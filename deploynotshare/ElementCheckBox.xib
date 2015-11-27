@@ -28,7 +28,6 @@
                 </textField>
             </subviews>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="o9b-BM-SR2" secondAttribute="trailing" constant="8" id="1Es-Ne-gcY"/>
                 <constraint firstAttribute="bottom" secondItem="o9b-BM-SR2" secondAttribute="bottom" id="UXH-eG-ETX"/>

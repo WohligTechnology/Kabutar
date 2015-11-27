@@ -97,7 +97,6 @@
                 </button>
             </subviews>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="hMp-aW-ah9" secondAttribute="bottom" constant="7" id="BEF-I5-EqZ"/>
                 <constraint firstItem="JxW-Hf-Lgh" firstAttribute="leading" secondItem="N5h-KY-8b4" secondAttribute="trailing" constant="10" id="CDB-cu-2Sy"/>

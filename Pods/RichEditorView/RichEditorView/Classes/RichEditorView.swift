@@ -147,15 +147,15 @@ public class RichEditorView: UIView {
     
     
     private func setup() {
-        self.backgroundColor = UIColor.redColor()
-        
+        self.backgroundColor = UIColor.clearColor()
         webView.frame = self.bounds
         webView.delegate = self
         webView.keyboardDisplayRequiresUserAction = false
         webView.scalesPageToFit = false
         webView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         webView.dataDetectorTypes = .None
-        webView.backgroundColor = UIColor.whiteColor()
+        webView.opaque = false;
+        webView.backgroundColor = UIColor.clearColor()
         
         webView.scrollView.scrollEnabled = scrollEnabled
         webView.scrollView.bounces = false
