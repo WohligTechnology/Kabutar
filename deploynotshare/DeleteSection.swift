@@ -29,7 +29,7 @@ class DeleteSection: UIView {
         editalert.addAction(eidtcancel)
         editalert.addAction(editesave)
        
-        let controller = GDetailView as! detailViewController!
+        let controller = GDetailView 
         controller.presentViewController(editalert, animated: true) { () -> Void in
             
         }
