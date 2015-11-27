@@ -36,14 +36,6 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         super.viewDidLoad()
         
         loadingCompleted = false
-        //initNavigationItemTitleView();
-        
-//        let recognizer = UITapGestureRecognizer(target: self.title, action: "titleWasTapped")
-//        self.title.userInteractionEnabled = true
-//        self.title.addGestureRecognizer(recognizer)
-        
-        
-        
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name: UIKeyboardWillChangeFrameNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasHidden:"), name:UIKeyboardWillHideNotification, object: nil);

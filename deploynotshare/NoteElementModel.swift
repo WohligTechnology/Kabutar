@@ -43,10 +43,13 @@ public class NoteElement {
         var value5:Int64!
         
         for row in value {
-            value5 = row[0] as! Int64!
-            value5 = value5 - 150
+            if(row[0] != nil)
+            {
+                value5 = row[0] as! Int64!
+                value5 = value5 - 150
+            }
         }
-        
+
         if(value5 != nil) {
             let diff =  CGFloat(value5) - layout.frame.height
             if(diff > 0)
@@ -67,10 +70,12 @@ public class NoteElement {
         
         
         for row in value {
-            print(row[0].dynamicType)
-            
-            value5 = row[0] as! Int64!
-            value5 = value5 - 150
+            print(row[0]);
+            if(row[0] != nil)
+            {
+                value5 = row[0] as! Int64!
+                value5 = value5 - 150
+            }
         }
         
         if(value5 != nil) {

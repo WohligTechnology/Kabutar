@@ -13,37 +13,37 @@ class DetailViewFooterMain: UIView {
  
     
     @IBAction func deleteSectionTap(sender: AnyObject) {
-        let DetailViewCtrl = GDetailView as! detailViewController
+        let DetailViewCtrl = GDetailView
         DetailViewCtrl.deleteTap();
     }
     
     @IBAction func addTextTap(sender: AnyObject) {
         NoteElementModel.addHeightOffset(GvLayout)
-        let DetailViewCtrl = GDetailView as! detailViewController
+        let DetailViewCtrl = GDetailView
         DetailViewCtrl.addTextTap(true);
     }
     
     @IBAction func addImageTap(sender: AnyObject) {
         NoteElementModel.addHeightOffset(GvLayout)
-        let DetailViewCtrl = GDetailView as! detailViewController
+        let DetailViewCtrl = GDetailView
         DetailViewCtrl.addImageTap();
     }
     
   
     @IBAction func addSketchTap(sender: AnyObject) {
-        let DetailViewCtrl = GDetailView as! detailViewController
+        let DetailViewCtrl = GDetailView
         DetailViewCtrl.addSketchTap();
     }
    
     @IBAction func addAudioTap(sender: AnyObject) {
         NoteElementModel.addHeightOffset(GvLayout)
-        let DetailViewCtrl = GDetailView as! detailViewController
+        let DetailViewCtrl = GDetailView
         DetailViewCtrl.addAudioTap(true);
     }
     
     @IBAction func addCheckBox(sender: AnyObject) {
         NoteElementModel.addHeightOffset(GvLayout)
-        let DetailViewCtrl = GDetailView as! detailViewController
+        let DetailViewCtrl = GDetailView
         DetailViewCtrl.addCheckBox(true);
     }
     override init(frame: CGRect) {

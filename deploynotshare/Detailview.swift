@@ -10,7 +10,7 @@ import UIKit
 import MGSwipeTableCell
 import EventKit
 
-class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchResultsUpdating {
+class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchResultsUpdating, UIViewControllerPreviewingDelegate {
 
     @IBOutlet weak var detailtableview: UITableView!
     var notesTitle:[String] = []
@@ -31,6 +31,8 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+       
         
         ViewForNotes = self;
         
@@ -79,6 +81,33 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         
         //Show search on scroll
         self.detailtableview.setContentOffset(CGPoint(x: 0,y: 44), animated: true)
+        
+        if traitCollection.forceTouchCapability == UIForceTouchCapability.Available {
+            // register UIViewControllerPreviewingDelegate to enable Peek & Pop
+            registerForPreviewingWithDelegate(self, sourceView: view)
+            
+        }else {
+            // 3D Touch Unavailable : present alertController or
+            // Provide alternatives such as touch and hold..
+        }
+        
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        print("Force Touch is wokring");
+        guard let indexPath = detailtableview.indexPathForRowAtPoint(location), cell = detailtableview.cellForRowAtIndexPath(indexPath) else { return nil }
+        selectedNoteId = String(self.notesId[indexPath.row])
+        config.set("note_id", value2: String(selectedNoteId))
+        print(selectedNoteId);
+        let detailview = storyboard!.instantiateViewControllerWithIdentifier("detailViewController") as! detailViewController
+        return detailview
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+                
+        let detailview = storyboard!.instantiateViewControllerWithIdentifier("detailViewController") as! detailViewController
+        
+        showViewController(detailview as UIViewController, sender: self)
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController)
