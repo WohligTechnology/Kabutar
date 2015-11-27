@@ -11,7 +11,7 @@ import UIKit
 class ElementImage:UIView {
     
     @IBOutlet weak var imageView: UIImageView!
-    
+    var left:CGFloat = 5.0;
     var NoteElementID:Int64!
     var deleteView:DeleteSection!
     
@@ -36,7 +36,7 @@ class ElementImage:UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
-        deleteView = DeleteSection(frame: CGRectMake(self.frame.size.width, 0, 30, 30))
+        deleteView = DeleteSection(frame: CGRectMake(self.frame.size.width - left , 0, 30, 30))
         self.addSubview(deleteView)
         
     }
@@ -45,12 +45,12 @@ class ElementImage:UIView {
         print(self.NoteElementID);
         deleteView.setID(self.NoteElementID)
         deleteView.topView = self
-        deleteView.frame = CGRectMake(self.frame.size.width, 0, 30, 30)
+        deleteView.frame = CGRectMake(self.frame.size.width - left , 0, 30, 30)
         deleteView.animation.moveX(-30).animate(transitionTime)
         
     }
     func hideDelete() {
-        deleteView.frame = CGRectMake(self.frame.size.width+10 - 30 , 0, 30, 30)
+        deleteView.frame = CGRectMake(self.frame.size.width - left - 30 , 0, 30, 30)
         deleteView.animation.moveX(30).animate(transitionTime)
     }
 

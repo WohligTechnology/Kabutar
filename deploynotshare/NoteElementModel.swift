@@ -37,35 +37,51 @@ public class NoteElement {
     }
     func addHeightOffset(layout:VerticalLayout) {
         let noteid2 = Int64(config.get("note_id"))
-        let query = noteelement.filter(noteid == noteid2).order(contentB.desc)
-        let value = db.pluck( query );
-        if(value != nil) {
-            let value2 = strtol(value![contentB] as String!,nil,10)
-            let diff =  CGFloat(value2) - layout.frame.height
+        let value = db.prepare("SELECT MAX(CAST(`contentB` AS INTEGER )) as `max` FROM `NoteElement`   WHERE `noteid` = '\(noteid2!)'");
+        
+        
+        var value5:Int64!
+        
+        for row in value {
+             value5 = row[0] as! Int64!
+            value5 = value5 - 300
+        }
+        
+        if(value5 != nil) {
+            let diff =  CGFloat(value5) - layout.frame.height
             if(diff > 0)
             {
                 let newView = UIView(frame: CGRectMake(0,0,1, diff))
                 layout.addSubview(newView)
             }
         }
-        
     }
     
     func addHeightOffset(layout:VerticalLayout,order2: Int64) {
         let noteid2 = Int64(config.get("note_id"))
         let query = noteelement.filter(noteid == noteid2 && order < order2).order(contentB.desc)
-        let value = db.pluck( query );
-        if(value != nil)
-        {
-            let value2 = strtol(value![contentB] as String!,nil,10)
-            let diff =  CGFloat(value2) - layout.frame.height
+        let value = db.prepare("SELECT MAX(CAST(`contentB` AS INTEGER )) as `max` FROM `NoteElement`   WHERE `noteid` = '\(noteid2!)' AND `order` < '\(order2)' ");
+        
+        var value5:Int64!
+        print("DEMO");
+        print(value);
+        
+        
+        for row in value {
+            print(row[0].dynamicType)
+            
+            value5 = row[0] as! Int64!
+            value5 = value5 - 180
+        }
+        
+        if(value5 != nil) {
+            let diff =  CGFloat(value5) - layout.frame.height
             if(diff > 0)
             {
                 let newView = UIView(frame: CGRectMake(0,0,1, diff))
                 layout.addSubview(newView)
             }
         }
-        
     }
     
     func get(id2 : Int64) -> Row? {

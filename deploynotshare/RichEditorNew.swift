@@ -10,7 +10,7 @@ import UIKit
 import RichEditorView
 
 class RichEditorNew: RichEditorView {
-   
+    let left : CGFloat = 5;
     var deleteView:DeleteSection!
 
     func showDelete () {
@@ -18,17 +18,16 @@ class RichEditorNew: RichEditorView {
         {
             deleteView.removeFromSuperview();
         }
-        deleteView = DeleteSection(frame: CGRectMake(self.frame.size.width + 5, 0, 30, 30))
+        deleteView = DeleteSection(frame: CGRectMake(self.frame.size.width - left, 0, 30, 30))
         self.addSubview(deleteView)
         print(self.NoteElementID);
         deleteView.setID(self.NoteElementID)
         deleteView.topView = self
-        deleteView.frame = CGRectMake(self.frame.size.width + 5, 0, 30, 30)
+        deleteView.frame = CGRectMake(self.frame.size.width - left , 0, 30, 30)
         deleteView.animation.moveX(-30).animate(transitionTime)
-        
     }
     func hideDelete() {
-        deleteView.frame = CGRectMake(self.frame.size.width+10 - 30 , 0, 30, 30)
+        deleteView.frame = CGRectMake(self.frame.size.width - left  - 30 , 0, 30, 30)
         deleteView.animation.moveX(30).animate(transitionTime)
     }
 
