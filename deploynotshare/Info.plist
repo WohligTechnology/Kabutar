@@ -50,7 +50,7 @@
     <array>
         <dict>
             <key>UIApplicationShortcutItemIconFile</key>
-            <string>StarTemplate</string>
+            <string>play_audio</string>
             <key>UIApplicationShortcutItemTitle</key>
             <string>Create Note</string>
             <key>UIApplicationShortcutItemType</key>
@@ -63,7 +63,7 @@
         </dict>
         <dict>
             <key>UIApplicationShortcutItemIconFile</key>
-            <string>EyeTemplate</string>
+            <string>menu_folder</string>
             <key>UIApplicationShortcutItemTitle</key>
             <string>Folder</string>
             <key>UIApplicationShortcutItemType</key>
@@ -76,7 +76,7 @@
         </dict>
         <dict>
             <key>UIApplicationShortcutItemIconFile</key>
-            <string>HeartTemplate</string>
+            <string>menu_notification</string>
             <key>UIApplicationShortcutItemTitle</key>
             <string>Notification</string>
             <key>UIApplicationShortcutItemType</key>
