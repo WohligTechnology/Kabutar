@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -17,7 +17,7 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="3Dk-pT-0BE"/>
                     </constraints>
-                    <state key="normal" image="brushsketch"/>
+                    <state key="normal" image="draw_brush"/>
                     <connections>
                         <action selector="brushChange:" destination="-1" eventType="touchUpInside" id="5cG-6G-VBM"/>
                     </connections>
@@ -28,7 +28,7 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="arA-Hb-c2z"/>
                     </constraints>
-                    <state key="normal" image="highlightsketch"/>
+                    <state key="normal" image="draw_highlight"/>
                     <connections>
                         <action selector="highlightChange:" destination="-1" eventType="touchUpInside" id="q6N-BU-6Xz"/>
                     </connections>
@@ -39,7 +39,7 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="tax-k8-IF9"/>
                     </constraints>
-                    <state key="normal" image="erasersketch"/>
+                    <state key="normal" image="draw_rubber"/>
                     <connections>
                         <action selector="eraserChange:" destination="-1" eventType="touchUpInside" id="o3d-Wj-s9Q"/>
                     </connections>
@@ -50,7 +50,7 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="25" id="Wuk-so-7hv"/>
                     </constraints>
-                    <state key="normal" image="clear"/>
+                    <state key="normal" image="draw_clear"/>
                     <connections>
                         <action selector="undoChange:" destination="-1" eventType="touchUpInside" id="yj2-07-AGa"/>
                     </connections>
@@ -77,9 +77,9 @@
         </view>
     </objects>
     <resources>
-        <image name="brushsketch" width="32" height="37"/>
-        <image name="clear" width="150" height="156"/>
-        <image name="erasersketch" width="44" height="31"/>
-        <image name="highlightsketch" width="49" height="43"/>
+        <image name="draw_brush" width="23" height="20"/>
+        <image name="draw_clear" width="21" height="22"/>
+        <image name="draw_highlight" width="26" height="23"/>
+        <image name="draw_rubber" width="23" height="17"/>
     </resources>
 </document>
