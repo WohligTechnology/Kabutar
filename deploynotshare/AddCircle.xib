@@ -30,6 +30,6 @@
         </view>
     </objects>
     <resources>
-        <image name="create_circle" width="124" height="125"/>
+        <image name="create_circle" width="70" height="70"/>
     </resources>
 </document>

@@ -81,7 +81,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iC9-YX-1Rb">
-                    <rect key="frame" x="199" y="8" width="28" height="28"/>
+                    <rect key="frame" x="204" y="8" width="28" height="28"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="28" id="LX2-5t-DeA"/>
@@ -109,7 +109,7 @@
                 <constraint firstItem="jqt-UY-Qcu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="XXl-hn-kKv"/>
                 <constraint firstAttribute="bottom" secondItem="Dvb-cN-Tz1" secondAttribute="bottom" constant="8" id="YAe-Vq-vpq"/>
                 <constraint firstItem="iC9-YX-1Rb" firstAttribute="top" secondItem="Gix-VI-GHY" secondAttribute="top" id="Znx-hk-qkf"/>
-                <constraint firstItem="iC9-YX-1Rb" firstAttribute="leading" secondItem="Gix-VI-GHY" secondAttribute="trailing" constant="8" symbolic="YES" id="aCt-QX-Rhv"/>
+                <constraint firstItem="iC9-YX-1Rb" firstAttribute="leading" secondItem="Gix-VI-GHY" secondAttribute="trailing" constant="13" id="aCt-QX-Rhv"/>
                 <constraint firstItem="Dvb-cN-Tz1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="aav-ju-3gJ"/>
                 <constraint firstAttribute="trailing" secondItem="16V-Y4-377" secondAttribute="trailing" constant="8" id="bxU-TS-aGn"/>
                 <constraint firstItem="Gix-VI-GHY" firstAttribute="leading" secondItem="Dvb-cN-Tz1" secondAttribute="trailing" constant="13" id="p9r-5L-Lac"/>
