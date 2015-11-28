@@ -232,6 +232,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        
+        
+        let seconds = transitionTime
+        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        
+        
+        
+        
+        
+        
+        
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let folderViewController = storyboard.instantiateViewControllerWithIdentifier("TableViewController") as! TableViewController
+            let folderViewController2 = UINavigationController(rootViewController: folderViewController)
+            
+            let SettingView = storyboard.instantiateViewControllerWithIdentifier("SettingViewController") as! SettingViewController
+            let SettingView2 = UINavigationController(rootViewController: SettingView)
+            
+            let sideMenuController  = slideMenuLeft as! SlideMenuController
+            
+            switch(shortcutItem.type)
+            {
+            case "setting":
+                print("Setting");
+                
+                sideMenuController.changeMainViewController(SettingView2, close: true)
+                
+            case "folder":
+                
+                isInsideFolder = 1
+                sideMenuController.changeMainViewController(folderViewController2, close: true)
+                
+            case "createNote":
+                print("CreateNote");
+            default:
+                break;
+            }
+            
+        })
+        
+    }
 
 
 }

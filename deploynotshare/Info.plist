@@ -54,7 +54,7 @@
             <key>UIApplicationShortcutItemTitle</key>
             <string>Create Note</string>
             <key>UIApplicationShortcutItemType</key>
-            <string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenFavorites</string>
+            <string>createNote</string>
             <key>UIApplicationShortcutItemUserInfo</key>
             <dict>
                 <key>version</key>
@@ -67,7 +67,7 @@
             <key>UIApplicationShortcutItemTitle</key>
             <string>Folder</string>
             <key>UIApplicationShortcutItemType</key>
-            <string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenFeatured</string>
+            <string>folder</string>
             <key>UIApplicationShortcutItemUserInfo</key>
             <dict>
                 <key>version</key>
@@ -76,11 +76,11 @@
         </dict>
         <dict>
             <key>UIApplicationShortcutItemIconFile</key>
-            <string>menu_notification</string>
+            <string>menu_setting</string>
             <key>UIApplicationShortcutItemTitle</key>
-            <string>Notification</string>
+            <string>Setting</string>
             <key>UIApplicationShortcutItemType</key>
-            <string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenTopRated</string>
+            <string>setting</string>
             <key>UIApplicationShortcutItemUserInfo</key>
             <dict>
                 <key>version</key>
