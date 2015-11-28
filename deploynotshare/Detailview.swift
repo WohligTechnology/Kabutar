@@ -25,7 +25,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     let width = UIScreen.mainScreen().bounds.size.width
     let height = UIScreen.mainScreen().bounds.size.height
     var resultSearchController = UISearchController!()
-    
+    var forceId:Int!
     var searchTable = ""
     
     override func viewDidLoad() {
@@ -35,6 +35,8 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
        
         
         ViewForNotes = self;
+        
+        
         
         //let note2 = Note()
         //note2.servertolocal();
@@ -95,19 +97,35 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         print("Force Touch is wokring");
+        
         guard let indexPath = detailtableview.indexPathForRowAtPoint(location), cell = detailtableview.cellForRowAtIndexPath(indexPath) else { return nil }
-        selectedNoteId = String(self.notesId[indexPath.row])
-        config.set("note_id", value2: String(selectedNoteId))
-        print(selectedNoteId);
-        let detailview = storyboard!.instantiateViewControllerWithIdentifier("detailViewController") as! detailViewController
-        return detailview
+        
+        print("COUNT: \(self.notesId.count) INDEXPATH = \(indexPath.row)" )
+        
+        if(indexPath.row >= self.notesId.count) {
+            forceId = nil
+            return nil
+        }
+        else
+        {
+            forceId = indexPath.row;
+            selectedNoteId = String(self.notesId[indexPath.row])
+            config.set("note_id", value2: String(selectedNoteId))
+            print(selectedNoteId);
+            let detailview = storyboard!.instantiateViewControllerWithIdentifier("detailViewController") as! detailViewController
+            return detailview
+        }
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
-                
-        let detailview = storyboard!.instantiateViewControllerWithIdentifier("detailViewController") as! detailViewController
-        
-        showViewController(detailview as UIViewController, sender: self)
+        if(forceId != nil)
+        {
+            selectedNoteId = String(self.notesId[forceId])
+            config.set("note_id", value2: String(selectedNoteId))
+            if(loadingCompleted) {
+                self.performSegueWithIdentifier("showdetaildetailview", sender: self)
+            }
+        }
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController)

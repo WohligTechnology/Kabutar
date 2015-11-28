@@ -9,9 +9,10 @@
 import UIKit
 import MGSwipeTableCell
 
-class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating {
+class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating, UIViewControllerPreviewingDelegate {
 
     @IBOutlet weak var listView: UITableView!
+    var forceId:Int!
     let mainColor = PinkColor
     var notesTitle:[String] = []
     var notesId:[Int64] = []
@@ -57,6 +58,46 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         
         //Show search on scroll
         self.listView.setContentOffset(CGPoint(x: 0,y: 44), animated: true)
+        
+        if traitCollection.forceTouchCapability == UIForceTouchCapability.Available {
+            // register UIViewControllerPreviewingDelegate to enable Peek & Pop
+            registerForPreviewingWithDelegate(self, sourceView: view)
+            
+        }else {
+            // 3D Touch Unavailable : present alertController or
+            // Provide alternatives such as touch and hold..
+        }
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        print("Force Touch is wokring");
+        guard let indexPath = listView.indexPathForRowAtPoint(location), cell = listView.cellForRowAtIndexPath(indexPath) else { return nil }
+        
+        print("COUNT: \(self.notesId.count) INDEXPATH = \(indexPath.row)" )
+        
+        if(indexPath.row >= self.notesId.count) {
+            forceId = nil
+            return nil
+        }
+        else
+        {
+            forceId = indexPath.row;
+            selectedNoteId = String(self.notesId[indexPath.row])
+            config.set("note_id", value2: String(selectedNoteId))
+            print(selectedNoteId);
+            let detailview = storyboard!.instantiateViewControllerWithIdentifier("detailViewController") as! detailViewController
+            return detailview
+        }    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        if(forceId != nil)
+        {
+            selectedNoteId = String(self.notesId[forceId])
+            config.set("note_id", value2: String(selectedNoteId))
+            if(loadingCompleted) {
+                self.performSegueWithIdentifier("showdetaildetailview", sender: self)
+            }
+        }
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController)

@@ -147,8 +147,9 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            loadingCompleted = true
+            
             self.ScrView.animation.makeOpacity(1.0).animate(transitionTime);
+            loadingCompleted = true
         })
         
         
