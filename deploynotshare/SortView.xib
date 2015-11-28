@@ -23,7 +23,7 @@
                         <color key="textColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
                     </textAttributes>
                     <items>
-                        <navigationItem title="Sort By" id="gQg-tg-EA8"/>
+                        <navigationItem title="SORT" id="gQg-tg-EA8"/>
                     </items>
                 </navigationBar>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sort_pop_up" translatesAutoresizingMaskIntoConstraints="NO" id="6rw-F6-NkM">
