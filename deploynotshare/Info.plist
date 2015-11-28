@@ -45,6 +45,50 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+    
+    <key>UIApplicationShortcutItems</key>
+    <array>
+        <dict>
+            <key>UIApplicationShortcutItemIconFile</key>
+            <string>StarTemplate</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>Create Note</string>
+            <key>UIApplicationShortcutItemType</key>
+            <string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenFavorites</string>
+            <key>UIApplicationShortcutItemUserInfo</key>
+            <dict>
+                <key>version</key>
+                <string>3</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>UIApplicationShortcutItemIconFile</key>
+            <string>EyeTemplate</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>Folder</string>
+            <key>UIApplicationShortcutItemType</key>
+            <string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenFeatured</string>
+            <key>UIApplicationShortcutItemUserInfo</key>
+            <dict>
+                <key>version</key>
+                <string>3</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>UIApplicationShortcutItemIconFile</key>
+            <string>HeartTemplate</string>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>Notification</string>
+            <key>UIApplicationShortcutItemType</key>
+            <string>$(PRODUCT_BUNDLE_IDENTIFIER).OpenTopRated</string>
+            <key>UIApplicationShortcutItemUserInfo</key>
+            <dict>
+                <key>version</key>
+                <string>3</string>
+            </dict>
+        </dict>
+    </array>
+    
 	<key>FacebookAppID</key>
 	<string>914213595337843</string>
 	<key>FacebookDisplayName</key>
