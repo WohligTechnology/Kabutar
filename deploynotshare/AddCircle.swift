@@ -35,54 +35,37 @@ class AddCircle: UIView {
 
     @IBAction func CreateNoteTap(sender: AnyObject) {
         let checkstatus = config.get("note_view");
-        switch(checkstatus) {
-        case "1": mainview = ViewForNotes as! Detailview;
-        case "2": mainview = ViewForNotes as! Listview;
-        case "3": mainview = ViewForNotes as! cardViewController;
-        default : mainview = ViewForNotes as! Detailview;
-        }
-//        let mainview = ViewForNotes as! cardViewController
-        var createfolsername: UITextField!
-        let createalert = UIAlertController(title: "Create Note", message: "Note name", preferredStyle: UIAlertControllerStyle.Alert)
-        let createcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            
-        }
-        let createsave = UIAlertAction(title: "Create", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            self.notesobj.create(createfolsername.text!,background2: "background",color2: "10", folder2: 0, islocked2: 0,paper2: "",reminderTime2: 0,serverid2: "",tags2: "",timebomb2: 0)
-
-            let checkstatus = config.get("note_view")
-            switch(checkstatus) {
-            case "1":
-                let otherCtrl = ViewForNotes as! Detailview;
-                otherCtrl.getAllNotes()
-                otherCtrl.detailtableview!.reloadData()
-            case "2":
-                let otherCtrl = ViewForNotes as! Listview;
-                otherCtrl.getAllNotes()
-                otherCtrl.listView!.reloadData()
-                
-            case "3":
-                let otherCtrl = ViewForNotes as! cardViewController;
-                otherCtrl.getAllNotes()
-                otherCtrl.collectionView!.reloadData()
-            default :
-                let otherCtrl = ViewForNotes as! Detailview;
-                otherCtrl.getAllNotes()
-                otherCtrl.detailtableview!.reloadData()
-            }
-            
-
-        }
-        createalert.addAction(createcancel)
-        createalert.addAction(createsave)
-        createalert.addTextFieldWithConfigurationHandler { createfoldertext -> Void in
-            createfoldertext.placeholder = "Folder name"
-            createfolsername = createfoldertext
-        }
-        mainview.presentViewController(createalert, animated: true) { () -> Void in
-            
-        }
-       
+        let noteid = self.notesobj.createnoname("",background2: "background",color2: "10", folder2: 0, islocked2: 0,paper2: "",reminderTime2: 0,serverid2: "",tags2: "",timebomb2: 0)
         
+        
+        
+        
+        if(checkstatus == "2"){
+            let mainview = ViewForNotes as! Listview
+            mainview.getAllNotes()
+            mainview.listView!.reloadData()
+            mainview.getselectedNote(noteid)
+            mainview.performSegueWithIdentifier("showdetaillistview", sender: self)
+        }else if(checkstatus == "1"){
+            let mainview = ViewForNotes as! Detailview
+            mainview.getAllNotes()
+            mainview.detailtableview!.reloadData()
+            mainview.getselectedNote(noteid)
+            mainview.performSegueWithIdentifier("showdetaildetailview", sender: self)
+        }else if(checkstatus == "3"){
+            let mainview = ViewForNotes as! cardViewController
+            mainview.getAllNotes()
+            mainview.collectionView!.reloadData()
+            mainview.getselectedNote(noteid)
+            mainview.performSegueWithIdentifier("showdetail", sender: self)
+        }
+        else if(checkstatus == ""){
+            let mainview = ViewForNotes as! Detailview
+            mainview.getAllNotes()
+            mainview.detailtableview!.reloadData()
+            mainview.getselectedNote(noteid)
+            mainview.performSegueWithIdentifier("showdetaildetailview", sender: self)
+        }
+                
     }
 }

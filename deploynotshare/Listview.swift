@@ -539,6 +539,11 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         }
     }
 
+    func getselectedNote(val:Int64) {
+        selectedNoteIndex = (self.notesId.indexOf(val))!
+        
+    }
+    
     /*
     // MARK: - Navigation
 

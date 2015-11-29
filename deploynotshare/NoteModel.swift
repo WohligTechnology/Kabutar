@@ -56,6 +56,15 @@ public class Note {
         let insert = note.insert( title <- title2, creationTime <- Int64(date), modificationTime <- Int64(date), background <- background2, color <- color2, folder <- folder2, islocked <- islocked2,paper <- paper2 , reminderTime <- reminderTime2, serverid <- serverid2, tags <- tags2 , timebomb <- timebomb2)
         try! db.run(insert)
     }
+    func createnoname(title2:String,background2:String,color2:String,folder2:Int64,islocked2:Int64,paper2:String,reminderTime2:Int64,serverid2:String,tags2:String,timebomb2:Int64) -> Int64 {
+        let date = NSDate().timeIntervalSince1970
+        let insert = note.insert( title <- title2, creationTime <- Int64(date), modificationTime <- Int64(date), background <- background2, color <- color2, folder <- folder2, islocked <- islocked2,paper <- paper2 , reminderTime <- reminderTime2, serverid <- serverid2, tags <- tags2 , timebomb <- timebomb2)
+        let val = try! db.run(insert)
+        
+        self.changeTitle("Note \(val)", id2: String(val))
+        config.set("note_id", value2: String(val))
+        return val;
+    }
     
     func findOne(id2:Int64) -> Row?  {
         

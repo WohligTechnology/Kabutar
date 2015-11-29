@@ -270,7 +270,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 sideMenuController.changeMainViewController(folderViewController2, close: true)
                 
             case "createNote":
-                print("CreateNote");
+                
+                let checkstatus = config.get("note_view");
+                let notesobj = Note()
+                let noteid = notesobj.createnoname("",background2: "background",color2: "10", folder2: 0, islocked2: 0,paper2: "",reminderTime2: 0,serverid2: "",tags2: "",timebomb2: 0)
+                
+                
+                
+                if(checkstatus == "2"){
+                    let mainview = ViewForNotes as! Listview
+                    mainview.getAllNotes()
+                    mainview.listView!.reloadData()
+                    mainview.getselectedNote(noteid)
+                    mainview.performSegueWithIdentifier("showdetaillistview", sender: self)
+                }else if(checkstatus == "1"){
+                    let mainview = ViewForNotes as! Detailview
+                    mainview.getAllNotes()
+                    mainview.detailtableview!.reloadData()
+                    mainview.getselectedNote(noteid)
+                    mainview.performSegueWithIdentifier("showdetaildetailview", sender: self)
+                }else if(checkstatus == "3"){
+                    let mainview = ViewForNotes as! cardViewController
+                    mainview.getAllNotes()
+                    mainview.collectionView!.reloadData()
+                    mainview.getselectedNote(noteid)
+                    mainview.performSegueWithIdentifier("showdetail", sender: self)
+                }
+                else if(checkstatus == ""){
+                    let mainview = ViewForNotes as! Detailview
+                    mainview.getAllNotes()
+                    mainview.detailtableview!.reloadData()
+                    mainview.getselectedNote(noteid)
+                    mainview.performSegueWithIdentifier("showdetaildetailview", sender: self)
+                }
+                
             default:
                 break;
             }

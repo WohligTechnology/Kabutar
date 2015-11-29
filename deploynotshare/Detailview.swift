@@ -466,6 +466,12 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
             
         }
     }
+    
+    
+    func getselectedNote(val:Int64) {
+        selectedNoteIndex = (self.notesId.indexOf(val))!
+        
+    }
 
 
     /*

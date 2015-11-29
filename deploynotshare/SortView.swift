@@ -33,6 +33,11 @@ class SortView: UIView {
             mainview.getAllNotes()
             mainview.collectionView!.reloadData()
         }
+        else if(checkstatus == ""){
+            let mainview = ViewForNotes as! cardViewController
+            mainview.getAllNotes()
+            mainview.collectionView!.reloadData()
+        }
         let newnoteFooter = noteFooter as! NoteFooterAdd
         newnoteFooter.closeNewSortView(nil)
     }

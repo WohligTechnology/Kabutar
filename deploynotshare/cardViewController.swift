@@ -256,4 +256,10 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         }
     }
     
+    
+    func getselectedNote(val:Int64) {
+        selectedNoteIndex = (self.notesId.indexOf(val))!
+        
+    }
+    
 }
