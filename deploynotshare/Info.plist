@@ -50,7 +50,7 @@
     <array>
         <dict>
             <key>UIApplicationShortcutItemIconFile</key>
-            <string>play_audio</string>
+            <string>force_add</string>
             <key>UIApplicationShortcutItemTitle</key>
             <string>Create Note</string>
             <key>UIApplicationShortcutItemType</key>

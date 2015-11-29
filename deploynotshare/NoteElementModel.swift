@@ -46,7 +46,7 @@ public class NoteElement {
             if(row[0] != nil)
             {
                 value5 = row[0] as! Int64!
-                value5 = value5 - 150
+                value5 = value5 - 30
             }
         }
 
@@ -65,8 +65,6 @@ public class NoteElement {
         let value = db.prepare("SELECT MAX(CAST(`contentB` AS INTEGER )) as `max` FROM `NoteElement`   WHERE `noteid` = '\(noteid2!)' AND `order` < '\(order2)' ");
         
         var value5:Int64!
-        print("DEMO");
-        print(value);
         
         
         for row in value {
@@ -74,7 +72,7 @@ public class NoteElement {
             if(row[0] != nil)
             {
                 value5 = row[0] as! Int64!
-                value5 = value5 - 150
+                value5 = value5 - 30
             }
         }
         
