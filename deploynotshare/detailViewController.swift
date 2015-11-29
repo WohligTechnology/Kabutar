@@ -29,11 +29,13 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     var sketch:ElementSketch!
     var sketchFooter = ElementSketchFooter(frame: CGRectMake(width,0,width+10,44))
     let sideMenuController  = slideMenuLeft as! SlideMenuController
-    
+    var noteName:UITextField!
     var activeCheckbox : ElementCheckBox!
-    
+    let titleView = UILabel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initNavigationItemTitleView();
         
         loadingCompleted = false
         
@@ -230,7 +232,6 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     func keyboardWasHidden(notification: NSNotification) {
         keyboardOn = false
         let info = notification.userInfo!
-        
         UIView.animateWithDuration(0.1, animations: { () -> Void in
             self.FooterConstrain.constant = 0
         })
@@ -446,7 +447,6 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     }
     
     private func initNavigationItemTitleView() {
-        let titleView = UILabel()
         titleView.text = self.title
         titleView.textColor = UIColor.whiteColor()
         let width = titleView.sizeThatFits(CGSizeMake(CGFloat.max, CGFloat.max)).width
@@ -459,7 +459,61 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     }
     
     @objc private func titleWasTapped() {
-        NSLog("Hello, titleWasTapped!")
+        
+        
+        let editalert = UIAlertController(title: "Edit Note", message: "Note name", preferredStyle: UIAlertControllerStyle.Alert)
+        let eidtcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+            
+        }
+        let editesave = UIAlertAction(title: "Edit", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+            
+            
+            print(self.noteName.text);
+            
+            let notesobj = Note()
+            notesobj.changeTitle(self.noteName.text!,id2:config.get("note_id"))
+            
+            self.titleView.text =  self.noteName.text
+            self.titleView.textColor = UIColor.whiteColor()
+            let width = self.titleView.sizeThatFits(CGSizeMake(CGFloat.max, CGFloat.max)).width
+            self.titleView.frame = CGRect(origin:CGPointZero, size:CGSizeMake(width, 500))
+            self.navigationItem.titleView = self.titleView
+            
+            
+            let checkstatus = config.get("note_view")
+            print(checkstatus);
+            if(checkstatus == "2"){
+                let mainview = ViewForNotes as! Listview
+                mainview.getAllNotes()
+                mainview.listView!.reloadData()
+                
+            }else if(checkstatus == "1"){
+                let mainview = ViewForNotes as! Detailview
+                mainview.getAllNotes()
+                mainview.detailtableview!.reloadData()
+                
+            }else if(checkstatus == "3"){
+                let mainview = ViewForNotes as! cardViewController
+                mainview.getAllNotes()
+                mainview.collectionView!.reloadData()
+            
+            }else if(checkstatus == ""){
+                let mainview = ViewForNotes as! Detailview
+                mainview.getAllNotes()
+                mainview.detailtableview!.reloadData()
+            }
+        
+        }
+        editalert.addAction(eidtcancel)
+        editalert.addAction(editesave)
+        editalert.addTextFieldWithConfigurationHandler { createfoldertext -> Void in
+            createfoldertext.placeholder = "Note name"
+            createfoldertext.text = self.title
+            self.noteName = createfoldertext
+        }
+        presentViewController(editalert, animated: true) { () -> Void in
+            
+        }
     }
 
     

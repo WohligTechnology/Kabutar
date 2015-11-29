@@ -34,6 +34,9 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     
     
     override func viewDidLoad() {
+        
+        ViewForNotes = self;
+        
         super.viewDidLoad()
         if(isInsideFolder == 0)
         {
