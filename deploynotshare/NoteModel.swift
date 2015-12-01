@@ -208,7 +208,6 @@ public class Note {
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        dateFormatter.timeZone = NSTimeZone(name: "UTC")
         let creationTime3 = dateFormatter.dateFromString(creationTime2)
         let modificationTime3 = dateFormatter.dateFromString(modificationTime2)
         let creationTime4 = Int64((creationTime3?.timeIntervalSince1970)! )
@@ -277,7 +276,12 @@ public class Note {
                                         let newPath = NSURL(fileURLWithPath: path + "/" + filename )
                                         let fileManager = NSFileManager.defaultManager()
                                         
-                                        try! fileManager.moveItemAtURL(url, toURL: newPath)
+                                        do {
+                                        try fileManager.moveItemAtURL(url, toURL: newPath)
+                                        }
+                                        catch {
+                                            print("File Exists");
+                                        }
                                     }
                                 }
                             }
@@ -373,26 +377,14 @@ public class Note {
                     // change modify time to server
                     let dateFormatter = NSDateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                    dateFormatter.timeZone = NSTimeZone(name: "UTC")
                     let modval = dateFormatter.dateFromString(subJson["modifytime"].string!)! as NSDate
                     config.set("note_server_to_local", value2: String(Int64(modval.timeIntervalSince1970)))
                 }
                 
                 
             }
-            
-            
-            //config.set("note_local_to_server", value2: "0")
-            
             self.localtoserver()
-
-            
-            
         })
-        
-        
-        print(params)
-        
     }
     
     func getNoteStatementToSync() -> Statement {

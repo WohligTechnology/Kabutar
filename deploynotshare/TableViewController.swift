@@ -40,7 +40,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             folderName.addObject(row[a.name]!)
             folderId.addObject(String(row[a.id]))
         }
-        //a.servertolocal()
+        a.servertolocal()
         
         self.resultSearchController = UISearchController(searchResultsController: nil)
         self.resultSearchController.searchResultsUpdater = self

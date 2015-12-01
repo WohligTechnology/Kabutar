@@ -38,8 +38,8 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         
         
         
-        //let note2 = Note()
-        //note2.servertolocal();
+        let note2 = Note()
+        note2.servertolocal();
         
         getAllNotes()
         

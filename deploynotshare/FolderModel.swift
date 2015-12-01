@@ -60,7 +60,7 @@ public class Folder {
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        dateFormatter.timeZone = NSTimeZone(name: "UTC")
+        //dateFormatter.timeZone = NSTimeZone(name: "UTC")
         let creationTime3 = dateFormatter.dateFromString(creationTime2)
         let modificationTime3 = dateFormatter.dateFromString(modificationTime2)
         let creationTime4 = Int64((creationTime3?.timeIntervalSince1970)! )
@@ -82,6 +82,10 @@ public class Folder {
     }
     
     func  getIdFromServerID(serverID2: String) -> Int64 {
+        if(serverID2 == "0")
+        {
+            return 0
+        }
         let query = folder.filter(serverID == serverID2)
         let val = db.pluck( query );
         return val![id]
@@ -155,7 +159,7 @@ public class Folder {
                     // change modify time to server
                     let dateFormatter = NSDateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                    dateFormatter.timeZone = NSTimeZone(name: "UTC")
+                    //dateFormatter.timeZone = NSTimeZone(name: "UTC")
                     let modval = dateFormatter.dateFromString(subJson["modifytime"].string!)! as NSDate
                     
                     config.set("folder_server_to_local", value2: String(modval.timeIntervalSince1970))
