@@ -246,8 +246,8 @@ public class Note {
         {
             print(noteelements2);
             for noteElement2 in noteelements2.array! {
-                
-                let getFilePath = path + "/" + "SavedFile.jpg"
+                let filename = noteElement2["content"].string!
+                let getFilePath = path + "/" + filename
                 
                 let checkValidation = NSFileManager.defaultManager()
                 let fileType = noteElement2["type"].string!
@@ -259,7 +259,7 @@ public class Note {
                 {
                     print("FILE NOT AVAILABLE");
                     
-                    let filename = noteElement2["content"].string!
+                    
                     request.download(ServerURL + "user/getmedia?file=" + filename, parameters: nil, progress: {(complete: Double) in
                         print("percent complete: \(complete)")
                         }, completionHandler: {(response: HTTPResponse) in
