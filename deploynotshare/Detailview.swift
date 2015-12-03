@@ -198,7 +198,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
             self.view.addSubview(blackOut);
             blackOut.animation.makeAlpha(1).animate(transitionTime);
             
-            self.addColorPattern = ColorPattern(frame: CGRectMake(MainWidth/4 - 50,MainHeight/4, 300, 150))
+            self.addColorPattern = ColorPattern(frame: CGRectMake(MainWidth/4 - 50,MainHeight/4, 300, 200))
             self.view.addSubview(self.addColorPattern)
         }
         

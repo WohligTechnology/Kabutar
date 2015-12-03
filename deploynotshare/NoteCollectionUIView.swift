@@ -12,7 +12,9 @@ class NoteCollectionUIView: UIView {
 
         var view:UIView!;
 
+    @IBOutlet weak var moreBtn: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var shareBtn: UIButton!
   
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -33,6 +35,8 @@ class NoteCollectionUIView: UIView {
             view.frame = bounds
             view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
             self.addSubview(view);
+            var myImg = moreBtn.imageForState(.Normal)
+            myImg.t
             
         }
 
