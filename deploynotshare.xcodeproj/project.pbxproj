@@ -17,6 +17,7 @@
 		364EA4631BF20F70001B7161 /* ElementRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364EA4621BF20F70001B7161 /* ElementRecording.swift */; };
 		364EA4651BF20FC6001B7161 /* ElementRecording.xib in Resources */ = {isa = PBXBuildFile; fileRef = 364EA4641BF20FC6001B7161 /* ElementRecording.xib */; };
 		366420321BE4BF03003477CF /* FolderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366420311BE4BF03003477CF /* FolderModel.swift */; };
+		36685A0A1C0DAE1100113F2D /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36685A091C0DAE1100113F2D /* LocalAuthentication.framework */; };
 		366CE6011BFE6F550002A0C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 366CE6001BFE6F550002A0C7 /* GoogleService-Info.plist */; };
 		36E4166F1BEB1266007EE385 /* NoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E4166E1BEB1266007EE385 /* NoteCollectionViewCell.xib */; };
 		36E416711BEB12E0007EE385 /* NoteCollectionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E416701BEB12E0007EE385 /* NoteCollectionUIView.swift */; };
@@ -137,6 +138,7 @@
 		364EA4621BF20F70001B7161 /* ElementRecording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementRecording.swift; sourceTree = "<group>"; };
 		364EA4641BF20FC6001B7161 /* ElementRecording.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElementRecording.xib; sourceTree = "<group>"; };
 		366420311BE4BF03003477CF /* FolderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderModel.swift; sourceTree = "<group>"; };
+		36685A091C0DAE1100113F2D /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		366CE6001BFE6F550002A0C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36E4166E1BEB1266007EE385 /* NoteCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteCollectionViewCell.xib; sourceTree = "<group>"; };
 		36E416701BEB12E0007EE385 /* NoteCollectionUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCollectionUIView.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36685A0A1C0DAE1100113F2D /* LocalAuthentication.framework in Frameworks */,
 				36F7AE1D1BFB813B00596BBF /* FBSDKLoginKit.framework in Frameworks */,
 				36F7AE1E1BFB813B00596BBF /* FBSDKCoreKit.framework in Frameworks */,
 				CB6D02908480861E8104DBED /* Pods.framework in Frameworks */,
@@ -268,6 +271,7 @@
 		1C7BA6D68224D94EBFF5D85C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				36685A091C0DAE1100113F2D /* LocalAuthentication.framework */,
 				36F7AE1B1BFB813B00596BBF /* FBSDKLoginKit.framework */,
 				36F7AE1C1BFB813B00596BBF /* FBSDKCoreKit.framework */,
 				B5C5E5AA73873D644F4D1844 /* Pods.framework */,

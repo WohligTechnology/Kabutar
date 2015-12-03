@@ -103,6 +103,10 @@ public class Folder {
         let id3 = strtoll(id2,nil,10)
         let fol = folder.filter(id == id3)
         try! db.run(fol.update(name <- "", modificationTime <- Int64(date), creationTime <- 0))
+        
+        let note = Note();
+        note.changeNoteFolderOnFolderDelete(id2)
+        
         return try! db.prepare(folder)
     }
     
@@ -144,7 +148,7 @@ public class Folder {
                 print(key)
                 print(subJson)
                 
-                if(subJson["folderid"] != nil)
+                if(subJson["_id"] != nil)
                 {
                     print("Inside 1");
                     if(subJson["creationtime"].string == "")
@@ -153,7 +157,7 @@ public class Folder {
                     }
                     else {
                         print("Inside 2")
-                        self.syncSave(subJson["folderid"].string!, creationTime2: subJson["creationtime"].string!, modificationTime2: subJson["modifytime"].string!, order2: subJson["order"].string!, name2: subJson["name"].string!)
+                        self.syncSave(subJson["_id"].string!, creationTime2: subJson["creationtime"].string!, modificationTime2: subJson["modifytime"].string!, order2: subJson["order"].string!, name2: subJson["name"].string!)
                     }
                     
                     // change modify time to server

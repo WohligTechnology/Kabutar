@@ -10,7 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Google
-
+import LocalAuthentication
 import SwiftHTTP
 import SwiftyJSON
 
@@ -26,6 +26,42 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        
+//        let authenticationContext = LAContext()
+//        
+//        var error:NSError?
+//        
+//        // 2. Check if the device has a fingerprint sensor
+//        // If not, show the user an alert view and bail out!
+//        guard authenticationContext.canEvaluatePolicy(.DeviceOwnerAuthenticationWithBiometrics, error: &error) else {
+//            
+//            print("NO thing available");
+//            return
+//        }
+//        
+//        authenticationContext.evaluatePolicy(
+//            .DeviceOwnerAuthenticationWithBiometrics,
+//            localizedReason: "Only awesome people are allowed",
+//            reply: { [unowned self] (success, error) -> Void in
+//                
+//                if( success ) {
+//                    
+//                    print("Success");
+//                    
+//                }else {
+//                    
+//                    // Check if there is an error
+//                    if let error = error {
+//                        
+//                        print("message is error");
+//                        
+//                    }
+//                    
+//                }
+//                
+//            })
+//        
+//        
         
         
                 

@@ -169,6 +169,13 @@ public class Note {
         try! db.run(note2.update(folder <- strtoll(folder2,nil,10),modificationTime <- Int64(date)))
     }
     
+    
+    func changeNoteFolderOnFolderDelete(folder2:String)  {
+        let date = NSDate().timeIntervalSince1970
+        let note2 = note.filter(folder == strtoll(folder2,nil,10))
+        try! db.run(note2.update(folder <- 0,modificationTime <- Int64(date)))
+    }
+    
     func changeTimeBomb(timebomb2:Int64,id2:String)  {
         let date = NSDate().timeIntervalSince1970
         let id3 = strtoll(id2,nil,10)
