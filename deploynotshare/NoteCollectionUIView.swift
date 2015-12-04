@@ -35,8 +35,8 @@ class NoteCollectionUIView: UIView {
             view.frame = bounds
             view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
             self.addSubview(view);
-            var myImg = moreBtn.imageForState(.Normal)
-            myImg.t
+//            var myImg = moreBtn.imageForState(.Normal)
+//            myImg.t
             
         }
 
