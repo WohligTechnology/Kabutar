@@ -34,6 +34,7 @@ var datetimepopupType = ""
 let bounds = UIScreen.mainScreen().bounds
 let width = bounds.size.width
 let height = bounds.size.height
+var innotepage = 0;
 
 public var noteModel  = Note()
 
@@ -53,7 +54,8 @@ let NoteColors = [
     UIColor(rgba: "#DCA9AA"),
     UIColor(rgba: "#F0A6EF"),
     UIColor(rgba: "#D0D0D0"),
-    UIColor(rgba: "#EEEEEE")
+    UIColor(rgba: "#EEEEEE"),
+    UIColor.clearColor()
 ]
 let ConfigObj = Config()
 var path:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String

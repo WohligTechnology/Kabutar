@@ -10,64 +10,87 @@
             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tTd-ZJ-K5X">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="A7R-5M-KqZ">
                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4y-Mz-UCc">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCZ-Jz-fFB">
                             <rect key="frame" x="0.0" y="0.0" width="200" height="33"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                            <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Lock">
-                                <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.61949527449999997" green="0.61949527449999997" blue="0.61949527449999997" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="lockNote:" destination="-1" eventType="touchUpInside" id="6YH-wo-Paj"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alu-iD-cLh">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIu-LM-7DF">
                             <rect key="frame" x="0.0" y="33" width="200" height="34"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                            <inset key="titleEdgeInsets" minX="33" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Timebomb">
-                                <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.61949527449999997" green="0.61949527449999997" blue="0.61949527449999997" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="timebombOnNote:" destination="-1" eventType="touchUpInside" id="OMQ-n2-70N"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5i-3I-waB">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cY7-Ky-y5V">
                             <rect key="frame" x="0.0" y="67" width="200" height="33"/>
-                            <inset key="titleEdgeInsets" minX="28" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Remind">
-                                <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.61949527449999997" green="0.61949527449999997" blue="0.61949527449999997" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="reminderOnNote:" destination="-1" eventType="touchUpInside" id="obd-5Z-Otm"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hi-CB-UMe">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJx-iP-eIs">
                             <rect key="frame" x="0.0" y="100" width="200" height="33"/>
-                            <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Move">
-                                <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.61949527449999997" green="0.61949527449999997" blue="0.61949527449999997" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="moveNote:" destination="-1" eventType="touchUpInside" id="2Vy-jN-HJ4"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Llz-M6-Puu">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXy-b4-0Id">
                             <rect key="frame" x="0.0" y="133" width="200" height="34"/>
-                            <inset key="titleEdgeInsets" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Delete">
-                                <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.61949527449999997" green="0.61949527449999997" blue="0.61949527449999997" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="deleteNote:" destination="-1" eventType="touchUpInside" id="PAk-7A-5kk"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNq-kZ-hEB">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuC-Zu-g4D">
                             <rect key="frame" x="0.0" y="167" width="200" height="33"/>
-                            <inset key="titleEdgeInsets" minX="26" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Share">
-                                <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.61949527449999997" green="0.61949527449999997" blue="0.61949527449999997" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="shareNote:" destination="-1" eventType="touchUpInside" id="4Hx-6c-A8t"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="tTd-ZJ-K5X" secondAttribute="trailing" id="HHh-69-Mdn"/>
-                <constraint firstAttribute="bottom" secondItem="tTd-ZJ-K5X" secondAttribute="bottom" id="VfL-hE-esT"/>
-                <constraint firstItem="tTd-ZJ-K5X" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="bkG-bV-cOE"/>
-                <constraint firstItem="tTd-ZJ-K5X" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kdF-m3-Fdz"/>
+                <constraint firstItem="A7R-5M-KqZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MAw-dd-wn7"/>
+                <constraint firstAttribute="trailing" secondItem="A7R-5M-KqZ" secondAttribute="trailing" id="OGs-NR-Shm"/>
+                <constraint firstAttribute="bottom" secondItem="A7R-5M-KqZ" secondAttribute="bottom" id="WPa-2n-RFi"/>
+                <constraint firstItem="A7R-5M-KqZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bm2-6f-fbV"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="276" y="244"/>
         </view>
     </objects>
 </document>

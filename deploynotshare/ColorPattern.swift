@@ -91,6 +91,10 @@ class ColorPattern: UIView {
         changeColorFunction("9")
         SelectedNoteColor = NoteColors[9]
     }
+    @IBAction func defaultColor(sender: AnyObject) {
+        changeColorFunction("10")
+        SelectedNoteColor = NoteColors[10]
+    }
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "ColorPattern", bundle: bundle)

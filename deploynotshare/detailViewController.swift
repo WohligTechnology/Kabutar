@@ -406,6 +406,9 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         vLayout.addSubview(recording)
         changeHeight()
     }
+    func openMenuTap(){
+        print("in detailview controller")
+    }
     func addSketchTap() {
         let topOffset = ScrView.contentOffset.y
         sketch = ElementSketch(frame: CGRectMake(0,topOffset,width+10,height - 44))

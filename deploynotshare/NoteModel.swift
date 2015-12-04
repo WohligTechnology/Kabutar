@@ -313,7 +313,14 @@ public class Note {
     func setServerId(serverid2:String,id2:String) {
         let id3 = strtoll(id2,nil,10)
         let fol = note.filter(id == id3)
+        do {
+            
         try! db.run(fol.update(serverid <- serverid2))
+    
+        }
+        catch {
+            print("Value issue");
+        }
     }
     
     func deleteServer(serverID2: String) {

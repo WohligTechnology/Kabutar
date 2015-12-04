@@ -54,6 +54,9 @@
                         <constraint firstAttribute="width" constant="44" id="H4a-dN-LkL"/>
                     </constraints>
                     <state key="normal" image="note_options"/>
+                    <connections>
+                        <action selector="addMenu:" destination="-1" eventType="touchUpInside" id="sXF-US-xlM"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ly-NQ-siJ">
                     <rect key="frame" x="8" y="8" width="28" height="28"/>

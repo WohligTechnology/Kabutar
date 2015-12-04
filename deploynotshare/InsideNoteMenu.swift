@@ -30,6 +30,47 @@ class InsideNoteMenu: UIView {
         sortnewview.frame = bounds
         sortnewview.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(sortnewview);
+        ViewForNotes = self;
+    }
+    @IBAction func lockNote(sender: AnyObject) {
+    }
+    @IBAction func timebombOnNote(sender: AnyObject) {
+    }
+    var newDateTime: DateTime!
+    @IBAction func reminderOnNote(sender: AnyObject) {
+        innotepage = 1
+//        self.removeFromSuperview()
+        datetimepopupType = "reminder"
+        let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
+        self.addBlackView()
+        blackOut.addGestureRecognizer(blackOutTap)
+        blackOut.alpha = 0
+        addSubview(blackOut);
+        blackOut.animation.makeAlpha(1).animate(transitionTime);
+        newDateTime = DateTime(frame: CGRectMake((width)-335, (height)-600, 300,500));
+        self.window?.addSubview(newDateTime)
+    }
+    @IBAction func moveNote(sender: AnyObject) {
+    }
+    @IBAction func deleteNote(sender: AnyObject) {
+    }
+    @IBAction func shareNote(sender: AnyObject) {
+    }
+    
+    
+    func addBlackView(){
+        blackOut = UIView(frame: CGRectMake(0, 0, (width), (height)))
+        blackOut.backgroundColor = UIColor(red: 234, green: 0, blue: 0, alpha: 0.3)
+    }
+    
+    func closeTimeBomb(sender:UIGestureRecognizer?){
+        self.newDateTime.animation.makeY(height).easeInOut.animateWithCompletion(transitionTime, {
+            self.newDateTime.removeFromSuperview()
+            
+        })
+        blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
+            blackOut.removeFromSuperview()
+        })
         
     }
 

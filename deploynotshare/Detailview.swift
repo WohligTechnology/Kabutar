@@ -236,7 +236,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
             MGSwipeButton(title: "",icon: UIImage(named:"delete.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 selectedNoteId = String(self.notesId[indexPath.row])
-                self.showdelete(selectedNoteId)
+                self.showdelete(indexPath.row)
                 
                 return true
             }),
@@ -290,7 +290,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 }else{
                     passcodemodal.lockValue = 1
                     if(self.islocked[indexPath.row] == 0){
-                        self.notesobj.changeLock(1,id2:self.notesId[indexPath.row] as! String)
+                        self.notesobj.changeLock(1,id2:(String)(self.notesId[indexPath.row]))
                         
                     }else{
                         self.presentViewController(passcodemodal, animated: true, completion: nil)
@@ -354,14 +354,33 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         }
     }
     
-    func showdelete(id:String){
+    func showdelete(id:Int){
         let alert = UIAlertController(title: "Delete Note", message: "Are you sure !", preferredStyle: UIAlertControllerStyle.Alert)
         let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
             
         }
         let alertdelete = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             
-            self.notesobj.delete(id)
+            if(self.islocked[id] == 0){
+                selectedNoteIndex = Int(id)
+                self.notesobj.delete(selectedNoteId)
+                //                self.performSegueWithIdentifier("showdetaillistview", sender: self)
+            }else{
+                selectedNoteIndex = Int(id)
+                
+                let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
+                
+                passcodemodal.setLock = String(self.islocked[id])
+                
+                let realpasscode = config.get("passcode")
+                passcodemodal.lockValue = -1
+                passcodemodal.titleName = (self.notesTitle[id] as? String)!
+                self.presentViewController(passcodemodal, animated: true, completion: nil)
+                
+                self.getAllNotes()
+                self.detailtableview!.reloadData()
+            }
+
             self.getAllNotes()
             self.detailtableview!.reloadData()
         }

@@ -56,25 +56,40 @@ class BrushView: UIView {
 
     }
     @IBAction func firstBrush(sender: AnyObject) {
-        changeAndClose(255, g: 91, b: 30)
+        changeAndClose(0, g: 0, b: 0)
     }
     @IBAction func secondBrush(sender: AnyObject) {
-        changeAndClose(224, g: 247, b: 78)
+        changeAndClose(130, g: 88, b: 72)
     }
     @IBAction func thirdBrush(sender: AnyObject) {
-        changeAndClose(106, g: 70, b: 157)
+        changeAndClose(124, g: 91, b: 166)
     }
     @IBAction func fourthBrush(sender: AnyObject) {
-        changeAndClose(58, g: 168, b: 240)
+        changeAndClose(75, g: 84, b: 143)
     }
     @IBAction func fifthBrush(sender: AnyObject) {
-        changeAndClose(255, g: 75, b: 148)
+        changeAndClose(135, g: 190, b: 221)
     }
     @IBAction func sixthBrush(sender: AnyObject) {
-        changeAndClose(55, g: 206, b: 125)
+        changeAndClose(63, g: 127, b: 92)
     }
     @IBAction func seventhBrush(sender: AnyObject) {
-        changeAndClose(188, g: 188, b: 188)
+        changeAndClose(124, g: 197, b: 105)
+    }
+    @IBAction func eighthBrush(sender: AnyObject) {
+        changeAndClose(254, g: 141, b: 187)
+    }
+    @IBAction func ninthBrush(sender: AnyObject) {
+        changeAndClose(246, g: 211, b: 47)
+    }
+    @IBAction func tenthBrush(sender: AnyObject) {
+        changeAndClose(236, g: 121, b: 77)
+    }
+    @IBAction func eleventhBrush(sender: AnyObject) {
+        changeAndClose(249, g: 84, b: 98)
+    }
+    @IBAction func twelfthBrush(sender: AnyObject) {
+        changeAndClose(255, g: 255, b: 255)
     }
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)

@@ -21,6 +21,7 @@ class PasswordViewController: UIViewController {
     var setLock = String()
     var noteobj = Note()
     var titleName = String()
+    var notesobj = Note()
     
 //    @IBOutlet var PassView: UIView!
     override func viewDidLoad() {
@@ -93,14 +94,20 @@ class PasswordViewController: UIViewController {
                     self.noteobj.changeLock(0, id2: selectedNoteId)
                 }
             }else{
+                if(lockValue == -1){
+                    print("in -1")
+                    self.notesobj.delete(selectedNoteId)
+                }else{
                 if(self.setLock == "0"){
                     self.noteobj.changeLock(1, id2: selectedNoteId)
                 }else{
                     self.noteobj.changeLock(0, id2: selectedNoteId)
                 }
+                }
             }
             
                 let noteView = config.get("note_view")
+                print(noteView)
                 switch(noteView) {
                 case "1":
                     let otherCtrl = ViewForNotes as! Detailview;
@@ -109,7 +116,7 @@ class PasswordViewController: UIViewController {
                 case "2":
                     let otherCtrl = ViewForNotes as! Listview;
                     otherCtrl.getAllNotes()
-                    otherCtrl.listView!.reloadData()
+                      otherCtrl.listView!.reloadData()
                 case "3":
                     let otherCtrl = ViewForNotes as! cardViewController;
                     otherCtrl.getAllNotes()

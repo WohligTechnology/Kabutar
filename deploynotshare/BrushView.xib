@@ -115,22 +115,43 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ktd-cv-Y5D" userLabel="color2">
                                     <rect key="frame" x="57" y="0.0" width="46" height="31"/>
                                     <color key="backgroundColor" red="0.99607843137254903" green="0.55294117647058827" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="eighthBrush:" destination="-1" eventType="touchUpInside" id="BmA-eJ-Mia"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fo8-sL-UIh" userLabel="color3">
                                     <rect key="frame" x="113" y="0.0" width="47" height="31"/>
                                     <color key="backgroundColor" red="0.96470588235294119" green="0.82745098039215681" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="ninthBrush:" destination="-1" eventType="touchUpInside" id="hr6-4H-U75"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28J-AX-ySb" userLabel="color4">
                                     <rect key="frame" x="170" y="0.0" width="47" height="31"/>
                                     <color key="backgroundColor" red="0.92549019607843142" green="0.47450980392156861" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="tenthBrush:" destination="-1" eventType="touchUpInside" id="pcn-fE-I0h"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1x-k6-YTs" userLabel="color5">
                                     <rect key="frame" x="227" y="0.0" width="46" height="31"/>
                                     <color key="backgroundColor" red="0.97647058823529409" green="0.32941176470588235" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="eleventhBrush:" destination="-1" eventType="touchUpInside" id="uXP-C7-afT"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsG-M1-rGV" userLabel="color6">
                                     <rect key="frame" x="283" y="0.0" width="47" height="31"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                            <color key="value" red="0.82745098039215681" green="0.82745098039215681" blue="0.82745098039215681" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="twelfthBrush:" destination="-1" eventType="touchUpInside" id="Q7l-zy-P83"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
