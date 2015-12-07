@@ -11,6 +11,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>MGSwipeTableCell.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -51,6 +56,11 @@
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
 		<key>UIColor_Hex_Swift.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -89,6 +99,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>505188903BB6076C9B7D82E4214CF56B</key>
 		<dict>
 			<key>primary</key>
@@ -99,7 +114,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>666B4E407B551BD4EE7AD72E8C4C5704</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>71196E99DCC8D73833AA1C1EE9600097</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>714DB407DF2579CDF50BA6D48E187FDF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>75F106540A67FB6263019F46A7B6DCB6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -120,6 +150,16 @@
 			<true/>
 		</dict>
 		<key>83690D498AAB3F49BA20556935F1DB45</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9D4E06EC129D323F8B52B67CC564A694</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A5B9C9B173463F533E1EB41420FA7D96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -160,6 +200,21 @@
 			<true/>
 		</dict>
 		<key>CAE74F112CD1F05B13796DCFBF0B67A4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D0F557143861E2800340E7CAC8668284</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D67A6045B3F04785327311F285FACD52</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DE3B2CCC0526FA5E62EE882A7D8576A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
