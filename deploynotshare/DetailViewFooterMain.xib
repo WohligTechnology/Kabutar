@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewFooterMain" customModule="deploynotshare" customModuleProvider="target"/>
@@ -96,6 +97,19 @@
                         <action selector="deleteSectionTap:" destination="-1" eventType="touchUpInside" id="QRy-nb-8sw"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQU-CF-zqt">
+                    <rect key="frame" x="237" y="8" width="28" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="28" id="ER9-XN-AaV"/>
+                        <constraint firstAttribute="height" constant="28" id="HqC-ch-lZY"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="28" id="er4-0a-0Ej"/>
+                    </constraints>
+                    <state key="normal" image="paper_1"/>
+                    <connections>
+                        <action selector="deleteSectionTap:" destination="-1" eventType="touchUpInside" id="rf5-Ok-xpo"/>
+                        <action selector="setBackground:" destination="-1" eventType="touchUpInside" id="DTT-9D-FLG"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="1" green="0.3529411764705882" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
@@ -103,14 +117,19 @@
                 <constraint firstItem="5Ly-NQ-siJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="4v8-cv-RT1"/>
                 <constraint firstAttribute="bottom" secondItem="5Ly-NQ-siJ" secondAttribute="bottom" constant="8" id="9m6-Tg-7gk"/>
                 <constraint firstAttribute="bottom" secondItem="16V-Y4-377" secondAttribute="bottom" id="AjO-1a-0q7"/>
+                <constraint firstItem="yQU-CF-zqt" firstAttribute="baseline" secondItem="jqt-UY-Qcu" secondAttribute="baseline" id="BRa-YS-8J6"/>
+                <constraint firstItem="yQU-CF-zqt" firstAttribute="firstBaseline" secondItem="iC9-YX-1Rb" secondAttribute="firstBaseline" id="EVM-CY-bRd"/>
                 <constraint firstItem="jqt-UY-Qcu" firstAttribute="leading" secondItem="C8o-9M-3oo" secondAttribute="trailing" constant="14" id="F2S-LW-2TY"/>
                 <constraint firstItem="C8o-9M-3oo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="G14-Ff-1iF"/>
                 <constraint firstItem="C8o-9M-3oo" firstAttribute="leading" secondItem="5Ly-NQ-siJ" secondAttribute="trailing" constant="8" id="H9M-Es-PGi"/>
                 <constraint firstItem="16V-Y4-377" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LS2-oU-qDV"/>
                 <constraint firstAttribute="bottom" secondItem="Gix-VI-GHY" secondAttribute="bottom" constant="8" id="LsY-D6-kJC"/>
                 <constraint firstAttribute="bottom" secondItem="jqt-UY-Qcu" secondAttribute="bottom" constant="8" id="R35-Oh-Xzq"/>
+                <constraint firstItem="yQU-CF-zqt" firstAttribute="leading" secondItem="iC9-YX-1Rb" secondAttribute="trailing" constant="5" id="UjH-ST-6Xo"/>
+                <constraint firstItem="yQU-CF-zqt" firstAttribute="firstBaseline" secondItem="C8o-9M-3oo" secondAttribute="firstBaseline" id="XCx-Qs-gPi"/>
                 <constraint firstItem="jqt-UY-Qcu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="XXl-hn-kKv"/>
                 <constraint firstAttribute="bottom" secondItem="Dvb-cN-Tz1" secondAttribute="bottom" constant="8" id="YAe-Vq-vpq"/>
+                <constraint firstItem="yQU-CF-zqt" firstAttribute="baseline" secondItem="iC9-YX-1Rb" secondAttribute="baseline" id="Yb6-3p-fuf"/>
                 <constraint firstItem="iC9-YX-1Rb" firstAttribute="top" secondItem="Gix-VI-GHY" secondAttribute="top" id="Znx-hk-qkf"/>
                 <constraint firstItem="iC9-YX-1Rb" firstAttribute="leading" secondItem="Gix-VI-GHY" secondAttribute="trailing" constant="13" id="aCt-QX-Rhv"/>
                 <constraint firstItem="Dvb-cN-Tz1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="aav-ju-3gJ"/>
@@ -133,5 +152,6 @@
         <image name="note_image" width="28" height="25"/>
         <image name="note_options" width="28" height="6"/>
         <image name="note_text" width="24" height="28"/>
+        <image name="paper_1" width="47" height="47"/>
     </resources>
 </document>

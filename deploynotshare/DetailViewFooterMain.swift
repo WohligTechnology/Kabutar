@@ -7,6 +7,7 @@
 //
 
 var newInsideNoteMenu:InsideNoteMenu!
+var newColorPaper:ColorPaper!
 
 import UIKit
 
@@ -51,6 +52,19 @@ class DetailViewFooterMain: UIView {
         blackOut.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
     }
     
+    @IBAction func setBackground(sender: AnyObject) {
+        let blackOutTap = UITapGestureRecognizer(target: self,action: "closeBackgroundTap:")
+        self.addBlackView()
+        blackOut.addGestureRecognizer(blackOutTap)
+        blackOut.alpha = 0
+        self.window?.addSubview(blackOut);
+        blackOut.animation.makeAlpha(1).animate(transitionTime);
+        
+        newColorPaper = ColorPaper(frame: CGRectMake((width)-340, (height)-40, 300,200));
+        
+        self.window?.addSubview(newColorPaper)
+        newColorPaper.animation.moveY(-350).easeInOut.animate(transitionTime)
+    }
     @IBAction func addMenu(sender: AnyObject) {
         print(selectedNoteId)
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMenuTap:")
@@ -76,6 +90,17 @@ class DetailViewFooterMain: UIView {
         })
     }
     
+    
+    func closeBackgroundTap (sender:UITapGestureRecognizer?) {
+        newColorPaper.animation.makeY((self.window?.frame.height)!).easeInOut.animateWithCompletion(transitionTime, {
+            newColorPaper.removeFromSuperview()
+        })
+        blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
+            blackOut.removeFromSuperview()
+        })
+    }
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadViewFromNib ()
@@ -93,6 +118,7 @@ class DetailViewFooterMain: UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
+        ViewForNotes = self;
     }
 
 
