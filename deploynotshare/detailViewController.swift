@@ -47,9 +47,11 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         self.navigationItem.rightBarButtonItem = bc
         GDetailView = self
         
+        
         vLayout = VerticalFitLayout(width: view.frame.width)
         GvLayout = vLayout
         self.ScrView.alpha  = 0
+        
         
         self.ScrView.insertSubview(vLayout, atIndex: 0)
         

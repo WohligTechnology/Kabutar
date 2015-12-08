@@ -32,48 +32,63 @@ class ColorPaper: UIView {
     }
     
     @IBAction func firstBackground(sender: AnyObject) {
+        GDetailView.view.backgroundColor = UIColor(rgba: "#96ceee")
         onSelect()
     }
     @IBAction func secondBackground(sender: AnyObject) {
+        GDetailView.view.backgroundColor = UIColor(rgba: "#fae8ce")
         onSelect()
     }
     @IBAction func thirdBackground(sender: AnyObject) {
+        GDetailView.view.backgroundColor = UIColor(rgba: "#97e1cc")
         onSelect()
     }
     @IBAction func fourthBackground(sender: AnyObject) {
+        GDetailView.view.backgroundColor = UIColor(rgba: "#fdff7f")
         onSelect()
     }
     @IBAction func fifthBackground(sender: AnyObject) {
+        GDetailView.view.backgroundColor = UIColor(rgba: "#9fdb86")
         onSelect()
     }
     @IBAction func sixthBackground(sender: AnyObject) {
+        GDetailView.view.backgroundColor = UIColor(rgba: "#be9ff6")
         onSelect()
     }
     @IBAction func seventhBackground(sender: AnyObject) {
+        GDetailView.view.backgroundColor = UIColor(rgba: "#b6e29e")
         onSelect()
     }
     @IBAction func eighthBackground(sender: AnyObject) {
+        GDetailView.view.backgroundColor = UIColor(rgba: "#dca9aa")
         onSelect()
     }
     @IBAction func ninthBackground(sender: AnyObject) {
+        GDetailView.view.backgroundColor = UIColor(rgba: "#f0a6ef")
         onSelect()
     }
     @IBAction func tenthBackground(sender: AnyObject) {
+        GDetailView.view.backgroundColor = UIColor(rgba: "#d0d0d0")
         onSelect()
     }
     @IBAction func eleventhBackground(sender: AnyObject) {
+        GDetailView.view.backgroundColor = UIColor(patternImage: UIImage(named: "logo.png")!)
         onSelect()
     }
     @IBAction func twelfthBackground(sender: AnyObject) {
+        GDetailView.view.backgroundColor = PinkColor;
         onSelect()
     }
     @IBAction func thirteenthBackground(sender: AnyObject) {
+        GDetailView.view.backgroundColor = PinkColor;
         onSelect()
     }
     @IBAction func fourteenthBackground(sender: AnyObject) {
+        GDetailView.view.backgroundColor = PinkColor;
         onSelect()
     }
     @IBAction func fifteenthBackground(sender: AnyObject) {
+        GDetailView.view.backgroundColor = PinkColor;
         onSelect()
     }
     func loadViewFromNib() {

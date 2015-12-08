@@ -89,7 +89,7 @@ class BrushView: UIView {
         changeAndClose(249, g: 84, b: 98)
     }
     @IBAction func twelfthBrush(sender: AnyObject) {
-        changeAndClose(255, g: 255, b: 255)
+        changeAndClose(255, g: 255, b: 254)
     }
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)
