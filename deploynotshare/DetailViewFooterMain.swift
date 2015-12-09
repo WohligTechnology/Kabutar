@@ -118,7 +118,6 @@ class DetailViewFooterMain: UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
-        ViewForNotes = self;
     }
 
 

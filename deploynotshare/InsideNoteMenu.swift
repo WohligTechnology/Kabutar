@@ -30,7 +30,6 @@ class InsideNoteMenu: UIView {
         sortnewview.frame = bounds
         sortnewview.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(sortnewview);
-        ViewForNotes = self;
     }
     @IBAction func lockNote(sender: AnyObject) {
     }

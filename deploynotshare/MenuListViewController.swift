@@ -13,7 +13,7 @@ import FBSDKLoginKit
 import Google
 
 var isInsideFolder = 0
-var slideMenuLeft:Any!;
+var slideMenuLeft:SlideMenuController!;
 
 protocol LeftMenuProtocol : class {
     func changeViewController(menu: Int)
@@ -29,6 +29,7 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     var detailview:UIViewController!
     var listView: UIViewController!
     var noteViewController: UIViewController!
+    var profilePic: UIViewController!
     var AboutView: UIViewController!
     var SettingView: UIViewController!
     
@@ -46,6 +47,10 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
         menuStaticTable.separatorStyle = UITableViewCellSeparatorStyle.None
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+        let profilePic = storyboard.instantiateViewControllerWithIdentifier("SelectProfile") as! ProfilePic
+        self.profilePic = UINavigationController(rootViewController: profilePic)
         
         let noteViewController = storyboard.instantiateViewControllerWithIdentifier("cardViewController") as! cardViewController
         self.noteViewController = UINavigationController(rootViewController: noteViewController)
@@ -135,6 +140,12 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
         
         switch(indexPath.row)
         {
+            
+        case 0:
+            isInsideFolder = 0
+            self.slideMenuController()?.changeMainViewController(self.profilePic, close: true)
+            
+            
         case 1:
             isInsideFolder = 0
             let noteView = config.get("note_view")

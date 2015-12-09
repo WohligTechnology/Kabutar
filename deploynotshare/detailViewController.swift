@@ -488,27 +488,25 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
             
             let checkstatus = config.get("note_view")
             print(checkstatus);
-//            if(checkstatus == "2"){
-//                let mainview = ViewForNotes as! Listview
-//                mainview.getAllNotes()
-//                mainview.listView!.reloadData()
-//                
-//            }else if(checkstatus == "1"){
-//                let mainview = ViewForNotes as! Detailview
-//                mainview.getAllNotes()
-//                mainview.detailtableview!.reloadData()
-//                
-//            }else if(checkstatus == "3"){
-//                let mainview = ViewForNotes as! cardViewController
-//                mainview.getAllNotes()
-//                mainview.collectionView!.reloadData()
-//            
-//            }else if(checkstatus == ""){
-//                let mainview = ViewForNotes as! Detailview
-//                mainview.getAllNotes()
-//                mainview.detailtableview!.reloadData()
-//            }
-        
+            
+            switch(checkstatus) {
+            case "2":
+                let mainview = ViewForNotes as! Listview
+                mainview.getAllNotes()
+                mainview.listView!.reloadData()
+            case "1":
+                let mainview = ViewForNotes as! Detailview
+                mainview.getAllNotes()
+                mainview.detailtableview!.reloadData()
+            case "3":
+                let mainview = ViewForNotes as! cardViewController
+                mainview.getAllNotes()
+                mainview.collectionView!.reloadData()
+            default:
+                let mainview = ViewForNotes as! Detailview
+                mainview.getAllNotes()
+                mainview.detailtableview!.reloadData()
+            }
         }
         editalert.addAction(eidtcancel)
         editalert.addAction(editesave)
