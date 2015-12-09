@@ -84,8 +84,8 @@
 		43A0049D1BE8BC8100396E47 /* DateTime.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43A0049C1BE8BC8100396E47 /* DateTime.xib */; };
 		43BE98E61BF21D0F0006CBC4 /* ColorPaper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43BE98E51BF21D0F0006CBC4 /* ColorPaper.xib */; };
 		43BE98E81BF220DE0006CBC4 /* ColorPaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BE98E71BF220DE0006CBC4 /* ColorPaper.swift */; };
-		43CB115A1C107723006F3FA8 /* InsideNoteMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43CB11591C107723006F3FA8 /* InsideNoteMenu.xib */; settings = {ASSET_TAGS = (); }; };
-		43CB115D1C107C10006F3FA8 /* InsideNoteMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CB115C1C107C10006F3FA8 /* InsideNoteMenu.swift */; settings = {ASSET_TAGS = (); }; };
+		43CB115A1C107723006F3FA8 /* InsideNoteMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43CB11591C107723006F3FA8 /* InsideNoteMenu.xib */; };
+		43CB115D1C107C10006F3FA8 /* InsideNoteMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CB115C1C107C10006F3FA8 /* InsideNoteMenu.swift */; };
 		43E0F2AE1BE8C5E500363F49 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0F2AD1BE8C5E500363F49 /* DateTime.swift */; };
 		43E0F2F01BE9E61C00363F49 /* Listview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E0F2EF1BE9E61C00363F49 /* Listview.swift */; };
 		43EFB9BD1BDE29130014EDF9 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EFB9BC1BDE29130014EDF9 /* ListViewController.swift */; };

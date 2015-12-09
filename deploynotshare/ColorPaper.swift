@@ -68,27 +68,31 @@ class ColorPaper: UIView {
         onSelect()
     }
     @IBAction func tenthBackground(sender: AnyObject) {
-        GDetailView.view.backgroundColor = UIColor(rgba: "#d0d0d0")
+        GDetailView.view.backgroundColor = UIColor(rgba: "#ffffff")
         onSelect()
     }
     @IBAction func eleventhBackground(sender: AnyObject) {
-        GDetailView.view.backgroundColor = UIColor(patternImage: UIImage(named: "logo.png")!)
+        GDetailView.view.backgroundColor = UIColor(patternImage: UIImage(named: "paper_bg_1.png")!)
         onSelect()
     }
     @IBAction func twelfthBackground(sender: AnyObject) {
-        GDetailView.view.backgroundColor = PinkColor;
+        GDetailView.view.backgroundColor = UIColor(patternImage: UIImage(named: "paper_bg_2.png")!)
         onSelect()
     }
     @IBAction func thirteenthBackground(sender: AnyObject) {
-        GDetailView.view.backgroundColor = PinkColor;
+        GDetailView.view.backgroundColor = UIColor(patternImage: UIImage(named: "paper_bg_3.png")!)
         onSelect()
     }
     @IBAction func fourteenthBackground(sender: AnyObject) {
-        GDetailView.view.backgroundColor = PinkColor;
+        GDetailView.view.backgroundColor = UIColor(patternImage: UIImage(named: "paper_bg_4.png")!)
         onSelect()
     }
     @IBAction func fifteenthBackground(sender: AnyObject) {
-        GDetailView.view.backgroundColor = PinkColor;
+        GDetailView.view.backgroundColor = UIColor(patternImage: UIImage(named: "paper_bg_5.png")!)
+        onSelect()
+    }
+    @IBAction func sixteenthBackground(sender: AnyObject) {
+        GDetailView.view.backgroundColor = UIColor(patternImage: UIImage(named: "paper_bg_6.png")!)
         onSelect()
     }
     func loadViewFromNib() {
@@ -98,22 +102,8 @@ class ColorPaper: UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
-//        ColorButton.backgroundColor = UIColor(rgba: "#ff5a60")
-//        ColorButton.backgroundColor = UIColor(rgba: "#ff5a60")
-//        ColorButton.titleLabel?.textColor = UIColor(rgba: "#ffffff")
-//        PaperButton.backgroundColor = UIColor(rgba: "#ffffff")
-//        PaperButton.titleLabel?.textColor = UIColor(rgba: "#ff5a60")
     }
     
-//    @IBAction func colorClick(sender: AnyObject) {
-////        self.ColorView.hidden = false
-//        self.PaperView.hidden = true
-//        ColorButton.backgroundColor = UIColor(rgba: "#ff5a60")
-//        ColorButton.titleLabel?.textColor = UIColor(rgba: "#ffffff")
-//        PaperButton.backgroundColor = UIColor(rgba: "#ffffff")
-//        PaperButton.titleLabel?.textColor = UIColor(rgba: "#ff5a60")
-//        
-//    }
     @IBAction func paperClick(sender: AnyObject) {
 //        self.ColorView.hidden = true
         self.PaperView.hidden = false

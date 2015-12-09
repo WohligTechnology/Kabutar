@@ -204,6 +204,13 @@ public class Note {
         try! db.run(note2.update(color <- color2,modificationTime <- Int64(date)))
     }
     
+    func changeBackground(background2:String,id2:String)  {
+        let date = NSDate().timeIntervalSince1970
+        let id3 = strtoll(id2,nil,10)
+        let note2 = note.filter(id == id3)
+        try! db.run(note2.update(background <- background2,modificationTime <- Int64(date)))
+    }
+    
     func changeTitle(title2:String,id2:String) {
         let date = NSDate().timeIntervalSince1970
         let id3 = strtoll(id2,nil,10)

@@ -116,6 +116,8 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         islocked = []
         
         
+        ViewForNotes = self;
+        
         if(isInsideFolder == 0)
         {
             self.setNavigationBarItem()

@@ -45,50 +45,6 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-    
-    <key>UIApplicationShortcutItems</key>
-    <array>
-        <dict>
-            <key>UIApplicationShortcutItemIconFile</key>
-            <string>force_add</string>
-            <key>UIApplicationShortcutItemTitle</key>
-            <string>Create Note</string>
-            <key>UIApplicationShortcutItemType</key>
-            <string>createNote</string>
-            <key>UIApplicationShortcutItemUserInfo</key>
-            <dict>
-                <key>version</key>
-                <string>3</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>UIApplicationShortcutItemIconFile</key>
-            <string>menu_folder</string>
-            <key>UIApplicationShortcutItemTitle</key>
-            <string>Folder</string>
-            <key>UIApplicationShortcutItemType</key>
-            <string>folder</string>
-            <key>UIApplicationShortcutItemUserInfo</key>
-            <dict>
-                <key>version</key>
-                <string>3</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>UIApplicationShortcutItemIconFile</key>
-            <string>menu_setting</string>
-            <key>UIApplicationShortcutItemTitle</key>
-            <string>Setting</string>
-            <key>UIApplicationShortcutItemType</key>
-            <string>setting</string>
-            <key>UIApplicationShortcutItemUserInfo</key>
-            <dict>
-                <key>version</key>
-                <string>3</string>
-            </dict>
-        </dict>
-    </array>
-    
 	<key>FacebookAppID</key>
 	<string>914213595337843</string>
 	<key>FacebookDisplayName</key>
@@ -112,6 +68,48 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>force_add</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Create Note</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>createNote</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>version</key>
+				<string>3</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>menu_folder</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Folder</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>folder</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>version</key>
+				<string>3</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>menu_setting</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Setting</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>setting</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>version</key>
+				<string>3</string>
+			</dict>
+		</dict>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -123,8 +121,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

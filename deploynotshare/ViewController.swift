@@ -26,7 +26,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        
+        
 //        let authenticationContext = LAContext()
 //        
 //        var error:NSError?
@@ -60,8 +60,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
 //                }
 //                
 //            })
-//        
-//        
+        
+        
         
         
                 
