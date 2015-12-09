@@ -124,10 +124,19 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
                 config.set("user_name",value2: json["name"].string!);
                 config.set("user_email",value2: json["email"].string!);
                 config.set("user_facebook_id",value2: json["id"].string!);
-                config.set("user_pic_url",value2: json["picture"]["data"]["url"].string!);
+                
+                print("https://graph.facebook.com/v2.5/me/picture?type=large&access_token=\(result.token.tokenString)");
+                
+                request.GET("https://graph.facebook.com/v2.5/me/picture?redirect=0&me/picture?redirect=0&height=1000&width=1000&access_token=\(result.token.tokenString)", parameters: nil, completionHandler: {(response: HTTPResponse) in
+                    
+                    let json2 = JSON(data: response.responseObject as! NSData)
+                
+                    print(json2);
+                    
+                    config.set("user_pic_url",value2: json2["data"]["url"].string!);
                 
                 
-                if let url = NSURL(string: json["picture"]["data"]["url"].string!) {
+                    if let url = NSURL(string: json2["data"]["url"].string!) {
                     if let data = NSData(contentsOfURL: url) {
                         
                         let image = UIImage(data: data)
@@ -161,12 +170,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
                             })
                             
                         })
-                        
-                        
-                        
                     }
                 }
 
+                })
                 
             })
             
