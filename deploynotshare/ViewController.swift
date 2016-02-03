@@ -125,8 +125,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
                 config.set("user_email",value2: json["email"].string!);
                 config.set("user_facebook_id",value2: json["id"].string!);
                 
-                print("https://graph.facebook.com/v2.5/me/picture?type=large&access_token=\(result.token.tokenString)");
-                
                 request.GET("https://graph.facebook.com/v2.5/me/picture?redirect=0&me/picture?redirect=0&height=1000&width=1000&access_token=\(result.token.tokenString)", parameters: nil, completionHandler: {(response: HTTPResponse) in
                     
                     let json2 = JSON(data: response.responseObject as! NSData)
@@ -157,9 +155,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
                         request.POST(ServerURL+"user/sociallogin", parameters: params, completionHandler: {(response: HTTPResponse) in
                             
                             let json = JSON(data: response.responseObject as! NSData)
-                            print(json);
                             config.set("user_id", value2: json["_id"].string!)
-                            
                             let seconds = 0.2
                             let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
                             let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))

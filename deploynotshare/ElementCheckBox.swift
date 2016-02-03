@@ -44,6 +44,11 @@ class ElementCheckBox: UIView,UITextFieldDelegate {
         loadViewFromNib ()
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
+        GDetailView.addCheckBox(true)
+        return true
+    }
+    
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "ElementCheckBox", bundle: bundle)
@@ -83,9 +88,6 @@ class ElementCheckBox: UIView,UITextFieldDelegate {
         deleteView.frame = CGRectMake(self.frame.size.width+10 - 30 , 0, 30, 30)
         deleteView.animation.moveX(30).animate(transitionTime)
     }
-
-  
-
     
 }
 
