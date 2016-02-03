@@ -17,6 +17,7 @@
 		364EA4611BF1B37A001B7161 /* NoteElementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364EA4601BF1B37A001B7161 /* NoteElementModel.swift */; };
 		364EA4631BF20F70001B7161 /* ElementRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364EA4621BF20F70001B7161 /* ElementRecording.swift */; };
 		364EA4651BF20FC6001B7161 /* ElementRecording.xib in Resources */ = {isa = PBXBuildFile; fileRef = 364EA4641BF20FC6001B7161 /* ElementRecording.xib */; };
+		365A74F01C61EB9600DEDD15 /* AgendaMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 365A74ED1C61EA2500DEDD15 /* AgendaMedium.ttf */; };
 		366420321BE4BF03003477CF /* FolderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366420311BE4BF03003477CF /* FolderModel.swift */; };
 		36685A0A1C0DAE1100113F2D /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36685A091C0DAE1100113F2D /* LocalAuthentication.framework */; };
 		366CE6011BFE6F550002A0C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 366CE6001BFE6F550002A0C7 /* GoogleService-Info.plist */; };
@@ -141,6 +142,7 @@
 		364EA4601BF1B37A001B7161 /* NoteElementModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteElementModel.swift; sourceTree = "<group>"; };
 		364EA4621BF20F70001B7161 /* ElementRecording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementRecording.swift; sourceTree = "<group>"; };
 		364EA4641BF20FC6001B7161 /* ElementRecording.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElementRecording.xib; sourceTree = "<group>"; };
+		365A74ED1C61EA2500DEDD15 /* AgendaMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AgendaMedium.ttf; sourceTree = "<group>"; };
 		366420311BE4BF03003477CF /* FolderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderModel.swift; sourceTree = "<group>"; };
 		36685A091C0DAE1100113F2D /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		366CE6001BFE6F550002A0C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -283,6 +285,14 @@
 				B5C5E5AA73873D644F4D1844 /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		365A74EC1C61EA1B00DEDD15 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				365A74ED1C61EA2500DEDD15 /* AgendaMedium.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		366420301BE4BEE0003477CF /* Model */ = {
@@ -568,6 +578,7 @@
 			isa = PBXGroup;
 			children = (
 				4373172D1BD770650018B580 /* AppDelegate.swift */,
+				365A74EC1C61EA1B00DEDD15 /* Fonts */,
 				4308BE541BDE02BF009DC448 /* Helper */,
 				4308BE531BDE028F009DC448 /* Controllers */,
 				437317341BD770660018B580 /* Assets.xcassets */,
@@ -778,6 +789,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				365A74F01C61EB9600DEDD15 /* AgendaMedium.ttf in Resources */,
 				782721A11BFDAC8C00241D44 /* move@3x.png in Resources */,
 				782721991BFDAC8C00241D44 /* delete.png in Resources */,
 				7827219A1BFDAC8C00241D44 /* delete@2x.png in Resources */,

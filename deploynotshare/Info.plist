@@ -6,6 +6,12 @@
 	<string>en</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
+	<key>Fonts provided by the application</key>
+	<array>
+		<string>AgendaMedium.ttf</string>
+	</array>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>

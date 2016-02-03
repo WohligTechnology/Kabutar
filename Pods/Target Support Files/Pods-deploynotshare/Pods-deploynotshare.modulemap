@@ -1,0 +1,6 @@
+framework module Pods_deploynotshare {
+  umbrella header "Pods-deploynotshare-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-deploynotshare.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -78,6 +83,11 @@
 			<true/>
 		</dict>
 		<key>75F106540A67FB6263019F46A7B6DCB6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8F426CB7A7D70BD3EB650A1685D65F7E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

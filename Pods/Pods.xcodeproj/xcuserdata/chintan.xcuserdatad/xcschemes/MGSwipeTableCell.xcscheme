@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '634CADD116092B0CDF0FBAF5'
+               BlueprintIdentifier = 'E828E9C54B538A2BB251B896'
                BlueprintName = 'MGSwipeTableCell'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'MGSwipeTableCell.framework'>

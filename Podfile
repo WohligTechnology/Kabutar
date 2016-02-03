@@ -23,3 +23,8 @@ git: ’https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'MGSwipeTableCell'
 
 pod 'Google/SignIn'
+
+target 'deploynotshare' do
+    
+    
+end
