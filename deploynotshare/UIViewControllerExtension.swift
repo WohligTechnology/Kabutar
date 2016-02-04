@@ -11,13 +11,18 @@ import UIKit
 extension UIViewController {
     
     func setNavigationBarItem() {
-        
+        let font = UIFont(name: "Agenda", size: 22)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSForegroundColorAttributeName : UIColor.whiteColor() ]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName : font!, NSForegroundColorAttributeName : UIColor.whiteColor() ]
         self.navigationController?.navigationBar.translucent = false
         self.addLeftBarButtonWithImage(UIImage(named: "ic_menu_black_24dp")!)
         self.navigationController?.toolbar.barTintColor = PinkColor
         self.navigationController?.navigationBar.barTintColor = PinkColor
+
+        
+        
+        
+        
         
         //self.addRightBarButtonWithImage(UIImage(named: "ic_notifications_black_24dp")!)
         self.slideMenuController()?.removeLeftGestures()
