@@ -119,8 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         UILabel.appearance().font = UIFont(name: "AgendaMedium", size: 12)
-        UINavigationItem.
-        
+      
         GAppDelegate = self
         // Override point for customization after application launch.
       
