@@ -36,8 +36,8 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     @IBOutlet var menuStaticTable: UITableView!
     @IBOutlet weak var profileimage: UIImageView!
     
-    var menuName = ["demo","Notes","Folders","Notification Center","Invite Friends","Setting","About","Logout"]
-    var menuImage = ["demo","menu_note","menu_folder","menu_notification","menu_invite","menu_setting","menu_about","menu_logout"]
+    var menuName = ["demo","Notes","Folders","Notification Center","Rate Us","Like us on Facebook","Send Feedback","Invite Friends","Settings"]
+    var menuImage = ["demo","menu_note","menu_folder","menu_notification","menu_invite","menu_setting","menu_about","menu_logout","menu_logout"]
     
     
     
@@ -114,7 +114,7 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
                 singleline.backgroundColor = PinkColor
                 cell.addSubview(singleline);
             }
-            
+            cell.textLabel?.font = UIFont(name: "Agenda", size: 16)
             cell.textLabel!.text = menuName[indexPath.row]
             cell.textLabel?.textColor = UIColor(rgba: "#636363");
             cell.separatorInset.left = 60

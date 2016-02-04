@@ -26,6 +26,7 @@ PODS:
   - GoogleUtilities (1.1.0):
     - GoogleSymbolUtilities (~> 1.0.0)
   - MGSwipeTableCell (1.5.3)
+  - Onboard (2.1.7)
   - RichEditorView (2.0.1)
   - SQLCipher (3.1.0):
     - SQLCipher/standard (= 3.1.0)
@@ -43,6 +44,7 @@ DEPENDENCIES:
   - DKChainableAnimationKit (~> 1.6.0)
   - Google/SignIn
   - MGSwipeTableCell
+  - Onboard
   - RichEditorView
   - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
   - SQLiteCipher.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
@@ -86,6 +88,7 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
   GoogleUtilities: 8ed9134debe11719097881711464752900668f10
   MGSwipeTableCell: 5ae3b9a15efda26b201adc8676b24040febe6ff6
+  Onboard: 87648089e1b76d13b4f5bf8f7a1cdb144092f0af
   RichEditorView: 1606b9b3e02afe3ccd0de0d8fa3ddb55247e868f
   SQLCipher: 4684434d5791db86512cd7e02172aefba575849e
   SQLite.swift: 3bb75f5a650f08673276bc6d3fb1de1b542b8f4d
