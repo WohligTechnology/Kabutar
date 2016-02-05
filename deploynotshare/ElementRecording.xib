@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="AgendaMedium.otf">
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ElementRecording" customModule="deploynotshare" customModuleProvider="target">
             <connections>
@@ -20,7 +27,6 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5h-KY-8b4">
                     <rect key="frame" x="10" y="10" width="30" height="30"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Bcd-Ia-2xt"/>
                         <constraint firstAttribute="width" constant="30" id="fUI-PX-pd6"/>
@@ -32,7 +38,6 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JxW-Hf-Lgh">
                     <rect key="frame" x="50" y="10" width="30" height="30"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="qDK-k8-pZi"/>
                         <constraint firstAttribute="width" constant="30" id="zF3-LK-Qhs"/>
@@ -44,47 +49,42 @@
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMp-aW-ah9">
                     <rect key="frame" x="352" y="22" width="40" height="21"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="Ika-op-QDK"/>
                         <constraint firstAttribute="height" constant="21" id="aHe-kH-hBF"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3Q-gR-cRe">
                     <rect key="frame" x="346" y="21" width="10" height="21"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="10" id="5kX-CF-lZr"/>
                         <constraint firstAttribute="height" constant="21" id="EK7-cI-Lt9"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Af7-n5-HpY">
                     <rect key="frame" x="128" y="10" width="181" height="31"/>
-                    <animations/>
                     <connections>
                         <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="XiD-JA-nS6"/>
                     </connections>
                 </slider>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O19-EW-Biw">
                     <rect key="frame" x="304" y="22" width="40" height="21"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="OwG-yF-YH6"/>
                         <constraint firstAttribute="height" constant="21" id="cNS-0n-D0s"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4n-xg-pe9">
                     <rect key="frame" x="88" y="10" width="30" height="30"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Fxp-uf-1o0"/>
                         <constraint firstAttribute="width" constant="30" id="bak-it-AFL"/>
@@ -96,7 +96,6 @@
                     </connections>
                 </button>
             </subviews>
-            <animations/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="hMp-aW-ah9" secondAttribute="bottom" constant="7" id="BEF-I5-EqZ"/>
                 <constraint firstItem="JxW-Hf-Lgh" firstAttribute="leading" secondItem="N5h-KY-8b4" secondAttribute="trailing" constant="10" id="CDB-cu-2Sy"/>

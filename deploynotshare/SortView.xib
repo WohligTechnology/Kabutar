@@ -3,6 +3,16 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="AgendaMedium.otf">
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SortView" customModule="deploynotshare" customModuleProvider="target">
             <connections>
@@ -19,13 +29,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                     <color key="barTintColor" red="1" green="0.3529411764705882" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <textAttributes key="titleTextAttributes">
+                        <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                         <color key="textColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
                     </textAttributes>
                     <items>
                         <navigationItem title="SORT" id="gQg-tg-EA8"/>
                     </items>
                 </navigationBar>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sort_pop_up" translatesAutoresizingMaskIntoConstraints="NO" id="6rw-F6-NkM">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_sort_white" translatesAutoresizingMaskIntoConstraints="NO" id="6rw-F6-NkM">
                     <rect key="frame" x="89" y="11" width="22" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="22" id="Elk-gZ-FLe"/>
@@ -37,10 +48,10 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBV-KP-byg">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="51"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Alphabetical Order" image="sort_atoz">
+                            <state key="normal" title="Alphabetical Order" image="ic_sort_atoz">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -49,10 +60,10 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRy-Si-VeN">
                             <rect key="frame" x="0.0" y="51" width="300" height="51"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="33" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Colour" image="sort_color">
+                            <state key="normal" title="Colour" image="ic_sort_color">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -61,6 +72,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSd-vb-8ng">
                             <rect key="frame" x="0.0" y="102" width="300" height="51"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="28" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Created Time" image="sort_creation">
@@ -72,6 +84,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjV-qq-YsI">
                             <rect key="frame" x="0.0" y="153" width="300" height="51"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Modified Time" image="sort_modification">
@@ -83,9 +96,10 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMe-8X-jI4">
                             <rect key="frame" x="0.0" y="204" width="300" height="51"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Reminder" image="sort_reminder">
+                            <state key="normal" title="Reminder" image="ic_note_remainder">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -94,9 +108,10 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JiG-I1-BKo">
                             <rect key="frame" x="0.0" y="255" width="300" height="51"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="26" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Time Bomb" image="sort_timebomb">
+                            <state key="normal" title="Time Bomb" image="ic_note_timebomb">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -123,12 +138,12 @@
         </view>
     </objects>
     <resources>
-        <image name="sort_atoz" width="28" height="25"/>
-        <image name="sort_color" width="28" height="28"/>
+        <image name="ic_note_remainder" width="24" height="24"/>
+        <image name="ic_note_timebomb" width="24" height="24"/>
+        <image name="ic_sort_atoz" width="24" height="24"/>
+        <image name="ic_sort_color" width="24" height="14"/>
+        <image name="ic_sort_white" width="24" height="24"/>
         <image name="sort_creation" width="32" height="30"/>
         <image name="sort_modification" width="28" height="28"/>
-        <image name="sort_pop_up" width="28" height="28"/>
-        <image name="sort_reminder" width="28" height="31"/>
-        <image name="sort_timebomb" width="28" height="24"/>
     </resources>
 </document>

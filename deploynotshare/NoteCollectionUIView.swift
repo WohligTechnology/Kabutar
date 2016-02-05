@@ -28,7 +28,7 @@ class NoteCollectionUIView: UIView {
             super.init(coder: aDecoder)
             loadViewFromNib ()
         }
-        func loadViewFromNib() {
+    func loadViewFromNib() {
             let bundle = NSBundle(forClass: self.dynamicType)
             let nib = UINib(nibName: "NoteCollectionViewCell", bundle: bundle)
             let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView

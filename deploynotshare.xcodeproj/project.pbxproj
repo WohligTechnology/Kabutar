@@ -613,6 +613,7 @@
 		43921D531BE0BD300032DE28 /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				C231DED11C64732E00F89782 /* Settings */,
 				43CB115B1C107744006F3FA8 /* InsideNoteMenu */,
 				36F568BB1C08475300CBE128 /* ElementImage */,
 				36F568281C08372000CBE128 /* DeleteSection */,
@@ -681,6 +682,13 @@
 				782721981BFDAC8C00241D44 /* timebomb@3x.png */,
 			);
 			name = assets;
+			sourceTree = "<group>";
+		};
+		C231DED11C64732E00F89782 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

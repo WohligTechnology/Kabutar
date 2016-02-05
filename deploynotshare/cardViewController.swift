@@ -55,7 +55,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
                 self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
                 self.navigationController?.navigationBar.titleTextAttributes = [ NSForegroundColorAttributeName : UIColor.whiteColor() ]
                 self.navigationController?.navigationBar.translucent = false
-                self.addLeftBarButtonWithImage(UIImage(named: "ic_menu_black_24dp")!)
+                self.addLeftBarButtonWithImage(UIImage(named: "ic_option")!)
                 self.navigationController?.toolbar.barTintColor = PinkColor
                 self.navigationController?.navigationBar.barTintColor = PinkColor
             }
@@ -196,6 +196,10 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
         
         insideView = NoteCollectionUIView(frame: CGRectMake(0,0,(width-30)/2,(height-30)/4))
+        
+        insideView.titleLabel.font = UIFont(name: "Agenda", size: 14)
+        insideView.descLabel.font = UIFont(name: "Agenda", size: 14)
+        insideView.timeLabel.font = UIFont(name: "Agenda", size: 11)
         
         insideView.titleLabel.text = notesTitle[indexPath.row] as? String
         insideView.descLabel.text = (noteDesc[indexPath.row] as? String?)!

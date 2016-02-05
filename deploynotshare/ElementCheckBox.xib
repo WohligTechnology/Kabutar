@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ElementCheckBox" customModule="deploynotshare" customModuleProvider="target">
@@ -16,7 +16,6 @@
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o9b-BM-SR2">
                     <rect key="frame" x="40" y="0.0" width="352" height="50"/>
-                    <animations/>
                     <attributedString key="attributedText"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                     <connections>
@@ -27,7 +26,6 @@
                     </connections>
                 </textField>
             </subviews>
-            <animations/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="o9b-BM-SR2" secondAttribute="trailing" constant="8" id="1Es-Ne-gcY"/>
                 <constraint firstAttribute="bottom" secondItem="o9b-BM-SR2" secondAttribute="bottom" id="UXH-eG-ETX"/>

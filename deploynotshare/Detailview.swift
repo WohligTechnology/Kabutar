@@ -64,6 +64,8 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         let addView = AddCircle(frame: CGRectMake(width/2 - 35, height-134, 70, 70))
         self.view.addSubview(addView)
         
+        UILabel.appearance().font = UIFont(name: "Agenda", size: 14)
+        
         //Search bar code
         self.resultSearchController = UISearchController(searchResultsController: nil)
         self.resultSearchController.searchResultsUpdater = self
@@ -210,7 +212,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         let cell = detailtableview.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ListTableViewCell
         
         cell.rightButtons = [
-            MGSwipeButton(title: "",icon: UIImage(named:"reminder.png"), backgroundColor: mainColor , callback: {
+            MGSwipeButton(title: "",icon: UIImage(named:"note_remainder.png"), backgroundColor: mainColor , callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 datetimepopupType  = "reminder"
                 selectedNoteId = String(self.notesId[indexPath.row])
@@ -227,20 +229,20 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 return true
 
             }),
-            MGSwipeButton(title: "",icon: UIImage(named:"share.png"), backgroundColor: mainColor, callback: {
+            MGSwipeButton(title: "",icon: UIImage(named:"note_share.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
                 
                 return true
             }),
-            MGSwipeButton(title: "",icon: UIImage(named:"delete.png"), backgroundColor: mainColor, callback: {
+            MGSwipeButton(title: "",icon: UIImage(named:"ic_trash_white.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 selectedNoteId = String(self.notesId[indexPath.row])
                 self.showdelete(indexPath.row)
                 
                 return true
             }),
-            MGSwipeButton(title: "",icon: UIImage(named:"move.png"), backgroundColor: mainColor, callback: {
+            MGSwipeButton(title: "",icon: UIImage(named:"ic_move_white.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
             
                 selectedNoteId = String(self.notesId[indexPath.row])
@@ -273,7 +275,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 
                 return true
             }),
-            MGSwipeButton(title: "", icon: UIImage(named:"lock.png"), backgroundColor: mainColor, callback: {
+            MGSwipeButton(title: "", icon: UIImage(named:"note_lock.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
                 selectedNoteId = String(self.notesId[indexPath.row])

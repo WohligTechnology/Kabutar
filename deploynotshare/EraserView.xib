@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -20,12 +20,12 @@
             <subviews>
                 <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRG-tv-DAS">
                     <rect key="frame" x="0.0" y="0.0" width="350" height="44"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="o4v-bb-8Mv"/>
                     </constraints>
                     <color key="barTintColor" red="1" green="0.35294117650000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                     <textAttributes key="titleTextAttributes">
+                        <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                     </textAttributes>
                     <items>
@@ -34,21 +34,18 @@
                 </navigationBar>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqz-ib-nDX">
                     <rect key="frame" x="8" y="64" width="37" height="21"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1L-WN-pSC">
                     <rect key="frame" x="53" y="64" width="11" height="21"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="1" maxValue="35" translatesAutoresizingMaskIntoConstraints="NO" id="KQm-L3-K8K" userLabel="Resizing Slider">
                     <rect key="frame" x="72" y="60" width="228" height="31"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="226" id="8zP-hM-ISo"/>
                         <constraint firstAttribute="width" constant="226" id="f5P-ru-cNG"/>
@@ -69,7 +66,6 @@
                     <subviews>
                         <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4TA-hL-Fv1" userLabel="Brush Preview">
                             <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
-                            <animations/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="32" id="bSq-sX-WdQ"/>
@@ -77,7 +73,6 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="BEu-7f-mRM"/>
                         <constraint firstItem="4TA-hL-Fv1" firstAttribute="top" secondItem="hWg-gb-0wy" secondAttribute="top" id="Pwb-KX-PB6"/>
@@ -86,7 +81,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Gqz-ib-nDX" firstAttribute="leading" secondItem="YqM-BQ-q5V" secondAttribute="leadingMargin" id="0Xl-b5-wuJ"/>

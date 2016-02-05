@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "deploynotshare/AppDelegate.swift"
+            timestampString = "476343821.376238"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "deploynotshare.AppDelegate.__deallocating_deinit"
+                  moduleName = "deploynotshare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Wohlig/Documents/xcode/Kabutar/deploynotshare/AppDelegate.swift"
+                  timestampString = "476343821.614949"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "deploynotshare.AppDelegate.init (deploynotshare.AppDelegate.Type)() -&gt; deploynotshare.AppDelegate"
+                  moduleName = "deploynotshare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Wohlig/Documents/xcode/Kabutar/deploynotshare/AppDelegate.swift"
+                  timestampString = "476343821.615981"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "main"
+                  moduleName = "deploynotshare"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Wohlig/Documents/xcode/Kabutar/deploynotshare/AppDelegate.swift"
+                  timestampString = "476343821.616237"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

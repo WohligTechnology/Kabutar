@@ -37,8 +37,7 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     @IBOutlet weak var profileimage: UIImageView!
     
     var menuName = ["demo","Notes","Folders","Notification Center","Rate Us","Like us on Facebook","Send Feedback","Invite Friends","Settings"]
-    var menuImage = ["demo","menu_note","menu_folder","menu_notification","menu_invite","menu_setting","menu_about","menu_logout","menu_logout"]
-    
+    var menuImage = ["demo","ic_note","ic_folder","ic_notification","ic_rate","ic_like","ic_feedback","ic_invite","ic_settings"]
     
     
     override func viewDidLoad() {
