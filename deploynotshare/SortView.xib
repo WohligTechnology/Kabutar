@@ -11,6 +11,7 @@
             <string>Agenda-Medium</string>
             <string>Agenda-Medium</string>
             <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -25,29 +26,19 @@
             <rect key="frame" x="0.0" y="0.0" width="300" height="350"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mrm-Ov-UhD">
-                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
-                    <color key="barTintColor" red="1" green="0.3529411764705882" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <textAttributes key="titleTextAttributes">
-                        <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
-                        <color key="textColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
-                    </textAttributes>
-                    <items>
-                        <navigationItem title="SORT" id="gQg-tg-EA8"/>
-                    </items>
-                </navigationBar>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_sort_white" translatesAutoresizingMaskIntoConstraints="NO" id="6rw-F6-NkM">
-                    <rect key="frame" x="89" y="11" width="22" height="22"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="22" id="Elk-gZ-FLe"/>
-                        <constraint firstAttribute="height" constant="22" id="ZIS-l2-NXE"/>
-                    </constraints>
-                </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="izr-v1-iDA">
-                    <rect key="frame" x="0.0" y="44" width="300" height="306"/>
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="350"/>
                     <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEi-lh-Jyu">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                            <color key="backgroundColor" red="1" green="0.40188042969999999" blue="0.4112429044" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
+                            <state key="normal" title="SORT" image="ic_sort_white">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBV-KP-byg">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="51"/>
+                            <rect key="frame" x="0.0" y="50" width="300" height="50"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -59,7 +50,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRy-Si-VeN">
-                            <rect key="frame" x="0.0" y="51" width="300" height="51"/>
+                            <rect key="frame" x="0.0" y="100" width="300" height="50"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="33" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -71,7 +62,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSd-vb-8ng">
-                            <rect key="frame" x="0.0" y="102" width="300" height="51"/>
+                            <rect key="frame" x="0.0" y="150" width="300" height="50"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="28" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -83,7 +74,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjV-qq-YsI">
-                            <rect key="frame" x="0.0" y="153" width="300" height="51"/>
+                            <rect key="frame" x="0.0" y="200" width="300" height="50"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -95,7 +86,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMe-8X-jI4">
-                            <rect key="frame" x="0.0" y="204" width="300" height="51"/>
+                            <rect key="frame" x="0.0" y="250" width="300" height="50"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -107,7 +98,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JiG-I1-BKo">
-                            <rect key="frame" x="0.0" y="255" width="300" height="51"/>
+                            <rect key="frame" x="0.0" y="300" width="300" height="50"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="26" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -123,15 +114,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Mrm-Ov-UhD" secondAttribute="trailing" id="5jX-hy-AOT"/>
-                <constraint firstItem="6rw-F6-NkM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="89" id="Eso-hs-iff"/>
-                <constraint firstItem="Mrm-Ov-UhD" firstAttribute="centerY" secondItem="6rw-F6-NkM" secondAttribute="centerY" id="HYZ-KA-J2w"/>
-                <constraint firstAttribute="bottom" secondItem="izr-v1-iDA" secondAttribute="bottom" id="L17-2q-L8y"/>
-                <constraint firstItem="Mrm-Ov-UhD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Lci-3H-SLP"/>
-                <constraint firstAttribute="trailing" secondItem="izr-v1-iDA" secondAttribute="trailing" id="XR5-80-j3N"/>
-                <constraint firstItem="izr-v1-iDA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="XYD-L8-NhQ"/>
-                <constraint firstItem="izr-v1-iDA" firstAttribute="top" secondItem="Mrm-Ov-UhD" secondAttribute="bottom" id="yL0-1W-BwC"/>
-                <constraint firstItem="Mrm-Ov-UhD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yQx-Gv-qTl"/>
+                <constraint firstItem="izr-v1-iDA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1yD-4T-wNe"/>
+                <constraint firstItem="izr-v1-iDA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Xwh-bM-RUF"/>
+                <constraint firstAttribute="bottom" secondItem="izr-v1-iDA" secondAttribute="bottom" id="blf-IC-aE9"/>
+                <constraint firstAttribute="trailing" secondItem="izr-v1-iDA" secondAttribute="trailing" id="pFA-5I-9LM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="325" y="321"/>

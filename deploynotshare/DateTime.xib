@@ -3,6 +3,13 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="AgendaMedium.otf">
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DateTime">
             <connections>
@@ -17,30 +24,46 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mvh-X4-G5e">
-                    <rect key="frame" x="0.0" y="38" width="300" height="462"/>
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="500"/>
                     <subviews>
-                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="aSN-MP-ka6">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="216"/>
+                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0e-Lr-gSz">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="38"/>
+                            <color key="backgroundColor" red="1" green="0.40188042969999999" blue="0.4112429044" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
+                            <state key="normal" title="DATE TIME">
+                                <color key="titleColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                        <datePicker contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="aSN-MP-ka6">
+                            <rect key="frame" x="0.0" y="38" width="300" height="216"/>
                             <date key="date" timeIntervalSinceReferenceDate="468237544.75624001">
                                 <!--2015-11-03 09:59:04 +0000-->
                             </date>
                         </datePicker>
                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="beA-ov-Opl">
-                            <rect key="frame" x="0.0" y="216" width="300" height="216"/>
+                            <rect key="frame" x="0.0" y="254" width="300" height="216"/>
                             <date key="date" timeIntervalSinceReferenceDate="468237544.75624001">
                                 <!--2015-11-03 09:59:04 +0000-->
                             </date>
                         </datePicker>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aVr-w2-iMs">
-                            <rect key="frame" x="0.0" y="432" width="300" height="30"/>
+                            <rect key="frame" x="0.0" y="470" width="300" height="30"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNw-An-Dlp">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
-                                    <state key="normal" title="CANCEL"/>
+                                    <color key="backgroundColor" red="1" green="0.40188042969999999" blue="0.4112429044" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="15"/>
+                                    <state key="normal" title="CANCEL">
+                                        <color key="titleColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
+                                    </state>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n23-Da-kbS">
                                     <rect key="frame" x="150" y="0.0" width="150" height="30"/>
-                                    <state key="normal" title="OK"/>
+                                    <color key="backgroundColor" red="1" green="0.40188042969999999" blue="0.4112429044" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="15"/>
+                                    <state key="normal" title="OK">
+                                        <color key="titleColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="buttonOk:" destination="-1" eventType="touchUpInside" id="uGg-94-x0Q"/>
                                     </connections>
@@ -49,26 +72,13 @@
                         </stackView>
                     </subviews>
                 </stackView>
-                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfl-FJ-C9p">
-                    <rect key="frame" x="0.0" y="-6" width="300" height="44"/>
-                    <color key="barTintColor" red="1" green="0.35294117650000001" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
-                    <textAttributes key="titleTextAttributes">
-                        <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
-                        <color key="textColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
-                    </textAttributes>
-                    <items>
-                        <navigationItem title="Date time" id="fbz-cS-3FX"/>
-                    </items>
-                </navigationBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Mvh-X4-G5e" secondAttribute="trailing" id="L6y-jz-zRe"/>
-                <constraint firstItem="cfl-FJ-C9p" firstAttribute="leading" secondItem="Mvh-X4-G5e" secondAttribute="leading" id="Quy-KI-8l2"/>
-                <constraint firstItem="cfl-FJ-C9p" firstAttribute="trailing" secondItem="Mvh-X4-G5e" secondAttribute="trailing" id="STR-eT-NbN"/>
-                <constraint firstItem="Mvh-X4-G5e" firstAttribute="leading" secondItem="lSI-HE-oBb" secondAttribute="leading" id="c7O-LM-PVy"/>
-                <constraint firstItem="Mvh-X4-G5e" firstAttribute="top" secondItem="cfl-FJ-C9p" secondAttribute="bottom" id="snt-4d-fk1"/>
-                <constraint firstAttribute="bottom" secondItem="Mvh-X4-G5e" secondAttribute="bottom" id="wp1-M8-y2C"/>
+                <constraint firstItem="Mvh-X4-G5e" firstAttribute="leading" secondItem="lSI-HE-oBb" secondAttribute="leading" id="1R9-eI-X2K"/>
+                <constraint firstAttribute="trailing" secondItem="Mvh-X4-G5e" secondAttribute="trailing" id="6NP-hf-Nre"/>
+                <constraint firstItem="Mvh-X4-G5e" firstAttribute="top" secondItem="lSI-HE-oBb" secondAttribute="top" id="BsA-D4-EAR"/>
+                <constraint firstAttribute="bottom" secondItem="Mvh-X4-G5e" secondAttribute="bottom" id="pdw-b1-W42"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="277" y="275"/>

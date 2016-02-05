@@ -11,31 +11,29 @@
             <string>Agenda-Medium</string>
             <string>Agenda-Medium</string>
             <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
         </mutableArray>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InsideNoteMenu" customModule="deploynotshare" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="278" height="268"/>
+            <rect key="frame" x="0.0" y="0.0" width="278" height="331"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="A7R-5M-KqZ">
-                    <rect key="frame" x="0.0" y="0.0" width="278" height="268"/>
+                    <rect key="frame" x="0.0" y="0.0" width="278" height="331"/>
                     <subviews>
-                        <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQZ-Mc-GeF">
-                            <rect key="frame" x="0.0" y="0.0" width="278" height="38"/>
-                            <color key="barTintColor" red="1" green="0.3529411764705882" blue="0.37647058823529411" alpha="1" colorSpace="deviceRGB"/>
-                            <textAttributes key="titleTextAttributes">
-                                <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
-                                <color key="textColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
-                            </textAttributes>
-                            <items>
-                                <navigationItem title="OPTIONS" id="CAo-hN-Yx3"/>
-                            </items>
-                        </navigationBar>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEK-7b-YXz">
+                            <rect key="frame" x="0.0" y="0.0" width="278" height="47"/>
+                            <color key="backgroundColor" red="1" green="0.40188042969999999" blue="0.4112429044" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
+                            <state key="normal" title="OPTIONS" backgroundImage="PinkColor">
+                                <color key="titleColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuC-Zu-g4D">
-                            <rect key="frame" x="0.0" y="38" width="278" height="39"/>
+                            <rect key="frame" x="0.0" y="47" width="278" height="48"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="   Share" image="ic_note_share">
@@ -46,7 +44,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXy-b4-0Id">
-                            <rect key="frame" x="0.0" y="77" width="278" height="38"/>
+                            <rect key="frame" x="0.0" y="95" width="278" height="47"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="   Delete" image="ic_note_trash">
@@ -57,7 +55,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJx-iP-eIs">
-                            <rect key="frame" x="0.0" y="115" width="278" height="38"/>
+                            <rect key="frame" x="0.0" y="142" width="278" height="47"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="   Move" image="ic_note_move">
@@ -68,7 +66,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cY7-Ky-y5V">
-                            <rect key="frame" x="0.0" y="153" width="278" height="38"/>
+                            <rect key="frame" x="0.0" y="189" width="278" height="47"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="   Remind" image="ic_note_remainder">
@@ -79,7 +77,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIu-LM-7DF">
-                            <rect key="frame" x="0.0" y="191" width="278" height="39"/>
+                            <rect key="frame" x="0.0" y="236" width="278" height="48"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="   Timebomb" image="ic_note_timebomb">
@@ -90,7 +88,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCZ-Jz-fFB">
-                            <rect key="frame" x="0.0" y="230" width="278" height="38"/>
+                            <rect key="frame" x="0.0" y="284" width="278" height="47"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="   Lock" image="ic_note_lock">
@@ -111,10 +109,11 @@
                 <constraint firstItem="A7R-5M-KqZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bm2-6f-fbV"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="315" y="278"/>
+            <point key="canvasLocation" x="315" y="309.5"/>
         </view>
     </objects>
     <resources>
+        <image name="PinkColor" width="10" height="10"/>
         <image name="ic_note_lock" width="24" height="24"/>
         <image name="ic_note_move" width="24" height="24"/>
         <image name="ic_note_remainder" width="24" height="24"/>
