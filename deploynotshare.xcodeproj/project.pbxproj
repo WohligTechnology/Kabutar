@@ -111,6 +111,12 @@
 		782721A81BFDAC8C00241D44 /* timebomb.png in Resources */ = {isa = PBXBuildFile; fileRef = 782721961BFDAC8C00241D44 /* timebomb.png */; };
 		782721A91BFDAC8C00241D44 /* timebomb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 782721971BFDAC8C00241D44 /* timebomb@2x.png */; };
 		782721AA1BFDAC8C00241D44 /* timebomb@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 782721981BFDAC8C00241D44 /* timebomb@3x.png */; };
+		C25FD0EC1C64E42B002F38BF /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25FD0EB1C64E42B002F38BF /* Settings.swift */; };
+		C25FD0EF1C64E56F002F38BF /* NotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C25FD0EE1C64E56F002F38BF /* NotificationView.xib */; };
+		C25FD0F21C64EA50002F38BF /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25FD0F11C64EA50002F38BF /* NotificationView.swift */; };
+		C25FD0F41C64EAA1002F38BF /* ShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C25FD0F31C64EAA1002F38BF /* ShareView.xib */; };
+		C25FD0F61C64EABB002F38BF /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25FD0F51C64EABB002F38BF /* ShareView.swift */; };
+		C2DFE43C1C64D0F200C570D8 /* Settings.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE43B1C64D0F100C570D8 /* Settings.xib */; };
 		CB6D02908480861E8104DBED /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C5E5AA73873D644F4D1844 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -245,6 +251,12 @@
 		782721981BFDAC8C00241D44 /* timebomb@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timebomb@3x.png"; path = "assets/timebomb@3x.png"; sourceTree = "<group>"; };
 		92B148ACB4368AC64116F570 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B5C5E5AA73873D644F4D1844 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25FD0EB1C64E42B002F38BF /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		C25FD0EE1C64E56F002F38BF /* NotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationView.xib; sourceTree = "<group>"; };
+		C25FD0F11C64EA50002F38BF /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		C25FD0F31C64EAA1002F38BF /* ShareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareView.xib; sourceTree = "<group>"; };
+		C25FD0F51C64EABB002F38BF /* ShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		C2DFE43B1C64D0F100C570D8 /* Settings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Settings.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -613,6 +625,8 @@
 		43921D531BE0BD300032DE28 /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				C25FD0F01C64E7AD002F38BF /* ShareView */,
+				C25FD0ED1C64E54C002F38BF /* NotificationView */,
 				C231DED11C64732E00F89782 /* Settings */,
 				43CB115B1C107744006F3FA8 /* InsideNoteMenu */,
 				36F568BB1C08475300CBE128 /* ElementImage */,
@@ -687,8 +701,28 @@
 		C231DED11C64732E00F89782 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				C2DFE43B1C64D0F100C570D8 /* Settings.xib */,
+				C25FD0EB1C64E42B002F38BF /* Settings.swift */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		C25FD0ED1C64E54C002F38BF /* NotificationView */ = {
+			isa = PBXGroup;
+			children = (
+				C25FD0EE1C64E56F002F38BF /* NotificationView.xib */,
+				C25FD0F11C64EA50002F38BF /* NotificationView.swift */,
+			);
+			name = NotificationView;
+			sourceTree = "<group>";
+		};
+		C25FD0F01C64E7AD002F38BF /* ShareView */ = {
+			isa = PBXGroup;
+			children = (
+				C25FD0F31C64EAA1002F38BF /* ShareView.xib */,
+				C25FD0F51C64EABB002F38BF /* ShareView.swift */,
+			);
+			name = ShareView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -820,6 +854,8 @@
 				782721A51BFDAC8C00241D44 /* share.png in Resources */,
 				43344B031BF5BCDA00AC4802 /* BrushView.xib in Resources */,
 				43344B0B1BF5FFD600AC4802 /* MessageView.xib in Resources */,
+				C25FD0F41C64EAA1002F38BF /* ShareView.xib in Resources */,
+				C25FD0EF1C64E56F002F38BF /* NotificationView.xib in Resources */,
 				36F568BF1C08540900CBE128 /* ElementImage.xib in Resources */,
 				782721A41BFDAC8C00241D44 /* reminder@3x.png in Resources */,
 				782721AA1BFDAC8C00241D44 /* timebomb@3x.png in Resources */,
@@ -834,6 +870,7 @@
 				43A0049B1BE894E300396E47 /* ViewView.xib in Resources */,
 				7827219D1BFDAC8C00241D44 /* lock@2x.png in Resources */,
 				4389CE291BEDDC36005CF805 /* ColorPattern.xib in Resources */,
+				C2DFE43C1C64D0F200C570D8 /* Settings.xib in Resources */,
 				437317351BD770660018B580 /* Assets.xcassets in Resources */,
 				36F114761BF0B6310023E2DB /* DetailViewFooterMain.xib in Resources */,
 				7827219F1BFDAC8C00241D44 /* move.png in Resources */,
@@ -929,6 +966,7 @@
 				36F114701BF078CC0023E2DB /* ConfigModel.swift in Sources */,
 				4395A6411BF9AEA600EE4F10 /* AboutTableViewController.swift in Sources */,
 				43BE98E81BF220DE0006CBC4 /* ColorPaper.swift in Sources */,
+				C25FD0F21C64EA50002F38BF /* NotificationView.swift in Sources */,
 				434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */,
 				43921D571BE0C4590032DE28 /* SortView.swift in Sources */,
 				4395A63F1BF9A2D800EE4F10 /* SyncTableViewController.swift in Sources */,
@@ -938,7 +976,9 @@
 				36F1147A1BF0BA770023E2DB /* DetailViewFooterMain.swift in Sources */,
 				43921D5B1BE0E7DA0032DE28 /* PasswordViewController.swift in Sources */,
 				4389CE2B1BEDE136005CF805 /* ColorPattern.swift in Sources */,
+				C25FD0F61C64EABB002F38BF /* ShareView.swift in Sources */,
 				4380B3501BDA54DF0026CED9 /* popup.swift in Sources */,
+				C25FD0EC1C64E42B002F38BF /* Settings.swift in Sources */,
 				364EA4611BF1B37A001B7161 /* NoteElementModel.swift in Sources */,
 				36E416791BEB6D18007EE385 /* AddCircle.swift in Sources */,
 				434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */,

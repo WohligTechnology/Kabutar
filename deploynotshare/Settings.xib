@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="AgendaMedium.otf">
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="Settings" customModule="deploynotshare" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="318" height="364"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oFQ-oj-y1p">
+                    <rect key="frame" x="0.0" y="0.0" width="318" height="364"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sync" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Bj-y4-0Ge">
+                            <rect key="frame" x="0.0" y="0.0" width="318" height="46"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
+                            <color key="textColor" red="1" green="0.40188042969999999" blue="0.4112429044" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4i-CU-YUv">
+                            <rect key="frame" x="0.0" y="46" width="318" height="44"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="16"/>
+                            <state key="normal" title="Sync via">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWQ-Ia-avO">
+                            <rect key="frame" x="0.0" y="90" width="318" height="46"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="16"/>
+                            <state key="normal" title="Sync">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Security" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwG-jG-9c2">
+                            <rect key="frame" x="0.0" y="136" width="318" height="46"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
+                            <color key="textColor" red="1" green="0.40188042969999999" blue="0.4112429044" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="584-TY-Eus">
+                            <rect key="frame" x="0.0" y="182" width="318" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="PCa-hU-e2p"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="16"/>
+                            <state key="normal" title="Set / Change Passcode">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Others" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcA-5A-Zg4">
+                            <rect key="frame" x="0.0" y="227" width="318" height="46"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
+                            <color key="textColor" red="1" green="0.40188042969999999" blue="0.4112429044" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e52-EW-Wle">
+                            <rect key="frame" x="0.0" y="273" width="318" height="46"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="16"/>
+                            <state key="normal" title="Terms &amp; Condition">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JF9-Nf-Rov">
+                            <rect key="frame" x="0.0" y="319" width="318" height="45"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="16"/>
+                            <state key="normal" title="Logout">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="e52-EW-Wle" firstAttribute="height" secondItem="JF9-Nf-Rov" secondAttribute="height" id="353-O9-Y8w"/>
+                        <constraint firstItem="T4i-CU-YUv" firstAttribute="top" secondItem="3Bj-y4-0Ge" secondAttribute="bottom" id="9VU-Ic-Fb8"/>
+                        <constraint firstItem="3Bj-y4-0Ge" firstAttribute="height" secondItem="T4i-CU-YUv" secondAttribute="height" constant="1" id="Idv-bu-4hh"/>
+                        <constraint firstItem="3Bj-y4-0Ge" firstAttribute="top" secondItem="oFQ-oj-y1p" secondAttribute="top" id="P1B-KL-1P1"/>
+                        <constraint firstAttribute="bottom" secondItem="584-TY-Eus" secondAttribute="bottom" constant="137" id="V2a-xk-SEL"/>
+                        <constraint firstItem="OWQ-Ia-avO" firstAttribute="height" secondItem="rwG-jG-9c2" secondAttribute="height" constant="-1" id="gbo-UV-P56"/>
+                        <constraint firstItem="BcA-5A-Zg4" firstAttribute="height" secondItem="e52-EW-Wle" secondAttribute="height" constant="1" id="hTy-j9-YHX"/>
+                        <constraint firstItem="T4i-CU-YUv" firstAttribute="height" secondItem="OWQ-Ia-avO" secondAttribute="height" constant="-1" id="ib6-ng-UKf"/>
+                        <constraint firstItem="3Bj-y4-0Ge" firstAttribute="leading" secondItem="oFQ-oj-y1p" secondAttribute="leading" id="kcj-97-hvX"/>
+                        <constraint firstAttribute="trailing" secondItem="3Bj-y4-0Ge" secondAttribute="trailing" id="p2j-48-9q5"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="oFQ-oj-y1p" secondAttribute="trailing" id="JRF-ld-Dee"/>
+                <constraint firstItem="oFQ-oj-y1p" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZOn-GA-hfk"/>
+                <constraint firstAttribute="bottom" secondItem="oFQ-oj-y1p" secondAttribute="bottom" id="Zbp-Wy-4vy"/>
+                <constraint firstItem="oFQ-oj-y1p" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="y89-Ta-WmJ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="297" y="164"/>
+        </view>
+    </objects>
+</document>
