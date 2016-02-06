@@ -66,7 +66,7 @@
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="28" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Created Time" image="sort_creation">
+                            <state key="normal" title="Created Time" image="ic_sort_creation">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -78,7 +78,7 @@
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Modified Time" image="sort_modification">
+                            <state key="normal" title="Modified Time" image="ic_sort_modification">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -128,8 +128,8 @@
         <image name="ic_note_timebomb" width="24" height="24"/>
         <image name="ic_sort_atoz" width="24" height="24"/>
         <image name="ic_sort_color" width="24" height="14"/>
+        <image name="ic_sort_creation" width="24" height="24"/>
+        <image name="ic_sort_modification" width="24" height="24"/>
         <image name="ic_sort_white" width="24" height="24"/>
-        <image name="sort_creation" width="32" height="30"/>
-        <image name="sort_modification" width="28" height="28"/>
     </resources>
 </document>

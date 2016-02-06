@@ -4,8 +4,8 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="AgendaMedium.otf">
-            <string>Agenda-Medium</string>
+        <mutableArray key="AgendaBold.otf">
+            <string>Agenda-Bold</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -31,7 +31,7 @@
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glW-F4-wiY">
                             <rect key="frame" x="108" y="0.0" width="266" height="88"/>
-                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="20"/>
+                            <fontDescription key="fontDescription" name="Agenda-Bold" family="Agenda" pointSize="20"/>
                             <color key="textColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
                             <nil key="highlightedColor"/>
                         </label>

@@ -118,6 +118,8 @@
 		C25FD0F61C64EABB002F38BF /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25FD0F51C64EABB002F38BF /* ShareView.swift */; };
 		C2DFE43C1C64D0F200C570D8 /* Settings.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE43B1C64D0F100C570D8 /* Settings.xib */; };
 		C2F2EE0B1C65BAF200B622B6 /* AgendaBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2F2EE0A1C65BAF200B622B6 /* AgendaBold.otf */; };
+		C2F2EE0E1C65C37700B622B6 /* ShareNoteshareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2F2EE0D1C65C37700B622B6 /* ShareNoteshareView.xib */; };
+		C2F2EE101C65C5C800B622B6 /* ShareNoteshareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2EE0F1C65C5C800B622B6 /* ShareNoteshareView.swift */; };
 		CB6D02908480861E8104DBED /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C5E5AA73873D644F4D1844 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -259,6 +261,8 @@
 		C25FD0F51C64EABB002F38BF /* ShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		C2DFE43B1C64D0F100C570D8 /* Settings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Settings.xib; sourceTree = "<group>"; };
 		C2F2EE0A1C65BAF200B622B6 /* AgendaBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AgendaBold.otf; sourceTree = "<group>"; };
+		C2F2EE0D1C65C37700B622B6 /* ShareNoteshareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareNoteshareView.xib; sourceTree = "<group>"; };
+		C2F2EE0F1C65C5C800B622B6 /* ShareNoteshareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareNoteshareView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -628,6 +632,7 @@
 		43921D531BE0BD300032DE28 /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				C2F2EE0C1C65C35A00B622B6 /* ShareNoteshareView */,
 				C25FD0F01C64E7AD002F38BF /* ShareView */,
 				C25FD0ED1C64E54C002F38BF /* NotificationView */,
 				C231DED11C64732E00F89782 /* Settings */,
@@ -726,6 +731,15 @@
 				C25FD0F51C64EABB002F38BF /* ShareView.swift */,
 			);
 			name = ShareView;
+			sourceTree = "<group>";
+		};
+		C2F2EE0C1C65C35A00B622B6 /* ShareNoteshareView */ = {
+			isa = PBXGroup;
+			children = (
+				C2F2EE0D1C65C37700B622B6 /* ShareNoteshareView.xib */,
+				C2F2EE0F1C65C5C800B622B6 /* ShareNoteshareView.swift */,
+			);
+			name = ShareNoteshareView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -881,6 +895,7 @@
 				782721A81BFDAC8C00241D44 /* timebomb.png in Resources */,
 				43A0049D1BE8BC8100396E47 /* DateTime.xib in Resources */,
 				782721A61BFDAC8C00241D44 /* share@2x.png in Resources */,
+				C2F2EE0E1C65C37700B622B6 /* ShareNoteshareView.xib in Resources */,
 				36E4166F1BEB1266007EE385 /* NoteCollectionViewCell.xib in Resources */,
 				4389CE251BECB8E7005CF805 /* MoveToFolder.xib in Resources */,
 				366CE6011BFE6F550002A0C7 /* GoogleService-Info.plist in Resources */,
@@ -999,6 +1014,7 @@
 				43344B011BF5BC9A00AC4802 /* HighlighterView.swift in Sources */,
 				36F114741BF08E6B0023E2DB /* Checkbox.swift in Sources */,
 				366420321BE4BF03003477CF /* FolderModel.swift in Sources */,
+				C2F2EE101C65C5C800B622B6 /* ShareNoteshareView.swift in Sources */,
 				43344B091BF5D8F500AC4802 /* EraserView.swift in Sources */,
 				43344AFD1BF5B44200AC4802 /* AboutViewController.swift in Sources */,
 				43EFB9BD1BDE29130014EDF9 /* ListViewController.swift in Sources */,

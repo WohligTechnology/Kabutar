@@ -7,6 +7,12 @@
         <mutableArray key="AgendaBold.otf">
             <string>Agenda-Bold</string>
         </mutableArray>
+        <mutableArray key="AgendaMedium.otf">
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+            <string>Agenda-Medium</string>
+        </mutableArray>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -18,21 +24,49 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hgg-sw-an1">
                     <rect key="frame" x="0.0" y="0.0" width="348" height="206"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLr-Xr-HoY">
-                            <rect key="frame" x="0.0" y="0.0" width="348" height="31"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLr-Xr-HoY">
+                            <rect key="frame" x="0.0" y="0.0" width="348" height="41"/>
                             <color key="backgroundColor" red="1" green="0.40188042969999999" blue="0.4112429044" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="Agenda-Bold" family="Agenda" pointSize="16"/>
                             <state key="normal" title="SHARE NOTE VIA">
                                 <color key="titleColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
                             </state>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h22-Ub-Lye">
-                            <rect key="frame" x="0.0" y="31" width="348" height="175"/>
-                            <state key="normal" title="Noteshare">
-                                <color key="titleColor" red="0.59607843140000005" green="0.59607843140000005" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h22-Ub-Lye">
+                            <rect key="frame" x="0.0" y="41" width="348" height="41"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="16"/>
+                            <state key="normal" title="   NoteShare" image="ic_share_noteshare">
+                                <color key="titleColor" red="0.38431372549019605" green="0.38431372549019605" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUb-3u-qgu">
+                            <rect key="frame" x="0.0" y="82" width="348" height="42"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="16"/>
+                            <state key="normal" title="   Text" image="ic_share_text">
+                                <color key="titleColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JH4-sx-MZi">
+                            <rect key="frame" x="0.0" y="124" width="348" height="41"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="16"/>
+                            <state key="normal" title="   Screenshot" image="ic_share_screenshot">
+                                <color key="titleColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hu-4A-hNL">
+                            <rect key="frame" x="0.0" y="165" width="348" height="41"/>
+                            <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="16"/>
+                            <state key="normal" title="   URL" image="ic_share_url">
+                                <color key="titleColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="JH4-sx-MZi" firstAttribute="height" secondItem="9hu-4A-hNL" secondAttribute="height" id="Nbq-G7-lCA"/>
+                        <constraint firstItem="h22-Ub-Lye" firstAttribute="height" secondItem="cUb-3u-qgu" secondAttribute="height" id="Tco-kg-JIe"/>
+                        <constraint firstItem="cUb-3u-qgu" firstAttribute="height" secondItem="JH4-sx-MZi" secondAttribute="height" id="Zp7-40-DCx"/>
+                        <constraint firstItem="bLr-Xr-HoY" firstAttribute="height" secondItem="h22-Ub-Lye" secondAttribute="height" id="uGh-7E-LFl"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -43,7 +77,19 @@
                 <constraint firstAttribute="bottom" secondItem="Hgg-sw-an1" secondAttribute="bottom" id="lSb-mQ-hhx"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="shareNoteshare" destination="h22-Ub-Lye" id="bO1-C7-MkB"/>
+                <outlet property="shareSreenshot" destination="JH4-sx-MZi" id="jRU-7q-9Eo"/>
+                <outlet property="shareText" destination="cUb-3u-qgu" id="T8I-nU-o9p"/>
+                <outlet property="shareUrl" destination="9hu-4A-hNL" id="Pzf-0q-qy1"/>
+            </connections>
             <point key="canvasLocation" x="327" y="217"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_share_noteshare" width="24" height="24"/>
+        <image name="ic_share_screenshot" width="24" height="24"/>
+        <image name="ic_share_text" width="24" height="24"/>
+        <image name="ic_share_url" width="24" height="24"/>
+    </resources>
 </document>
