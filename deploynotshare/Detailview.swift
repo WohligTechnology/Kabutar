@@ -311,6 +311,9 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         
         cell.DetailViewTitle.text = notesTitle[indexPath.row] as? String
         cell.DetailDescription.text = (noteDesc[indexPath.row] as? String?)!
+        
+        cell.DetailViewTitle.font = UIFont(name: "Agenda-Bold", size: 16)
+        cell.DetailTimeStamp.font = UIFont(name: "Agenda", size: 11)
         if(islocked[indexPath.row] == 0){
             cell.DetailLock.hidden = true
         }else{

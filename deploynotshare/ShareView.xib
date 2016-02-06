@@ -3,13 +3,45 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="AgendaBold.otf">
+            <string>Agenda-Bold</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ShareView" customModule="deploynotshare" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="348" height="206"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hgg-sw-an1">
+                    <rect key="frame" x="0.0" y="0.0" width="348" height="206"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLr-Xr-HoY">
+                            <rect key="frame" x="0.0" y="0.0" width="348" height="31"/>
+                            <color key="backgroundColor" red="1" green="0.40188042969999999" blue="0.4112429044" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="Agenda-Bold" family="Agenda" pointSize="16"/>
+                            <state key="normal" title="SHARE NOTE VIA">
+                                <color key="titleColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h22-Ub-Lye">
+                            <rect key="frame" x="0.0" y="31" width="348" height="175"/>
+                            <state key="normal" title="Noteshare">
+                                <color key="titleColor" red="0.59607843140000005" green="0.59607843140000005" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Hgg-sw-an1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0OO-Pb-vVg"/>
+                <constraint firstItem="Hgg-sw-an1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="92g-3x-Btz"/>
+                <constraint firstAttribute="trailing" secondItem="Hgg-sw-an1" secondAttribute="trailing" id="Ljh-wT-fhc"/>
+                <constraint firstAttribute="bottom" secondItem="Hgg-sw-an1" secondAttribute="bottom" id="lSb-mQ-hhx"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="327" y="217"/>
         </view>

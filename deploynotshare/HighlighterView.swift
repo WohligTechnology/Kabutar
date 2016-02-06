@@ -96,6 +96,7 @@ class HighlighterView: UIView {
 //        innerColorView.frame.size.height = GSketch.brushWidth
         innerColorView.layer.cornerRadius = self.innerColorView.frame.size.width / 2
         
+        
         let seconds = 0.1
         let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
         let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))

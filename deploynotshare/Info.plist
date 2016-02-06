@@ -9,6 +9,7 @@
 	<key>Fonts provided by the application</key>
 	<array>
 		<string>AgendaMedium.otf</string>
+		<string>AgendaBold.otf</string>
 	</array>
 	<key>LSApplicationCategoryType</key>
 	<string></string>

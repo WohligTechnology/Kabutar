@@ -119,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         UILabel.appearance().font = UIFont(name: "Agenda", size: 14)
-        //UINavigationBar.appearance().titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Agenda", size: 14)!]
+        UINavigationBar.appearance().titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Agenda", size: 16)!,NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         GAppDelegate = self
         // Override point for customization after application launch.
