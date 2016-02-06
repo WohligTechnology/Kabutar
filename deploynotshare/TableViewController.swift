@@ -64,6 +64,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         //Show search on scroll
         self.tableView.setContentOffset(CGPoint(x: 0,y: 44), animated: true)
+        self.title = "Folders"
         
     }
     

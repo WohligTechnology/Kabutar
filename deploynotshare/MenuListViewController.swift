@@ -31,6 +31,7 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     var noteViewController: UIViewController!
     var profilePic: UIViewController!
     var AboutView: UIViewController!
+    var ThinkView: UIViewController!
     var SettingView: UIViewController!
     
     @IBOutlet var menuStaticTable: UITableView!
@@ -69,6 +70,9 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
         let SettingView = storyboard.instantiateViewControllerWithIdentifier("SettingViewController") as! SettingViewController
         self.SettingView = UINavigationController(rootViewController: SettingView)
         
+        let ThinkView = storyboard.instantiateViewControllerWithIdentifier("ThinkViewController") as! ThinkViewController
+        self.ThinkView = UINavigationController(rootViewController: ThinkView)
+
         slideMenuLeft = self.slideMenuController()
         
         
@@ -168,29 +172,26 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
             //UIApplication.sharedApplication().openURL(NSURL(string : "http://www.wohlig.com")!);
             //task.resume()
         case 4:
+            UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id310633997")!);
+            print("Rate Us");
+        case 5:
+            UIApplication.sharedApplication().openURL(NSURL(string : "http://www.wohlig.com")!);
+            print("Facebook")
+        case 6:
+            //self.slideMenuController()?.changeMainViewController(self.AboutView, close: true)
+            //self.slideMenuController()?.changeMainViewController(self.SettingView, close: true)
+            //storyboard?.instantiateViewControllerWithIdentifier("ThinkViewController") as! ThinkViewController
+            self.slideMenuController()?.changeMainViewController(self.ThinkView, close: true)
+            print("Feeback")
+        case 7:
             let textToShare = "Swift is awesome!  Check out this website about it!"
             let objectsToShare = [textToShare]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             self.presentViewController(activityVC, animated: true, completion: nil)
-            print("Invite");
-        case 5:
+            print("Invite")
+        case 8:
+            print("Settings")
             self.slideMenuController()?.changeMainViewController(self.SettingView, close: true)
-        case 6:
-            self.slideMenuController()?.changeMainViewController(self.AboutView, close: true)
-        case 7:
-            let loginManager = FBSDKLoginManager()
-            loginManager.logOut()
-            
-            let GIDSignInStat = GIDSignIn()
-            GIDSignInStat.signOut()
-
-            
-            config.logoutFlush()
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let secondViewController = storyboard.instantiateViewControllerWithIdentifier("LoginScreen") as! ViewController
-            //self.slideMenuController()?.changeMainViewController(secondViewController, close: true)
-            self.presentViewController(secondViewController as UIViewController, animated: true, completion: nil)
-            //self.slideMenuController()?.view.removeFromSuperview()
         default:
             print("Default")
         }

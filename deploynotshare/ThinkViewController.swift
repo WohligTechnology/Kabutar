@@ -17,6 +17,7 @@ class ThinkViewController: UIViewController {
     @IBOutlet weak var saysomething: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setNavigationBarItem()
 //        self.setNavigationBarItem()
         self.saysomething.layer.borderWidth = 2
         self.saysomething.layer.borderColor = UIColor.brownColor().CGColor

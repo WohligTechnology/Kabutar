@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
+import Google
 
 class SettingViewController: UITableViewController{
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(self.title);
         self.setNavigationBarItem()
     }
     
@@ -28,13 +32,27 @@ class SettingViewController: UITableViewController{
         }
         if(indexPath.section == 2 && indexPath.row==0)
         {
-            print("FB LINK");
-            UIApplication.sharedApplication().openURL(NSURL(string : "http://www.wohlig.com")!);
+            //print("FB LINK");
+            //UIApplication.sharedApplication().openURL(NSURL(string : "http://www.wohlig.com")!);
         }
         if(indexPath.section == 2 && indexPath.row==1)
         {
-            print("FB LINK");
-            UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id310633997")!);
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut()
+            
+            let GIDSignInStat = GIDSignIn()
+            GIDSignInStat.signOut()
+            
+            
+            config.logoutFlush()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let secondViewController = storyboard.instantiateViewControllerWithIdentifier("LoginScreen") as! ViewController
+            //self.slideMenuController()?.changeMainViewController(secondViewController, close: true)
+            self.presentViewController(secondViewController as UIViewController, animated: true, completion: nil)
+            //self.slideMenuController()?.view.removeFromSuperview()
+            
+            //print("FB LINK");
+            //UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id310633997")!);
         }
     }
     
