@@ -20,11 +20,13 @@
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGQ-gN-4Vs">
                     <rect key="frame" x="0.0" y="0.0" width="500" height="110"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilepic" translatesAutoresizingMaskIntoConstraints="NO" id="jrK-M7-PlA">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilepic" translatesAutoresizingMaskIntoConstraints="NO" id="jrK-M7-PlA">
                             <rect key="frame" x="0.0" y="0.0" width="100" height="110"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="FeN-wc-GvI"/>
                                 <constraint firstAttribute="height" constant="136" id="MET-k7-my1"/>
+                                <constraint firstAttribute="height" constant="110" id="RDC-bn-tYS"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Sqm-E8-EEC"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
@@ -56,48 +58,18 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="kul-CM-pul">
                                     <rect key="frame" x="0.0" y="75" width="400" height="35"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1x-lr-Bms">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="35"/>
-                                            <color key="backgroundColor" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="35" id="Aju-RM-Rm7"/>
-                                                <constraint firstAttribute="width" constant="24" id="Txz-hy-Qwu"/>
-                                            </constraints>
-                                            <state key="normal" image="ic_action_cross"/>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="Txz-hy-Qwu"/>
-                                                </mask>
-                                            </variation>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EnY-nx-WjE">
-                                            <rect key="frame" x="200" y="0.0" width="200" height="35"/>
-                                            <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="24" id="80U-q6-c84"/>
-                                                <constraint firstAttribute="height" constant="35" id="yin-6z-iLm"/>
-                                            </constraints>
-                                            <state key="normal" image="ic_action_download"/>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="80U-q6-c84"/>
-                                                </mask>
-                                            </variation>
-                                        </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0L-oV-gQT">
+                                            <rect key="frame" x="0.0" y="35" width="400" height="0.0"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="EnY-nx-WjE" firstAttribute="leading" secondItem="kul-CM-pul" secondAttribute="leading" constant="24" id="52U-yw-ZBU"/>
                                         <constraint firstAttribute="width" constant="100" id="APq-jV-wce"/>
                                         <constraint firstAttribute="height" constant="35" id="nG2-oQ-rZN"/>
-                                        <constraint firstItem="EnY-nx-WjE" firstAttribute="leading" secondItem="kul-CM-pul" secondAttribute="leading" constant="200" id="ubd-b1-Mdr"/>
-                                        <constraint firstItem="EnY-nx-WjE" firstAttribute="leading" secondItem="D1x-lr-Bms" secondAttribute="trailing" constant="8" id="yET-D4-GbT"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="APq-jV-wce"/>
-                                            <exclude reference="52U-yw-ZBU"/>
-                                            <exclude reference="ubd-b1-Mdr"/>
-                                            <exclude reference="yET-D4-GbT"/>
                                         </mask>
                                     </variation>
                                 </stackView>
@@ -114,6 +86,7 @@
                                 <constraint firstItem="2Vk-k5-HV6" firstAttribute="top" secondItem="Ryc-7y-New" secondAttribute="top" constant="25" id="MVg-vN-2kv"/>
                                 <constraint firstItem="2Vk-k5-HV6" firstAttribute="top" secondItem="J61-Bs-gMB" secondAttribute="bottom" id="Mpc-O0-7sQ"/>
                                 <constraint firstItem="J61-Bs-gMB" firstAttribute="trailing" secondItem="Ryc-7y-New" secondAttribute="trailingMargin" id="Paj-zk-YcF"/>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="TI7-Ei-MXj"/>
                                 <constraint firstItem="J61-Bs-gMB" firstAttribute="top" secondItem="Ryc-7y-New" secondAttribute="top" id="UTm-zc-MDG"/>
                                 <constraint firstAttribute="trailing" secondItem="2Vk-k5-HV6" secondAttribute="trailing" id="UqS-cw-hFY"/>
                                 <constraint firstItem="2Vk-k5-HV6" firstAttribute="centerX" secondItem="Ryc-7y-New" secondAttribute="centerX" id="VRn-DB-mtr"/>
@@ -141,12 +114,19 @@
                         <constraint firstItem="Ryc-7y-New" firstAttribute="leading" secondItem="QGQ-gN-4Vs" secondAttribute="leading" constant="100" id="02f-py-bmO"/>
                         <constraint firstItem="jrK-M7-PlA" firstAttribute="leading" secondItem="QGQ-gN-4Vs" secondAttribute="leading" id="5f3-Rs-u5b"/>
                         <constraint firstItem="Ryc-7y-New" firstAttribute="centerY" secondItem="QGQ-gN-4Vs" secondAttribute="centerY" id="5xE-o3-EFn"/>
+                        <constraint firstItem="Ryc-7y-New" firstAttribute="leading" secondItem="jrK-M7-PlA" secondAttribute="trailing" constant="8" id="7ox-ku-mKo"/>
                         <constraint firstItem="Ryc-7y-New" firstAttribute="leading" secondItem="QGQ-gN-4Vs" secondAttribute="leading" constant="100" id="868-7x-r1F"/>
+                        <constraint firstItem="jrK-M7-PlA" firstAttribute="leading" secondItem="QGQ-gN-4Vs" secondAttribute="leading" constant="8" id="9A4-iH-DLR"/>
+                        <constraint firstAttribute="bottom" secondItem="jrK-M7-PlA" secondAttribute="bottom" constant="8" id="ABm-Tm-Ncz"/>
                         <constraint firstItem="jrK-M7-PlA" firstAttribute="top" secondItem="QGQ-gN-4Vs" secondAttribute="top" id="ALL-da-L0q"/>
+                        <constraint firstItem="Ryc-7y-New" firstAttribute="top" secondItem="QGQ-gN-4Vs" secondAttribute="top" id="DmJ-Dd-RnC"/>
+                        <constraint firstAttribute="trailing" secondItem="Ryc-7y-New" secondAttribute="trailing" id="FNR-qH-ELa"/>
+                        <constraint firstItem="jrK-M7-PlA" firstAttribute="top" secondItem="QGQ-gN-4Vs" secondAttribute="top" constant="8" id="FW4-iy-ewQ"/>
                         <constraint firstItem="jrK-M7-PlA" firstAttribute="centerY" secondItem="QGQ-gN-4Vs" secondAttribute="centerY" id="Ggp-T0-Ixz"/>
                         <constraint firstItem="Ryc-7y-New" firstAttribute="leading" secondItem="jrK-M7-PlA" secondAttribute="trailing" id="Hhu-Xz-Pdr"/>
                         <constraint firstItem="jrK-M7-PlA" firstAttribute="bottom" secondItem="Ryc-7y-New" secondAttribute="bottom" id="JRa-V3-Jpm"/>
                         <constraint firstAttribute="bottom" secondItem="Ryc-7y-New" secondAttribute="bottom" id="Jke-E6-m2Q"/>
+                        <constraint firstAttribute="bottom" secondItem="Ryc-7y-New" secondAttribute="bottom" id="KCn-Ja-jfr"/>
                         <constraint firstItem="jrK-M7-PlA" firstAttribute="top" secondItem="QGQ-gN-4Vs" secondAttribute="top" id="KQy-jS-wFa"/>
                         <constraint firstItem="Ryc-7y-New" firstAttribute="top" secondItem="QGQ-gN-4Vs" secondAttribute="top" id="L9b-z4-53x"/>
                         <constraint firstItem="jrK-M7-PlA" firstAttribute="top" secondItem="QGQ-gN-4Vs" secondAttribute="top" id="MRm-za-Y5A"/>
@@ -154,6 +134,7 @@
                         <constraint firstItem="jrK-M7-PlA" firstAttribute="top" secondItem="Ryc-7y-New" secondAttribute="top" id="NKq-eo-pUn"/>
                         <constraint firstAttribute="bottom" secondItem="Ryc-7y-New" secondAttribute="bottom" id="Oz6-ic-wLj"/>
                         <constraint firstItem="jrK-M7-PlA" firstAttribute="leading" secondItem="QGQ-gN-4Vs" secondAttribute="leading" id="PfS-aF-hA6"/>
+                        <constraint firstItem="Ryc-7y-New" firstAttribute="leading" secondItem="jrK-M7-PlA" secondAttribute="trailing" constant="8" id="Rul-bl-0J3"/>
                         <constraint firstItem="jrK-M7-PlA" firstAttribute="leading" secondItem="QGQ-gN-4Vs" secondAttribute="leading" id="VK7-Mx-I3V"/>
                         <constraint firstItem="Ryc-7y-New" firstAttribute="bottom" secondItem="QGQ-gN-4Vs" secondAttribute="bottomMargin" id="XZJ-Zt-3Lm"/>
                         <constraint firstAttribute="trailing" secondItem="Ryc-7y-New" secondAttribute="trailing" id="YG7-l4-MnK"/>
@@ -176,6 +157,11 @@
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
+                            <exclude reference="9A4-iH-DLR"/>
+                            <exclude reference="ABm-Tm-Ncz"/>
+                            <exclude reference="FW4-iy-ewQ"/>
+                            <exclude reference="7ox-ku-mKo"/>
+                            <exclude reference="Rul-bl-0J3"/>
                             <exclude reference="edI-rx-gCV"/>
                         </mask>
                     </variation>
@@ -191,8 +177,6 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_action_cross" width="24" height="24"/>
-        <image name="ic_action_download" width="24" height="24"/>
         <image name="profilepic" width="800" height="758"/>
     </resources>
 </document>
