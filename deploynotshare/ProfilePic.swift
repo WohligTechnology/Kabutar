@@ -12,6 +12,7 @@ class ProfilePic: UIViewController,UIImagePickerControllerDelegate,UINavigationC
     
     @IBOutlet weak var profileimage: UIImageView!
     @IBOutlet weak var nametext: UITextField!
+    @IBOutlet weak var emailtext: UILabel!
     
     var detailview:UIViewController!
     var listView: UIViewController!
@@ -21,13 +22,25 @@ class ProfilePic: UIViewController,UIImagePickerControllerDelegate,UINavigationC
     override func viewDidLoad() {
         super.viewDidLoad()
         nametext.text = config.get("user_name");
+        emailtext.text = config.get("user_email")
         
         profileimage.image = UIImage(contentsOfFile: path + "/" + config.get("user_pic") );
         profileimage.contentMode = .ScaleAspectFill
         profileimage.layer.cornerRadius = profileimage.frame.size.width / 2 - 2
         profileimage.clipsToBounds = true
-        profileimage.layer.borderWidth = 2.0
+        profileimage.layer.borderWidth = 5.0
         profileimage.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        nametext.font = UIFont(name: "Agenda", size: 18)
+        emailtext.font = UIFont(name: "Agenda", size: 18)
+        
+        let borderLeft = CALayer()
+        let width = CGFloat(1.0)
+        borderLeft.borderColor = UIColor.whiteColor().CGColor
+        borderLeft.frame = CGRect(x: 1, y: 0, width: emailtext.frame.size.width, height: width)
+        borderLeft.borderWidth = emailtext.frame.size.width
+        emailtext.layer.addSublayer(borderLeft)
+        
         self.setNavigationBarItem()
         
         
@@ -45,9 +58,6 @@ class ProfilePic: UIViewController,UIImagePickerControllerDelegate,UINavigationC
         
         let detailview = storyboard.instantiateViewControllerWithIdentifier("Detailview") as! Detailview
         self.detailview = UINavigationController(rootViewController: detailview)
-        
-        
-        
         
     }
     

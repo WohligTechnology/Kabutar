@@ -106,6 +106,7 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
             insideView.cellImage.clipsToBounds = true
             insideView.cellImage.layer.borderWidth = 2.0
             insideView.cellImage.layer.borderColor = UIColor.whiteColor().CGColor
+            insideView.titleLabel.font = UIFont(name: "Agenda-Bold", size: 18)
             
             cell.addSubview(insideView);
         }
