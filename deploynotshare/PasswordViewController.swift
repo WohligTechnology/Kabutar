@@ -26,6 +26,8 @@ class PasswordViewController: UIViewController {
 //    @IBOutlet var PassView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
         passwordText.text = "Touch ID Enter Passcode"
         self.firstbox.layer.borderWidth = 1.0
         self.firstbox.layer.borderColor = UIColor.whiteColor().CGColor

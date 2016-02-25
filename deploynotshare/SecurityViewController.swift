@@ -25,7 +25,11 @@ class SecurityViewController: UIViewController {
     let limitLength = 10
 //    let old
     override func viewDidLoad() {
+
+
         super.viewDidLoad()
+
+
         if(configPassword == ""){
             print("cassword blanck")
             setPassword.hidden = false
