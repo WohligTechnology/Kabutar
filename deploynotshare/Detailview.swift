@@ -232,6 +232,20 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
             MGSwipeButton(title: "",icon: UIImage(named:"note_share.png"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
+                selectedNoteId = String(self.notesId[indexPath.row])
+                let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
+                self.addBlackView()
+                blackOut.addGestureRecognizer(blackOutTap)
+                blackOut.alpha = 0
+                self.view.addSubview(blackOut);
+                blackOut.animation.makeAlpha(1).animate(transitionTime);
+                
+                self.addShareView = ShareView(frame: CGRectMake(self.width/4 - 45,self.height/4, self.width/2 + 90, 200))
+                self.view.addSubview(self.addShareView)
+                
+
+                
+                
                 
                 return true
             }),
@@ -418,6 +432,18 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         
     }
     
+    
+    func closeShareView(sender:UIGestureRecognizer?){
+        self.addShareView.animation.makeY((self.view.frame.height)).easeInOut.animateWithCompletion(transitionTime, {
+            self.addShareView.removeFromSuperview()
+            
+        })
+        blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
+            blackOut.removeFromSuperview()
+        })
+        
+    }
+    
 
     
     func addBlackView(){
@@ -427,6 +453,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     
     var addDateTimeView:DateTime!
     var addMoveToFolder:MoveToFolder!
+    var addShareView:ShareView!
     
     /*func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
     {

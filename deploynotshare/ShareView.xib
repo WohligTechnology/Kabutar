@@ -15,9 +15,9 @@
         </mutableArray>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShareView" customModule="deploynotshare" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ShareView" customModule="deploynotshare" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="348" height="206"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -77,12 +77,6 @@
                 <constraint firstAttribute="bottom" secondItem="Hgg-sw-an1" secondAttribute="bottom" id="lSb-mQ-hhx"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="shareNoteshare" destination="h22-Ub-Lye" id="bO1-C7-MkB"/>
-                <outlet property="shareSreenshot" destination="JH4-sx-MZi" id="jRU-7q-9Eo"/>
-                <outlet property="shareText" destination="cUb-3u-qgu" id="T8I-nU-o9p"/>
-                <outlet property="shareUrl" destination="9hu-4A-hNL" id="Pzf-0q-qy1"/>
-            </connections>
             <point key="canvasLocation" x="327" y="217"/>
         </view>
     </objects>

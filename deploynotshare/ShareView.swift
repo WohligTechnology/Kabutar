@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShareView: UIView {
+@IBDesignable class ShareView: UIView {
     
     @IBOutlet var shareNoteshare: UIButton!
     @IBOutlet var shareText: UIButton!
@@ -16,12 +16,27 @@ class ShareView: UIView {
     @IBOutlet var shareUrl: UIButton!
     
     @IBOutlet var shareview: UIView!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        NSBundle.mainBundle().loadNibNamed("ShareView", owner: self, options: nil)
-        self.addSubview(self.shareview)
+        loadViewFromNib ()
+        //        NSBundle.mainBundle().loadNibNamed("SortView", owner: self, options: nil)
+        //        self.addSubview(self.sortnewview)
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        loadViewFromNib ()
+    }
+    
+    func loadViewFromNib() {
+        let bundle = NSBundle(forClass: self.dynamicType)
+        let nib = UINib(nibName: "ShareView", bundle: bundle)
+        let sortnewview = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        sortnewview.frame = bounds
+        sortnewview.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        self.addSubview(sortnewview);
+    }
     func shareViaNoteshare() {}
     
     func shareViaText() {}
