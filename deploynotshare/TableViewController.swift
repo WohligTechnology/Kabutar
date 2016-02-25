@@ -9,6 +9,7 @@
 import UIKit
 var selectedFolderToNoteId: String = ""
 
+var globalFolderId: Any!
 var FolderViewController : TableViewController!
 var last_navigation:UINavigationController!
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
@@ -127,10 +128,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
-    {
-        
-    }
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){}
     
     func showedit(name: String, id: String){
         let editalert = UIAlertController(title: "Edit Folder", message: "Folder name", preferredStyle: UIAlertControllerStyle.Alert)
@@ -153,6 +151,31 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         presentViewController(editalert, animated: true) { () -> Void in
             
         }
+    }
+    
+    var addshareNoteshare: ShareNoteShareView!
+    
+    func showShare(name: String, id: String){
+        print(name)
+        print(id)
+        let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
+        self.addBlackView()
+        blackOut.addGestureRecognizer(blackOutTap)
+        blackOut.alpha = 0
+        self.view.addSubview(blackOut);
+        blackOut.animation.makeAlpha(1).animate(transitionTime);
+        
+        self.addshareNoteshare = ShareNoteShareView(frame: CGRectMake(MainWidth/4 - 45, MainHeight/4, MainWidth/2 + 90, 100))
+        self.view.addSubview(self.addshareNoteshare)
+    }
+    
+    func addBlackView(){
+        blackOut = UIView(frame: CGRectMake(0, 0, (self.view.frame.width), (self.view.frame.height)))
+        blackOut.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+    }
+    
+    func shareNoteShare(sender: UIGestureRecognizer?) {
+        self.view.addSubview(self.addshareNoteshare!)
     }
     
     func showalert(id:String){
@@ -211,10 +234,17 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
         }
         
-        //deleteAction.backgroundColor = mainColor
+        let shareAction = UITableViewRowAction(style: .Normal, title: "Share") {
+            (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+            globalFolderId = self.folderId[indexPath.row];
+            self.showShare(self.folderName[indexPath.row] as! String, id: globalFolderId as! String)
+        }
+        
+        deleteAction.backgroundColor = mainColor
         editAction.backgroundColor = mainColor
+        shareAction.backgroundColor = mainColor
     
-        return [deleteAction, editAction]
+        return [shareAction, deleteAction, editAction]
         
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
