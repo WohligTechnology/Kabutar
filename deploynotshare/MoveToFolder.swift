@@ -66,21 +66,28 @@ class MoveToFolder: UIView,UITableViewDataSource,UITableViewDelegate{
     }
     
     func moveToSelectedFolder(noteID:String,folderID:String){
- 
+        print(noteID);
+        print(folderID);
         noteobj.changeNoteFolder(folderID, id2: noteID)
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 //        self.removeFromSuperview()
-        
+        print("Check this");
         
         let checkstatus = config.get("note_view")
+        print(checkstatus);
         if(checkstatus == "2"){
             let mainview = ViewForNotes as! Listview
             moveToSelectedFolder(selectedNoteId,folderID: folderId[indexPath.row] as! String)
             mainview.closeMoveToFolder(nil);
-        }else if(checkstatus == "1"){
+        } else if(checkstatus == "3"){
+//            let mainview = ViewForNotes as! cardViewController
+//            moveToSelectedFolder(selectedNoteId,folderID: folderId[indexPath.row] as! String)
+//            mainview.closeMoveToFolder(nil);
+        } else if(checkstatus == "1" || checkstatus == ""){
             let mainview = ViewForNotes as! Detailview
+            moveToSelectedFolder(selectedNoteId,folderID: folderId[indexPath.row] as! String)
             mainview.closeMoveToFolder(nil);
         }
         
