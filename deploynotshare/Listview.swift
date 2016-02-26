@@ -218,15 +218,18 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
             MGSwipeButton(title: "",icon: UIImage(named:"note_share.png"), backgroundColor: mainColor, callback : {
                 (sender: MGSwipeTableCell!) -> Bool in
                 selectedNoteId = String(self.notesId[indexPath.row])
-                let blackOutTap = UITapGestureRecognizer(target: self,action: "closeColorPaper:")
+                let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
                 self.addBlackView()
                 blackOut.addGestureRecognizer(blackOutTap)
                 blackOut.alpha = 0
                 self.view.addSubview(blackOut);
                 blackOut.animation.makeAlpha(1).animate(transitionTime);
                 
-                self.addColorPaper = ColorPaper(frame: CGRectMake(self.width/4 - 45,self.height/2 - 150, 300, 150))
-                self.view.addSubview(self.addColorPaper)
+                self.addShareView = ShareView(frame: CGRectMake(self.width/4 - 45,self.height/4, self.width/2 + 90, 200))
+                self.view.addSubview(self.addShareView)
+                
+                
+
                 return true;
             }),
             MGSwipeButton(title: "",icon: UIImage(named:"ic_trash_white.png"), backgroundColor: mainColor, callback: {
@@ -427,6 +430,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     var addDateTimeView:DateTime!
     var addMoveToFolder:MoveToFolder!
     var addColorPaper:ColorPaper!
+    var addShareView:ShareView!
     
    /*
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
