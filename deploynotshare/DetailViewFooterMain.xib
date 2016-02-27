@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
@@ -16,7 +16,7 @@
                         <constraint firstAttribute="height" constant="28" id="ms9-RI-O0b"/>
                         <constraint firstAttribute="width" constant="28" id="sAa-ly-NRa"/>
                     </constraints>
-                    <state key="normal" image="note_camera"/>
+                    <state key="normal" image="note_image_white"/>
                     <connections>
                         <action selector="addImageTap:" destination="-1" eventType="touchUpInside" id="Ff6-F8-SoK"/>
                     </connections>
@@ -27,7 +27,7 @@
                         <constraint firstAttribute="width" constant="28" id="ZiV-Bq-DaO"/>
                         <constraint firstAttribute="height" constant="28" id="goI-YL-wmN"/>
                     </constraints>
-                    <state key="normal" image="brush"/>
+                    <state key="normal" image="note_brush_white"/>
                     <connections>
                         <action selector="addSketchTap:" destination="-1" eventType="touchUpInside" id="cvz-ML-KnU"/>
                     </connections>
@@ -38,7 +38,7 @@
                         <constraint firstAttribute="height" constant="28" id="4oQ-0Y-SmD"/>
                         <constraint firstAttribute="width" constant="28" id="DbG-Ci-L07"/>
                     </constraints>
-                    <state key="normal" image="note_audio"/>
+                    <state key="normal" image="note_audio_white"/>
                     <connections>
                         <action selector="addAudioTap:" destination="-1" eventType="touchUpInside" id="Iah-m9-JdU"/>
                     </connections>
@@ -49,7 +49,7 @@
                         <constraint firstAttribute="width" constant="28" id="EVf-5F-yWl"/>
                         <constraint firstAttribute="height" constant="28" id="uln-qB-y8e"/>
                     </constraints>
-                    <state key="normal" image="ic_note_text_white"/>
+                    <state key="normal" image="note_text_white"/>
                     <connections>
                         <action selector="addTextTap:" destination="-1" eventType="touchUpInside" id="LUj-SA-2xp"/>
                     </connections>
@@ -73,7 +73,7 @@
                         <constraint firstAttribute="height" constant="28" id="azv-ym-VEV"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="28" id="i1I-0m-RfS"/>
                     </constraints>
-                    <state key="normal" image="ic_trash_white"/>
+                    <state key="normal" image="note_delete_white"/>
                     <connections>
                         <action selector="deleteSectionTap:" destination="-1" eventType="touchUpInside" id="QRy-nb-8sw"/>
                     </connections>
@@ -104,11 +104,11 @@
         </view>
     </objects>
     <resources>
-        <image name="brush" width="24" height="24"/>
-        <image name="ic_note_text_white" width="24" height="24"/>
         <image name="ic_option_white" width="24" height="24"/>
-        <image name="ic_trash_white" width="24" height="24"/>
-        <image name="note_audio" width="24" height="24"/>
-        <image name="note_camera" width="24" height="24"/>
+        <image name="note_audio_white" width="500" height="500"/>
+        <image name="note_brush_white" width="500" height="500"/>
+        <image name="note_delete_white" width="500" height="500"/>
+        <image name="note_image_white" width="500" height="500"/>
+        <image name="note_text_white" width="500" height="500"/>
     </resources>
 </document>

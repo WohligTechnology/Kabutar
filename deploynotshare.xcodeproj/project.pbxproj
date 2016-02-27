@@ -68,7 +68,6 @@
 		437317431BD770660018B580 /* deploynotshareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437317421BD770660018B580 /* deploynotshareTests.swift */; };
 		4373174E1BD770660018B580 /* deploynotshareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4373174D1BD770660018B580 /* deploynotshareUITests.swift */; };
 		437EF0DB1BD8CA5500B7E9BF /* cardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437EF0DA1BD8CA5500B7E9BF /* cardViewController.swift */; };
-		4380B3501BDA54DF0026CED9 /* popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4380B34F1BDA54DF0026CED9 /* popup.swift */; };
 		4380B3521BDA590E0026CED9 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4380B3511BDA590E0026CED9 /* detailViewController.swift */; };
 		4389CE251BECB8E7005CF805 /* MoveToFolder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4389CE241BECB8E7005CF805 /* MoveToFolder.xib */; };
 		4389CE271BECBA12005CF805 /* MoveToFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4389CE261BECBA11005CF805 /* MoveToFolder.swift */; };
@@ -208,7 +207,6 @@
 		4373174D1BD770660018B580 /* deploynotshareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deploynotshareUITests.swift; sourceTree = "<group>"; };
 		4373174F1BD770660018B580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		437EF0DA1BD8CA5500B7E9BF /* cardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cardViewController.swift; sourceTree = "<group>"; };
-		4380B34F1BDA54DF0026CED9 /* popup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popup.swift; sourceTree = "<group>"; };
 		4380B3511BDA590E0026CED9 /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
 		4389CE241BECB8E7005CF805 /* MoveToFolder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoveToFolder.xib; sourceTree = "<group>"; };
 		4389CE261BECBA11005CF805 /* MoveToFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveToFolder.swift; sourceTree = "<group>"; };
@@ -349,7 +347,6 @@
 				3615ADE81C180A3B00845E7C /* ProfilePic.swift */,
 				4373172F1BD770650018B580 /* ViewController.swift */,
 				434E778A1BE3979800684C08 /* MenuListViewController.swift */,
-				4380B34F1BDA54DF0026CED9 /* popup.swift */,
 				437EF0DA1BD8CA5500B7E9BF /* cardViewController.swift */,
 				3611B0921BE740BD00F2FFF9 /* TableViewController.swift */,
 				43E0F2EF1BE9E61C00363F49 /* Listview.swift */,
@@ -996,7 +993,6 @@
 				43921D5B1BE0E7DA0032DE28 /* PasswordViewController.swift in Sources */,
 				4389CE2B1BEDE136005CF805 /* ColorPattern.swift in Sources */,
 				C25FD0F61C64EABB002F38BF /* ShareView.swift in Sources */,
-				4380B3501BDA54DF0026CED9 /* popup.swift in Sources */,
 				C25FD0EC1C64E42B002F38BF /* Settings.swift in Sources */,
 				364EA4611BF1B37A001B7161 /* NoteElementModel.swift in Sources */,
 				36E416791BEB6D18007EE385 /* AddCircle.swift in Sources */,

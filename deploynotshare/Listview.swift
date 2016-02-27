@@ -194,10 +194,9 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         
         
         let cell = listView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ListTableViewCell
-       
         
         cell.rightButtons = [
-            MGSwipeButton(title: "",icon: UIImage(named:"note_remainder.png"), backgroundColor: mainColor , callback: {
+            MGSwipeButton(title: "",icon: UIImage(named: "note_remainder_white"), backgroundColor: mainColor , callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
                 datetimepopupType = "reminder"
@@ -215,7 +214,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                 
                 return true
             }),
-            MGSwipeButton(title: "",icon: UIImage(named:"note_share.png"), backgroundColor: mainColor, callback : {
+            MGSwipeButton(title: "",icon: UIImage(named: "note_share_white"), backgroundColor: mainColor, callback : {
                 (sender: MGSwipeTableCell!) -> Bool in
                 selectedNoteId = String(self.notesId[indexPath.row])
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
@@ -232,7 +231,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
 
                 return true;
             }),
-            MGSwipeButton(title: "",icon: UIImage(named:"ic_trash_white.png"), backgroundColor: mainColor, callback: {
+            MGSwipeButton(title: "",icon: UIImage(named:"note_delete_white"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                     selectedNoteId = String(self.notesId[indexPath.row])
                     self.showdelete(indexPath.row)
@@ -240,7 +239,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                 self.listView.reloadData()
                 return true
             }),
-            MGSwipeButton(title: "",icon: UIImage(named:"ic_move_white.png"), backgroundColor: mainColor, callback: {
+            MGSwipeButton(title: "",icon: UIImage(named:"note_move_white"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 selectedNoteId = String(self.notesId[indexPath.row])
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMoveToFolder:")
@@ -255,7 +254,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                 return true;
             
             }),
-            MGSwipeButton(title: "",icon: UIImage(named:"timebomb.png"), backgroundColor: mainColor,callback: {
+            MGSwipeButton(title: "",icon: UIImage(named:"note_timebomb_white"), backgroundColor: mainColor,callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
                 datetimepopupType = "timebomb"
@@ -274,7 +273,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                 
                 return true;
             }),
-            MGSwipeButton(title: "", icon: UIImage(named:"note_lock.png"), backgroundColor: mainColor, callback: {
+            MGSwipeButton(title: "", icon: UIImage(named:"note_lock_white"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
                 selectedNoteId = String(self.notesId[indexPath.row])

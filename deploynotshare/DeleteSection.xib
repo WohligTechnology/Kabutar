@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
@@ -16,7 +16,7 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bd-x0-87S">
                     <rect key="frame" x="5" y="5" width="40" height="40"/>
-                    <state key="normal" image="ic_trash_white">
+                    <state key="normal" image="note_delete_white">
                         <color key="titleColor" red="0.94509803920000002" green="0.96078431369999995" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
@@ -41,6 +41,6 @@
         </button>
     </objects>
     <resources>
-        <image name="ic_trash_white" width="24" height="24"/>
+        <image name="note_delete_white" width="500" height="500"/>
     </resources>
 </document>
