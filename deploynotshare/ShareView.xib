@@ -24,7 +24,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hgg-sw-an1">
                     <rect key="frame" x="0.0" y="0.0" width="348" height="206"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLr-Xr-HoY">
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLr-Xr-HoY">
                             <rect key="frame" x="0.0" y="0.0" width="348" height="41"/>
                             <color key="backgroundColor" red="1" green="0.40188042969999999" blue="0.4112429044" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="Agenda-Bold" family="Agenda" pointSize="16"/>
