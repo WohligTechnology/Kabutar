@@ -36,7 +36,7 @@
                             <rect key="frame" x="0.0" y="47" width="278" height="48"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="   Share" image="ic_note_share">
+                            <state key="normal" title="   Share" image="note_share_black">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
@@ -47,7 +47,7 @@
                             <rect key="frame" x="0.0" y="95" width="278" height="47"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="   Delete" image="ic_note_trash">
+                            <state key="normal" title="   Delete" image="note_delete_black">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
@@ -58,7 +58,7 @@
                             <rect key="frame" x="0.0" y="142" width="278" height="47"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="   Move" image="ic_note_move">
+                            <state key="normal" title="   Move" image="note_move_black">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
@@ -69,7 +69,7 @@
                             <rect key="frame" x="0.0" y="189" width="278" height="47"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="   Remind" image="ic_note_remainder">
+                            <state key="normal" title="   Remind" image="note_remainder_black">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
@@ -80,7 +80,7 @@
                             <rect key="frame" x="0.0" y="236" width="278" height="48"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="   Timebomb" image="ic_note_timebomb">
+                            <state key="normal" title="   Timebomb" image="note_timebomb_black">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
@@ -91,7 +91,7 @@
                             <rect key="frame" x="0.0" y="284" width="278" height="47"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="   Lock" image="ic_note_lock">
+                            <state key="normal" title="   Lock" image="note_lock_black">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
@@ -114,11 +114,11 @@
     </objects>
     <resources>
         <image name="PinkColor" width="10" height="10"/>
-        <image name="ic_note_lock" width="24" height="24"/>
-        <image name="ic_note_move" width="24" height="24"/>
-        <image name="ic_note_remainder" width="24" height="24"/>
-        <image name="ic_note_share" width="24" height="24"/>
-        <image name="ic_note_timebomb" width="24" height="24"/>
-        <image name="ic_note_trash" width="24" height="24"/>
+        <image name="note_delete_black" width="24" height="24"/>
+        <image name="note_lock_black" width="24" height="24"/>
+        <image name="note_move_black" width="24" height="24"/>
+        <image name="note_remainder_black" width="24" height="24"/>
+        <image name="note_share_black" width="24" height="24"/>
+        <image name="note_timebomb_black" width="24" height="24"/>
     </resources>
 </document>

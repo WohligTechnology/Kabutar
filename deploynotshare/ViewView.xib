@@ -28,7 +28,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uP-2Y-0cP">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
                             <color key="backgroundColor" red="1" green="0.40188042969999999" blue="0.4112429044" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="  VIEW" image="ic_view_white">
+                            <state key="normal" title="  VIEW" image="view_white">
                                 <color key="titleColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
                             </state>
                         </button>
@@ -86,9 +86,9 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_view_white" width="24" height="24"/>
         <image name="view_detail" width="28" height="23"/>
         <image name="view_grid" width="28" height="26"/>
         <image name="view_list" width="28" height="26"/>
+        <image name="view_white" width="24" height="24"/>
     </resources>
 </document>
