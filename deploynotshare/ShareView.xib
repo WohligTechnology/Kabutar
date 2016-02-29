@@ -35,28 +35,28 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h22-Ub-Lye">
                             <rect key="frame" x="0.0" y="41" width="348" height="41"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="16"/>
-                            <state key="normal" title="   NoteShare" image="ic_share_noteshare">
+                            <state key="normal" title="   NoteShare" image="noteshare_share">
                                 <color key="titleColor" red="0.38431372549019605" green="0.38431372549019605" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUb-3u-qgu">
                             <rect key="frame" x="0.0" y="82" width="348" height="42"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="16"/>
-                            <state key="normal" title="   Text" image="ic_share_text">
+                            <state key="normal" title="   Text" image="text_share">
                                 <color key="titleColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JH4-sx-MZi">
                             <rect key="frame" x="0.0" y="124" width="348" height="41"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="16"/>
-                            <state key="normal" title="   Screenshot" image="ic_share_screenshot">
+                            <state key="normal" title="   Screenshot" image="screenshot_share">
                                 <color key="titleColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hu-4A-hNL">
                             <rect key="frame" x="0.0" y="165" width="348" height="41"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="16"/>
-                            <state key="normal" title="   URL" image="ic_share_url">
+                            <state key="normal" title="   URL" image="url_share">
                                 <color key="titleColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
@@ -81,9 +81,9 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_share_noteshare" width="24" height="24"/>
-        <image name="ic_share_screenshot" width="24" height="24"/>
-        <image name="ic_share_text" width="24" height="24"/>
-        <image name="ic_share_url" width="24" height="24"/>
+        <image name="noteshare_share" width="24" height="24"/>
+        <image name="screenshot_share" width="24" height="24"/>
+        <image name="text_share" width="24" height="24"/>
+        <image name="url_share" width="24" height="24"/>
     </resources>
 </document>

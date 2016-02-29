@@ -166,6 +166,8 @@ class SortView: UIView {
         sortnewview.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(sortnewview);
         
+        atoz.tintColor = UIColor(rgba: "#636363")
+        
     }
     /*
     // Only override drawRect: if you perform custom drawing.

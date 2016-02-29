@@ -66,7 +66,7 @@
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="28" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title=" Created Time" image="ic_sort_creation">
+                            <state key="normal" title=" Created Time" image="sort_creation_black">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -78,7 +78,7 @@
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title=" Modified Time" image="ic_sort_modification">
+                            <state key="normal" title=" Modified Time" image="sort_modification_black">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -90,7 +90,7 @@
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title=" Reminder" image="note_remainder_black">
+                            <state key="normal" title=" Reminder" image="sort_remainder_black">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -102,7 +102,7 @@
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="titleEdgeInsets" minX="26" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="  Time Bomb" image="note_timebomb_black">
+                            <state key="normal" title="  Time Bomb" image="sort_timebomb_black">
                                 <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -124,12 +124,12 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_sort_creation" width="24" height="24"/>
-        <image name="ic_sort_modification" width="24" height="24"/>
-        <image name="note_remainder_black" width="24" height="24"/>
-        <image name="note_timebomb_black" width="24" height="24"/>
         <image name="sort_atoz_black" width="24" height="24"/>
         <image name="sort_color_black" width="24" height="14"/>
+        <image name="sort_creation_black" width="24" height="24"/>
+        <image name="sort_modification_black" width="24" height="24"/>
+        <image name="sort_remainder_black" width="24" height="24"/>
+        <image name="sort_timebomb_black" width="24" height="24"/>
         <image name="sort_white" width="24" height="24"/>
     </resources>
 </document>
