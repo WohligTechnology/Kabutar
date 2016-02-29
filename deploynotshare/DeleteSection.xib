@@ -41,6 +41,6 @@
         </button>
     </objects>
     <resources>
-        <image name="note_delete_white" width="500" height="500"/>
+        <image name="note_delete_white" width="24" height="24"/>
     </resources>
 </document>

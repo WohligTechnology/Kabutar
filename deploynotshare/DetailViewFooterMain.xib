@@ -61,13 +61,13 @@
                         <constraint firstAttribute="width" constant="44" id="H4a-dN-LkL"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <state key="normal" image="ic_option_white"/>
+                    <state key="normal" image="option_white"/>
                     <connections>
                         <action selector="addMenu:" destination="-1" eventType="touchUpInside" id="sXF-US-xlM"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iC9-YX-1Rb">
-                    <rect key="frame" x="180" y="8" width="28" height="28"/>
+                    <rect key="frame" x="180" y="10" width="28" height="28"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="28" id="LX2-5t-DeA"/>
                         <constraint firstAttribute="height" constant="28" id="azv-ym-VEV"/>
@@ -104,11 +104,11 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_option_white" width="24" height="24"/>
         <image name="note_audio_white" width="500" height="500"/>
         <image name="note_brush_white" width="500" height="500"/>
-        <image name="note_delete_white" width="500" height="500"/>
+        <image name="note_delete_white" width="24" height="24"/>
         <image name="note_image_white" width="500" height="500"/>
         <image name="note_text_white" width="500" height="500"/>
+        <image name="option_white" width="24" height="24"/>
     </resources>
 </document>
