@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NotificationView: UIView {
+@IBDesignable class NotificationView: UIView {
     
     @IBOutlet weak var notifTitle: UILabel!
     @IBOutlet weak var notifDescription: UILabel!

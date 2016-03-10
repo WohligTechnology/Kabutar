@@ -29,7 +29,7 @@ class NotificationViewController: UIViewController {
         self.scrollView.insertSubview(self.verticalLayout, atIndex: 0)
         
         for(var i=0;i<notiTitle.count;i++){
-        let notification = NotificationView(frame: CGRectMake(0,0,100,100));
+        let notification = NotificationView(frame: CGRectMake(0,0,width,100));
         self.verticalLayout.addSubview(notification);
         notification.notifTitle.text = notiTitle[i];
         notification.notifDescription.text = notiDescription[i];
