@@ -33,6 +33,7 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     var AboutView: UIViewController!
     var ThinkView: UIViewController!
     var SettingView: UIViewController!
+    var NotificationView: UIViewController!
     
     @IBOutlet var menuStaticTable: UITableView!
     @IBOutlet weak var profileimage: UIImageView!
@@ -72,6 +73,10 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
         
         let ThinkView = storyboard.instantiateViewControllerWithIdentifier("ThinkViewController") as! ThinkViewController
         self.ThinkView = UINavigationController(rootViewController: ThinkView)
+        
+        let NotificationView = storyboard.instantiateViewControllerWithIdentifier("NotificationViewController") as! NotificationViewController
+        self.NotificationView = UINavigationController(rootViewController: NotificationView)
+        
 
         slideMenuLeft = self.slideMenuController()
         
@@ -170,6 +175,7 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
             self.slideMenuController()?.changeMainViewController(self.folderViewController, close: true)
         case 3:
             print("Noti");
+            self.slideMenuController()?.changeMainViewController(self.NotificationView, close: true)
             //UIApplication.sharedApplication().openURL(NSURL(string : "http://www.wohlig.com")!);
             //task.resume()
         case 4:
