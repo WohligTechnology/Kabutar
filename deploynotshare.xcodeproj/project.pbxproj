@@ -56,6 +56,7 @@
 		43344B251BF7470C00AC4802 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B241BF7470C00AC4802 /* SettingViewController.swift */; };
 		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; };
 		434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E778A1BE3979800684C08 /* MenuListViewController.swift */; };
+		435F0C941C91686B00B96653 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435F0C931C91686B00B96653 /* NotificationModel.swift */; };
 		4361079E1BE9F4BE0094BB25 /* Detailview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4361079D1BE9F4BE0094BB25 /* Detailview.swift */; };
 		436107A01BE9F6500094BB25 /* mainview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4361079F1BE9F6500094BB25 /* mainview.swift */; };
 		436107A21BEA06320094BB25 /* Move.xib in Resources */ = {isa = PBXBuildFile; fileRef = 436107A11BEA06320094BB25 /* Move.xib */; };
@@ -190,6 +191,7 @@
 		43344B241BF7470C00AC4802 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		434E77771BE34B4800684C08 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		434E778A1BE3979800684C08 /* MenuListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuListViewController.swift; sourceTree = "<group>"; };
+		435F0C931C91686B00B96653 /* NotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		4361079D1BE9F4BE0094BB25 /* Detailview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detailview.swift; sourceTree = "<group>"; };
 		4361079F1BE9F6500094BB25 /* mainview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainview.swift; sourceTree = "<group>"; };
 		436107A11BEA06320094BB25 /* Move.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Move.xib; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				366420311BE4BF03003477CF /* FolderModel.swift */,
+				435F0C931C91686B00B96653 /* NotificationModel.swift */,
 				36F1146F1BF078CC0023E2DB /* ConfigModel.swift */,
 				3611B0961BE8A94200F2FFF9 /* NoteModel.swift */,
 				364EA4601BF1B37A001B7161 /* NoteElementModel.swift */,
@@ -1016,6 +1019,7 @@
 				366420321BE4BF03003477CF /* FolderModel.swift in Sources */,
 				C2F2EE101C65C5C800B622B6 /* ShareNoteShareView.swift in Sources */,
 				43344B091BF5D8F500AC4802 /* EraserView.swift in Sources */,
+				435F0C941C91686B00B96653 /* NotificationModel.swift in Sources */,
 				43344AFD1BF5B44200AC4802 /* AboutViewController.swift in Sources */,
 				43EFB9BD1BDE29130014EDF9 /* ListViewController.swift in Sources */,
 				43344B0D1BF602E600AC4802 /* MessageView.swift in Sources */,

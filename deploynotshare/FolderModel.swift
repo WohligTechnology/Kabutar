@@ -46,6 +46,9 @@ public class Folder {
     func find() -> AnySequence<Row>  {
         return try! db.prepare(folder.filter(creationTime != 0).order(id.desc))
     }
+//    func findNotification() -> AnySequence<Row>  {
+//        
+//    }
     
     func edit(name2:String,id2:String) -> AnySequence<Row>  {
         let date = NSDate().timeIntervalSince1970
