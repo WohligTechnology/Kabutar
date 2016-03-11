@@ -12,6 +12,7 @@ import SQLiteCipher
 public class Config {
     
     
+    
     public let db = AppDelegate.getDatabase()
     public let config = Table("config")
     public let id = Expression<Int64>("id")
@@ -73,5 +74,8 @@ public class Config {
         try! db.execute("DROP TABLE NoteElement")
         try! db.execute("DROP TABLE folder")
     }
+    
+   
+
     
 }

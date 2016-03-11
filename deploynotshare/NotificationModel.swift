@@ -21,9 +21,22 @@ public class Notification {
             
             
            try!  json = JSON(data: response.responseObject as! NSData)
-//           print(json)
             completion(json)
         })
+        }
+        catch{
+            completion(1)
+        }
+    }
+    func notificationStatus(note:String, folder:String, userid:String, status:String, completion:((JSON)->Void)){
+        print(status)
+        let params = ["user":config.get("user_id"), "note":note, "folder":folder, "userid":userid, "status":status];
+        var json : JSON!
+        do{
+            request.POST(ServerURL+"notification/noteStatus", parameters: params, completionHandler: {(response: HTTPResponse) in
+                try! json = JSON(data: response.responseObject as! NSData)
+                completion(json)
+            })
         }
         catch{
             completion(1)

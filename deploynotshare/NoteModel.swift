@@ -14,6 +14,11 @@ import SwiftyJSON
 
 public class Note {
     
+    func getImage(urlStr:String) -> UIImage {
+        let url = NSURL(string: urlStr)
+        let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+        return UIImage(data: data!)!
+    }
     
     public let db = AppDelegate.getDatabase()
     public let note = Table("note")

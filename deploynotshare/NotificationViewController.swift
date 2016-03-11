@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+var GlobalNotificationView:NotificationViewController!;
 
 class NotificationViewController: UIViewController {
     var notesobj = Note()
@@ -16,7 +17,7 @@ class NotificationViewController: UIViewController {
     var notiDescription = ["kdjshfjh","demo description"]
     var verticalLayout : VerticalLayout!
     var notificationobj = Notification()
-    
+    var selectedNoti : JSON!;
 
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -29,12 +30,32 @@ class NotificationViewController: UIViewController {
         else
         {
             dispatch_async(dispatch_get_main_queue(),{
-                print(json[0])
+                print(json)
+                if(json["value"] != "false"){
                 for(var i=0;i<json.count;i++){
                     let notification = NotificationView(frame: CGRectMake(0,0,width,100));
                     self.verticalLayout.addSubview(notification);
-                    notification.notifTitle.text = json[i]["notename"].string;
-                    notification.notifDescription.text = json[i]["username"].string;
+                    print(json[i]["notename"].stringValue)
+                    let name = json[i]["foldername"].stringValue;
+                    if (name=="") {
+                        notification.notifTitle.text = json[i]["notename"].stringValue;
+                        notification.notifDescription.text = "\(json[i]["username"].stringValue) has shared \(json[i]["notename"].stringValue) Note with you.";
+                    }
+                    else {
+                        notification.notifTitle.text = json[i]["foldername"].stringValue;
+                        notification.notifDescription.text = "\(json[i]["username"].stringValue) has shared \(json[i]["foldername"].stringValue) Folder with you.";
+                    }
+                    let note = Note();
+                    notification.notifimage.image = note.getImage(json[i]["profilepic"].stringValue);
+                    notification.notifimage.contentMode = .ScaleAspectFill
+                    notification.notifimage.layer.cornerRadius = notification.notifimage.frame.size.width / 2 - 3
+                    notification.notifimage.clipsToBounds = true
+//                    notification.notifimage.layer.borderWidth = 5.0
+//                    notification.notifimage.layer.borderColor = UIColor.whiteColor().CGColor
+                    notification.note = json[i]["note"].stringValue
+                    notification.folder = json[i]["folder"].stringValue
+                    notification.userid = json[i]["userid"].stringValue
+                    }
                 }
             });
         }
@@ -44,18 +65,27 @@ class NotificationViewController: UIViewController {
         super.viewDidLoad()
         self.setNavigationBarItem()
         
+        GlobalNotificationView = self;
+        dispatch_async(dispatch_get_main_queue(),{
+
         let bounds = UIScreen.mainScreen().bounds
         let width = bounds.size.width
         let height = bounds.size.height
         
         self.verticalLayout = VerticalLayout(width: self.view.frame.width);
         self.scrollView.insertSubview(self.verticalLayout, atIndex: 0)
+        
+        self.notificationobj.getNotification(self.showNotification);        });
+        
+    }
     
-        
-        notificationobj.getNotification(showNotification);
-        print("notification in controller");
-        
-
+    func reload() {
+        dispatch_async(dispatch_get_main_queue(),{
+            self.verticalLayout.removeFromSuperview()
+            self.verticalLayout = VerticalLayout(width: self.view.frame.width);
+            self.scrollView.insertSubview(self.verticalLayout, atIndex: 0)
+            self.notificationobj.getNotification(self.showNotification);
+        });
 
     }
     
