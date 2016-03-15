@@ -69,6 +69,8 @@
 		437317381BD770660018B580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 437317361BD770660018B580 /* LaunchScreen.storyboard */; };
 		437317431BD770660018B580 /* deploynotshareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437317421BD770660018B580 /* deploynotshareTests.swift */; };
 		4373174E1BD770660018B580 /* deploynotshareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4373174D1BD770660018B580 /* deploynotshareUITests.swift */; };
+		437BCA341C980A740069F00E /* SharePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437BCA331C980A740069F00E /* SharePopup.swift */; };
+		437BCA361C980AA20069F00E /* SharePopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 437BCA351C980AA20069F00E /* SharePopup.xib */; };
 		437EF0DB1BD8CA5500B7E9BF /* cardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437EF0DA1BD8CA5500B7E9BF /* cardViewController.swift */; };
 		4380B3521BDA590E0026CED9 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4380B3511BDA590E0026CED9 /* detailViewController.swift */; };
 		4389CE251BECB8E7005CF805 /* MoveToFolder.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4389CE241BECB8E7005CF805 /* MoveToFolder.xib */; };
@@ -210,6 +212,8 @@
 		437317491BD770660018B580 /* deploynotshareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = deploynotshareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4373174D1BD770660018B580 /* deploynotshareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deploynotshareUITests.swift; sourceTree = "<group>"; };
 		4373174F1BD770660018B580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		437BCA331C980A740069F00E /* SharePopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePopup.swift; sourceTree = "<group>"; };
+		437BCA351C980AA20069F00E /* SharePopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SharePopup.xib; sourceTree = "<group>"; };
 		437EF0DA1BD8CA5500B7E9BF /* cardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cardViewController.swift; sourceTree = "<group>"; };
 		4380B3511BDA590E0026CED9 /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
 		4389CE241BECB8E7005CF805 /* MoveToFolder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoveToFolder.xib; sourceTree = "<group>"; };
@@ -632,6 +636,15 @@
 			path = deploynotshareUITests;
 			sourceTree = "<group>";
 		};
+		437BCA371C980AB30069F00E /* SharePopup */ = {
+			isa = PBXGroup;
+			children = (
+				437BCA331C980A740069F00E /* SharePopup.swift */,
+				437BCA351C980AA20069F00E /* SharePopup.xib */,
+			);
+			name = SharePopup;
+			sourceTree = "<group>";
+		};
 		43921D531BE0BD300032DE28 /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -662,6 +675,7 @@
 				43344B1F1BF737B300AC4802 /* EraserView */,
 				43344B201BF737BF00AC4802 /* ColorPaper */,
 				43344B211BF737CC00AC4802 /* MessageView */,
+				437BCA371C980AB30069F00E /* SharePopup */,
 			);
 			name = UIViews;
 			sourceTree = "<group>";
@@ -902,6 +916,7 @@
 				C2F2EE0E1C65C37700B622B6 /* ShareNoteShareView.xib in Resources */,
 				36E4166F1BEB1266007EE385 /* NoteCollectionViewCell.xib in Resources */,
 				4389CE251BECB8E7005CF805 /* MoveToFolder.xib in Resources */,
+				437BCA361C980AA20069F00E /* SharePopup.xib in Resources */,
 				366CE6011BFE6F550002A0C7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -986,6 +1001,7 @@
 				3611B0931BE740BD00F2FFF9 /* TableViewController.swift in Sources */,
 				36E846A31BE48AF8004109FA /* UIViewControllerExtension.swift in Sources */,
 				4395A6431BF9C2F800EE4F10 /* SecurityViewController.swift in Sources */,
+				437BCA341C980A740069F00E /* SharePopup.swift in Sources */,
 				36F114701BF078CC0023E2DB /* ConfigModel.swift in Sources */,
 				4395A6411BF9AEA600EE4F10 /* AboutTableViewController.swift in Sources */,
 				43BE98E81BF220DE0006CBC4 /* ColorPaper.swift in Sources */,

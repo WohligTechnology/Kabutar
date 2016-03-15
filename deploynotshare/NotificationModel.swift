@@ -14,6 +14,7 @@ import SwiftyJSON
 
 public class Notification {
     func getNotification(completion : ((JSON)->Void)) {
+        print(config.get("user_id"))
         let params = ["user":config.get("user_id")];
         var json : JSON!
         do{

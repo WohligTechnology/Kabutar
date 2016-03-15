@@ -134,6 +134,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
 
         
             for row in notesobj.find2(searchTable) {
+                print(row)
                 notesTitle.append(row[1] as! String!)
                 notesId.append(row[0] as! Int64! )
                

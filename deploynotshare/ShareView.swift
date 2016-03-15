@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 @IBDesignable class ShareView: UIView {
     
     @IBOutlet var shareNoteshare: UIButton!
@@ -16,6 +17,8 @@ import UIKit
     @IBOutlet var shareUrl: UIButton!
     
     @IBOutlet var shareview: UIView!
+    var note = ""
+    var emaillist = UITextField()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -37,7 +40,32 @@ import UIKit
         sortnewview.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(sortnewview);
     }
-    func shareViaNoteshare() {}
+    
+    
+    
+    @IBAction func shareViaNoteshare(sender: AnyObject) {
+//        print(checkstatus);
+        let createalert = UIAlertController(title: "Share Note", message: "Emails to Share", preferredStyle: UIAlertControllerStyle.Alert)
+        let createcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+            
+        }
+        let createsave = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+            print(self.emaillist.text);
+            print(selectedNoteId)
+//            self.folderobj.create(self.createfolsername.text!)
+//            self.viewDidLoad()
+        }
+        createalert.addAction(createcancel)
+        createalert.addAction(createsave)
+        createalert.addTextFieldWithConfigurationHandler { shareemaillist -> Void in
+            shareemaillist.placeholder = "Enter email(,)"
+            self.emaillist = shareemaillist
+        }
+        let mainview = ViewForNotes as! Listview
+        mainview.presentViewController(createalert, animated: true) { () -> Void in
+            
+        }
+    }
     
     func shareViaText() {}
     

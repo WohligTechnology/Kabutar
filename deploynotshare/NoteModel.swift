@@ -61,6 +61,21 @@ public class Note {
         let insert = note.insert( title <- title2, creationTime <- Int64(date), modificationTime <- Int64(date), background <- background2, color <- color2, folder <- folder2, islocked <- islocked2,paper <- paper2 , reminderTime <- reminderTime2, serverid <- serverid2, tags <- tags2 , timebomb <- timebomb2)
         try! db.run(insert)
     }
+    func shareNote(note:String,email:String,completion : ((JSON)->Void)) {
+        let params = ["userfrom":config.get("user_id"),"note":note,"email":email];
+        var json : JSON!
+        do{
+            request.POST(ServerURL+"share/save", parameters: params, completionHandler: {(response: HTTPResponse) in
+                
+                
+                try!  json = JSON(data: response.responseObject as! NSData)
+                completion(json)
+            })
+        }
+        catch{
+            completion(1)
+        }
+    }
     func createnoname(title2:String,background2:String,color2:String,folder2:Int64,islocked2:Int64,paper2:String,reminderTime2:Int64,serverid2:String,tags2:String,timebomb2:Int64) -> Int64 {
         let date = NSDate().timeIntervalSince1970
         let insert = note.insert( title <- title2, creationTime <- Int64(date), modificationTime <- Int64(date), background <- background2, color <- color2, folder <- folder2, islocked <- islocked2,paper <- paper2 , reminderTime <- reminderTime2, serverid <- serverid2, tags <- tags2 , timebomb <- timebomb2)
@@ -108,6 +123,7 @@ public class Note {
             default:
             returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(id.desc ,title.lowercaseString) )
         }
+        print(returnArr)
         return returnArr
         
     }
