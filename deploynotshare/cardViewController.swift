@@ -110,9 +110,10 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         
        
             for row in notesobj.find2("") {
+//                print()
                 notesTitle.append(row[1] as! String!)
                 notesId.append(row[0] as! Int64! )
-                modificationTime.append(Double(row[5] as! Int64!) )
+                modificationTime.append(Double(row[6] as! Int64!) )
                 color.append(row[2] as! String!)
                 islocked.append(row[3] as! Int64!)
                 noteDesc.append(row[4] as! String! )

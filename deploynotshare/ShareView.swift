@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 
 @IBDesignable class ShareView: UIView {
@@ -15,6 +16,7 @@ import UIKit
     @IBOutlet var shareText: UIButton!
     @IBOutlet var shareSreenshot: UIButton!
     @IBOutlet var shareUrl: UIButton!
+    var noteobj = Note()
     
     @IBOutlet var shareview: UIView!
     var note = ""
@@ -41,10 +43,16 @@ import UIKit
         self.addSubview(sortnewview);
     }
     
+    func resShareNote(json: JSON){
+        print(json)
+    }
     
     
     @IBAction func shareViaNoteshare(sender: AnyObject) {
 //        print(checkstatus);
+        let checkstatus = config.get("note_view");
+
+        
         let createalert = UIAlertController(title: "Share Note", message: "Emails to Share", preferredStyle: UIAlertControllerStyle.Alert)
         let createcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             
@@ -52,6 +60,7 @@ import UIKit
         let createsave = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             print(self.emaillist.text);
             print(selectedNoteId)
+            self.noteobj.shareNote(selectedNoteId, email: self.emaillist.text!, completion: self.resShareNote)
 //            self.folderobj.create(self.createfolsername.text!)
 //            self.viewDidLoad()
         }
@@ -61,10 +70,26 @@ import UIKit
             shareemaillist.placeholder = "Enter email(,)"
             self.emaillist = shareemaillist
         }
-        let mainview = ViewForNotes as! Listview
-        mainview.presentViewController(createalert, animated: true) { () -> Void in
-            
+//        let mainview = ViewForNotes as! Listview
+        
+        if(checkstatus == "2"){
+            let mainview = ViewForNotes as! Listview
+            mainview.presentViewController(createalert, animated: true, completion: nil)
+        }else if(checkstatus == "1"){
+            let mainview = ViewForNotes as! Detailview
+            mainview.presentViewController(createalert, animated: true, completion: nil)
+        }else if(checkstatus == "3"){
+            let mainview = ViewForNotes as! cardViewController
+            mainview.presentViewController(createalert, animated: true, completion: nil)
         }
+        else if(checkstatus == ""){
+            let mainview = ViewForNotes as! Detailview
+            mainview.presentViewController(createalert, animated: true, completion: nil)
+        }
+        
+        
+
+        
     }
     
     func shareViaText() {}

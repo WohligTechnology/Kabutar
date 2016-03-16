@@ -19,6 +19,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     var noteDesc: [String!] = []
     var color: [String] = []
     var islocked: [Int64] = []
+    var noteServerId: [String] = []
     var notesobj = Note()
     var noteName = UITextField()
     let mainColor = PinkColor
@@ -148,12 +149,14 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         
         
             for row in notesobj.find2(searchTable) {
+                print(row)
                 notesTitle.append(row[1] as! String!)
                 notesId.append(row[0] as! Int64! )
-                modificationTime.append(Double(row[5] as! Int64!) )
+                modificationTime.append(Double(row[6] as! Int64!) )
                 color.append(row[2] as! String!)
                 islocked.append(row[3] as! Int64!)
                 noteDesc.append(row[4] as! String! )
+                noteServerId.append(row[4] as! String!)
             }
        
     }
@@ -232,7 +235,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
             MGSwipeButton(title: "",icon: UIImage(named:"note_share_white"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 
-                selectedNoteId = String(self.notesId[indexPath.row])
+                selectedNoteId = String(self.noteServerId[indexPath.row])
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
                 self.addBlackView()
                 blackOut.addGestureRecognizer(blackOutTap)
@@ -242,11 +245,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 
                 self.addShareView = ShareView(frame: CGRectMake(self.width/4 - 45,self.height/4, self.width/2 + 90, 200))
                 self.view.addSubview(self.addShareView)
-                
-
-                
-                
-                
+                                
                 return true
             }),
             MGSwipeButton(title: "",icon: UIImage(named:"note_delete_white"), backgroundColor: mainColor, callback: {
@@ -333,7 +332,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         }else{
             cell.DetailLock.hidden = false
         }
-        
+
         let moddate = NSDate(timeIntervalSince1970: self.modificationTime[indexPath.row] as! Double)
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle  = .MediumStyle // superset of OP's format

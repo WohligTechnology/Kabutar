@@ -25,7 +25,7 @@ class NotificationViewController: UIViewController {
         
         if(json == 1)
         {
-            print("ERROR IS FUCKING ASS HOLE");
+            print("ERROR.");
         }
         else
         {
@@ -48,7 +48,7 @@ class NotificationViewController: UIViewController {
                     let note = Note();
                     notification.notifimage.image = note.getImage(json[i]["profilepic"].stringValue);
                     notification.notifimage.contentMode = .ScaleAspectFill
-                    notification.notifimage.layer.cornerRadius = notification.notifimage.frame.size.width / 2 - 3
+                    notification.notifimage.layer.cornerRadius = notification.notifimage.frame.size.width / 3 - 3
                     notification.notifimage.clipsToBounds = true
 //                    notification.notifimage.layer.borderWidth = 5.0
 //                    notification.notifimage.layer.borderColor = UIColor.whiteColor().CGColor
@@ -64,6 +64,7 @@ class NotificationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBarItem()
+        notesobj.localtoserver()
         
         GlobalNotificationView = self;
         dispatch_async(dispatch_get_main_queue(),{
@@ -75,7 +76,8 @@ class NotificationViewController: UIViewController {
         self.verticalLayout = VerticalLayout(width: self.view.frame.width);
         self.scrollView.insertSubview(self.verticalLayout, atIndex: 0)
         
-        self.notificationobj.getNotification(self.showNotification);        });
+        self.notificationobj.getNotification(self.showNotification);
+        });
         
     }
     

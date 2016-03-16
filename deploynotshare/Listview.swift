@@ -16,6 +16,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     let mainColor = PinkColor
     var notesTitle:[String] = []
     var notesId:[Int64] = []
+    var noteServerId:[String] = []
     var notesobj = Note()
     var color: [String] = []
     var islocked: [Int64] = []
@@ -33,7 +34,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         
         ViewForNotes = self;
         notesobj.localtoserver()
-//        notesobj.servertolocal()
+        notesobj.servertolocal()
         
         getAllNotes()
 //        ConfigObj.set("passcode", value2: "1234")
@@ -136,13 +137,16 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
 
         
             for row in notesobj.find2(searchTable) {
+                print(row)
                 notesTitle.append(row[1] as! String!)
                 notesId.append(row[0] as! Int64! )
                
                 color.append(row[2] as! String!)
                 islocked.append(row[3] as! Int64!)
                 noteDesc.append(row[4] as! String!)
-            }
+                noteServerId.append(row[4] as! String)
+                
+        }
             
         }
 
@@ -199,7 +203,8 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         cell.rightButtons = [
             MGSwipeButton(title: "",icon: UIImage(named: "note_remainder_white"), backgroundColor: mainColor , callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
-                
+                self.notesobj.localtoserver()
+                self.viewDidLoad()
                 datetimepopupType = "reminder"
                 
                 selectedNoteId = String(self.notesId[indexPath.row])
@@ -217,7 +222,9 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
             }),
             MGSwipeButton(title: "",icon: UIImage(named: "note_share_white"), backgroundColor: mainColor, callback : {
                 (sender: MGSwipeTableCell!) -> Bool in
-                selectedNoteId = String(self.notesId[indexPath.row])
+                
+                selectedNoteId = String(self.noteServerId[indexPath.row])
+                print(selectedNoteId)
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
                 self.addBlackView()
                 blackOut.addGestureRecognizer(blackOutTap)
@@ -353,6 +360,18 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
             
         }
     }
+    
+    func closeShareView(sender:UIGestureRecognizer?){
+        self.addShareView.animation.makeY((self.view.frame.height)).easeInOut.animateWithCompletion(transitionTime, {
+            self.addShareView.removeFromSuperview()
+            
+        })
+        blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
+            blackOut.removeFromSuperview()
+        })
+        
+    }
+
     
     func showdelete(id:Int){
         let alert = UIAlertController(title: "Delete Note", message: "Are you sure !", preferredStyle: UIAlertControllerStyle.Alert)
