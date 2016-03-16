@@ -32,6 +32,8 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         super.viewDidLoad()
         
         ViewForNotes = self;
+        notesobj.localtoserver()
+//        notesobj.servertolocal()
         
         getAllNotes()
 //        ConfigObj.set("passcode", value2: "1234")
@@ -134,14 +136,12 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
 
         
             for row in notesobj.find2(searchTable) {
-                print(row)
                 notesTitle.append(row[1] as! String!)
                 notesId.append(row[0] as! Int64! )
                
                 color.append(row[2] as! String!)
                 islocked.append(row[3] as! Int64!)
-                noteDesc.append(row[4] as! String! )
-                
+                noteDesc.append(row[4] as! String!)
             }
             
         }

@@ -64,7 +64,7 @@ public class Note {
     func shareNote(note:String,email:String,completion : ((JSON)->Void)) {
         let params = ["userfrom":config.get("user_id"),"note":note,"email":email];
         var json : JSON!
-        do{
+        do {
             request.POST(ServerURL+"share/save", parameters: params, completionHandler: {(response: HTTPResponse) in
                 
                 
@@ -72,10 +72,11 @@ public class Note {
                 completion(json)
             })
         }
-        catch{
+        catch {
             completion(1)
         }
     }
+    
     func createnoname(title2:String,background2:String,color2:String,folder2:Int64,islocked2:Int64,paper2:String,reminderTime2:Int64,serverid2:String,tags2:String,timebomb2:Int64) -> Int64 {
         let date = NSDate().timeIntervalSince1970
         let insert = note.insert( title <- title2, creationTime <- Int64(date), modificationTime <- Int64(date), background <- background2, color <- color2, folder <- folder2, islocked <- islocked2,paper <- paper2 , reminderTime <- reminderTime2, serverid <- serverid2, tags <- tags2 , timebomb <- timebomb2)
@@ -348,6 +349,8 @@ public class Note {
     }
     
     func setServerId(serverid2:String,id2:String) {
+        print(id2);
+        print(serverid2);
         let id3 = strtoll(id2,nil,10)
         let fol = note.filter(id == id3)
         do {
@@ -445,7 +448,7 @@ public class Note {
     }
     
     func localtoserver() {
-        
+        print("LOCAL IS HERE");
         let rows = getNoteStatementToSync()
         for row in rows {
             let ServerDateFormatter = NSDateFormatter()
