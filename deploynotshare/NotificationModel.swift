@@ -30,7 +30,7 @@ public class Notification {
         }
     }
     func notificationStatus(note:String, folder:String, userid:String, status:String, completion:((JSON)->Void)){
-        print(status)
+       
         let params = ["user":config.get("user_id"), "note":note, "folder":folder, "userid":userid, "status":status];
         var json : JSON!
         do{

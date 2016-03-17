@@ -8,6 +8,7 @@
 
 import UIKit
 import MGSwipeTableCell
+import SystemConfiguration
 
 class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating, UIViewControllerPreviewingDelegate {
 
@@ -29,12 +30,21 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     var searchTable = ""
     
     @IBOutlet weak var ListViewLabel: UILabel!
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        getAllNotes();
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("list view loaded.........................");
         ViewForNotes = self;
+        if(notesobj.isConnectedToNetwork())
+        {
         notesobj.localtoserver()
         notesobj.servertolocal()
+        }
         
         getAllNotes()
 //        ConfigObj.set("passcode", value2: "1234")
@@ -137,7 +147,6 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
 
         
             for row in notesobj.find2(searchTable) {
-                print(row)
                 notesTitle.append(row[1] as! String!)
                 notesId.append(row[0] as! Int64! )
                
@@ -160,6 +169,8 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     }
     var PressCkeck = 0
     var addColorPattern:ColorPattern!
+    
+
     
     
     func closeColorPattern(sender:UIGestureRecognizer?){
@@ -331,7 +342,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
 //        var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
 //        cell.addGestureRecognizer(celllongPress)
         
-        cell.backgroundColor = NoteColors[Int(colorno)!]
+//        cell.backgroundColor? = NoteColors[Int(colorno)!] 
         
         return cell
         

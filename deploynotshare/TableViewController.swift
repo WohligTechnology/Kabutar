@@ -155,6 +155,17 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     var addshareNoteshare: ShareNoteShareView!
     
+    func closeShareView(sender:UIGestureRecognizer?){
+        self.addshareNoteshare.animation.makeY((self.view.frame.height)).easeInOut.animateWithCompletion(transitionTime, {
+            self.addshareNoteshare.removeFromSuperview()
+            
+        })
+        blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
+            blackOut.removeFromSuperview()
+        })
+        
+    }
+    
     func showShare(name: String, id: String){
         print(name)
         print(id)

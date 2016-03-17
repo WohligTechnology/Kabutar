@@ -18,6 +18,7 @@ class NotificationViewController: UIViewController {
     var verticalLayout : VerticalLayout!
     var notificationobj = Notification()
     var selectedNoti : JSON!;
+    var checkon = false
 
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -30,7 +31,6 @@ class NotificationViewController: UIViewController {
         else
         {
             dispatch_async(dispatch_get_main_queue(),{
-                print(json)
                 if(json["value"] != "false"){
                 for(var i=0;i<json.count;i++){
                     let notification = NotificationView(frame: CGRectMake(0,0,width,100));
@@ -60,11 +60,21 @@ class NotificationViewController: UIViewController {
             });
         }
     }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        if(self.checkon){
+        reload();
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.checkon = true
         self.setNavigationBarItem()
         notesobj.localtoserver()
+        
+        
         
         GlobalNotificationView = self;
         dispatch_async(dispatch_get_main_queue(),{

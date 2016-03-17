@@ -36,6 +36,11 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     override func viewDidLoad() {
         
         ViewForNotes = self;
+        if(notesobj.isConnectedToNetwork())
+        {
+            notesobj.localtoserver()
+            notesobj.servertolocal()
+        }
         
         super.viewDidLoad()
         if(isInsideFolder == 0)
@@ -116,7 +121,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
                 modificationTime.append(Double(row[6] as! Int64!) )
                 color.append(row[2] as! String!)
                 islocked.append(row[3] as! Int64!)
-                noteDesc.append(row[4] as! String! )
+                noteDesc.append(row[4] as! String!)
             }
 
     }
@@ -212,8 +217,13 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         //        insideView.descLabel.text = notesId[indexPath.row] as? String
         insideView.timeLabel.text = str
         let colorno = color[indexPath.row]
+        
+        for(var i = 0 ; i < NoteColors.count ; i++){
+            print("note color")
+            print(NoteColors[i]);
+        }
       
-        insideView.view.backgroundColor = NoteColors[Int(colorno)!]
+        insideView.view.backgroundColor = UIColor(rgba:colorno)
         
         cell.addSubview(insideView);
         
@@ -224,6 +234,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         return cell
         
     }
+    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         selectedNoteId = String(self.notesId[indexPath.row])

@@ -11,6 +11,7 @@ import SQLiteCipher
 
 import SwiftHTTP
 import SwiftyJSON
+import SystemConfiguration
 
 public class Note {
     
@@ -61,6 +62,23 @@ public class Note {
         let insert = note.insert( title <- title2, creationTime <- Int64(date), modificationTime <- Int64(date), background <- background2, color <- color2, folder <- folder2, islocked <- islocked2,paper <- paper2 , reminderTime <- reminderTime2, serverid <- serverid2, tags <- tags2 , timebomb <- timebomb2)
         try! db.run(insert)
     }
+    
+    func isConnectedToNetwork() -> Bool {
+            var zeroAddress = sockaddr_in()
+            zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
+            zeroAddress.sin_family = sa_family_t(AF_INET)
+            let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
+                SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
+            }
+            var flags = SCNetworkReachabilityFlags()
+            if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+                return false
+            }
+            let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+            let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+            return (isReachable && !needsConnection)
+        }
+
     func shareNote(note:String,email:String,completion : ((JSON)->Void)) {
         let params = ["userfrom":config.get("user_id"),"note":note,"email":email];
         var json : JSON!
@@ -367,7 +385,8 @@ public class Note {
         let fol = note.filter(serverid == serverID2)
         let noteid1 =  db.pluck(fol)
         try! db.run(fol.delete())
-        noteElement.deleteAllNoteElement(noteid1![id])
+//        noteElement.deleteAllNoteElement(noteid1![id])
+        
     }
     
     func servertolocal() {
@@ -386,23 +405,22 @@ public class Note {
         let params:Dictionary<String,AnyObject> = ["modifytime": ServerToLocal,
             "user":config.get("user_id")]
         
-        
+        do {
         request.POST(ServerURL+"note/servertolocal", parameters: params, completionHandler: {(response: HTTPResponse) in
-           
+           print(response.responseObject)
+            if(response.responseObject != nil){
             
             let json = JSON(data: response.responseObject as! NSData)
             
             
-            
+
             for (key,subJson):(String, JSON) in json {
                 //Do something you want
-                
-                print(key)
-                print(subJson)
                 
                 if(subJson["_id"] != nil)
                 {
                     if(subJson["creationtime"].string == "") {
+                        print(subJson["_id"])
                         self.deleteServer(subJson["_id"].string!)
                     }
                     else {
@@ -411,14 +429,24 @@ public class Note {
                         {
                             folder3 = Folder().getIdFromServerID(subJson["folder"].string!);
                         }
+                        print(subJson)
+                        var parernote = ""
+                        
+                        if(subJson["paper"].stringValue == ""){
+                            parernote = "";
+                        }else{
+                            parernote = subJson["paper"].string!
+                        }
+                        
+                        
                         self.syncSave(
                             subJson["title"].string!,
                             background2:subJson["background"].string!,
                             color2:subJson["color"].string! ,
                             folder2:folder3,
                             islocked2:strtoll(subJson["islocked"].string!,nil,10) ,
-                            paper2:subJson["paper"].string! ,
-                            reminderTime2:strtoll(subJson["paper"].string!,nil,10),
+                            paper2: subJson["paper"].stringValue == "" ? "" : subJson["paper"].stringValue,
+                            reminderTime2:strtoll(subJson["remindertime"].string!,nil,10),
                             serverid2:subJson["_id"].string!,
                             tags2:subJson["tags"].string!,
                             timebomb2:strtoll(subJson["timebomb"].string!,nil,10),
@@ -437,8 +465,13 @@ public class Note {
                 
                 
             }
+            }
             self.localtoserver()
         })
+        }
+        catch {
+            print("ERROR")
+        }
     }
     
     func getNoteStatementToSync() -> Statement {

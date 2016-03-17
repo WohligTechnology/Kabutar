@@ -33,6 +33,7 @@ class ShareNoteShareView: UIView {
         self.addSubview(sortnewview);
     }
     @IBAction func shareCancelAction(sender: AnyObject) {
+//        blackOut.removeFromSuperview();
     }
     @IBAction func shareOkAction(sender: AnyObject) {
         let noteShareEmails = shareEmail.text

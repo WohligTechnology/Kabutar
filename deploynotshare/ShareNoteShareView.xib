@@ -52,6 +52,7 @@
                                         <color key="titleColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
+                                        <action selector="cancelPopup:" destination="-1" eventType="touchUpInside" id="tKi-Db-gw9"/>
                                         <action selector="shareCancelAction:" destination="-1" eventType="touchUpInside" id="AbA-hA-Br4"/>
                                     </connections>
                                 </button>

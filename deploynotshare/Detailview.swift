@@ -36,11 +36,14 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
        
         
         ViewForNotes = self;
-        
+        if(notesobj.isConnectedToNetwork())
+        {
+            notesobj.localtoserver()
+            notesobj.servertolocal()
+        }
         
         
         let note2 = Note()
-        //note2.servertolocal();
         
         getAllNotes()
         
@@ -342,7 +345,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         let colorno = color[indexPath.row]
         var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
         cell.addGestureRecognizer(celllongPress)
-        cell.backgroundColor = NoteColors[Int(colorno)!]
+//        cell.backgroundColor = NoteColors[Int(colorno)!]
         return cell
         
     }
