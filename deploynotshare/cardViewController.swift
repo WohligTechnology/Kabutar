@@ -36,11 +36,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     override func viewDidLoad() {
         
         ViewForNotes = self;
-        if(notesobj.isConnectedToNetwork())
-        {
-            notesobj.localtoserver()
-            notesobj.servertolocal()
-        }
+        
         
         super.viewDidLoad()
         if(isInsideFolder == 0)

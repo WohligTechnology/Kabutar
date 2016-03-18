@@ -9,6 +9,7 @@
 import UIKit
 import MGSwipeTableCell
 import EventKit
+import SwiftyJSON
 
 class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchResultsUpdating, UIViewControllerPreviewingDelegate {
 
@@ -36,12 +37,14 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
        
         
         ViewForNotes = self;
-        if(notesobj.isConnectedToNetwork())
-        {
-            notesobj.localtoserver()
-            notesobj.servertolocal()
-        }
         
+        notesobj.localtoserver{(json: JSON) -> () in
+            self.notesobj.servertolocal{(json: JSON) -> () in
+                
+            }
+
+        }
+
         
         let note2 = Note()
         

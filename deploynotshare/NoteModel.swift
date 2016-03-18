@@ -389,7 +389,7 @@ public class Note {
         
     }
     
-    func servertolocal() {
+    func servertolocal(completion : ((JSON)->Void)) {
         
         let ServerDateFormatter = NSDateFormatter()
         ServerDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -466,13 +466,17 @@ public class Note {
                 
             }
             }
-            self.localtoserver()
+            self.localtoserver{(json:JSON) -> () in }
         })
+            completion(1)
         }
         catch {
             print("ERROR")
+            completion(0)
         }
     }
+    
+    
     
     func getNoteStatementToSync() -> Statement {
         let lastLocaltoServer = strtoll(config.get("note_local_to_server"),nil,10)
@@ -480,7 +484,7 @@ public class Note {
         return query
     }
     
-    func localtoserver() {
+    func localtoserver(completion : ((JSON)->Void)) {
         print("LOCAL IS HERE");
         let rows = getNoteStatementToSync()
         for row in rows {
@@ -600,5 +604,6 @@ public class Note {
                 }
             })
         }
+        completion(1)
     }
 }

@@ -72,10 +72,8 @@ class NotificationViewController: UIViewController {
         super.viewDidLoad()
         self.checkon = true
         self.setNavigationBarItem()
-        notesobj.localtoserver()
-        
-        
-        
+        notesobj.localtoserver{(json: JSON) -> () in }
+
         GlobalNotificationView = self;
         dispatch_async(dispatch_get_main_queue(),{
 

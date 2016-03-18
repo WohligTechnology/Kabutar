@@ -9,6 +9,7 @@
 import UIKit
 import MGSwipeTableCell
 import SystemConfiguration
+import SwiftyJSON
 
 class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating, UIViewControllerPreviewingDelegate {
 
@@ -30,21 +31,12 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     var searchTable = ""
     
     @IBOutlet weak var ListViewLabel: UILabel!
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated);
-        getAllNotes();
-        
-        
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("list view loaded.........................");
         ViewForNotes = self;
-        if(notesobj.isConnectedToNetwork())
-        {
-        notesobj.localtoserver()
-        notesobj.servertolocal()
-        }
+        
         
         getAllNotes()
 //        ConfigObj.set("passcode", value2: "1234")
@@ -214,7 +206,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         cell.rightButtons = [
             MGSwipeButton(title: "",icon: UIImage(named: "note_remainder_white"), backgroundColor: mainColor , callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
-                self.notesobj.localtoserver()
+                self.notesobj.localtoserver{(json: JSON) -> () in }
                 self.viewDidLoad()
                 datetimepopupType = "reminder"
                 
