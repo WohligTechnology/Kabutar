@@ -30,20 +30,36 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     var forceId:Int!
     var searchTable = ""
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        
+        dispatch_async(dispatch_get_main_queue(),{
+        self.notesobj.localtoserver{(json: JSON) -> () in
+            self.notesobj.servertolocal{(json: JSON) -> () in
+                print("?????????????????????????????????????");
+                self.getAllNotes()
+                self.detailtableview.reloadData()
+
+            }
+            
+            }
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        print("detail view................../................/.........")
        
         
         ViewForNotes = self;
         
-        notesobj.localtoserver{(json: JSON) -> () in
-            self.notesobj.servertolocal{(json: JSON) -> () in
-                
-            }
-
-        }
+//        notesobj.localtoserver{(json: JSON) -> () in
+//            self.notesobj.servertolocal{(json: JSON) -> () in
+//                
+//            }
+//
+//        }
 
         
         let note2 = Note()
@@ -155,7 +171,6 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         
         
             for row in notesobj.find2(searchTable) {
-                print(row)
                 notesTitle.append(row[1] as! String!)
                 notesId.append(row[0] as! Int64! )
                 modificationTime.append(Double(row[6] as! Int64!) )

@@ -27,6 +27,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var resultSearchController = UISearchController!()
     var createfolsername = UITextField()
     var folderobj = Folder()
+    var emaillist = UITextField()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -206,6 +207,29 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         presentViewController(alert, animated: true) { () -> Void in }
     }
     
+    func sharefolder(id:String){
+        let alert = UIAlertController(title: "Share Folder", message: "Emails to Share", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+            
+        }
+        let alertdelete = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+            
+            self.folderobj.delete(id)
+            self.folderobj.shareFolder(<#T##folder: String##String#>, email: <#T##String#>, completion: <#T##((JSON) -> Void)##((JSON) -> Void)##(JSON) -> Void#>)
+            
+            self.viewDidLoad()
+            
+        }
+        alert.addAction(alertAction)
+        alert.addAction(alertdelete)
+        alert.addTextFieldWithConfigurationHandler { createfoldertext -> Void in
+            createfoldertext.placeholder = "Enter email(,)"
+            self.createfolsername = createfoldertext
+        }
+        presentViewController(alert, animated: true) { () -> Void in }
+    }
+
+    
     @IBAction func createFolder(sender: AnyObject) {
         let createalert = UIAlertController(title: "Create Folder", message: "Folder name", preferredStyle: UIAlertControllerStyle.Alert)
         let createcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
@@ -247,8 +271,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let shareAction = UITableViewRowAction(style: .Normal, title: "Share") {
             (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-            globalFolderId = self.folderId[indexPath.row];
-            self.showShare(self.folderName[indexPath.row] as! String, id: globalFolderId as! String)
+            self.sharefolder(self.folderId[indexPath.row] as! String)
+//            globalFolderId = self.folderId[indexPath.row];
+//            self.showShare(self.folderName[indexPath.row] as! String, id: globalFolderId as! String)
         }
         
         deleteAction.backgroundColor = mainColor

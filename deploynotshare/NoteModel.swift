@@ -106,7 +106,6 @@ public class Note {
         for newid2 in newid {
             val  = newid2[0] as! Int64
         }
-        print(val);
         
         
         self.changeTitle("Note \(val)", id2: String(onlyid))
@@ -142,7 +141,6 @@ public class Note {
             default:
             returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(id.desc ,title.lowercaseString) )
         }
-        print(returnArr)
         return returnArr
         
     }
@@ -307,7 +305,6 @@ public class Note {
         
         if(noteLocalId != nil)
         {
-            print(noteelements2);
             for noteElement2 in noteelements2.array! {
                 let filename = noteElement2["content"].string!
                 let getFilePath = path + "/" + filename
@@ -367,8 +364,6 @@ public class Note {
     }
     
     func setServerId(serverid2:String,id2:String) {
-        print(id2);
-        print(serverid2);
         let id3 = strtoll(id2,nil,10)
         let fol = note.filter(id == id3)
         do {
@@ -407,7 +402,6 @@ public class Note {
         
         do {
         request.POST(ServerURL+"note/servertolocal", parameters: params, completionHandler: {(response: HTTPResponse) in
-           print(response.responseObject)
             if(response.responseObject != nil){
             
             let json = JSON(data: response.responseObject as! NSData)
@@ -420,7 +414,6 @@ public class Note {
                 if(subJson["_id"] != nil)
                 {
                     if(subJson["creationtime"].string == "") {
-                        print(subJson["_id"])
                         self.deleteServer(subJson["_id"].string!)
                     }
                     else {
@@ -429,7 +422,6 @@ public class Note {
                         {
                             folder3 = Folder().getIdFromServerID(subJson["folder"].string!);
                         }
-                        print(subJson)
                         var parernote = ""
                         
                         if(subJson["paper"].stringValue == ""){

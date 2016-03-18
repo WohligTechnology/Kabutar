@@ -46,9 +46,22 @@ public class Folder {
     func find() -> AnySequence<Row>  {
         return try! db.prepare(folder.filter(creationTime != 0).order(id.desc))
     }
-//    func findNotification() -> AnySequence<Row>  {
-//        
-//    }
+    
+    func shareFolder(folder:String,email:String,completion : ((JSON)->Void)) {
+        let params = ["userfrom":config.get("user_id"),"folder":folder,"email":email];
+        var json : JSON!
+        do {
+            request.POST(ServerURL+"share/save", parameters: params, completionHandler: {(response: HTTPResponse) in
+                
+                
+                try!  json = JSON(data: response.responseObject as! NSData)
+                completion(json)
+            })
+        }
+        catch {
+            completion(1)
+        }
+    }
     
     func edit(name2:String,id2:String) -> AnySequence<Row>  {
         let date = NSDate().timeIntervalSince1970
