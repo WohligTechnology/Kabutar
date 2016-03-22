@@ -47,6 +47,9 @@ import SwiftyJSON
         print(json)
     }
     
+    func closeAllView(){
+        
+    }
     
     @IBAction func shareViaNoteshare(sender: AnyObject) {
 //        print(checkstatus);
@@ -55,8 +58,19 @@ import SwiftyJSON
         
         let createalert = UIAlertController(title: "Share Note", message: "Emails to Share", preferredStyle: UIAlertControllerStyle.Alert)
         let createcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            for view in mainview.subviews {
-                view.removeFromSuperview()
+            switch(checkstatus){
+            case "2" :
+                let mainview = ViewForNotes as! Listview
+                mainview.closeShareView(nil)
+                break
+            case "1" :
+                let mainview = ViewForNotes as! Detailview
+                mainview.closeShareView(nil)
+                break
+            default:
+                let mainview = ViewForNotes as! Detailview
+                mainview.closeShareView(nil)
+                break
             }
             
         }
@@ -64,6 +78,20 @@ import SwiftyJSON
             print(self.emaillist.text);
             print(selectedNoteId)
             self.noteobj.shareNote(selectedNoteId, email: self.emaillist.text!, completion: self.resShareNote)
+            switch(checkstatus){
+            case "2" :
+                let mainview = ViewForNotes as! Listview
+                mainview.closeShareView(nil)
+                break
+            case "1" :
+                let mainview = ViewForNotes as! Detailview
+                mainview.closeShareView(nil)
+                break
+            default:
+                let mainview = ViewForNotes as! Detailview
+                mainview.closeShareView(nil)
+                break
+            }
 //            self.folderobj.create(self.createfolsername.text!)
 //            self.viewDidLoad()
         }
