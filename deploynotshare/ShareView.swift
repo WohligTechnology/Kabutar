@@ -55,6 +55,9 @@ import SwiftyJSON
         
         let createalert = UIAlertController(title: "Share Note", message: "Emails to Share", preferredStyle: UIAlertControllerStyle.Alert)
         let createcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+            for view in mainview.subviews {
+                view.removeFromSuperview()
+            }
             
         }
         let createsave = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
@@ -72,24 +75,24 @@ import SwiftyJSON
         }
 //        let mainview = ViewForNotes as! Listview
         
-        if(checkstatus == "2"){
+        switch(checkstatus){
+        case "2" :
             let mainview = ViewForNotes as! Listview
             mainview.presentViewController(createalert, animated: true, completion: nil)
-        }else if(checkstatus == "1"){
+            break
+        case "1" :
             let mainview = ViewForNotes as! Detailview
             mainview.presentViewController(createalert, animated: true, completion: nil)
-        }else if(checkstatus == "3"){
+            break
+        case "3" :
             let mainview = ViewForNotes as! cardViewController
             mainview.presentViewController(createalert, animated: true, completion: nil)
-        }
-        else if(checkstatus == ""){
+            break
+        default:
             let mainview = ViewForNotes as! Detailview
             mainview.presentViewController(createalert, animated: true, completion: nil)
+            break
         }
-        
-        
-
-        
     }
     
     func shareViaText() {}

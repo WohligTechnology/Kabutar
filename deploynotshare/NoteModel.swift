@@ -147,7 +147,7 @@ public class Note {
     
     func find2 (txt:String) -> Statement {
         
-        
+        print(config.get("user_id"))
         
         let date = NSDate().timeIntervalSince1970
         let date2 = String(Int64(date))
@@ -402,12 +402,11 @@ public class Note {
         
         do {
         request.POST(ServerURL+"note/servertolocal", parameters: params, completionHandler: {(response: HTTPResponse) in
+             dispatch_async(dispatch_get_main_queue(),{
             if(response.responseObject != nil){
             
             let json = JSON(data: response.responseObject as! NSData)
             
-            
-
             for (key,subJson):(String, JSON) in json {
                 //Do something you want
                 
@@ -459,6 +458,7 @@ public class Note {
             }
             }
             self.localtoserver{(json:JSON) -> () in }
+            })
         })
             completion(1)
         }
@@ -579,7 +579,7 @@ public class Note {
             print(params);
             
             request.POST(ServerURL+"note/localtoserver", parameters: params, completionHandler: {(response: HTTPResponse) in
-                
+                 dispatch_async(dispatch_get_main_queue(),{
                 let json = JSON(data: response.responseObject as! NSData)
                 print(json);
                 
@@ -594,6 +594,7 @@ public class Note {
                         self.delete(rowid)
                     }
                 }
+                })
             })
         }
         completion(1)

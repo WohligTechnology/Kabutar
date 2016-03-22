@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 var selectedFolderToNoteId: String = ""
 
 var globalFolderId: Any!
@@ -23,6 +24,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     let hoverColor = UIColor(red: 255.0/255.0, green: 172.0/255.0, blue: 175.0/255.0, alpha: 1.0)
     var folderName:NSMutableArray = []
     var folderId:NSMutableArray = []
+    var folderServerId:NSMutableArray = []
     var filteredNotes = [String]()
     var resultSearchController = UISearchController!()
     var createfolsername = UITextField()
@@ -34,13 +36,20 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.setNavigationBarItem()
         
         FolderViewController = self;
+        self.folderobj.localtoserver{(json:JSON) -> () in
+            self.folderobj.servertolocal{(json:JSON) -> () in}
+        }
         
-        folderName = []
-        folderId = []
+        
+        self.folderName = []
+        self.folderId = []
+        self.folderServerId = []
         let a = Folder();
         for row in a.find() {
-            folderName.addObject(row[a.name]!)
-            folderId.addObject(String(row[a.id]))
+            print(row)
+            self.folderName.addObject(row[a.name]!)
+            self.folderId.addObject(String(row[a.id]))
+            self.folderServerId.addObject(String(row[a.serverID]))
         }
         //a.servertolocal()
         
@@ -67,6 +76,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         //Show search on scroll
         self.tableView.setContentOffset(CGPoint(x: 0,y: 44), animated: true)
         self.title = "Folders"
+        
+        
         
     }
     
@@ -214,8 +225,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         let alertdelete = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             
-            self.folderobj.delete(id)
-            self.folderobj.shareFolder(<#T##folder: String##String#>, email: <#T##String#>, completion: <#T##((JSON) -> Void)##((JSON) -> Void)##(JSON) -> Void#>)
+            self.folderobj.shareFolder(id, email: self.createfolsername.text!, completion: {(json: JSON) -> () in})
             
             self.viewDidLoad()
             
@@ -271,7 +281,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let shareAction = UITableViewRowAction(style: .Normal, title: "Share") {
             (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-            self.sharefolder(self.folderId[indexPath.row] as! String)
+            self.sharefolder(self.folderServerId[indexPath.row] as! String)
 //            globalFolderId = self.folderId[indexPath.row];
 //            self.showShare(self.folderName[indexPath.row] as! String, id: globalFolderId as! String)
         }

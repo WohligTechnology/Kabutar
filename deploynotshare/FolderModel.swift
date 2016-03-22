@@ -138,7 +138,7 @@ public class Folder {
         
     }
     
-    func servertolocal() {
+    func servertolocal(completion : ((JSON)->Void)) {
         
         let ServerDateFormatter = NSDateFormatter()
         ServerDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -155,21 +155,19 @@ public class Folder {
         
         request.POST(ServerURL+"folder/servertolocal", parameters: params, completionHandler: {(response: HTTPResponse) in
             
-            let json = JSON(data: response.responseObject as! NSData)
+            dispatch_async(dispatch_get_main_queue(),{
             
-            print(json);
-            for (key,subJson):(String, JSON) in json {
+            let json = JSON(data: response.responseObject as! NSData)
+                        for (key,subJson):(String, JSON) in json {
                 //Do something you want
                 
-                print(key)
-                print(subJson)
                 
                 if(subJson["_id"] != nil)
                 {
                     print("Inside 1");
                     if(subJson["creationtime"].string == "")
                     {
-                        self.deleteServer(subJson["folderid"].string!)
+                        self.deleteServer(subJson["_id"].string!)
                     }
                     else {
                         print("Inside 2")
@@ -189,16 +187,18 @@ public class Folder {
             }
             
             
-            self.localtoserver()
-            
+            self.localtoserver{(json:JSON) -> () in}
         })
+        
+        })
+        completion(1)
         
        
         
     }
     
     
-    func localtoserver() {
+    func localtoserver(completion : ((JSON)->Void)) {
         
         let rows = getFolderStatementToSync()
         for row in rows {
@@ -213,7 +213,7 @@ public class Folder {
             let creationDate2 =  NSDate(timeIntervalSince1970: NSTimeInterval(row[2] as! Int64!))
             var creationDateStr = ServerDateFormatter.stringFromDate(creationDate2)
             let checkcreation = row[2] as! Int64!
-            print(checkcreation)
+          
             if(checkcreation == 0)
             {
                 creationDateStr = "0"
@@ -230,6 +230,7 @@ public class Folder {
            
             
             request.POST(ServerURL+"folder/localtoserver", parameters: params, completionHandler: {(response: HTTPResponse) in
+                dispatch_async(dispatch_get_main_queue(),{
                
                 let json = JSON(data: response.responseObject as! NSData)
                 
@@ -246,11 +247,12 @@ public class Folder {
                     }
                 }
 
-                
+                })
                 
             })
         
         }
+        completion(1)
         
         
     }

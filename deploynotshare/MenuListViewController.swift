@@ -11,6 +11,7 @@ import DKChainableAnimationKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Google
+import SwiftyJSON
 
 var isInsideFolder = 0
 var slideMenuLeft:SlideMenuController!;
@@ -34,6 +35,8 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     var ThinkView: UIViewController!
     var SettingView: UIViewController!
     var NotificationView: UIViewController!
+    var number: String = "0"
+    let notificationobj = Notification()
     
     @IBOutlet var menuStaticTable: UITableView!
     @IBOutlet weak var profileimage: UIImageView!
@@ -42,9 +45,21 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     var menuImage = ["demo","note_black","folder_black","notification_black","rate_black","like_black","feedback_black","invite_black","settings_black"]
     
     
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        notificationobj.notificationCount{(json: JSON) -> () in
+            print(json["count"])
+            self.number = String(json["count"])
+        }
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.notificationobj.notificationCount{(json: JSON) -> () in
+            self.number = String(json["count"])
+        }
         menuStaticTable.separatorStyle = UITableViewCellSeparatorStyle.None
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -99,6 +114,9 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        notificationobj.notificationCount{(json: JSON) -> () in
+            self.number = String(json["count"])
+        }
         if(indexPath.row == 0)
         {
             let bounds = UIScreen.mainScreen().bounds
@@ -116,6 +134,30 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
             cell.addSubview(insideView);
         }
             else {
+            if(indexPath.row == 3 && number != "0"){
+                let size: CGFloat = 25
+                
+                let digits = CGFloat(number.characters.count) // digits in the label
+                let width = max(size, 0.7 * size * digits) // perfect circle is smallest allowed
+                let badge = UILabel(frame: CGRectMake(0, 0, width, 25))
+                badge.text = "\(number)"
+                badge.layer.cornerRadius = size / 2
+                badge.layer.masksToBounds = true
+                badge.textAlignment = .Center
+                badge.textColor = UIColor.whiteColor()
+                badge.backgroundColor = PinkColor
+                cell.accessoryView = badge
+            }else{
+                let badge = UILabel(frame: CGRectMake(0, 0, 25, 25))
+                badge.text = ""
+                badge.layer.cornerRadius = 25 / 2
+                badge.layer.masksToBounds = true
+                badge.textAlignment = .Center
+//                badge.textColor = UIColor.whiteColor()
+//                badge.backgroundColor = PinkColor
+                cell.accessoryView = badge
+
+            }
             
             if(indexPath.row == 3)
             {

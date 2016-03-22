@@ -1,10 +1,9 @@
-//
+
 //  NotificationViewController.swift
 //  deploynotshare
 //
 //  Created by Chintan Shah on 09/03/16.
 //  Copyright © 2016 Wohlig. All rights reserved.
-//
 
 import UIKit
 import SwiftyJSON
@@ -30,6 +29,7 @@ class NotificationViewController: UIViewController {
         }
         else
         {
+            print(json)
             dispatch_async(dispatch_get_main_queue(),{
                 if(json["value"] != "false"){
                 for(var i=0;i<json.count;i++){
@@ -47,9 +47,7 @@ class NotificationViewController: UIViewController {
                     }
                     let note = Note();
                     notification.notifimage.image = note.getImage(json[i]["profilepic"].stringValue);
-                    notification.notifimage.contentMode = .ScaleAspectFill
-                    notification.notifimage.layer.cornerRadius = notification.notifimage.frame.size.width / 3 - 3
-                    notification.notifimage.clipsToBounds = true
+                    
 //                    notification.notifimage.layer.borderWidth = 5.0
 //                    notification.notifimage.layer.borderColor = UIColor.whiteColor().CGColor
                     notification.note = json[i]["note"].stringValue

@@ -31,17 +31,17 @@ import SwiftyJSON
     }
     
     @IBAction func cancelTap(sender: AnyObject) {
-        print("note")
+        print("note cancel")
         print(note)
-        print("folder")
+        print("folder cancel")
         print(folder)
         notificationobj.notificationStatus(note, folder: folder, userid: userid, status: "false", completion: downNotification)
     }
     
     @IBAction func acceptTap(sender: AnyObject) {
-        print("note")
+        print("note accept")
         print(note)
-        print("folder")
+        print("folder accept")
         print(folder)
         notificationobj.notificationStatus(note, folder: folder, userid: userid, status: "true", completion: downNotification)
     }
@@ -64,9 +64,13 @@ import SwiftyJSON
         let nib = UINib(nibName: "NotificationView", bundle: bundle)
         let sortnewview = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         sortnewview.frame = bounds
+        
+        self.notifimage.contentMode = .Center
+        self.notifimage.layer.cornerRadius = 105 / 2
+        //                    badge.layer.masksToBounds = true
+        self.notifimage.layer.masksToBounds = true
+        
         sortnewview.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(sortnewview);
     }
 }
-
-

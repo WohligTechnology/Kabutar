@@ -32,6 +32,7 @@ public class Notification {
     func notificationStatus(note:String, folder:String, userid:String, status:String, completion:((JSON)->Void)){
        
         let params = ["user":config.get("user_id"), "note":note, "folder":folder, "userid":userid, "status":status];
+        print(params)
         var json : JSON!
         do{
             request.POST(ServerURL+"notification/noteStatus", parameters: params, completionHandler: {(response: HTTPResponse) in
@@ -43,5 +44,20 @@ public class Notification {
             completion(1)
         }
     }
+    func notificationCount(completion:((JSON)->Void)){
+        
+        let params = ["user":config.get("user_id")];
+        var json : JSON!
+        do{
+            request.POST(ServerURL+"notification/countNoti", parameters: params, completionHandler: {(response: HTTPResponse) in
+                try! json = JSON(data: response.responseObject as! NSData)
+                completion(json)
+            })
+        }
+        catch{
+            completion(1)
+        }
+    }
+
 }
 
