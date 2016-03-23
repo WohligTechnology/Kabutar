@@ -253,6 +253,16 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 (sender: MGSwipeTableCell!) -> Bool in
                 print(indexPath.row)
                 print(self.noteServerId[indexPath.row])
+                if(self.noteServerId[indexPath.row]==""){
+                print("empty yooooooooo......")
+                let alert = UIAlertController(title: "Alert", message: "Can not share this note without sync", preferredStyle: UIAlertControllerStyle.Alert)
+                let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+                    
+                }
+                alert.addAction(alertAction)
+                self.presentViewController(alert, animated: true) { () -> Void in }
+                }else{
+                
                 selectedNoteId = String(self.noteServerId[indexPath.row])
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
                 self.addBlackView()
@@ -263,7 +273,8 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 
                 self.addShareView = ShareView(frame: CGRectMake(self.width/4 - 45,self.height/4, self.width/2 + 90, 200))
                 self.view.addSubview(self.addShareView)
-                                
+                }
+                
                 return true
             }),
             MGSwipeButton(title: "",icon: UIImage(named:"note_delete_white"), backgroundColor: mainColor, callback: {

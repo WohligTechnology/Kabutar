@@ -275,7 +275,19 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let shareAction = UITableViewRowAction(style: .Normal, title: "Share") {
             (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
+            if(self.folderServerId[indexPath.row] as! String==""){
+                print("empty yooooooooo......")
+                let alert = UIAlertController(title: "Alert", message: "Can not share this Folder without sync", preferredStyle: UIAlertControllerStyle.Alert)
+                let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+                    
+                }
+                alert.addAction(alertAction)
+                self.presentViewController(alert, animated: true) { () -> Void in }
+
+            }else{
             self.sharefolder(self.folderServerId[indexPath.row] as! String)
+            }
+            
 //            globalFolderId = self.folderId[indexPath.row];
 //            self.showShare(self.folderName[indexPath.row] as! String, id: globalFolderId as! String)
         }

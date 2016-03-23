@@ -117,6 +117,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         notesId = []
         color = []
         islocked = []
+        noteServerId = []
         
         
         ViewForNotes = self;
@@ -223,7 +224,17 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
             }),
             MGSwipeButton(title: "",icon: UIImage(named: "note_share_white"), backgroundColor: mainColor, callback : {
                 (sender: MGSwipeTableCell!) -> Bool in
-                
+                if(self.noteServerId[indexPath.row]==""){
+                    print("empty yooooooooo......")
+                    let alert = UIAlertController(title: "Alert", message: "Can not share this note without sync", preferredStyle: UIAlertControllerStyle.Alert)
+                    let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+                        
+                    }
+                    alert.addAction(alertAction)
+                    self.presentViewController(alert, animated: true) { () -> Void in }
+                    
+                }else{
+                    
                 selectedNoteId = String(self.noteServerId[indexPath.row])
                 print(selectedNoteId)
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
@@ -236,7 +247,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                 self.addShareView = ShareView(frame: CGRectMake(self.width/4 - 45,self.height/4, self.width/2 + 90, 200))
                 self.view.addSubview(self.addShareView)
                 
-                
+                }
 
                 return true;
             }),
