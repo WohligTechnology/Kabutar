@@ -35,7 +35,7 @@ class AddCircle: UIView {
 
     @IBAction func CreateNoteTap(sender: AnyObject) {
         let checkstatus = config.get("note_view");
-        let noteid = self.notesobj.createnoname("",background2: "background",color2: "10", folder2: 0, islocked2: 0,paper2: "",reminderTime2: 0,serverid2: "",tags2: "",timebomb2: 0)
+        let noteid = self.notesobj.createnoname("",background2: "#ffffff",color2: "#ffffff", folder2: 0, islocked2: 0,paper2: "",reminderTime2: 0,serverid2: "",tags2: "",timebomb2: 0)
         
         if(checkstatus == "2"){
             let mainview = ViewForNotes as! Listview

@@ -34,7 +34,6 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("list view loaded.........................");
         ViewForNotes = self;
         
         
@@ -89,7 +88,6 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
             forceId = indexPath.row;
             selectedNoteId = String(self.notesId[indexPath.row])
             config.set("note_id", value2: String(selectedNoteId))
-            print(selectedNoteId);
             let detailview = storyboard!.instantiateViewControllerWithIdentifier("detailViewController") as! detailViewController
             return detailview
         }    }

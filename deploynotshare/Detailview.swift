@@ -36,10 +36,9 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         dispatch_async(dispatch_get_main_queue(),{
         self.notesobj.localtoserver{(json: JSON) -> () in
             self.notesobj.servertolocal{(json: JSON) -> () in
-                print("?????????????????????????????????????");
+                print("view will appear")
                 self.getAllNotes()
                 self.detailtableview.reloadData()
-
             }
             
             }
@@ -49,17 +48,14 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("detail view................../................/.........")
-       
-        
         ViewForNotes = self;
         
-//        notesobj.localtoserver{(json: JSON) -> () in
-//            self.notesobj.servertolocal{(json: JSON) -> () in
-//                
-//            }
-//
-//        }
+        notesobj.localtoserver{(json: JSON) -> () in
+            self.notesobj.servertolocal{(json: JSON) -> () in
+                
+            }
+
+        }
 
         
         let note2 = Note()
@@ -136,7 +132,6 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
             forceId = indexPath.row;
             selectedNoteId = String(self.notesId[indexPath.row])
             config.set("note_id", value2: String(selectedNoteId))
-            print(selectedNoteId);
             let detailview = storyboard!.instantiateViewControllerWithIdentifier("detailViewController") as! detailViewController
             return detailview
         }
@@ -168,6 +163,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         color = []
         islocked = []
         noteDesc = []
+        noteServerId = []
         
         
             for row in notesobj.find2(searchTable) {
@@ -255,7 +251,8 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
             }),
             MGSwipeButton(title: "",icon: UIImage(named:"note_share_white"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
-                
+                print(indexPath.row)
+                print(self.noteServerId[indexPath.row])
                 selectedNoteId = String(self.noteServerId[indexPath.row])
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
                 self.addBlackView()

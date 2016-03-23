@@ -29,13 +29,11 @@ class NotificationViewController: UIViewController {
         }
         else
         {
-            print(json)
             dispatch_async(dispatch_get_main_queue(),{
                 if(json["value"] != "false"){
                 for(var i=0;i<json.count;i++){
                     let notification = NotificationView(frame: CGRectMake(0,0,width,100));
                     self.verticalLayout.addSubview(notification);
-                    print(json[i]["notename"].stringValue)
                     let name = json[i]["foldername"].stringValue;
                     if (name=="") {
                         notification.notifTitle.text = json[i]["notename"].stringValue;

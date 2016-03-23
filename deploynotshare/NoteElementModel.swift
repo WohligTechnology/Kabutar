@@ -68,7 +68,6 @@ public class NoteElement {
         
         
         for row in value {
-            print(row[0]);
             if(row[0] != nil)
             {
                 value5 = row[0] as! Int64!

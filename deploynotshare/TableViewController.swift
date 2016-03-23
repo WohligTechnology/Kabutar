@@ -37,48 +37,44 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         FolderViewController = self;
         self.folderobj.localtoserver{(json:JSON) -> () in
-            self.folderobj.servertolocal{(json:JSON) -> () in}
+            self.folderobj.servertolocal{(json:JSON) -> () in
+                
+                self.folderName = []
+                self.folderId = []
+                self.folderServerId = []
+                let a = Folder();
+                for row in a.find() {
+                    self.folderName.addObject(row[a.name]!)
+                    self.folderId.addObject(String(row[a.id]))
+                    self.folderServerId.addObject(String(row[a.serverID]))
+                }
+                //a.servertolocal()
+                
+                self.resultSearchController = UISearchController(searchResultsController: nil)
+                self.resultSearchController.searchResultsUpdater = self
+                self.resultSearchController.dimsBackgroundDuringPresentation = false
+                self.resultSearchController.searchBar.sizeToFit()
+                
+                self.resultSearchController.searchBar.barTintColor = PinkColor
+                self.resultSearchController.searchBar.translucent = false
+                
+                self.resultSearchController.searchBar.tintColor = UIColor.whiteColor()
+                
+                self.definesPresentationContext = true
+                
+                self.tableView.tableHeaderView = self.resultSearchController.searchBar
+                self.tableView.reloadData()
+                
+                //Clear Empty Cells
+                let backgroundView = UIView(frame: CGRectZero)
+                self.tableView.tableFooterView = backgroundView
+                self.tableView.backgroundColor = UIColor.clearColor()
+                
+                //Show search on scroll
+                self.tableView.setContentOffset(CGPoint(x: 0,y: 44), animated: true)
+                self.title = "Folders"
+            }
         }
-        
-        
-        self.folderName = []
-        self.folderId = []
-        self.folderServerId = []
-        let a = Folder();
-        for row in a.find() {
-            print(row)
-            self.folderName.addObject(row[a.name]!)
-            self.folderId.addObject(String(row[a.id]))
-            self.folderServerId.addObject(String(row[a.serverID]))
-        }
-        //a.servertolocal()
-        
-        self.resultSearchController = UISearchController(searchResultsController: nil)
-        self.resultSearchController.searchResultsUpdater = self
-        self.resultSearchController.dimsBackgroundDuringPresentation = false
-        self.resultSearchController.searchBar.sizeToFit()
-        
-        self.resultSearchController.searchBar.barTintColor = PinkColor
-        self.resultSearchController.searchBar.translucent = false
-        
-        self.resultSearchController.searchBar.tintColor = UIColor.whiteColor()
-        
-        self.definesPresentationContext = true
-        
-        self.tableView.tableHeaderView = self.resultSearchController.searchBar
-        self.tableView.reloadData()
-        
-        //Clear Empty Cells
-        let backgroundView = UIView(frame: CGRectZero)
-        self.tableView.tableFooterView = backgroundView
-        self.tableView.backgroundColor = UIColor.clearColor()
-        
-        //Show search on scroll
-        self.tableView.setContentOffset(CGPoint(x: 0,y: 44), animated: true)
-        self.title = "Folders"
-        
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -179,8 +175,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func showShare(name: String, id: String){
-        print(name)
-        print(id)
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
         self.addBlackView()
         blackOut.addGestureRecognizer(blackOutTap)
