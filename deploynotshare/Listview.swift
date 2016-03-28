@@ -224,7 +224,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
             }),
             MGSwipeButton(title: "",icon: UIImage(named: "note_share_white"), backgroundColor: mainColor, callback : {
                 (sender: MGSwipeTableCell!) -> Bool in
-                if(self.noteServerId[indexPath.row]==""){
+                if(self.notesId[indexPath.row]==0){
                     print("empty yooooooooo......")
                     let alert = UIAlertController(title: "Alert", message: "Can not share this note without sync", preferredStyle: UIAlertControllerStyle.Alert)
                     let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
@@ -235,7 +235,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                     
                 }else{
                     
-                selectedNoteId = String(self.noteServerId[indexPath.row])
+                selectedNoteId = String(self.notesId[indexPath.row])
                 print(selectedNoteId)
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
                 self.addBlackView()

@@ -504,6 +504,8 @@ public class Note {
                
                 if(row[noteElement.type] == "image" || row[noteElement.type] == "scribble" || row[noteElement.type] == "audio"  )
                 {
+                    print(row[noteElement.content]);
+                    if(row[noteElement.content] != nil){
                      request.GET(ServerURL+"user/searchmedia?file="+row[noteElement.content]!, parameters: nil, completionHandler: {(response: HTTPResponse) in
                         let json = JSON(data: response.responseObject as! NSData)
                         if(json["value"].string == "false")
@@ -519,6 +521,7 @@ public class Note {
                             
                         }
                      })
+                    }
                 }
                 
                 if(i == 0)
@@ -580,6 +583,8 @@ public class Note {
             
             request.POST(ServerURL+"note/localtoserver", parameters: params, completionHandler: {(response: HTTPResponse) in
                  dispatch_async(dispatch_get_main_queue(),{
+                    print("localto server")
+                    print(response.responseObject as! NSData)
                 let json = JSON(data: response.responseObject as! NSData)
                 print(json);
                 
