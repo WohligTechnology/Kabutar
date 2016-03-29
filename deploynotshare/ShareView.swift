@@ -79,16 +79,11 @@ import SwiftyJSON
             dispatch_async(dispatch_get_main_queue(),{
                 self.noteobj.localtoserver{(json: JSON) -> () in
                     self.noteobj.servertolocal{(json: JSON) -> () in
-                        print("view will appear")
                         let onenote = self.noteobj.findOne(strtoll(selectedNoteId,nil,10));
                         self.noteobj.shareNote(onenote![self.noteobj.serverid]!, email: self.emaillist.text!, completion: self.resShareNote)
-                        print(onenote![self.noteobj.serverid]);
                     }
-                    
                 }
             })
-            
-//            self.noteobj.shareNote(selectedNoteId, email: self.emaillist.text!, completion: self.resShareNote)
             
             switch(checkstatus){
             case "2" :

@@ -32,6 +32,20 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     
     @IBOutlet weak var ListViewLabel: UILabel!
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        
+        dispatch_async(dispatch_get_main_queue(),{
+            self.notesobj.localtoserver{(json: JSON) -> () in
+                self.notesobj.servertolocal{(json: JSON) -> () in
+                    self.getAllNotes()
+                    self.listView.reloadData()
+                }
+                
+            }
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ViewForNotes = self;

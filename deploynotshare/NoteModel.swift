@@ -575,19 +575,14 @@ public class Note {
                 "timebomb": String(row[12] as! Int64!),
                 "noteelements" : jsonNoteElement,
             ]
-            print(params);
             print("GOINT INSIDE");
             
             print("CHECKING THE NOTE ELEMENT");
-            print(params);
             
             request.POST(ServerURL+"note/localtoserver", parameters: params, completionHandler: {(response: HTTPResponse) in
                  dispatch_async(dispatch_get_main_queue(),{
                     print("localto server")
-                    print(response.responseObject as! NSData)
                 let json = JSON(data: response.responseObject as! NSData)
-                print(json);
-                
                 config.set("note_local_to_server",value2: String(row[3] as! Int64!))
                 
                 if(json["id"].string != nil)

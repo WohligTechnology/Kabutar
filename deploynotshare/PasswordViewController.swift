@@ -134,7 +134,7 @@ class PasswordViewController: UIViewController {
         }
         else
         {
-            let alert = UIAlertController(title: "Error!", message: "Wroung Passcode !", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Error!", message: "Wrong Passcode !", preferredStyle: UIAlertControllerStyle.Alert)
             let alertAction = UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
                 
             }

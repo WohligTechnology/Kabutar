@@ -117,7 +117,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
                 modificationTime.append(Double(row[6] as! Int64!) )
                 color.append(row[2] as! String!)
                 islocked.append(row[3] as! Int64!)
-                noteDesc.append(row[4] as! String!)
+                noteDesc.append(row[5] as! String!)
             }
 
     }

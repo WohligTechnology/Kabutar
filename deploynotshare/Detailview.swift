@@ -36,7 +36,6 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         dispatch_async(dispatch_get_main_queue(),{
         self.notesobj.localtoserver{(json: JSON) -> () in
             self.notesobj.servertolocal{(json: JSON) -> () in
-                print("view will appear")
                 self.getAllNotes()
                 self.detailtableview.reloadData()
             }
@@ -172,7 +171,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 modificationTime.append(Double(row[6] as! Int64!) )
                 color.append(row[2] as! String!)
                 islocked.append(row[3] as! Int64!)
-                noteDesc.append(row[4] as! String! )
+                noteDesc.append(row[5] as! String! )
                 noteServerId.append(row[4] as! String!)
             }
        
@@ -261,6 +260,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 }
                 alert.addAction(alertAction)
                 self.presentViewController(alert, animated: true) { () -> Void in }
+                    
                 }else{
                 
                 selectedNoteId = String(self.notesId[indexPath.row])
