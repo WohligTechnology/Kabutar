@@ -27,6 +27,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     let width = UIScreen.mainScreen().bounds.size.width
     let height = UIScreen.mainScreen().bounds.size.height
     var resultSearchController = UISearchController!()
+    let configobj = Config()
     
     var searchTable = ""
     
@@ -34,7 +35,8 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-        
+        if(notesobj.isConnectedToNetwork())
+        {
         dispatch_async(dispatch_get_main_queue(),{
             self.notesobj.localtoserver{(json: JSON) -> () in
                 self.notesobj.servertolocal{(json: JSON) -> () in
@@ -44,6 +46,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                 
             }
         })
+        }
     }
     
     override func viewDidLoad() {

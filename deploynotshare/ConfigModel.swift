@@ -75,7 +75,65 @@ public class Config {
         try! db.execute("DROP TABLE folder")
     }
     
-   
-
-    
+    // validation functions
+    func isValidEmail(testStr:String) -> Bool {
+        
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        var emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        
+        var result = emailTest.evaluateWithObject(testStr)
+        
+        return result
+        
+    }
+    func isValidPhone(value: String) -> Bool {
+        
+        let PHONE_REGEX = "^\\d{3}-\\d{3}-\\d{4}$"
+        
+        var phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+        
+        var result =  phoneTest.evaluateWithObject(value)
+        
+        return result
+        
+    }
+//    func isBlank(value: String) -> Bool {
+//        let trimmed = stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+//        return trimmed.isEmpty
+//    }
 }
+
+extension String {
+    
+    //To check text field or String is blank or not
+    var isBlank: Bool {
+        get {
+            let trimmed = stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            return trimmed.isEmpty
+        }
+    }
+    
+    //Validate Email
+    var isEmail: Bool {
+        do {
+            let regex = try NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,20}", options: .CaseInsensitive)
+            return regex.firstMatchInString(self, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, self.characters.count)) != nil
+        } catch {
+            return false
+        }
+    }
+    
+    //validate PhoneNumber
+    var isPhoneNumber: Bool {
+        
+        let charcter  = NSCharacterSet(charactersInString: "+0123456789").invertedSet
+        var filtered:NSString!
+        let inputString:NSArray = self.componentsSeparatedByCharactersInSet(charcter)
+        filtered = inputString.componentsJoinedByString("")
+        return  self == filtered
+        
+    }
+}
+
+

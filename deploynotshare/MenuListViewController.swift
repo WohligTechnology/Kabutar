@@ -12,6 +12,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import Google
 import SwiftyJSON
+var number: String = "0"
 
 var isInsideFolder = 0
 var slideMenuLeft:SlideMenuController!;
@@ -35,8 +36,9 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     var ThinkView: UIViewController!
     var SettingView: UIViewController!
     var NotificationView: UIViewController!
-    var number: String = "0"
+    
     let notificationobj = Notification()
+    let noteobj = Note()
     
     @IBOutlet var menuStaticTable: UITableView!
     @IBOutlet weak var profileimage: UIImageView!
@@ -48,18 +50,13 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        notificationobj.notificationCount{(json: JSON) -> () in
-            print(json["count"])
-            self.number = String(json["count"])
-        }
+        getNotificationCnt()
         self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.notificationobj.notificationCount{(json: JSON) -> () in
-            self.number = String(json["count"])
-        }
+        getNotificationCnt()
         menuStaticTable.separatorStyle = UITableViewCellSeparatorStyle.None
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -112,11 +109,19 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
         // Dispose of any resources that can be recreated.
     }
     
+    func getNotificationCnt(){
+        if(noteobj.isConnectedToNetwork())
+        {
+            notificationobj.notificationCount{(json: JSON) -> () in
+                print(json["count"])
+                number = String(json["count"])
+            }
+        }
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        notificationobj.notificationCount{(json: JSON) -> () in
-            self.number = String(json["count"])
-        }
+        getNotificationCnt()
         if(indexPath.row == 0)
         {
             let bounds = UIScreen.mainScreen().bounds

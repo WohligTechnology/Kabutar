@@ -8,6 +8,7 @@
 import UIKit
 import SwiftyJSON
 var GlobalNotificationView:NotificationViewController!;
+var checkon = false;
 
 class NotificationViewController: UIViewController {
     var notesobj = Note()
@@ -17,7 +18,7 @@ class NotificationViewController: UIViewController {
     var verticalLayout : VerticalLayout!
     var notificationobj = Notification()
     var selectedNoti : JSON!;
-    var checkon = false
+//    var checkon = false
 
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -58,15 +59,25 @@ class NotificationViewController: UIViewController {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-        if(self.checkon){
-        reload();
-        }
+        dispatch_async(dispatch_get_main_queue(),{
+        print("view will appear.")
+        print(checkon)
+        
+        if(!checkon){
+            print("in side reload calling")
+            self.reload();
+//            self.viewDidLoad()
+        }else{
+            checkon = false
+            }
+        })
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.checkon = true
+        print("view did load.")
+        checkon = true
         self.setNavigationBarItem()
         notesobj.localtoserver{(json: JSON) -> () in }
 
@@ -90,7 +101,10 @@ class NotificationViewController: UIViewController {
             self.verticalLayout.removeFromSuperview()
             self.verticalLayout = VerticalLayout(width: self.view.frame.width);
             self.scrollView.insertSubview(self.verticalLayout, atIndex: 0)
+            if(self.notesobj.isConnectedToNetwork())
+            {
             self.notificationobj.getNotification(self.showNotification);
+            }
         });
 
     }
