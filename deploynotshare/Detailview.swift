@@ -167,6 +167,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         
         
             for row in notesobj.find2(searchTable) {
+//                print(row[5] as! String!)
                 notesTitle.append(row[1] as! String!)
                 notesId.append(row[0] as! Int64! )
                 modificationTime.append(Double(row[6] as! Int64!) )
@@ -265,6 +266,8 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 }else{
                 
                 selectedNoteId = String(self.notesId[indexPath.row])
+                selectedNoteDesc = String(self.noteDesc[indexPath.row])
+                selectedName = String(self.notesTitle[indexPath.row])
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
                 self.addBlackView()
                 blackOut.addGestureRecognizer(blackOutTap)

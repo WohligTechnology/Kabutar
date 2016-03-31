@@ -48,6 +48,9 @@
                             <state key="normal" title="   Text" image="text_share">
                                 <color key="titleColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="shareViaNoteshareText:" destination="-1" eventType="touchUpInside" id="yAV-MQ-hK2"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JH4-sx-MZi">
                             <rect key="frame" x="0.0" y="124" width="348" height="41"/>
@@ -55,6 +58,9 @@
                             <state key="normal" title="   Screenshot" image="screenshot_share">
                                 <color key="titleColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="shareViaNoteshareScreenshot:" destination="-1" eventType="touchUpInside" id="VMe-sy-KpO"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hu-4A-hNL">
                             <rect key="frame" x="0.0" y="165" width="348" height="41"/>
@@ -62,6 +68,9 @@
                             <state key="normal" title="   URL" image="url_share">
                                 <color key="titleColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="shareViaNoteshareUrl:" destination="-1" eventType="touchUpInside" id="34Q-GF-jBu"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -80,7 +89,7 @@
                 <constraint firstAttribute="bottom" secondItem="Hgg-sw-an1" secondAttribute="bottom" id="lSb-mQ-hhx"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="196" y="133"/>
+            <point key="canvasLocation" x="50" y="139"/>
         </view>
     </objects>
     <resources>

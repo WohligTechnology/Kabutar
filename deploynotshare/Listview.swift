@@ -253,6 +253,8 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                 }else{
                     
                 selectedNoteId = String(self.notesId[indexPath.row])
+                selectedNoteDesc = String(self.noteDesc[indexPath.row])
+                selectedName = String(self.notesTitle[indexPath.row])
                 print(selectedNoteId)
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
                 self.addBlackView()
@@ -260,7 +262,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                 blackOut.alpha = 0
                 self.view.addSubview(blackOut);
                 blackOut.animation.makeAlpha(1).animate(transitionTime);
-                
+        
                 self.addShareView = ShareView(frame: CGRectMake(self.width/4 - 45,self.height/4, self.width/2 + 90, 200))
                 self.view.addSubview(self.addShareView)
                 

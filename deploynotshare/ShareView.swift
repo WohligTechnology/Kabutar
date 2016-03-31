@@ -123,12 +123,15 @@ var emailsText = ""
                 }
                 print(self.checkvalidation);
                 if(self.checkvalidation){
-                    
                     dispatch_async(dispatch_get_main_queue(),{
+                        var sendemailto = fullNameArr![0]
+                        for(var i = 1 ; i < fullNameArr?.count ; i++){
+                            sendemailto = sendemailto + "," + fullNameArr![i]
+                        }
                         self.noteobj.localtoserver{(json: JSON) -> () in
                             self.noteobj.servertolocal{(json: JSON) -> () in
                                 let onenote = self.noteobj.findOne(strtoll(selectedNoteId,nil,10));
-                                self.noteobj.shareNote(onenote![self.noteobj.serverid]!, email: self.emaillist.text!, completion: self.resShareNote)
+                                self.noteobj.shareNote(onenote![self.noteobj.serverid]!, email: sendemailto, completion: self.resShareNote)
                             }
                         }
                     })
@@ -185,6 +188,9 @@ var emailsText = ""
             break
         }
     }
+    func showShareSocial(datatosend : String){
+        
+    }
     
     @IBAction func shareViaNoteshare(sender: AnyObject) {
 //        print(checkstatus);
@@ -193,11 +199,66 @@ var emailsText = ""
         
         
     }
+    @IBAction func shareViaNoteshareText(sender: AnyObject) {
+        let st = UIActivityViewController(activityItems: [selectedNoteDesc], applicationActivities: nil)
+        switch(checkstatus){
+        case "2" :
+            let mainview = ViewForNotes as! Listview
+            mainview.presentViewController(st, animated: true, completion: nil)
+            break
+        case "1" :
+            let mainview = ViewForNotes as! Detailview
+            mainview.presentViewController(st, animated: true, completion: nil)
+            break
+        case "3" :
+            let mainview = ViewForNotes as! cardViewController
+            mainview.presentViewController(st, animated: true, completion: nil)
+            break
+        default:
+            let mainview = ViewForNotes as! Detailview
+            mainview.presentViewController(st, animated: true, completion: nil)
+            break
+        }
+    }
     
-    func shareViaText() {}
-    
-    func shareViaSreenshot () {}
-    
-    func shareViaUrl () {}
+    @IBAction func shareViaNoteshareScreenshot(sender: AnyObject) {
+        
+    }
+    @IBAction func shareViaNoteshareUrl(sender: AnyObject) {
+        dispatch_async(dispatch_get_main_queue(),{
+            
+            self.noteobj.localtoserver{(json: JSON) -> () in
+                self.noteobj.servertolocal{(json: JSON) -> () in
+                    let onenote = self.noteobj.findOne(strtoll(selectedNoteId,nil,10));
+                    let texttoshare = config.get("user_name") + " has shared '" + selectedName + "' note with you\n"
+                    let newtext = NSURL(string: ServerURL + "view/" + onenote![self.noteobj.serverid]!)
+//                    let afterlink = newtext as! String + "\n~via NoteShare"
+                    let st = UIActivityViewController(activityItems: [texttoshare,newtext!], applicationActivities: nil)
+                    switch(self.checkstatus){
+                    case "2" :
+                        let mainview = ViewForNotes as! Listview
+                        mainview.presentViewController(st, animated: true, completion: nil)
+                        break
+                    case "1" :
+                        let mainview = ViewForNotes as! Detailview
+                        mainview.presentViewController(st, animated: true, completion: nil)
+                        break
+                    case "3" :
+                        let mainview = ViewForNotes as! cardViewController
+                        mainview.presentViewController(st, animated: true, completion: nil)
+                        break
+                    default:
+                        let mainview = ViewForNotes as! Detailview
+                        mainview.presentViewController(st, animated: true, completion: nil)
+                        break
+                    }
+                }
+            }
+            
+        })
+
+        
+        
+    }
     
 }
