@@ -79,7 +79,7 @@ class NotificationViewController: UIViewController {
         print("view did load.")
         checkon = true
         self.setNavigationBarItem()
-        notesobj.localtoserver{(json: JSON) -> () in }
+//        notesobj.localtoserver{(json: JSON) -> () in }
 
         GlobalNotificationView = self;
         dispatch_async(dispatch_get_main_queue(),{

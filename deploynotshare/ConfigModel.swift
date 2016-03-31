@@ -48,17 +48,20 @@ public class Config {
     }
     
     func set(name2:String, value2: String) {
-        
-        let count =  db.scalar(config.filter(name == name2).count )
+        dispatch_async(dispatch_get_main_queue(),{
+        let count =  self.db.scalar(self.config.filter(self.name == name2).count )
         if(count == 0)
         {
-            try! db.run(config.insert(name <- name2, value <- value2))
+            let elm = self.config.insert(self.name <- name2, self.value <- value2)
+            try! self.db.run(elm)
         }
         else
         {
-            let updaterow = config.filter(name == name2)
-            try! db.run(updaterow.update(value <- value2))
+
+            let updaterow = self.config.filter(self.name == name2)
+            try! self.db.run(updaterow.update(self.value <- value2))
         }
+        })
         
     }
     

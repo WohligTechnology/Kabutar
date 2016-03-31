@@ -230,10 +230,11 @@ var emailsText = ""
             self.noteobj.localtoserver{(json: JSON) -> () in
                 self.noteobj.servertolocal{(json: JSON) -> () in
                     let onenote = self.noteobj.findOne(strtoll(selectedNoteId,nil,10));
-                    let texttoshare = config.get("user_name") + " has shared '" + selectedName + "' note with you\n"
-                    let newtext = NSURL(string: ServerURL + "view/" + onenote![self.noteobj.serverid]!)
-//                    let afterlink = newtext as! String + "\n~via NoteShare"
-                    let st = UIActivityViewController(activityItems: [texttoshare,newtext!], applicationActivities: nil)
+                    let texttoshare = config.get("user_name") + " has shared '" + selectedName + "' note with you\n\n"
+//                    let newtext = NSURL(string: ServerURL + "view/" + onenote![self.noteobj.serverid]!)
+                    let afterlink = "\(texttoshare)\n\(ServerURL)view/\(onenote![self.noteobj.serverid]!)\n\n -via NoteShare"
+                    print(afterlink)
+                    let st = UIActivityViewController(activityItems: [afterlink], applicationActivities: nil)
                     switch(self.checkstatus){
                     case "2" :
                         let mainview = ViewForNotes as! Listview

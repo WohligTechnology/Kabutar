@@ -279,28 +279,27 @@ public class Note {
         var noteLocalId:Int64!
         
         
-        
+        dispatch_async(dispatch_get_main_queue(),{
         if(count > 0)
         {
-            
         
-            let fol2 = note.filter(serverid == serverid2 && modificationTime < modificationTime4  )
-            let id2 = db.pluck(fol2)
+            let fol2 = self.note.filter(self.serverid == serverid2 && self.modificationTime < modificationTime4  )
+            let id2 = self.db.pluck(fol2)
             if((id2) != nil)
             {
-                noteLocalId = id2![id]
-                noteElement.deleteAllNoteElement(noteLocalId)
+                noteLocalId = id2![self.id]
+                self.noteElement.deleteAllNoteElement(noteLocalId)
             }
             
             
             
-            try! db.run(fol2.update(title <- title2, background <- background2, color <- color2, folder <- folder2 , islocked <- islocked2, paper <- paper2,reminderTime <- reminderTime2, tags <- tags2, timebomb <- timebomb2, modificationTime <- modificationTime4 ) )
+            try! self.db.run(fol2.update(self.title <- title2, self.background <- background2, self.color <- color2, self.folder <- folder2 , self.islocked <- islocked2, self.paper <- paper2,self.reminderTime <- reminderTime2, self.tags <- tags2, self.timebomb <- timebomb2, self.modificationTime <- modificationTime4 ) )
         }
         else
         {
-            let insert = note.insert( title <- title2, background <- background2, color <- color2, folder <- folder2 , islocked <- islocked2, paper <- paper2,reminderTime <- reminderTime2, tags <- tags2, timebomb <- timebomb2, modificationTime <- modificationTime4 , creationTime <-  creationTime4,serverid <- serverid2 )
+            let insert = self.note.insert( self.title <- title2, self.background <- background2, self.color <- color2, self.folder <- folder2 , self.islocked <- islocked2, self.paper <- paper2,self.reminderTime <- reminderTime2, self.tags <- tags2, self.timebomb <- timebomb2, self.modificationTime <- modificationTime4 , self.creationTime <-  creationTime4,self.serverid <- serverid2 )
             
-            noteLocalId = try! db.run(insert)
+            noteLocalId = try! self.db.run(insert)
         }
         
         if(noteLocalId != nil)
@@ -349,8 +348,9 @@ public class Note {
                     })
                     
                 }
-                
-                noteElement.create(
+            
+            
+                self.noteElement.create(
                     noteElement2["content"].string! ,
                     contentA2: noteElement2["contentA"].string!,
                     contentB2: noteElement2["contentB"].string!,
@@ -360,6 +360,7 @@ public class Note {
                 )
             }
         }
+        })
         
     }
     

@@ -35,18 +35,18 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-        if(notesobj.isConnectedToNetwork())
-        {
-        dispatch_async(dispatch_get_main_queue(),{
-            self.notesobj.localtoserver{(json: JSON) -> () in
-                self.notesobj.servertolocal{(json: JSON) -> () in
-                    self.getAllNotes()
-                    self.listView.reloadData()
-                }
-                
-            }
-        })
-        }
+//        if(notesobj.isConnectedToNetwork())
+//        {
+//        dispatch_async(dispatch_get_main_queue(),{
+//            self.notesobj.localtoserver{(json: JSON) -> () in
+//                self.notesobj.servertolocal{(json: JSON) -> () in
+//                    self.getAllNotes()
+//                    self.listView.reloadData()
+//                }
+//                
+//            }
+//        })
+//        }
     }
     
     override func viewDidLoad() {
@@ -222,7 +222,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         cell.rightButtons = [
             MGSwipeButton(title: "",icon: UIImage(named: "note_remainder_white"), backgroundColor: mainColor , callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
-                self.notesobj.localtoserver{(json: JSON) -> () in }
+//                self.notesobj.localtoserver{(json: JSON) -> () in }
                 self.viewDidLoad()
                 datetimepopupType = "reminder"
                 

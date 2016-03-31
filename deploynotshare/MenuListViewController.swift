@@ -238,7 +238,7 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
             self.slideMenuController()?.changeMainViewController(self.ThinkView, close: true)
             print("Feeback")
         case 7:
-            let textToShare = "Swift is awesome!  Check out this website about it!"
+            let textToShare = "Download NoteShare \n\nA Note Sharing app on Android/iOS \n\nhttp://invite.noteshareapp.com"
             let objectsToShare = [textToShare]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             self.presentViewController(activityVC, animated: true, completion: nil)

@@ -36,9 +36,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.setNavigationBarItem()
         
         FolderViewController = self;
-        self.folderobj.localtoserver{(json:JSON) -> () in
-            self.folderobj.servertolocal{(json:JSON) -> () in
-                
+//        self.folderobj.localtoserver{(json:JSON) -> () in
+//            self.folderobj.servertolocal{(json:JSON) -> () in
+        
                 self.folderName = []
                 self.folderId = []
                 self.folderServerId = []
@@ -73,8 +73,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 //Show search on scroll
                 self.tableView.setContentOffset(CGPoint(x: 0,y: 44), animated: true)
                 self.title = "Folders"
-            }
-        }
+//            }
+//        }
     }
     
     override func didReceiveMemoryWarning() {

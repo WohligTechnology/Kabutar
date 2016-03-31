@@ -32,17 +32,17 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-        if(notesobj.isConnectedToNetwork())
-        {
-        dispatch_async(dispatch_get_main_queue(),{
-        self.notesobj.localtoserver{(json: JSON) -> () in
-            self.notesobj.servertolocal{(json: JSON) -> () in
-                self.getAllNotes()
-                self.detailtableview.reloadData()
-            }
-            }
-        })
-        }
+//        if(notesobj.isConnectedToNetwork())
+//        {
+//        dispatch_async(dispatch_get_main_queue(),{
+//        self.notesobj.localtoserver{(json: JSON) -> () in
+//            self.notesobj.servertolocal{(json: JSON) -> () in
+//                self.getAllNotes()
+//                self.detailtableview.reloadData()
+//            }
+//            }
+//        })
+//        }
     }
     
     override func viewDidLoad() {
@@ -50,12 +50,6 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         
         ViewForNotes = self;
         
-        notesobj.localtoserver{(json: JSON) -> () in
-            self.notesobj.servertolocal{(json: JSON) -> () in
-                
-            }
-
-        }
 
         
         let note2 = Note()
@@ -375,7 +369,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         let colorno = color[indexPath.row]
         var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
         cell.addGestureRecognizer(celllongPress)
-//        cell.backgroundColor = NoteColors[Int(colorno)!]
+        cell.backgroundColor = UIColor(rgba: colorno)
         return cell
         
     }

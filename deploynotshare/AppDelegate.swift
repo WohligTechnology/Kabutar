@@ -17,6 +17,7 @@ import SwiftHTTP
 import SwiftyJSON
 
 var ViewForNotes:Any!
+//let mainview = ViewForNotes as! UIViewController
 
 //var ServerURL = "http://noteshareapp.com/"
 var ServerURL = "http://192.168.1.116:83/"
