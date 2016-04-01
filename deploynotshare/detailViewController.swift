@@ -154,10 +154,79 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
             
             self.ScrView.animation.makeOpacity(1.0).animate(transitionTime);
             loadingCompleted = true
+            
+            if(isScreenShot == 1){
+                isScreenShot = 0
+            weak var timer: NSTimer?
+            
+                timer?.invalidate()
+                let nextTimer = NSTimer.scheduledTimerWithTimeInterval(0.2, target: self, selector: "handleIdleEvent:", userInfo: nil, repeats: false)
+                timer = nextTimer
+            }
+            
+            
+            
+            // screenshot code
+            
         })
         
         
+        
+//        // screenshot code
+//        UIGraphicsBeginImageContext(self.view.frame.size)
+//        self.view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+//        let image = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        
+//        //Save it to the camera roll
+//        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        
+        
     }
+    
+    func handleIdleEvent(timer: NSTimer) {
+        dispatch_async(dispatch_get_main_queue(),{
+            print("before")
+            UIGraphicsBeginImageContext(GDetailView.view.frame.size)
+            GDetailView.view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+
+        print("time out called")
+        // do whatever you want when idle after certain period of time
+            GDetailView.dismissViewControllerAnimated(true, completion: { () -> Void in
+                
+                var imageData = UIImageJPEGRepresentation(image, 1.0)
+                let st = UIActivityViewController(activityItems: [imageData!], applicationActivities: nil)
+                let checkstatus = config.get("note_view");
+
+                switch(checkstatus){
+                case "2" :
+                    let mainview = ViewForNotes as! Listview
+                    mainview.presentViewController(st, animated: true, completion: nil)
+                    break
+                case "1" :
+                    let mainview = ViewForNotes as! Detailview
+                    mainview.presentViewController(st, animated: true, completion: nil)
+                    break
+                case "3" :
+                    let mainview = ViewForNotes as! cardViewController
+                    mainview.presentViewController(st, animated: true, completion: nil)
+                    break
+                default:
+                    let mainview = ViewForNotes as! Detailview
+                    mainview.presentViewController(st, animated: true, completion: nil)
+                    break
+                }
+            })
+
+        //Save it to the camera roll
+//        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        })
+//        dismissViewControllerAnimated(true, completion: nil)
+    }
+
     
     func doneTap() {
     

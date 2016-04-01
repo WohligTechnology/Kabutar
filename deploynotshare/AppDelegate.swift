@@ -38,6 +38,7 @@ let bounds = UIScreen.mainScreen().bounds
 let width = bounds.size.width
 let height = bounds.size.height
 var innotepage = 0;
+var isScreenShot = 0
 
 public var noteModel  = Note()
 

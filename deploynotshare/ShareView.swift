@@ -222,15 +222,34 @@ var emailsText = ""
     }
     
     @IBAction func shareViaNoteshareScreenshot(sender: AnyObject) {
-            //Create the UIImage
-//        let noteView = ViewForNotes as! detailViewController
-            UIGraphicsBeginImageContext(GDetailView.view.frame.size)
-            GDetailView.view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-            let image = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            
-            //Save it to the camera roll
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+//        let vc = GDetailView() //change this to your class name
+        isScreenShot = 1
+        switch(self.checkstatus){
+        case "2" :
+            let mainview = ViewForNotes as! Listview
+            let passcodemodal = mainview.storyboard?.instantiateViewControllerWithIdentifier("detailViewController") as! detailViewController
+
+            mainview.presentViewController(passcodemodal, animated: true, completion: nil)
+            break
+        case "1" :
+            let mainview = ViewForNotes as! Detailview
+            let passcodemodal = mainview.storyboard?.instantiateViewControllerWithIdentifier("detailViewController") as! detailViewController
+
+            mainview.presentViewController(passcodemodal, animated: true, completion: nil)
+            break
+        case "3" :
+            let mainview = ViewForNotes as! cardViewController
+            let passcodemodal = mainview.storyboard?.instantiateViewControllerWithIdentifier("detailViewController") as! detailViewController
+
+            mainview.presentViewController(passcodemodal, animated: true, completion: nil)
+            break
+        default:
+            let mainview = ViewForNotes as! Detailview
+            let passcodemodal = mainview.storyboard?.instantiateViewControllerWithIdentifier("detailViewController") as! detailViewController
+
+            mainview.presentViewController(passcodemodal, animated: true, completion: nil)
+            break
+        }
         
     }
     @IBAction func shareViaNoteshareUrl(sender: AnyObject) {
@@ -267,7 +286,6 @@ var emailsText = ""
             
         })
 
-        
         
     }
     
