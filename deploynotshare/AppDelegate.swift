@@ -19,12 +19,12 @@ import SwiftyJSON
 var ViewForNotes:Any!
 //let mainview = ViewForNotes as! UIViewController
 
-//var ServerURL = "http://noteshareapp.com/"
-var ServerURL = "http://192.168.1.116:83/"
+var ServerURL = "http://noteshareapp.com/"
+//var ServerURL = "http://192.168.1.116:83/"
 var GAppDelegate:AppDelegate!
 var MainWidth:CGFloat!
 var MainHeight:CGFloat!
-var SelectedNoteColor = UIColor()
+var SelectedNoteColor = ""
 var ColorNote = String()
 let config = Config()
 var NoteElementModel = NoteElement()
@@ -47,18 +47,18 @@ let PinkColor = UIColor(rgba: "#FF5A60")
 let DefaultColor = UIColor(red: 255.0/255.0, green: 255.0/255, blue: 255.0/255, alpha: 1.0)
 
 let NoteColors = [
-    UIColor(rgba: "#96CEEE"),
-    UIColor(rgba: "#FAE8CE"),
-    UIColor(rgba: "#97E1CC"),
-    UIColor(rgba: "#FDFF7F"),
-    UIColor(rgba: "#9FDB86"),
-    UIColor(rgba: "#BE9FF6"),
-    UIColor(rgba: "#B6E29E"),
-    UIColor(rgba: "#DCA9AA"),
-    UIColor(rgba: "#F0A6EF"),
-    UIColor(rgba: "#D0D0D0"),
-    UIColor(rgba: "#EEEEEE"),
-    UIColor.clearColor()
+    "#96CEEE",
+    "#FAE8CE",
+    "#97E1CC",
+    "#FDFF7F",
+    "#9FDB86",
+    "#BE9FF6",
+    "#B6E29E",
+    "#DCA9AA",
+    "#F0A6EF",
+    "#D0D0D0",
+    "#EEEEEE",
+    "#FFFFFF"
 ]
 
 let ConfigObj = Config()
@@ -198,6 +198,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                             
                             
                                 let json = JSON(data: response.responseObject as! NSData)
+                                print("social login response;")
                                 print(json);
                                 config.set("user_id", value2: json["_id"].string!)
                                 

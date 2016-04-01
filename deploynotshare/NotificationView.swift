@@ -22,11 +22,15 @@ import SwiftyJSON
     var folder = "";
     var userid = "";
     var status = "";
+    var noteobj = Note()
     
     func downNotification(json:JSON){
-        print(json)
         if(json["value"]=="true"){
-        GlobalNotificationView.reload()
+            self.noteobj.localtoserver{(json: JSON) -> () in
+                self.noteobj.servertolocal{(json: JSON) -> () in
+                }
+            }
+            GlobalNotificationView.reload()
         }
     }
     
@@ -66,7 +70,7 @@ import SwiftyJSON
         sortnewview.frame = bounds
         
         self.notifimage.contentMode = .Center
-        self.notifimage.layer.cornerRadius = 105 / 2
+        self.notifimage.layer.cornerRadius = 103 / 2
         //                    badge.layer.masksToBounds = true
         self.notifimage.layer.masksToBounds = true
         

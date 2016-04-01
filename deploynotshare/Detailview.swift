@@ -248,9 +248,9 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 (sender: MGSwipeTableCell!) -> Bool in
                 print(indexPath.row)
                 print(self.notesId[indexPath.row])
-                if(self.notesId[indexPath.row]==0){
+                if(self.notesId[indexPath.row]==0 || !self.notesobj.isConnectedToNetwork()){
                 print("empty yooooooooo......")
-                let alert = UIAlertController(title: "Alert", message: "Can not share this note without sync", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert = UIAlertController(title: "Alert", message: "Can not share this note without sync OR No Internet Connection.", preferredStyle: UIAlertControllerStyle.Alert)
                 let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
                     
                 }
@@ -511,6 +511,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         selectedNoteId = String(self.notesId[indexPath.row])
+        print(selectedNoteId)
         config.set("note_id", value2: String(selectedNoteId))
         
         if(islocked[indexPath.row] == 0){

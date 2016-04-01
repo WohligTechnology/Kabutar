@@ -30,6 +30,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var createfolsername = UITextField()
     var folderobj = Folder()
     var emaillist = UITextField()
+    var notesobj = Note()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -275,9 +276,9 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let shareAction = UITableViewRowAction(style: .Normal, title: "Share") {
             (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
-            if(self.folderServerId[indexPath.row] as! String==""){
+            if(!self.notesobj.isConnectedToNetwork()){
                 print("empty yooooooooo......")
-                let alert = UIAlertController(title: "Alert", message: "Can not share this Folder without sync", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert = UIAlertController(title: "Alert", message: "Can not share this Folder without sync OR No Internet Connection.", preferredStyle: UIAlertControllerStyle.Alert)
                 let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
                     
                 }
@@ -285,7 +286,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.presentViewController(alert, animated: true) { () -> Void in }
 
             }else{
-            self.sharefolder(self.folderServerId[indexPath.row] as! String)
+                self.folderobj.localtoserver{(json: JSON) -> () in
+                    self.folderobj.servertolocal{(json: JSON) -> () in
+                        let onenote = self.folderobj.findOne(strtoll(selectedNoteId,nil,10));
+                        self.sharefolder(onenote![self.folderobj.serverID])
+
+                    }
+                }
             }
             
 //            globalFolderId = self.folderId[indexPath.row];

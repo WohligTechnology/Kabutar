@@ -113,7 +113,6 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
         if(noteobj.isConnectedToNetwork())
         {
             notificationobj.notificationCount{(json: JSON) -> () in
-                print(json["count"])
                 number = String(json["count"])
             }
         }

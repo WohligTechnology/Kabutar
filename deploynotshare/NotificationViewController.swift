@@ -90,8 +90,10 @@ class NotificationViewController: UIViewController {
         
         self.verticalLayout = VerticalLayout(width: self.view.frame.width);
         self.scrollView.insertSubview(self.verticalLayout, atIndex: 0)
-        
-        self.notificationobj.getNotification(self.showNotification);
+            if(self.notesobj.isConnectedToNetwork())
+            {
+                self.notificationobj.getNotification(self.showNotification);
+            }
         });
         
     }

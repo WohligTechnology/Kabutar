@@ -222,6 +222,15 @@ var emailsText = ""
     }
     
     @IBAction func shareViaNoteshareScreenshot(sender: AnyObject) {
+            //Create the UIImage
+//        let noteView = ViewForNotes as! detailViewController
+            UIGraphicsBeginImageContext(GDetailView.view.frame.size)
+            GDetailView.view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            //Save it to the camera roll
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         
     }
     @IBAction func shareViaNoteshareUrl(sender: AnyObject) {

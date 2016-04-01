@@ -47,6 +47,13 @@ public class Folder {
         return try! db.prepare(folder.filter(creationTime != 0).order(id.desc))
     }
     
+    func findOne(id2:Int64) -> Row?  {
+        
+        let newval =  db.pluck(folder.filter(id == id2) )
+        return newval
+        
+    }
+    
     func shareFolder(folder:String,email:String,completion : ((JSON)->Void)) {
         let params = ["userfrom":config.get("user_id"),"folder":folder,"email":email];
         var json : JSON!

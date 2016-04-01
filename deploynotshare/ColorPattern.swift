@@ -52,47 +52,47 @@ class ColorPattern: UIView {
     }
     
     @IBAction func firstColor(sender: AnyObject) {
-        changeColorFunction("0")
+        changeColorFunction(NoteColors[0])
         SelectedNoteColor = NoteColors[0]
     }
     @IBAction func secondColor(sender: AnyObject) {
-        changeColorFunction("1")
+        changeColorFunction(NoteColors[1])
         SelectedNoteColor = NoteColors[1]
     }
     @IBAction func thirdColor(sender: AnyObject) {
-        changeColorFunction("2")
+        changeColorFunction(NoteColors[2])
         SelectedNoteColor = NoteColors[2]
     }
     @IBAction func fourthColor(sender: AnyObject) {
-        changeColorFunction("3")
+        changeColorFunction(NoteColors[3])
         SelectedNoteColor = NoteColors[3]
     }
     @IBAction func fifthColor(sender: AnyObject) {
-        changeColorFunction("4")
+        changeColorFunction(NoteColors[4])
         SelectedNoteColor = NoteColors[4]
     }
     @IBAction func sixthColor(sender: AnyObject) {
-        changeColorFunction("5")
+        changeColorFunction(NoteColors[5])
         SelectedNoteColor = NoteColors[5]
     }
     @IBAction func seventhColor(sender: AnyObject) {
-        changeColorFunction("6")
+        changeColorFunction(NoteColors[6])
         SelectedNoteColor = NoteColors[6]
     }
     @IBAction func eighthColor(sender: AnyObject) {
-        changeColorFunction("7")
+        changeColorFunction(NoteColors[7])
         SelectedNoteColor = NoteColors[7]
     }
     @IBAction func ninthColor(sender: AnyObject) {
-        changeColorFunction("8")
+        changeColorFunction(NoteColors[8])
         SelectedNoteColor = NoteColors[8]
     }
     @IBAction func tenthColor(sender: AnyObject) {
-        changeColorFunction("9")
+        changeColorFunction(NoteColors[9])
         SelectedNoteColor = NoteColors[9]
     }
     @IBAction func defaultColor(sender: AnyObject) {
-        changeColorFunction("10")
+        changeColorFunction(NoteColors[10])
         SelectedNoteColor = NoteColors[10]
     }
     func loadViewFromNib() {

@@ -158,7 +158,7 @@ public class NoteElement {
     }
     
 //    func getAllNoteElementText(noteid2:Int64) -> AnySequence<Row> {
-//        let query = noteelement.filter(noteid == noteid2 && type === "text" || type === "checkbox")
+//        let query = noteelement.filter(noteid == noteid2 && (type === "text" || type === "checkbox"))
 //        return db.prepare( query );
 //    }
     

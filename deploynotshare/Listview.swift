@@ -241,9 +241,9 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
             }),
             MGSwipeButton(title: "",icon: UIImage(named: "note_share_white"), backgroundColor: mainColor, callback : {
                 (sender: MGSwipeTableCell!) -> Bool in
-                if(self.notesId[indexPath.row]==0){
+                if(self.notesId[indexPath.row]==0 || !self.notesobj.isConnectedToNetwork()){
                     print("empty yooooooooo......")
-                    let alert = UIAlertController(title: "Alert", message: "Can not share this note without sync", preferredStyle: UIAlertControllerStyle.Alert)
+                    let alert = UIAlertController(title: "Alert", message: "Can not share this note without sync OR No Internet Connection.", preferredStyle: UIAlertControllerStyle.Alert)
                     let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
                         
                     }
@@ -362,7 +362,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
 //        var celllongPress = UILongPressGestureRecognizer(target: self, action: "colorPattern:")
 //        cell.addGestureRecognizer(celllongPress)
         
-//        cell.backgroundColor? = NoteColors[Int(colorno)!] 
+        cell.backgroundColor? = UIColor(rgba: colorno)
         
         return cell
         
