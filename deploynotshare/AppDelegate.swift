@@ -19,8 +19,9 @@ import SwiftyJSON
 var ViewForNotes:Any!
 //let mainview = ViewForNotes as! UIViewController
 
-var ServerURL = "http://noteshareapp.com/"
-//var ServerURL = "http://192.168.1.116:83/"
+//var ServerURL = "http://api.noteshareapp.com/"
+var ShareServerURL = "http://www.noteshareapp.com"
+var ServerURL = "http://192.168.1.122:83/"
 var GAppDelegate:AppDelegate!
 var MainWidth:CGFloat!
 var MainHeight:CGFloat!
@@ -39,6 +40,8 @@ let width = bounds.size.width
 let height = bounds.size.height
 var innotepage = 0;
 var isScreenShot = 0
+var isloadfirst = true
+var noteid = ""
 
 public var noteModel  = Note()
 
@@ -158,16 +161,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
         withError error: NSError!) {
-            if (error == nil) {
+            dispatch_async(dispatch_get_main_queue(),{
+
+            if (error == nil || user != nil) {
+                print("in if")
                 // Perform any operations on signed in user here.
-                print(user);
+                
                 let userId = user.userID                  // For client-side use only!
                 let idToken = user.authentication.idToken // Safe to send to the server
                 let name = user.profile.name
                 let email = user.profile.email
                 let imageurl = user.profile.imageURLWithDimension(100)
 
-                print(imageurl)
+                
                 var imageurlStr = "http://www.wohlig.com/";
                 try! imageurlStr = String(imageurl)
                 
@@ -190,10 +196,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                         
                         config.set("user_pic",value2: imagename);
                         
-                        
-                        
-                        
-                        let params: Dictionary<String,AnyObject>= ["email": config.get("user_email"), "fbid": config.get("user_facebook_id"), "googleid": config.get("user_google_id"),"profilepic":config.get("user_pic_url"),"name":config.get("user_name")]
+                        let params: Dictionary<String,AnyObject>= ["email": user.profile.email, "fbid": config.get("user_facebook_id"), "googleid": user.userID,"profilepic":user.profile.imageURLWithDimension(100),"name":user.profile.name]
+                        print(params)
                         
                         request.POST(ServerURL+"user/sociallogin", parameters: params, completionHandler: {(response: HTTPResponse) in
                             
@@ -201,7 +205,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                 let json = JSON(data: response.responseObject as! NSData)
                                 print("social login response;")
                                 print(json);
-                                config.set("user_id", value2: json["_id"].string!)
+                                config.set("user_id", value2: json["_id"].stringValue)
                                 
                                 let seconds = 0.2
                                 let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
@@ -209,18 +213,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                 
                                 dispatch_after(dispatchTime, dispatch_get_main_queue(), {
                                     self.createMenuView()
+//                                    noteModel.localtoserver{(json: JSON) -> () in
+//                                                    noteModel.servertolocal{(json: JSON) -> () in
+//                                                        
+//                                                    }
+//                                                    }
                                     
                                 })
                             
-
+//
                         
                         })
                     }
                 }
                 
             } else {
+                print("In else")
                 print("\(error.localizedDescription)")
             }
+                
+            })
     }
 
     func applicationWillResignActive(application: UIApplication) {

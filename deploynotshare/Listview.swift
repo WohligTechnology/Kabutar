@@ -255,6 +255,19 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                 selectedNoteId = String(self.notesId[indexPath.row])
                 selectedNoteDesc = String(self.noteDesc[indexPath.row])
                 selectedName = String(self.notesTitle[indexPath.row])
+                    
+                    dispatch_async(dispatch_get_main_queue(),{
+                        
+                        self.notesobj.localtoserver{(json: JSON) -> () in
+                            self.notesobj.servertolocal{(json: JSON) -> () in
+                                //                            let onenote = self.notesobj.findOne(strtoll(selectedNoteId,nil,10));
+                                //                            print(onenote)
+                                //                            print(onenote![self.notesobj.serverid]!)
+                                //                        self.noteobj.shareNote(onenote![self.noteobj.serverid]!, email: sendemailto, completion: self.resShareNote)
+                            }
+                        }
+                    })
+                    
                 print(selectedNoteId)
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
                 self.addBlackView()

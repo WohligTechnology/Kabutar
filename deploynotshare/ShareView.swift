@@ -25,6 +25,7 @@ var emailsText = ""
     var checkvalidation = true;
     
     
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadViewFromNib ()
@@ -128,12 +129,9 @@ var emailsText = ""
                         for(var i = 1 ; i < fullNameArr?.count ; i++){
                             sendemailto = sendemailto + "," + fullNameArr![i]
                         }
-                        self.noteobj.localtoserver{(json: JSON) -> () in
-                            self.noteobj.servertolocal{(json: JSON) -> () in
                                 let onenote = self.noteobj.findOne(strtoll(selectedNoteId,nil,10));
+                                print(onenote![self.noteobj.serverid]!)
                                 self.noteobj.shareNote(onenote![self.noteobj.serverid]!, email: sendemailto, completion: self.resShareNote)
-                            }
-                        }
                     })
                     
                     switch(self.checkstatus){

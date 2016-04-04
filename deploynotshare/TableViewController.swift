@@ -274,22 +274,32 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
         }
         
+        func noInternet(){
+            print("empty yooooooooo......")
+            let alert = UIAlertController(title: "Alert", message: "Can not share this Folder without sync OR No Internet Connection.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+                
+            }
+            alert.addAction(alertAction)
+            self.presentViewController(alert, animated: true) { () -> Void in }
+        }
+        
         let shareAction = UITableViewRowAction(style: .Normal, title: "Share") {
             (action: UITableViewRowAction!, indexPath: NSIndexPath!) -> Void in
             if(!self.notesobj.isConnectedToNetwork()){
-                print("empty yooooooooo......")
-                let alert = UIAlertController(title: "Alert", message: "Can not share this Folder without sync OR No Internet Connection.", preferredStyle: UIAlertControllerStyle.Alert)
-                let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
-                    
-                }
-                alert.addAction(alertAction)
-                self.presentViewController(alert, animated: true) { () -> Void in }
+                noInternet()
 
             }else{
                 self.folderobj.localtoserver{(json: JSON) -> () in
                     self.folderobj.servertolocal{(json: JSON) -> () in
-                        let onenote = self.folderobj.findOne(strtoll(selectedNoteId,nil,10));
-                        self.sharefolder(onenote![self.folderobj.serverID])
+                        print(strtoll(self.folderId[indexPath.row] as! String,nil,10))
+                        let onenote = self.folderobj.findOne(strtoll(self.folderId[indexPath.row] as! String,nil,10))
+                        print(onenote)
+                        if(onenote![self.folderobj.serverID] == ""){
+                            noInternet()
+                        }else{
+                            self.sharefolder(onenote![self.folderobj.serverID])
+                        }
 
                     }
                 }

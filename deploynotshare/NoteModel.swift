@@ -386,7 +386,7 @@ public class Note {
     }
     
     func servertolocal(completion : ((JSON)->Void)) {
-        
+        print("server to local")
         let ServerDateFormatter = NSDateFormatter()
         ServerDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         

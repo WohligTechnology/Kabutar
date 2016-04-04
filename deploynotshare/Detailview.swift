@@ -32,17 +32,19 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-//        if(notesobj.isConnectedToNetwork())
-//        {
-//        dispatch_async(dispatch_get_main_queue(),{
-//        self.notesobj.localtoserver{(json: JSON) -> () in
-//            self.notesobj.servertolocal{(json: JSON) -> () in
-//                self.getAllNotes()
-//                self.detailtableview.reloadData()
-//            }
-//            }
-//        })
-//        }
+        if(notesobj.isConnectedToNetwork() && isloadfirst)
+        {
+            print("in view will appear")
+            isloadfirst = false
+        dispatch_async(dispatch_get_main_queue(),{
+        self.notesobj.localtoserver{(json: JSON) -> () in
+            self.notesobj.servertolocal{(json: JSON) -> () in
+                self.getAllNotes()
+                self.detailtableview.reloadData()
+            }
+            }
+        })
+        }
     }
     
     override func viewDidLoad() {
@@ -161,6 +163,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         
         
             for row in notesobj.find2(searchTable) {
+                print(row)
 //                print(row[5] as! String!)
                 notesTitle.append(row[1] as! String!)
                 notesId.append(row[0] as! Int64! )
@@ -248,6 +251,8 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 (sender: MGSwipeTableCell!) -> Bool in
                 print(indexPath.row)
                 print(self.notesId[indexPath.row])
+                
+                
                 if(self.notesId[indexPath.row]==0 || !self.notesobj.isConnectedToNetwork()){
                 print("empty yooooooooo......")
                 let alert = UIAlertController(title: "Alert", message: "Can not share this note without sync OR No Internet Connection.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -262,6 +267,20 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 selectedNoteId = String(self.notesId[indexPath.row])
                 selectedNoteDesc = String(self.noteDesc[indexPath.row])
                 selectedName = String(self.notesTitle[indexPath.row])
+                    dispatch_async(dispatch_get_main_queue(),{
+
+                    self.notesobj.localtoserver{(json: JSON) -> () in
+                        self.notesobj.servertolocal{(json: JSON) -> () in
+//                            let onenote = self.notesobj.findOne(strtoll(selectedNoteId,nil,10));
+//                            print(onenote)
+//                            print(onenote![self.notesobj.serverid]!)
+                            //                        self.noteobj.shareNote(onenote![self.noteobj.serverid]!, email: sendemailto, completion: self.resShareNote)
+                        }
+                    }
+                    })
+
+                    
+                    
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
                 self.addBlackView()
                 blackOut.addGestureRecognizer(blackOutTap)

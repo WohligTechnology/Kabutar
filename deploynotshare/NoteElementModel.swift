@@ -61,7 +61,7 @@ public class NoteElement {
     }
     
     func addHeightOffset(layout:VerticalLayout,order2: Int64) {
-        let noteid2 = Int64(config.get("note_id"))
+        let noteid2 = Int64(selectedNoteId)
         let value = db.prepare("SELECT MAX(CAST(`contentB` AS INTEGER )) as `max` FROM `NoteElement`   WHERE `noteid` = '\(noteid2!)' AND `order` < '\(order2)' ");
         
         var value5:Int64!
@@ -147,7 +147,9 @@ public class NoteElement {
     }
 
     func getAllNoteElement() -> AnySequence<Row> {
-        let noteid2 = Int64(config.get("note_id"))
+//        let noteid2 = Int64(config.get("note_id"))
+        print(Int64(selectedNoteId))
+        let noteid2 = Int64(selectedNoteId)
         let query = noteelement.filter(noteid == noteid2)
         return db.prepare( query );
     }
