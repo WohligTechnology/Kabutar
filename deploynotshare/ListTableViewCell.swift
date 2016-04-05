@@ -16,6 +16,9 @@ class ListTableViewCell: MGSwipeTableCell {
     @IBOutlet weak var DetailDescription: UILabel!
     @IBOutlet weak var DetailTimeStamp: UILabel!
     @IBOutlet weak var DetailLock: UIImageView!
+    @IBOutlet weak var ntfTitle: UILabel!
+    @IBOutlet weak var ntfDescription: UILabel!
+    @IBOutlet weak var ntfImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

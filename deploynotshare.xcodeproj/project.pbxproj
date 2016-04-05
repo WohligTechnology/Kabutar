@@ -56,6 +56,7 @@
 		43344B251BF7470C00AC4802 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43344B241BF7470C00AC4802 /* SettingViewController.swift */; };
 		434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E77771BE34B4800684C08 /* SlideMenuController.swift */; };
 		434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434E778A1BE3979800684C08 /* MenuListViewController.swift */; };
+		43544C361CB286AD00386852 /* NtfTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43544C351CB286AD00386852 /* NtfTableViewController.swift */; };
 		435F0C941C91686B00B96653 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435F0C931C91686B00B96653 /* NotificationModel.swift */; };
 		4361079E1BE9F4BE0094BB25 /* Detailview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4361079D1BE9F4BE0094BB25 /* Detailview.swift */; };
 		436107A01BE9F6500094BB25 /* mainview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4361079F1BE9F6500094BB25 /* mainview.swift */; };
@@ -193,6 +194,7 @@
 		43344B241BF7470C00AC4802 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		434E77771BE34B4800684C08 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
 		434E778A1BE3979800684C08 /* MenuListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuListViewController.swift; sourceTree = "<group>"; };
+		43544C351CB286AD00386852 /* NtfTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NtfTableViewController.swift; sourceTree = "<group>"; };
 		435F0C931C91686B00B96653 /* NotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		4361079D1BE9F4BE0094BB25 /* Detailview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detailview.swift; sourceTree = "<group>"; };
 		4361079F1BE9F6500094BB25 /* mainview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainview.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 				43921D5A1BE0E7DA0032DE28 /* PasswordViewController.swift */,
 				4395A6421BF9C2F800EE4F10 /* SecurityViewController.swift */,
 				4380B3511BDA590E0026CED9 /* detailViewController.swift */,
+				43544C351CB286AD00386852 /* NtfTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1020,6 +1023,7 @@
 				364EA4611BF1B37A001B7161 /* NoteElementModel.swift in Sources */,
 				36E416791BEB6D18007EE385 /* AddCircle.swift in Sources */,
 				434E778B1BE3979800684C08 /* MenuListViewController.swift in Sources */,
+				43544C361CB286AD00386852 /* NtfTableViewController.swift in Sources */,
 				43EFB9BF1BDE3D5A0014EDF9 /* ListTableViewCell.swift in Sources */,
 				436107A41BEA2A750094BB25 /* Move.swift in Sources */,
 				36E416711BEB12E0007EE385 /* NoteCollectionUIView.swift in Sources */,

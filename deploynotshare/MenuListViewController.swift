@@ -48,11 +48,11 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
     
     
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        getNotificationCnt()
-        self.tableView.reloadData()
-    }
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        getNotificationCnt()
+//        self.tableView.reloadData()
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +86,7 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
         let ThinkView = storyboard.instantiateViewControllerWithIdentifier("ThinkViewController") as! ThinkViewController
         self.ThinkView = UINavigationController(rootViewController: ThinkView)
         
-        let NotificationView = storyboard.instantiateViewControllerWithIdentifier("NotificationViewController") as! NotificationViewController
+        let NotificationView = storyboard.instantiateViewControllerWithIdentifier("NtfTableViewController") as! NtfTableViewController
         self.NotificationView = UINavigationController(rootViewController: NotificationView)
         
 
@@ -115,6 +115,7 @@ class MenuListViewController: UITableViewController, LeftMenuProtocol {
             notificationobj.notificationCount{(json: JSON) -> () in
                 print(json["count"])
                 number = String(json["count"])
+//                self.tableView.reloadData()
             }
         }
     }

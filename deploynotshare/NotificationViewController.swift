@@ -59,18 +59,14 @@ class NotificationViewController: UIViewController {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-        dispatch_async(dispatch_get_main_queue(),{
-        print("view will appear.")
-        print(checkon)
-        
+//        dispatch_async(dispatch_get_main_queue(),{
         if(!checkon){
             print("in side reload calling")
             self.reload();
-//            self.viewDidLoad()
         }else{
             checkon = false
             }
-        })
+//        })
         
     }
     
@@ -82,7 +78,7 @@ class NotificationViewController: UIViewController {
 //        notesobj.localtoserver{(json: JSON) -> () in }
 
         GlobalNotificationView = self;
-        dispatch_async(dispatch_get_main_queue(),{
+//        dispatch_async(dispatch_get_main_queue(),{
 
         let bounds = UIScreen.mainScreen().bounds
         let width = bounds.size.width
@@ -94,7 +90,9 @@ class NotificationViewController: UIViewController {
             {
                 self.notificationobj.getNotification(self.showNotification);
             }
-        });
+//            self.resizeView()
+//        });
+        
         
     }
     

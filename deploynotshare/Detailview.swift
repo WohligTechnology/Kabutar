@@ -267,7 +267,6 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 selectedNoteId = String(self.notesId[indexPath.row])
                 selectedNoteDesc = String(self.noteDesc[indexPath.row])
                 selectedName = String(self.notesTitle[indexPath.row])
-                    dispatch_async(dispatch_get_main_queue(),{
 
                     self.notesobj.localtoserver{(json: JSON) -> () in
                         self.notesobj.servertolocal{(json: JSON) -> () in
@@ -277,7 +276,6 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                             //                        self.noteobj.shareNote(onenote![self.noteobj.serverid]!, email: sendemailto, completion: self.resShareNote)
                         }
                     }
-                    })
 
                     
                     

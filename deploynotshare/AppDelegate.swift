@@ -17,10 +17,13 @@ import SwiftHTTP
 import SwiftyJSON
 
 var ViewForNotes:Any!
+//var maincnt  = ViewForNotes
+
+
 //let mainview = ViewForNotes as! UIViewController
 
-//var ServerURL = "http://api.noteshareapp.com/"
-var ShareServerURL = "http://www.noteshareapp.com"
+//var ServerURL = "http://api.noteshareapp.com:1337/"
+//var ShareServerURL = "http://www.noteshareapp.com"
 var ServerURL = "http://192.168.1.122:83/"
 var GAppDelegate:AppDelegate!
 var MainWidth:CGFloat!
@@ -213,6 +216,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                 
                                 dispatch_after(dispatchTime, dispatch_get_main_queue(), {
                                     self.createMenuView()
+                                    
 //                                    noteModel.localtoserver{(json: JSON) -> () in
 //                                                    noteModel.servertolocal{(json: JSON) -> () in
 //                                                        
