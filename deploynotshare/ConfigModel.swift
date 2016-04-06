@@ -8,6 +8,8 @@
 
 import Foundation
 import SQLiteCipher
+import SwiftHTTP
+import SwiftyJSON
 
 public class Config {
     
@@ -71,12 +73,26 @@ public class Config {
         try! db.run(config.delete())
     }
     
-    func logoutFlush() {
+    func logoutFlush(completion : ((JSON)->Void)) {
+        print("logout called")
         self.flush()
-        try! db.execute("DROP TABLE note")
-        try! db.execute("DROP TABLE NoteElement")
-        try! db.execute("DROP TABLE folder")
-    }
+        let params = ["user":self.get("user_id"), "deviceid":self.get("user_device_id")];
+        var json : JSON!
+        do{
+            request.POST(ServerURL+"user/logout", parameters: params, completionHandler: {(response: HTTPResponse) in
+                try! json = JSON(data: response.responseObject as! NSData)
+                try! self.db.execute("DROP TABLE note")
+                try! self.db.execute("DROP TABLE NoteElement")
+                try! self.db.execute("DROP TABLE folder")
+
+                completion(json)
+            })
+        }
+        catch{
+            completion(1)
+        }
+
+            }
     
     // validation functions
     func isValidEmail(testStr:String) -> Bool {

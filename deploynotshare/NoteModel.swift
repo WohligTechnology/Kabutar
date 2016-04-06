@@ -155,6 +155,8 @@ public class Note {
         if(selectedFolderToNoteId !=  "")
         {
             folderWhere  = " `note`.`folder` =  '\(selectedFolderToNoteId)' AND ";
+        }else{
+            folderWhere = " `note`.`folder` = 0 AND "
         }
         
         let sortwith = config.get("note_sort");
@@ -179,7 +181,7 @@ public class Note {
             sortwithText = "`note`.`id` DESC ,LOWER(`note`.`title`) "
         }
         
-        let returnArr = db.prepare("SELECT `note`.`id`, `note`.`title`,`note`.`color`,`note`.`islocked`,`note`.`serverid`,GROUP_CONCAT(`NoteElement`.`contentA`,' '),`note`.`modificationTime` FROM `note` LEFT OUTER JOIN `NoteElement` ON `note`.`id` = `NoteElement`.`noteid` AND `NoteElement`.`contentA` != '' AND `NoteElement`.`type` = 'text'  WHERE \(folderWhere) `note`.`creationTime` != 0 AND  (`note`.`timebomb` = 0 OR  `note`.`timebomb` > \(date2)) AND ( `note`.`title` LIKE '%\(txt)%' OR `NoteElement`.`contentA` LIKE '%\(txt)%' )  GROUP BY `note`.`id` ORDER BY \(sortwithText)")
+        let returnArr = db.prepare("SELECT `note`.`id`, `note`.`title`,`note`.`color`,`note`.`islocked`,`note`.`serverid`,GROUP_CONCAT(`NoteElement`.`contentA`,' '),`note`.`modificationTime` FROM `note` LEFT OUTER JOIN `NoteElement` ON `note`.`id` = `NoteElement`.`noteid` AND `NoteElement`.`contentA` != '' AND `NoteElement`.`type` = 'text'  WHERE \(folderWhere) `note`.`creationTime` != 0 AND  (`note`.`timebomb` = 0 OR  `note`.`timebomb` > \(date2)) AND ( `note`.`title` LIKE '%\(txt)%' OR `NoteElement`.`contentA` LIKE '%\(txt)%' ) GROUP BY `note`.`id` ORDER BY \(sortwithText)")
         return returnArr
     }
     
@@ -388,9 +390,15 @@ public class Note {
     func servertolocal(completion : ((JSON)->Void)) {
         print("server to local")
         let ServerDateFormatter = NSDateFormatter()
+        var timeprob = ""
         ServerDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        if(config.get("note_server_to_local") != ""){
+            timeprob = String(Int64(config.get("note_server_to_local"))! - 86400000)
+        }else{
+            timeprob = config.get("note_server_to_local")
+        }
+        var ServerToLocal = ServerDateFormatter.stringFromDate(NSDate( timeIntervalSince1970: NSTimeInterval( strtoll(String(timeprob),nil,10) ) ))
         
-        var ServerToLocal = ServerDateFormatter.stringFromDate(NSDate( timeIntervalSince1970: NSTimeInterval( strtoll(config.get("note_server_to_local"),nil,10) ) ))
         
         
         if(ServerToLocal == "")

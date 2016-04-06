@@ -10,12 +10,15 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Google
+import SwiftyJSON
 
 class SettingViewController: UITableViewController{
+    let notesobj = Note()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(self.title);
+        
         self.setNavigationBarItem()
     }
     
@@ -37,24 +40,31 @@ class SettingViewController: UITableViewController{
         }
         if(indexPath.section == 2 && indexPath.row==1)
         {
-            let loginManager = FBSDKLoginManager()
-            loginManager.logOut()
-            
-            let GIDSignInStat = GIDSignIn()
-            GIDSignInStat.signOut()
-            
-            
-            config.logoutFlush()
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let secondViewController = storyboard.instantiateViewControllerWithIdentifier("LoginScreen") as! ViewController
-            //self.slideMenuController()?.changeMainViewController(secondViewController, close: true)
-            self.presentViewController(secondViewController as UIViewController, animated: true, completion: nil)
-            //self.slideMenuController()?.view.removeFromSuperview()
-            
-            //print("FB LINK");
-            //UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id310633997")!);
+            if(self.notesobj.isConnectedToNetwork()){
+                let loginManager = FBSDKLoginManager()
+                loginManager.logOut()
+                
+                let GIDSignInStat = GIDSignIn()
+                GIDSignInStat.signOut()
+                
+                
+                config.logoutFlush{(json:JSON) -> () in }
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let secondViewController = storyboard.instantiateViewControllerWithIdentifier("LoginScreen") as! ViewController
+                //self.slideMenuController()?.changeMainViewController(secondViewController, close: true)
+                self.presentViewController(secondViewController as UIViewController, animated: true, completion: nil)
+                //self.slideMenuController()?.view.removeFromSuperview()
+                
+                //print("FB LINK");
+                //UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id310633997")!);
+            }else{
+                let alert = UIAlertController(title: "Alert", message: "No Internet Connection.", preferredStyle: UIAlertControllerStyle.Alert)
+                let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+                    
+                }
+                alert.addAction(alertAction)
+                self.presentViewController(alert, animated: true) { () -> Void in }
+            }
         }
     }
-    
-    
 }

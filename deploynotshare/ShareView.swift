@@ -258,7 +258,7 @@ var emailsText = ""
                     let onenote = self.noteobj.findOne(strtoll(selectedNoteId,nil,10));
                     let texttoshare = config.get("user_name") + " has shared '" + selectedName + "' note with you\n\n"
 //                    let newtext = NSURL(string: ServerURL + "view/" + onenote![self.noteobj.serverid]!)
-                    let afterlink = "\(texttoshare)\n\(ServerURL)view/\(onenote![self.noteobj.serverid]!)\n\n -via NoteShare"
+                    let afterlink = "\(texttoshare)\n\(ShareServerURL)view/\(onenote![self.noteobj.serverid]!)\n\n -via NoteShare"
                     print(afterlink)
                     let st = UIActivityViewController(activityItems: [afterlink], applicationActivities: nil)
                     switch(self.checkstatus){

@@ -163,7 +163,6 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         
         
             for row in notesobj.find2(searchTable) {
-                print(row)
 //                print(row[5] as! String!)
                 notesTitle.append(row[1] as! String!)
                 notesId.append(row[0] as! Int64! )
@@ -249,7 +248,6 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
             }),
             MGSwipeButton(title: "",icon: UIImage(named:"note_share_white"), backgroundColor: mainColor, callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
-                print(indexPath.row)
                 print(self.notesId[indexPath.row])
                 
                 
@@ -310,7 +308,11 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 self.view.addSubview(blackOut);
                 blackOut.animation.makeAlpha(1).animate(transitionTime);
                 
-                self.addMoveToFolder = MoveToFolder(frame: CGRectMake(self.width/4 - 45,self.height/4 - 100, 300, 300))
+                
+                let xpos = (self.width/2) - (300/2);
+                let ypos = (self.height/2) - (400/2);
+                
+                self.addMoveToFolder = MoveToFolder(frame: CGRectMake(xpos,ypos, 300, 200))
                 self.view.addSubview(self.addMoveToFolder)
                 
                 return true

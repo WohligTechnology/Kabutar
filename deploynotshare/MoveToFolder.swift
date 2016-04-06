@@ -80,6 +80,8 @@ class MoveToFolder: UIView,UITableViewDataSource,UITableViewDelegate{
         if(checkstatus == "2"){
             let mainview = ViewForNotes as! Listview
             moveToSelectedFolder(selectedNoteId,folderID: folderId[indexPath.row] as! String)
+            mainview.getAllNotes()
+            mainview.listView.reloadData()
             mainview.closeMoveToFolder(nil);
         } else if(checkstatus == "3"){
 //            let mainview = ViewForNotes as! cardViewController
@@ -88,6 +90,9 @@ class MoveToFolder: UIView,UITableViewDataSource,UITableViewDelegate{
         } else if(checkstatus == "1" || checkstatus == ""){
             let mainview = ViewForNotes as! Detailview
             moveToSelectedFolder(selectedNoteId,folderID: folderId[indexPath.row] as! String)
+            
+            mainview.getAllNotes()
+            mainview.detailtableview.reloadData()
             mainview.closeMoveToFolder(nil);
         }
         

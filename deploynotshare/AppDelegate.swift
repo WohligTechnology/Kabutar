@@ -22,8 +22,9 @@ var ViewForNotes:Any!
 
 //let mainview = ViewForNotes as! UIViewController
 
-//var ServerURL = "http://api.noteshareapp.com:1337/"
-//var ShareServerURL = "http://www.noteshareapp.com"
+//var ServerURL = "http://api.noteshareapp.com/"
+var ShareServerURL = "http://www.noteshareapp.com/"
+//var ServerURL = "http://"
 var ServerURL = "http://192.168.1.122:83/"
 var GAppDelegate:AppDelegate!
 var MainWidth:CGFloat!
@@ -169,7 +170,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             if (error == nil || user != nil) {
                 print("in if")
                 // Perform any operations on signed in user here.
-                
+                print("device id before")
+                print(UIDevice.currentDevice().identifierForVendor!.UUIDString)
+                let deviceId = UIDevice.currentDevice().identifierForVendor!.UUIDString
+                config.set("user_device_id",value2: deviceId)
+                print("device id after")
                 let userId = user.userID                  // For client-side use only!
                 let idToken = user.authentication.idToken // Safe to send to the server
                 let name = user.profile.name
@@ -199,11 +204,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                         
                         config.set("user_pic",value2: imagename);
                         
-                        let params: Dictionary<String,AnyObject>= ["email": user.profile.email, "fbid": config.get("user_facebook_id"), "googleid": user.userID,"profilepic":user.profile.imageURLWithDimension(100),"name":user.profile.name]
+                        let params: Dictionary<String,AnyObject>= ["email": user.profile.email, "fbid": config.get("user_facebook_id"), "googleid": user.userID,"profilepic":user.profile.imageURLWithDimension(100),"name":user.profile.name,"deviceid":deviceId]
                         print(params)
                         
                         request.POST(ServerURL+"user/sociallogin", parameters: params, completionHandler: {(response: HTTPResponse) in
                             
+                                print("device id before")
+                                print(UIDevice.currentDevice().identifierForVendor!.UUIDString)
+                                print("device id after")
                             
                                 let json = JSON(data: response.responseObject as! NSData)
                                 print("social login response;")

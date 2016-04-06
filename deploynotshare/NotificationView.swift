@@ -30,7 +30,7 @@ import SwiftyJSON
                 self.noteobj.servertolocal{(json: JSON) -> () in
                 }
             }
-            GlobalNotificationView.reload()
+//            GlobalNotificationView.reload()
         }
     }
     

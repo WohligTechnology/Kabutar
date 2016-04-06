@@ -301,7 +301,10 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                 self.view.addSubview(blackOut);
                 blackOut.animation.makeAlpha(1).animate(transitionTime);
                 
-                self.addMoveToFolder = MoveToFolder(frame: CGRectMake(self.width/4 - 45,self.height/4 - 100, 300, 300))
+                let xpos = (self.width/2) - (300/2);
+                let ypos = (self.height/2) - (400/2);
+                
+                self.addMoveToFolder = MoveToFolder(frame: CGRectMake(xpos,ypos, 10, 200))
                 self.view.addSubview(self.addMoveToFolder)
                 return true;
             

@@ -7,8 +7,8 @@
 
 import UIKit
 import SwiftyJSON
-var GlobalNotificationView:NotificationViewController!;
-var checkon = false;
+//var GlobalNotificationView:NotificationViewController!;
+//var checkon = false;
 
 class NotificationViewController: UIViewController {
     var notesobj = Note()
@@ -77,7 +77,7 @@ class NotificationViewController: UIViewController {
         self.setNavigationBarItem()
 //        notesobj.localtoserver{(json: JSON) -> () in }
 
-        GlobalNotificationView = self;
+//        GlobalNotificationView = self;
 //        dispatch_async(dispatch_get_main_queue(),{
 
         let bounds = UIScreen.mainScreen().bounds
