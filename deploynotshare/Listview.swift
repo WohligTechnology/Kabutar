@@ -304,7 +304,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                 let xpos = (self.width/2) - (300/2);
                 let ypos = (self.height/2) - (400/2);
                 
-                self.addMoveToFolder = MoveToFolder(frame: CGRectMake(xpos,ypos, 10, 200))
+                self.addMoveToFolder = MoveToFolder(frame: CGRectMake(xpos,ypos, 300, 200))
                 self.view.addSubview(self.addMoveToFolder)
                 return true;
             

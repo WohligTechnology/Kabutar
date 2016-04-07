@@ -479,10 +479,18 @@ public class Note {
     
     
     
-    func getNoteStatementToSync() -> Statement {
+    func getNoteStatementToSync() -> Statement! {
         let lastLocaltoServer = strtoll(config.get("note_local_to_server"),nil,10)
-        let query = db.prepare("SELECT * FROM (SELECT `note`.`id`,`note`.`title`,`note`.`creationTime`,`note`.`modificationTime`,`note`.`background`,`color`, `folder`.`id` as `folder` ,`note`.`islocked`,`note`.`paper`,`note`.`reminderTime`,`note`.`serverid`,`note`.`tags`,`note`.`timebomb` FROM `note` LEFT OUTER JOIN `folder` ON `folder`.`id` =  `note`.`folder` ORDER BY `note`.`modificationTime` ASC) WHERE `modificationTime` > \(lastLocaltoServer) ")
+        let folderobj = Folder()
+        var query:Statement!
+        folderobj.localtoserver{(json:JSON) -> () in
+            folderobj.servertolocal{(json:JSON) -> () in
+                query = self.db.prepare("SELECT * FROM (SELECT `note`.`id`,`note`.`title`,`note`.`creationTime`,`note`.`modificationTime`,`note`.`background`,`color`, `folder`.`serverid` as `folder` ,`note`.`islocked`,`note`.`paper`,`note`.`reminderTime`,`note`.`serverid`,`note`.`tags`,`note`.`timebomb` FROM `note` LEFT OUTER JOIN `folder` ON `folder`.`id` =  `note`.`folder` ORDER BY `note`.`modificationTime` ASC) WHERE `modificationTime` > \(lastLocaltoServer) ")
+            }
+        }
         return query
+
+        
     }
     
     func localtoserver(completion : ((JSON)->Void)) {
@@ -560,11 +568,12 @@ public class Note {
             let mofificationDate2  = NSDate(timeIntervalSince1970: NSTimeInterval(row[3] as! Int64!))
             
             
-            
-            var folder2 = row[6] as! Int64!
-            if(folder2 == nil)
+            print("folder wala folder")
+            print(row[6])
+            var folder2 = row[6] as! String!
+            if(folder2 == nil || folder2 != "0")
             {
-                folder2 = 0
+                folder2 = "0"
             }
             
             
