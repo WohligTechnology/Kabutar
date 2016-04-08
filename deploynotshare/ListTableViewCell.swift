@@ -23,6 +23,8 @@ class ListTableViewCell: MGSwipeTableCell {
     @IBOutlet weak var ntfNote: UILabel!
     @IBOutlet weak var ntfFolder: UILabel!
     @IBOutlet weak var ntfUserId: UILabel!
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//    let appApplication = UIApplication.sharedApplication().delegate as! App
     var note = "";
     var folder = "";
     var userid = "";
@@ -41,6 +43,10 @@ class ListTableViewCell: MGSwipeTableCell {
     
     func downNotification(json:JSON){
         if(json["value"]=="true"){
+            ntfobj.notificationCount{(json: JSON) -> () in
+                UIApplication.sharedApplication().applicationIconBadgeNumber = Int(json["count"].stringValue)!
+            }
+            
             self.noteobj.localtoserver{(json: JSON) -> () in
                 self.noteobj.servertolocal{(json: JSON) -> () in
                 }

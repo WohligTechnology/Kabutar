@@ -32,6 +32,21 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     
     var searchTable = ""
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        //        if(notesobj.isConnectedToNetwork())
+        //        {
+        //        dispatch_async(dispatch_get_main_queue(),{
+        //            self.notesobj.localtoserver{(json: JSON) -> () in
+        //                self.notesobj.servertolocal{(json: JSON) -> () in
+        self.getAllNotes()
+        self.collectionView.reloadData()
+        //                }
+        //
+        //            }
+        //        })
+        //        }
+    }
     
     override func viewDidLoad() {
         
@@ -128,11 +143,7 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
 
     
     
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
+        
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
     }

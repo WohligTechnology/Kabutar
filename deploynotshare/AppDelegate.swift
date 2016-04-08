@@ -22,10 +22,10 @@ var ViewForNotes:Any!
 
 //let mainview = ViewForNotes as! UIViewController
 
-//var ServerURL = "http://api.noteshareapp.com/"
+var ServerURL = "http://api.noteshareapp.com/"
 var ShareServerURL = "http://www.noteshareapp.com/"
 //var ServerURL = "http://"
-var ServerURL = "http://192.168.1.122:83/"
+//var ServerURL = "http://192.168.1.122:83/"
 var GAppDelegate:AppDelegate!
 var MainWidth:CGFloat!
 var MainHeight:CGFloat!
@@ -48,6 +48,7 @@ var isloadfirst = true
 var noteid = ""
 
 public var noteModel  = Note()
+var ntfobj = Notification()
 
 var request = HTTPTask()
 
@@ -131,6 +132,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func registerForPushNotifications(application: UIApplication) {
         let notificationSettings = UIUserNotificationSettings(
             forTypes: [.Badge, .Sound, .Alert], categories: nil)
+
         application.registerUserNotificationSettings(notificationSettings)
     }
 
@@ -147,12 +149,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         for i in 0..<deviceToken.length {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
-        
+        ConfigObj.set("user_device_id",value2: tokenString)
         print("Device Token:", tokenString)
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         print("Failed to register:", error)
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+            print("Receive notification in running")
+//        GlobalNotificationView.getAllNotification()
+//        GlobalNotificationView.ntfTableView.reloadData()
+        ntfobj.notificationCount{(json: JSON) -> () in
+            application.applicationIconBadgeNumber = Int(json["count"].stringValue)!
+        }
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -190,6 +201,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             annotation: annotation)
     }
     
+    
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
         withError error: NSError!) {
             dispatch_async(dispatch_get_main_queue(),{
@@ -197,11 +209,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             if (error == nil || user != nil) {
                 print("in if")
                 // Perform any operations on signed in user here.
-                print("device id before")
-                print(UIDevice.currentDevice().identifierForVendor!.UUIDString)
-                let deviceId = UIDevice.currentDevice().identifierForVendor!.UUIDString
-                config.set("user_device_id",value2: deviceId)
-                print("device id after")
+                
                 let userId = user.userID                  // For client-side use only!
                 let idToken = user.authentication.idToken // Safe to send to the server
                 let name = user.profile.name
@@ -231,7 +239,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                         
                         config.set("user_pic",value2: imagename);
                         
-                        let params: Dictionary<String,AnyObject>= ["email": user.profile.email, "fbid": config.get("user_facebook_id"), "googleid": user.userID,"profilepic":user.profile.imageURLWithDimension(100),"name":user.profile.name,"deviceid":deviceId]
+                        let params: Dictionary<String,AnyObject>= ["email": user.profile.email, "fbid": config.get("user_facebook_id"), "googleid": user.userID,"profilepic":user.profile.imageURLWithDimension(100),"name":user.profile.name,"deviceid":ConfigObj.get("user_device_id")]
                         print(params)
                         
                         request.POST(ServerURL+"user/sociallogin", parameters: params, completionHandler: {(response: HTTPResponse) in

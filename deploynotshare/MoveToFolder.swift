@@ -50,7 +50,7 @@ class MoveToFolder: UIView,UITableViewDataSource,UITableViewDelegate{
         self.addSubview(MoveToFolderView);
         
         
-        tableView = UITableView(frame: CGRectMake(0, 44, 300, 300), style: UITableViewStyle.Plain)
+        tableView = UITableView(frame: CGRectMake(0, 44, 300, 200), style: UITableViewStyle.Plain)
         tableView.delegate      =   self
         tableView.dataSource    =   self
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")

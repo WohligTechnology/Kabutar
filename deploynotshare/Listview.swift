@@ -40,8 +40,8 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
 //        dispatch_async(dispatch_get_main_queue(),{
 //            self.notesobj.localtoserver{(json: JSON) -> () in
 //                self.notesobj.servertolocal{(json: JSON) -> () in
-//                    self.getAllNotes()
-//                    self.listView.reloadData()
+                    self.getAllNotes()
+                    self.listView.reloadData()
 //                }
 //                
 //            }
