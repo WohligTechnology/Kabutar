@@ -261,13 +261,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                 
                                 dispatch_after(dispatchTime, dispatch_get_main_queue(), {
                                     self.createMenuView()
-                                    
-//                                    noteModel.localtoserver{(json: JSON) -> () in
-//                                                    noteModel.servertolocal{(json: JSON) -> () in
-//                                                        
-//                                                    }
-//                                                    }
-                                    
                                 })
                             
 //

@@ -6,6 +6,8 @@
 //  Copyright © 2015 Wohlig. All rights reserved.
 //
 
+var isNoteSyncOn = false;
+
 import Foundation
 
 import SQLite
@@ -467,10 +469,11 @@ public class Note {
                 
             }
             }
-            self.localtoserver{(json:JSON) -> () in }
+            
             })
         })
             completion(1)
+            isNoteSyncOn = true;
         }
         catch {
             print("ERROR")
@@ -493,129 +496,140 @@ public class Note {
 
         
     }
+
+    
     
     func localtoserver(completion : ((JSON)->Void)) {
-        print("LOCAL IS HERE");
-        let rows = getNoteStatementToSync()
-        for row in rows {
-            let ServerDateFormatter = NSDateFormatter()
-            ServerDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        if(isNoteSyncOn)
+        {
             
-            //ServerDateFormatter.dateStyle = .FullStyle
-            //ServerDateFormatter.timeStyle = .FullStyle
-            //ServerDateFormatter.timeZone = NSTimeZone(name: "UTC")
-            
-            let rowid = String(row[0] as! Int64!)
-            
-            
-            let ElementRows = noteElement.getAllNoteElement( strtoll(rowid,nil,10) );
-            
-            
-            
-            
-            var jsonNoteElement = " [ "
-            
-            var i=0
-            
-            for row in ElementRows
-            {
-               
-                if(row[noteElement.type] == "image" || row[noteElement.type] == "scribble" || row[noteElement.type] == "audio"  )
-                {
-                    print(row[noteElement.content]);
-                    if(row[noteElement.content] != nil){
-                     request.GET(ServerURL+"user/searchmedia?file="+row[noteElement.content]!, parameters: nil, completionHandler: {(response: HTTPResponse) in
-                        let json = JSON(data: response.responseObject as! NSData)
-                        if(json["value"].string == "false")
-                        {
-                            print("Upload file" + row[self.noteElement.content]!)
-                            print(path);
-                            let fileUrl = NSURL(fileURLWithPath: path+"/"+row[self.noteElement.content]!)
-                            request.upload(ServerURL + "user/mediaupload", method: .POST, parameters: ["file": HTTPUpload(fileUrl: fileUrl)], progress: { (value: Double) in
-                                print("progress: \(value)")
-                                }, completionHandler: { (response: HTTPResponse) in
-                            })
-                            
-                            
-                        }
-                     })
-                    }
-                }
-                
-                if(i == 0)
-                {
-                    
-                }
-                else
-                {
-                    jsonNoteElement += ","
-                }
-                i++
-                
-                jsonNoteElement += "{ \"id\": \"\(row[noteElement.id])\" , \"content\" : \"\(row[noteElement.content]!)\" , \"contentA\": \"\(row[noteElement.contentA]!)\" , \"contentB\": \"\(row[noteElement.contentB]!)\" , \"type\": \"\(row[noteElement.type]!)\", \"order\": \"\(row[noteElement.order]!)\"  }"
-                
-            }
-            
-            jsonNoteElement += " ] "
-            
-            let creationDate2 =  NSDate(timeIntervalSince1970: NSTimeInterval(row[2] as! Int64!))
-            var creationDateStr = ServerDateFormatter.stringFromDate(creationDate2)
-            let checkcreation = row[2] as! Int64!
-            print(checkcreation)
-            if(checkcreation == 0)
-            {
-                creationDateStr = "0"
-            }
-            let mofificationDate2  = NSDate(timeIntervalSince1970: NSTimeInterval(row[3] as! Int64!))
-            
-            
-            print("folder wala folder")
-            print(row[6])
-            var folder2 = row[6] as! String!
-            if(folder2 == nil || folder2 != "0")
-            {
-                folder2 = "0"
-            }
-            
-            
-            
-            let params : Dictionary<String,AnyObject>  = ["title":row[1] as! String!,
-                "creationtime":  creationDateStr ,
-                "modifytime": ServerDateFormatter.stringFromDate(mofificationDate2) ,
-                "user":config.get("user_id"),
-                "_id":row[10] as! String!,
-                "background": row[4] as! String!,
-                "color": row[5] as! String!,
-                "folder": String(folder2),
-                "islocked": String(row[7] as! Int64!),
-                "paper": row[8] as! String!,
-                "remindertime": String(row[9] as! Int64!),
-                "tags": row[11] as! String!,
-                "timebomb": String(row[12] as! Int64!),
-                "noteelements" : jsonNoteElement,
-            ]
-            print("GOINT INSIDE");
-            
-            print("CHECKING THE NOTE ELEMENT");
-            
-            request.POST(ServerURL+"note/localtoserver", parameters: params, completionHandler: {(response: HTTPResponse) in
-                 dispatch_async(dispatch_get_main_queue(),{
-                    print("localto server")
-                let json = JSON(data: response.responseObject as! NSData)
-                config.set("note_local_to_server",value2: String(row[3] as! Int64!))
-                
-                if(json["id"].string != nil)
-                {
-                    self.setServerId(json["id"].string!,id2:rowid)
-                    
-                    if(creationDateStr == "0")
-                    {
-                        self.delete(rowid)
-                    }
-                }
-                })
-            })
         }
-        completion(1)
+        else
+        {
+            isNoteSyncOn = true;
+            print("LOCAL IS HERE");
+            let rows = getNoteStatementToSync()
+            for row in rows {
+                let ServerDateFormatter = NSDateFormatter()
+                ServerDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                
+                //ServerDateFormatter.dateStyle = .FullStyle
+                //ServerDateFormatter.timeStyle = .FullStyle
+                //ServerDateFormatter.timeZone = NSTimeZone(name: "UTC")
+                
+                let rowid = String(row[0] as! Int64!)
+                
+                
+                let ElementRows = noteElement.getAllNoteElement( strtoll(rowid,nil,10) );
+                
+                
+                
+                
+                var jsonNoteElement = " [ "
+                
+                var i=0
+                
+                for row in ElementRows
+                {
+                    
+                    if(row[noteElement.type] == "image" || row[noteElement.type] == "scribble" || row[noteElement.type] == "audio"  )
+                    {
+                        print(row[noteElement.content]);
+                        if(row[noteElement.content] != nil){
+                            request.GET(ServerURL+"user/searchmedia?file="+row[noteElement.content]!, parameters: nil, completionHandler: {(response: HTTPResponse) in
+                                let json = JSON(data: response.responseObject as! NSData)
+                                if(json["value"].string == "false")
+                                {
+                                    print("Upload file" + row[self.noteElement.content]!)
+                                    print(path);
+                                    let fileUrl = NSURL(fileURLWithPath: path+"/"+row[self.noteElement.content]!)
+                                    request.upload(ServerURL + "user/mediaupload", method: .POST, parameters: ["file": HTTPUpload(fileUrl: fileUrl)], progress: { (value: Double) in
+                                        print("progress: \(value)")
+                                        }, completionHandler: { (response: HTTPResponse) in
+                                    })
+                                    
+                                    
+                                }
+                            })
+                        }
+                    }
+                    
+                    if(i == 0)
+                    {
+                        
+                    }
+                    else
+                    {
+                        jsonNoteElement += ","
+                    }
+                    i++
+                    
+                    jsonNoteElement += "{ \"id\": \"\(row[noteElement.id])\" , \"content\" : \"\(row[noteElement.content]!)\" , \"contentA\": \"\(row[noteElement.contentA]!)\" , \"contentB\": \"\(row[noteElement.contentB]!)\" , \"type\": \"\(row[noteElement.type]!)\", \"order\": \"\(row[noteElement.order]!)\"  }"
+                    
+                }
+                
+                jsonNoteElement += " ] "
+                
+                let creationDate2 =  NSDate(timeIntervalSince1970: NSTimeInterval(row[2] as! Int64!))
+                var creationDateStr = ServerDateFormatter.stringFromDate(creationDate2)
+                let checkcreation = row[2] as! Int64!
+                print(checkcreation)
+                if(checkcreation == 0)
+                {
+                    creationDateStr = "0"
+                }
+                let mofificationDate2  = NSDate(timeIntervalSince1970: NSTimeInterval(row[3] as! Int64!))
+                
+                
+                print("folder wala folder")
+                print(row[6])
+                var folder2 = row[6] as! String!
+                if(folder2 == nil || folder2 != "0")
+                {
+                    folder2 = "0"
+                }
+                
+                
+                
+                let params : Dictionary<String,AnyObject>  = ["title":row[1] as! String!,
+                                                              "creationtime":  creationDateStr ,
+                                                              "modifytime": ServerDateFormatter.stringFromDate(mofificationDate2) ,
+                                                              "user":config.get("user_id"),
+                                                              "_id":row[10] as! String!,
+                                                              "background": row[4] as! String!,
+                                                              "color": row[5] as! String!,
+                                                              "folder": String(folder2),
+                                                              "islocked": String(row[7] as! Int64!),
+                                                              "paper": row[8] as! String!,
+                                                              "remindertime": String(row[9] as! Int64!),
+                                                              "tags": row[11] as! String!,
+                                                              "timebomb": String(row[12] as! Int64!),
+                                                              "noteelements" : jsonNoteElement,
+                                                              ]
+                print("GOINT INSIDE");
+                
+                print("CHECKING THE NOTE ELEMENT");
+                
+                request.POST(ServerURL+"note/localtoserver", parameters: params, completionHandler: {(response: HTTPResponse) in
+                    dispatch_async(dispatch_get_main_queue(),{
+                        print("localto server")
+                        let json = JSON(data: response.responseObject as! NSData)
+                        config.set("note_local_to_server",value2: String(row[3] as! Int64!))
+                        
+                        if(json["id"].string != nil)
+                        {
+                            self.setServerId(json["id"].string!,id2:rowid)
+                            
+                            if(creationDateStr == "0")
+                            {
+                                self.delete(rowid)
+                            }
+                        }
+                    })
+                })
+            }
+            completion(1)
+            
+        }
     }
 }

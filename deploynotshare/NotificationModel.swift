@@ -57,6 +57,13 @@ public class Notification {
             completion(1)
         }
     }
+//    func sendFeedback(user:String, text:String, completion: ((JSON)->Void)) {
+//        let params = ["user":user, "text":text];
+//        var json : JSON!
+//        do{
+//            request.POST(<#T##url: String##String#>, parameters: <#T##Dictionary<String, AnyObject>?#>, completionHandler: <#T##((HTTPResponse) -> Void)!##((HTTPResponse) -> Void)!##(HTTPResponse) -> Void#>)
+//        }
+//    }
 
 }
 

@@ -33,19 +33,9 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-//        if(notesobj.isConnectedToNetwork() && isloadfirst)
-//        {
-//            print("in view will appear")
-//            isloadfirst = false
-//        dispatch_async(dispatch_get_main_queue(),{
-//        self.notesobj.localtoserver{(json: JSON) -> () in
-//            self.notesobj.servertolocal{(json: JSON) -> () in
                 self.getAllNotes()
                 self.detailtableview.reloadData()
-//            }
-//            }
-//        })
-//        }
+
     }
     
     override func viewDidLoad() {
