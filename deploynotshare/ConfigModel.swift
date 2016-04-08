@@ -7,9 +7,11 @@
 //
 
 import Foundation
-import SQLiteCipher
+
 import SwiftHTTP
 import SwiftyJSON
+import SQLite
+
 
 public class Config {
     

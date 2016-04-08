@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import SQLiteCipher
+
+import SQLite
 
 import SwiftHTTP
 import SwiftyJSON
@@ -101,7 +102,7 @@ public class Note {
         var val = try! db.run(insert)
         let onlyid  = val;
         
-        let newid = db.prepare("SELECT IFNULL(MAX(CAST(SUBSTR(`title`,5) AS UNSIGNED))+1,1) as `num` FROM `note` WHERE `title` LIKE 'Note %' AND `creationTime` > 0  AND (`timebomb` > \(date) OR `timebomb` = 0) ")
+        let newid = try! db.prepare("SELECT IFNULL(MAX(CAST(SUBSTR(`title`,5) AS UNSIGNED))+1,1) as `num` FROM `note` WHERE `title` LIKE 'Note %' AND `creationTime` > 0  AND (`timebomb` > \(date) OR `timebomb` = 0) ")
         
         for newid2 in newid {
             val  = newid2[0] as! Int64
@@ -127,19 +128,19 @@ public class Note {
         let sortwith = config.get("note_sort");
         switch (sortwith) {
             case "1":
-            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(title.lowercaseString) )
+            returnArr = try! db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(title.lowercaseString) )
             case "2":
-            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(color, id.desc ,title.lowercaseString) )
+            returnArr = try! db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(color, id.desc ,title.lowercaseString) )
             case "3":
-            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(id.desc ,title.lowercaseString) )
+            returnArr = try! db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(id.desc ,title.lowercaseString) )
             case "4":
-            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(modificationTime.desc,title.lowercaseString) )
+            returnArr = try! db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(modificationTime.desc,title.lowercaseString) )
             case "5":
-            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(reminderTime.desc,title.lowercaseString) )
+            returnArr = try! db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(reminderTime.desc,title.lowercaseString) )
             case "6":
-            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(timebomb.desc ,title.lowercaseString) )
+            returnArr = try! db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(timebomb.desc ,title.lowercaseString) )
             default:
-            returnArr = db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(id.desc ,title.lowercaseString) )
+            returnArr = try! db.prepare(note.filter(creationTime != 0 && (timebomb > date2 ||  timebomb == 0) && title.like("%"+txt+"%") ).order(id.desc ,title.lowercaseString) )
         }
         return returnArr
         
@@ -181,7 +182,7 @@ public class Note {
             sortwithText = "`note`.`id` DESC ,LOWER(`note`.`title`) "
         }
         
-        let returnArr = db.prepare("SELECT `note`.`id`, `note`.`title`,`note`.`color`,`note`.`islocked`,`note`.`serverid`,GROUP_CONCAT(`NoteElement`.`contentA`,' '),`note`.`modificationTime` FROM `note` LEFT OUTER JOIN `NoteElement` ON `note`.`id` = `NoteElement`.`noteid` AND `NoteElement`.`contentA` != '' AND `NoteElement`.`type` = 'text'  WHERE \(folderWhere) `note`.`creationTime` != 0 AND  (`note`.`timebomb` = 0 OR  `note`.`timebomb` > \(date2)) AND ( `note`.`title` LIKE '%\(txt)%' OR `NoteElement`.`contentA` LIKE '%\(txt)%' ) GROUP BY `note`.`id` ORDER BY \(sortwithText)")
+        let returnArr = try! db.prepare("SELECT `note`.`id`, `note`.`title`,`note`.`color`,`note`.`islocked`,`note`.`serverid`,GROUP_CONCAT(`NoteElement`.`contentA`,' '),`note`.`modificationTime` FROM `note` LEFT OUTER JOIN `NoteElement` ON `note`.`id` = `NoteElement`.`noteid` AND `NoteElement`.`contentA` != '' AND `NoteElement`.`type` = 'text'  WHERE \(folderWhere) `note`.`creationTime` != 0 AND  (`note`.`timebomb` = 0 OR  `note`.`timebomb` > \(date2)) AND ( `note`.`title` LIKE '%\(txt)%' OR `NoteElement`.`contentA` LIKE '%\(txt)%' ) GROUP BY `note`.`id` ORDER BY \(sortwithText)")
         return returnArr
     }
     
@@ -485,7 +486,7 @@ public class Note {
         var query:Statement!
         folderobj.localtoserver{(json:JSON) -> () in
             folderobj.servertolocal{(json:JSON) -> () in
-                query = self.db.prepare("SELECT * FROM (SELECT `note`.`id`,`note`.`title`,`note`.`creationTime`,`note`.`modificationTime`,`note`.`background`,`color`, `folder`.`serverid` as `folder` ,`note`.`islocked`,`note`.`paper`,`note`.`reminderTime`,`note`.`serverid`,`note`.`tags`,`note`.`timebomb` FROM `note` LEFT OUTER JOIN `folder` ON `folder`.`id` =  `note`.`folder` ORDER BY `note`.`modificationTime` ASC) WHERE `modificationTime` > \(lastLocaltoServer) ")
+                query = try! self.db.prepare("SELECT * FROM (SELECT `note`.`id`,`note`.`title`,`note`.`creationTime`,`note`.`modificationTime`,`note`.`background`,`color`, `folder`.`serverid` as `folder` ,`note`.`islocked`,`note`.`paper`,`note`.`reminderTime`,`note`.`serverid`,`note`.`tags`,`note`.`timebomb` FROM `note` LEFT OUTER JOIN `folder` ON `folder`.`id` =  `note`.`folder` ORDER BY `note`.`modificationTime` ASC) WHERE `modificationTime` > \(lastLocaltoServer) ")
             }
         }
         return query

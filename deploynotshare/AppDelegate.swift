@@ -7,10 +7,12 @@
 //
 
 import UIKit
-import SQLiteCipher
+
 import UIColor_Hex_Swift
 import Google
 import FBSDKCoreKit
+
+import SQLite
 
 
 import SwiftHTTP

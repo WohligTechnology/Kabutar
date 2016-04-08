@@ -24,27 +24,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>RichEditorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SQLCipher.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SQLite.swift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>SQLiteCipher.swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,22 +52,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>067FC3FF15C4BC8EC850962F3A2C0CFB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>186526C95A6E6A368E316AEBD475C8CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1CC7FDA1429529C791C66EF623A9C812</key>
+		<key>20264932DEA25F559EB7B55E5FF5231E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>261783021904C6B5ED1081EBDAA927DF</key>
+		<key>229C7621A4090073B0CD2073D8FB18E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>286650ED92FD0FDBEFA4564987CD6450</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2CE74D277A026B00F42C25F522044444</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>48C5513719D42E31A00FFC1498661104</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,37 +87,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>57203777206054F9102DECE5EA809D3B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7455D8686129DF29AB9F1E1111D71352</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>99358166F36552D084537612DD23474C</key>
+		<key>D6C6E3CDB23FBBB6ED3D6169CB10EEF3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D7FF48F3092783E4E42B336F0DEF2D1A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E3A5C134E1107118BDDC1F41BB32E9FA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E74D4DAF710CEDC857D4C6B1CAD24F44</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FB53A71128C5B838F46FB575B5FD2525</key>
 		<dict>
 			<key>primary</key>
 			<true/>

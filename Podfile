@@ -6,12 +6,7 @@ pod 'SwiftHTTP', :git => 'https://github.com/daltoniam/SwiftHTTP', :branch => 's
 
 pod "DKChainableAnimationKit", "~> 1.6.0"
 
-pod 'SQLite.swift',
-git: 'https://github.com/stephencelis/SQLite.swift.git'
-
-
-pod 'SQLiteCipher.swift',
-git: 'https://github.com/stephencelis/SQLite.swift.git'
+pod 'SQLite.swift'
 
 pod 'UIColor_Hex_Swift', '~> 1.5'
 
@@ -21,13 +16,8 @@ pod 'SwiftyJSON',
 git: ’https://github.com/SwiftyJSON/SwiftyJSON.git'
 
 pod 'MGSwipeTableCell'
-
 pod 'Google/SignIn'
-
 pod 'Onboard'
 
-
 target 'deploynotshare' do
-    
-    
 end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1121C28FDBEF8A421FC2C1FD /* Pods_deploynotshare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F50DD02D631C3A3419744E /* Pods_deploynotshare.framework */; };
 		3611B0931BE740BD00F2FFF9 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3611B0921BE740BD00F2FFF9 /* TableViewController.swift */; };
 		3611B0971BE8A94200F2FFF9 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3611B0961BE8A94200F2FFF9 /* NoteModel.swift */; };
 		3615ADE91C180A3B00845E7C /* ProfilePic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3615ADE81C180A3B00845E7C /* ProfilePic.swift */; };
@@ -124,7 +125,6 @@
 		C2F2EE0B1C65BAF200B622B6 /* AgendaBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C2F2EE0A1C65BAF200B622B6 /* AgendaBold.otf */; };
 		C2F2EE0E1C65C37700B622B6 /* ShareNoteShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2F2EE0D1C65C37700B622B6 /* ShareNoteShareView.xib */; };
 		C2F2EE101C65C5C800B622B6 /* ShareNoteShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2EE0F1C65C5C800B622B6 /* ShareNoteShareView.swift */; };
-		CB6D02908480861E8104DBED /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5C5E5AA73873D644F4D1844 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,7 +241,7 @@
 		43EFB9BC1BDE29130014EDF9 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		43EFB9BE1BDE3D5A0014EDF9 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		43F1A29C1BDBA87700F82938 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		57ACE2379821B0AE944A6D13 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		59F50DD02D631C3A3419744E /* Pods_deploynotshare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_deploynotshare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		782721871BFDAC8C00241D44 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delete.png; path = assets/delete.png; sourceTree = "<group>"; };
 		782721881BFDAC8C00241D44 /* delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "delete@2x.png"; path = "assets/delete@2x.png"; sourceTree = "<group>"; };
 		782721891BFDAC8C00241D44 /* delete@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "delete@3x.png"; path = "assets/delete@3x.png"; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 		782721961BFDAC8C00241D44 /* timebomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = timebomb.png; path = assets/timebomb.png; sourceTree = "<group>"; };
 		782721971BFDAC8C00241D44 /* timebomb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timebomb@2x.png"; path = "assets/timebomb@2x.png"; sourceTree = "<group>"; };
 		782721981BFDAC8C00241D44 /* timebomb@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "timebomb@3x.png"; path = "assets/timebomb@3x.png"; sourceTree = "<group>"; };
-		92B148ACB4368AC64116F570 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B2CCCECA0124492E61A3EDDB /* Pods-deploynotshare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-deploynotshare.release.xcconfig"; path = "Pods/Target Support Files/Pods-deploynotshare/Pods-deploynotshare.release.xcconfig"; sourceTree = "<group>"; };
 		B5C5E5AA73873D644F4D1844 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C25FD0EB1C64E42B002F38BF /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C25FD0EE1C64E56F002F38BF /* NotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationView.xib; sourceTree = "<group>"; };
@@ -271,6 +271,7 @@
 		C2F2EE0A1C65BAF200B622B6 /* AgendaBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AgendaBold.otf; sourceTree = "<group>"; };
 		C2F2EE0D1C65C37700B622B6 /* ShareNoteShareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareNoteShareView.xib; sourceTree = "<group>"; };
 		C2F2EE0F1C65C5C800B622B6 /* ShareNoteShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareNoteShareView.swift; sourceTree = "<group>"; };
+		F768DC837B8520706B1589E4 /* Pods-deploynotshare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-deploynotshare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-deploynotshare/Pods-deploynotshare.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,7 +282,7 @@
 				36685A0A1C0DAE1100113F2D /* LocalAuthentication.framework in Frameworks */,
 				36F7AE1D1BFB813B00596BBF /* FBSDKLoginKit.framework in Frameworks */,
 				36F7AE1E1BFB813B00596BBF /* FBSDKCoreKit.framework in Frameworks */,
-				CB6D02908480861E8104DBED /* Pods.framework in Frameworks */,
+				1121C28FDBEF8A421FC2C1FD /* Pods_deploynotshare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +310,7 @@
 				36F7AE1B1BFB813B00596BBF /* FBSDKLoginKit.framework */,
 				36F7AE1C1BFB813B00596BBF /* FBSDKCoreKit.framework */,
 				B5C5E5AA73873D644F4D1844 /* Pods.framework */,
+				59F50DD02D631C3A3419744E /* Pods_deploynotshare.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -695,8 +697,8 @@
 		5F46D2BCB893B2939D69A731 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				92B148ACB4368AC64116F570 /* Pods.debug.xcconfig */,
-				57ACE2379821B0AE944A6D13 /* Pods.release.xcconfig */,
+				F768DC837B8520706B1589E4 /* Pods-deploynotshare.debug.xcconfig */,
+				B2CCCECA0124492E61A3EDDB /* Pods-deploynotshare.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -769,12 +771,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 437317521BD770660018B580 /* Build configuration list for PBXNativeTarget "deploynotshare" */;
 			buildPhases = (
-				505C0E9569D600D1CE63C535 /* Check Pods Manifest.lock */,
+				505C0E9569D600D1CE63C535 /* 📦 Check Pods Manifest.lock */,
 				437317261BD770650018B580 /* Sources */,
 				437317271BD770650018B580 /* Frameworks */,
 				437317281BD770650018B580 /* Resources */,
-				122D3C25C3A711FEB7CA7625 /* Embed Pods Frameworks */,
-				36484BB1E1C30FBB0A7EA7C2 /* Copy Pods Resources */,
+				122D3C25C3A711FEB7CA7625 /* 📦 Embed Pods Frameworks */,
+				36484BB1E1C30FBB0A7EA7C2 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -949,44 +951,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		122D3C25C3A711FEB7CA7625 /* Embed Pods Frameworks */ = {
+		122D3C25C3A711FEB7CA7625 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-deploynotshare/Pods-deploynotshare-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		36484BB1E1C30FBB0A7EA7C2 /* Copy Pods Resources */ = {
+		36484BB1E1C30FBB0A7EA7C2 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-deploynotshare/Pods-deploynotshare-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		505C0E9569D600D1CE63C535 /* Check Pods Manifest.lock */ = {
+		505C0E9569D600D1CE63C535 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1198,7 +1200,7 @@
 		};
 		437317531BD770660018B580 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92B148ACB4368AC64116F570 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = F768DC837B8520706B1589E4 /* Pods-deploynotshare.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1213,12 +1215,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wohlig.deploynotshare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
 		437317541BD770660018B580 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57ACE2379821B0AE944A6D13 /* Pods.release.xcconfig */;
+			baseConfigurationReference = B2CCCECA0124492E61A3EDDB /* Pods-deploynotshare.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1230,9 +1233,11 @@
 				);
 				INFOPLIST_FILE = deploynotshare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wohlig.deploynotshare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

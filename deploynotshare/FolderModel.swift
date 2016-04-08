@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import SQLiteCipher
+import SQLite
+
 import SwiftHTTP
 import SwiftyJSON
 
@@ -135,7 +136,7 @@ public class Folder {
     
     func getFolderStatementToSync() -> Statement {
         let lastLocaltoServer = strtoll(config.get("folder_local_to_server"),nil,10)
-        let query = db.prepare("SELECT * FROM (SELECT * FROM `folder` ORDER BY `folder`.`modificationTime` ASC) WHERE `modificationTime` > \(lastLocaltoServer) ")
+        let query = try! db.prepare("SELECT * FROM (SELECT * FROM `folder` ORDER BY `folder`.`modificationTime` ASC) WHERE `modificationTime` > \(lastLocaltoServer) ")
         return query
     }
     

@@ -1,44 +1,37 @@
 PODS:
   - DKChainableAnimationKit (1.6.0)
-  - Google/Core (1.2.1):
+  - Google/Core (2.0.3):
     - GoogleInterchangeUtilities (~> 1.0)
     - GoogleNetworkingUtilities (~> 1.0)
     - GoogleSymbolUtilities (~> 1.0)
     - GoogleUtilities (~> 1.1)
-  - Google/SignIn (1.2.1):
+  - Google/SignIn (2.0.3):
     - Google/Core
-    - GoogleSignIn (~> 2.0)
-  - GoogleAppUtilities (1.0.0):
+    - GoogleSignIn (~> 3.0)
+  - GoogleAppUtilities (1.1.0):
     - GoogleSymbolUtilities (~> 1.0)
-  - GoogleAuthUtilities (1.0.1):
+  - GoogleAuthUtilities (2.0.0):
     - GoogleNetworkingUtilities (~> 1.0)
     - GoogleSymbolUtilities (~> 1.0)
-  - GoogleInterchangeUtilities (1.1.0):
+  - GoogleInterchangeUtilities (1.2.0):
     - GoogleSymbolUtilities (~> 1.0)
-  - GoogleNetworkingUtilities (1.0.0):
+  - GoogleNetworkingUtilities (1.2.0):
     - GoogleSymbolUtilities (~> 1.0)
-  - GoogleSignIn (2.4.0):
+  - GoogleSignIn (3.0.0):
     - GoogleAppUtilities (~> 1.0)
-    - GoogleAuthUtilities (~> 1.0)
+    - GoogleAuthUtilities (~> 2.0)
     - GoogleNetworkingUtilities (~> 1.0)
     - GoogleUtilities (~> 1.0)
-  - GoogleSymbolUtilities (1.0.3)
-  - GoogleUtilities (1.1.0):
-    - GoogleSymbolUtilities (~> 1.0.0)
-  - MGSwipeTableCell (1.5.3)
-  - Onboard (2.1.7)
-  - RichEditorView (2.0.1)
-  - SQLCipher (3.1.0):
-    - SQLCipher/standard (= 3.1.0)
-  - SQLCipher/common (3.1.0)
-  - SQLCipher/standard (3.1.0):
-    - SQLCipher/common
-  - SQLite.swift (1.0.0)
-  - SQLiteCipher.swift (1.0.0):
-    - SQLCipher
+  - GoogleSymbolUtilities (1.1.0)
+  - GoogleUtilities (1.2.0):
+    - GoogleSymbolUtilities (~> 1.0)
+  - MGSwipeTableCell (1.5.5)
+  - Onboard (2.1.9)
+  - RichEditorView (3.2.0)
+  - SQLite.swift (0.10.1)
   - SwiftHTTP (0.9.5)
-  - SwiftyJSON (2.3.1)
-  - UIColor_Hex_Swift (1.5)
+  - SwiftyJSON (2.3.2)
+  - UIColor_Hex_Swift (1.9)
 
 DEPENDENCIES:
   - DKChainableAnimationKit (~> 1.6.0)
@@ -46,17 +39,12 @@ DEPENDENCIES:
   - MGSwipeTableCell
   - Onboard
   - RichEditorView
-  - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
-  - SQLiteCipher.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
+  - SQLite.swift
   - SwiftHTTP (from `https://github.com/daltoniam/SwiftHTTP`, branch `swift-2-bc`)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - UIColor_Hex_Swift (~> 1.5)
 
 EXTERNAL SOURCES:
-  SQLite.swift:
-    :git: https://github.com/stephencelis/SQLite.swift.git
-  SQLiteCipher.swift:
-    :git: https://github.com/stephencelis/SQLite.swift.git
   SwiftHTTP:
     :branch: swift-2-bc
     :git: https://github.com/daltoniam/SwiftHTTP
@@ -64,37 +52,31 @@ EXTERNAL SOURCES:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
-  SQLite.swift:
-    :commit: c9d3082d1f5ddc2e55a792a8eb1a677b8a1b15f5
-    :git: https://github.com/stephencelis/SQLite.swift.git
-  SQLiteCipher.swift:
-    :commit: c9d3082d1f5ddc2e55a792a8eb1a677b8a1b15f5
-    :git: https://github.com/stephencelis/SQLite.swift.git
   SwiftHTTP:
-    :commit: 40f1874b3a3764a0e0d0dc879e3c81f5f7bc02b5
+    :commit: b8ed8ec781ace74fb5a211a89cfa96bc65481757
     :git: https://github.com/daltoniam/SwiftHTTP
   SwiftyJSON:
-    :commit: ece271ab33839d11c2153d71fb59c53545132cf9
+    :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
   DKChainableAnimationKit: fe28909402825a42cc632b211eadcc39ad2bee38
-  Google: fd33b5fa40fa3aaee5176de49c873a74e3d11dce
-  GoogleAppUtilities: c01c6a5671e9da8b9d690fdaec5959d6c2aac699
-  GoogleAuthUtilities: 049ffd3a297cdffd271451b82fd4e75304f15ef3
-  GoogleInterchangeUtilities: d7f7174176fbcf9710f696f1acebad4dbd98ac03
-  GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
-  GoogleSignIn: 79929b51e6299c69f1197bbd9c7a1367d523ecd8
-  GoogleSymbolUtilities: 82ad9f93d3615244b3f4ce440f5ab2515e8b4f56
-  GoogleUtilities: 8ed9134debe11719097881711464752900668f10
-  MGSwipeTableCell: 5ae3b9a15efda26b201adc8676b24040febe6ff6
-  Onboard: 87648089e1b76d13b4f5bf8f7a1cdb144092f0af
-  RichEditorView: 1606b9b3e02afe3ccd0de0d8fa3ddb55247e868f
-  SQLCipher: 4684434d5791db86512cd7e02172aefba575849e
-  SQLite.swift: 3bb75f5a650f08673276bc6d3fb1de1b542b8f4d
-  SQLiteCipher.swift: 6405d3937f6afc94614949336fd1fdefa37428b5
+  Google: 61379f0072bc561a7e174d23a6cbe41bd6d8599c
+  GoogleAppUtilities: 974598e8ed618c74ead33541d9caffbc3d144266
+  GoogleAuthUtilities: 79e4143c77a08081a480b08df27a066cc8944f43
+  GoogleInterchangeUtilities: 427382e42d8a340038bec37c6fdfd316e14b5fa2
+  GoogleNetworkingUtilities: ec1e9911aca811eb18b7144394fee6168b607785
+  GoogleSignIn: 3d571172b8603be39dcb1705d8217146bb76fe62
+  GoogleSymbolUtilities: eb3965ea12710569c7b80db198a39e39b18613f7
+  GoogleUtilities: 85f8ad6b251544286a97163133d042ec95f889c5
+  MGSwipeTableCell: bafeb5f351124544c9364ecbdf24c7b06a37d340
+  Onboard: 4d92c763ed15f939071dec12e87ed9e8dc036746
+  RichEditorView: b4ee60a4f5301cbe8f3fcb1f065cdd7de74ddd10
+  SQLite.swift: 6a6e4b034efc317ce4e203b6af2d3024fee2b570
   SwiftHTTP: cd7b248bc07db02926ff54cf19b580b78f7abfa1
-  SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
-  UIColor_Hex_Swift: 09997d02e9ba2833569fd048663fddbe90cf2c52
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  UIColor_Hex_Swift: 2ee747c0fed8b72b2135ef474b80a6921e489daa
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 7c5e6dbc85fb1f2cf9fbafb38bbf65592a68ff17
+
+COCOAPODS: 1.0.0.beta.6

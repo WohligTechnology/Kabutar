@@ -8,7 +8,8 @@
 
 import Foundation
 import UIKit
-import SQLiteCipher
+import SQLite
+
 
 public class NoteElement {
     
@@ -37,7 +38,7 @@ public class NoteElement {
     }
     func addHeightOffset(layout:VerticalLayout) {
         let noteid2 = Int64(config.get("note_id"))
-        let value = db.prepare("SELECT MAX(CAST(`contentB` AS INTEGER )) as `max` FROM `NoteElement`   WHERE `noteid` = '\(noteid2!)'");
+        let value = try! db.prepare("SELECT MAX(CAST(`contentB` AS INTEGER )) as `max` FROM `NoteElement`   WHERE `noteid` = '\(noteid2!)'");
         
         
         var value5:Int64!
@@ -62,7 +63,7 @@ public class NoteElement {
     
     func addHeightOffset(layout:VerticalLayout,order2: Int64) {
         let noteid2 = Int64(selectedNoteId)
-        let value = db.prepare("SELECT MAX(CAST(`contentB` AS INTEGER )) as `max` FROM `NoteElement`   WHERE `noteid` = '\(noteid2!)' AND `order` < '\(order2)' ");
+        let value = try! db.prepare("SELECT MAX(CAST(`contentB` AS INTEGER )) as `max` FROM `NoteElement`   WHERE `noteid` = '\(noteid2!)' AND `order` < '\(order2)' ");
         
         var value5:Int64!
         
@@ -151,12 +152,12 @@ public class NoteElement {
         print(Int64(selectedNoteId))
         let noteid2 = Int64(selectedNoteId)
         let query = noteelement.filter(noteid == noteid2)
-        return db.prepare( query );
+        return try! db.prepare( query );
     }
     
     func getAllNoteElement(noteid2:Int64) -> AnySequence<Row> {
         let query = noteelement.filter(noteid == noteid2)
-        return db.prepare( query );
+        return try! db.prepare( query );
     }
     
 //    func getAllNoteElementText(noteid2:Int64) -> AnySequence<Row> {

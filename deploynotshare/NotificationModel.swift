@@ -8,7 +8,7 @@
 
 
 import Foundation
-import SQLiteCipher
+
 import SwiftHTTP
 import SwiftyJSON
 

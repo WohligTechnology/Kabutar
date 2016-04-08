@@ -16,7 +16,7 @@ install_framework()
     local source="$1"
   fi
 
-  local destination="${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
+  local destination="${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
 
   if [ -L "${source}" ]; then
       echo "Symlinked..."
@@ -84,26 +84,22 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-deploynotshare/DKChainableAnimationKit.framework"
-  install_framework "Pods-deploynotshare/MGSwipeTableCell.framework"
-  install_framework "Pods-deploynotshare/Onboard.framework"
-  install_framework "Pods-deploynotshare/RichEditorView.framework"
-  install_framework "Pods-deploynotshare/SQLCipher.framework"
-  install_framework "Pods-deploynotshare/SQLite.framework"
-  install_framework "Pods-deploynotshare/SQLiteCipher.framework"
-  install_framework "Pods-deploynotshare/SwiftHTTP.framework"
-  install_framework "Pods-deploynotshare/SwiftyJSON.framework"
-  install_framework "Pods-deploynotshare/UIColor_Hex_Swift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/DKChainableAnimationKit/DKChainableAnimationKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MGSwipeTableCell/MGSwipeTableCell.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Onboard/Onboard.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RichEditorView/RichEditorView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SQLite.swift/SQLite.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftHTTP/SwiftHTTP.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/UIColor_Hex_Swift/UIColor_Hex_Swift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-deploynotshare/DKChainableAnimationKit.framework"
-  install_framework "Pods-deploynotshare/MGSwipeTableCell.framework"
-  install_framework "Pods-deploynotshare/Onboard.framework"
-  install_framework "Pods-deploynotshare/RichEditorView.framework"
-  install_framework "Pods-deploynotshare/SQLCipher.framework"
-  install_framework "Pods-deploynotshare/SQLite.framework"
-  install_framework "Pods-deploynotshare/SQLiteCipher.framework"
-  install_framework "Pods-deploynotshare/SwiftHTTP.framework"
-  install_framework "Pods-deploynotshare/SwiftyJSON.framework"
-  install_framework "Pods-deploynotshare/UIColor_Hex_Swift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/DKChainableAnimationKit/DKChainableAnimationKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MGSwipeTableCell/MGSwipeTableCell.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Onboard/Onboard.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RichEditorView/RichEditorView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SQLite.swift/SQLite.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftHTTP/SwiftHTTP.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/UIColor_Hex_Swift/UIColor_Hex_Swift.framework"
 fi
