@@ -24,10 +24,10 @@ var ViewForNotes:Any!
 
 //let mainview = ViewForNotes as! UIViewController
 
-var ServerURL = "http://api.noteshareapp.com/"
+//var ServerURL = "http://api.noteshareapp.com/"
 var ShareServerURL = "http://www.noteshareapp.com/"
 //var ServerURL = "http://"
-//var ServerURL = "http://192.168.1.122:83/"
+var ServerURL = "http://192.168.1.122:83/"
 var GAppDelegate:AppDelegate!
 var MainWidth:CGFloat!
 var MainHeight:CGFloat!
