@@ -213,6 +213,14 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         presentViewController(alert, animated: true) { () -> Void in }
     }
     
+    func isValidEmail(testStr:String) -> Bool {
+        // println("validate calendar: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluateWithObject(testStr)
+    }
+    
     func sharefolder(id:String){
         let alert = UIAlertController(title: "Share Folder", message: "Emails to Share", preferredStyle: UIAlertControllerStyle.Alert)
         let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
@@ -220,8 +228,32 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         let alertdelete = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             
-            self.folderobj.shareFolder(id, email: self.createfolsername.text!, completion: {(json: JSON) -> () in})
+            let emailId = self.createfolsername.text!
             
+            if(self.isValidEmail(emailId)) {
+                print("Proper Email")
+                self.folderobj.shareFolder(id, email: self.createfolsername.text!, completion: {(json: JSON) -> () in})
+            } else {
+                print("Not Proper Email")
+//                erroralert.addAction(alertAction2)
+//                self.presentViewController(erroralert, animated: true) { () -> Void in }
+                
+                let createAccountErrorAlert: UIAlertView = UIAlertView()
+                
+                createAccountErrorAlert.delegate = self
+                
+                createAccountErrorAlert.title = "Alert"
+                createAccountErrorAlert.message = "Invalid Email"
+                createAccountErrorAlert.addButtonWithTitle("Ok")
+                
+                createAccountErrorAlert.show()
+                
+                let delay = 5.0 * Double(NSEC_PER_SEC)
+                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                dispatch_after(time, dispatch_get_main_queue(), {
+                    createAccountErrorAlert.dismissWithClickedButtonIndex(-1, animated: true)
+                })
+            }
             self.viewDidLoad()
             
         }
