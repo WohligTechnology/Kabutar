@@ -99,7 +99,7 @@ class ColorPattern: UIView {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "ColorPattern", bundle: bundle)
         let sortnewview = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-        sortnewview.frame = bounds
+//        sortnewview.frame = bounds
         sortnewview.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(sortnewview);
         

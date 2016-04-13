@@ -62,13 +62,11 @@ let NoteColors = [
     "#FAE8CE",
     "#97E1CC",
     "#FDFF7F",
-    "#9FDB86",
     "#BE9FF6",
     "#B6E29E",
     "#DCA9AA",
     "#F0A6EF",
     "#D0D0D0",
-    "#EEEEEE",
     "#FFFFFF"
 ]
 

@@ -191,7 +191,6 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
             blackOut.removeFromSuperview()
         })
-        
     }
     func colorPattern(sender: UILongPressGestureRecognizer)
     {
@@ -208,7 +207,9 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
             self.view.addSubview(blackOut);
             blackOut.animation.makeAlpha(1).animate(transitionTime);
             
-            self.addColorPattern = ColorPattern(frame: CGRectMake(MainWidth/4 - 50,MainHeight/4, 300, 200))
+            self.addColorPattern = ColorPattern(frame: CGRectMake(MainWidth/4,MainHeight/4, 300, 200))
+            self.addColorPattern.center = CGPointMake(view.frame.size.width  / 2,
+                                                      view.frame.size.height / 2)
             self.view.addSubview(self.addColorPattern)
         }
         
