@@ -303,10 +303,11 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 blackOut.animation.makeAlpha(1).animate(transitionTime);
                 
                 
-                let xpos = (self.width/2) - (300/2);
-                let ypos = (self.height/2) - (400/2);
+                //let xpos = (self.width/2) - (300/2);
+                //let ypos = (self.height/2) - (400/2);
                 
-                self.addMoveToFolder = MoveToFolder(frame: CGRectMake(xpos,ypos, 300, 200))
+                self.addMoveToFolder = MoveToFolder(frame: CGRectMake(self.width / 2 - 150, self.height / 2 - 200, 300, 200))
+                //self.addMoveToFolder.center = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2)
                 self.view.addSubview(self.addMoveToFolder)
                 
                 return true
@@ -323,7 +324,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 self.view.addSubview(blackOut);
                 blackOut.animation.makeAlpha(1).animate(transitionTime);
                 
-                self.addDateTimeView = DateTime(frame: CGRectMake(self.width/2 ,self.height/2, self.width, 500))
+                self.addDateTimeView = DateTime(frame: CGRectMake(self.width/2 ,self.height/2, 300, 500))
                 self.addDateTimeView.center = CGPointMake(self.view.frame.size.width / 2,
                     self.view.frame.size.height / 2)
                 self.view.addSubview(self.addDateTimeView)

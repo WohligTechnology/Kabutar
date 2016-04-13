@@ -42,7 +42,6 @@ class DateTime: UIView {
             print("Bad things happened")
         }
     }
-
     
     @IBAction func buttonOk(sender: AnyObject) {
         let checkstatus = config.get("note_view")
@@ -100,7 +99,17 @@ class DateTime: UIView {
     }
     
     @IBAction func buttonCancel(sender: AnyObject) {
-        self.removeFromSuperview()
+        self.animation.makeY(height).easeInOut.animateWithCompletion(transitionTime, {
+            self.removeFromSuperview()
+            let checkstatus = config.get("note_view")
+            if(checkstatus == "2"){
+                let mainview = ViewForNotes as! Listview
+                mainview.closeTimeBomb(nil);
+            } else if(checkstatus == "1"){
+                let mainview = ViewForNotes as! Detailview
+                mainview.closeTimeBomb(nil);
+            }
+        })
     }
     
     func addBlackView(){
