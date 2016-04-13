@@ -59,10 +59,6 @@ class DateTime: UIView {
             }
         }
         
-        
-        
-        
-        
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         timeFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
@@ -103,19 +99,20 @@ class DateTime: UIView {
         
     }
     
+    @IBAction func buttonCancel(sender: AnyObject) {
+        self.removeFromSuperview()
+    }
+    
     func addBlackView(){
         blackOut = UIView(frame: CGRectMake(0, 0, MainWidth, MainHeight))
         blackOut.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
     }
     
     func loadViewFromNib() {
-        
-        
-        
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "DateTime", bundle: bundle)
         let datetimepopup = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-        datetimepopup.frame = bounds
+//        datetimepopup.frame = bounds
         datetimepopup.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(datetimepopup);
         

@@ -232,7 +232,9 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 self.view.addSubview(blackOut);
                 blackOut.animation.makeAlpha(1).animate(transitionTime);
                 
-                self.addDateTimeView = DateTime(frame: CGRectMake(10,self.height/2 - 300, self.width-20, 500))
+                self.addDateTimeView = DateTime(frame: CGRectMake(self.width/2 ,self.height/2, 300, 500))
+                self.addDateTimeView.center = CGPointMake(self.view.frame.size.width / 2,
+                    self.view.frame.size.height / 2)
                 self.view.addSubview(self.addDateTimeView)
                 
                 return true
@@ -321,7 +323,9 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 self.view.addSubview(blackOut);
                 blackOut.animation.makeAlpha(1).animate(transitionTime);
                 
-                self.addDateTimeView = DateTime(frame: CGRectMake(10,self.height/2 - 300, self.width-20, 500))
+                self.addDateTimeView = DateTime(frame: CGRectMake(self.width/2 ,self.height/2, self.width, 500))
+                self.addDateTimeView.center = CGPointMake(self.view.frame.size.width / 2,
+                    self.view.frame.size.height / 2)
                 self.view.addSubview(self.addDateTimeView)
                 
                 return true

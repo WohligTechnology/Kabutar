@@ -236,7 +236,9 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                 self.view.addSubview(blackOut);
                 blackOut.animation.makeAlpha(1).animate(transitionTime);
                 
-                self.addDateTimeView = DateTime(frame: CGRectMake(self.width-335,self.height-600, 300, 500))
+                self.addDateTimeView = DateTime(frame: CGRectMake(self.width,self.height, 300, 500))
+                self.addDateTimeView.center = CGPointMake(self.view.frame.size.width / 2,
+                                                            self.view.frame.size.height / 2)
                 self.view.addSubview(self.addDateTimeView)
                 
                 return true
@@ -324,7 +326,9 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                 self.view.addSubview(blackOut);
                 blackOut.animation.makeAlpha(1).animate(transitionTime);
                 
-                self.addDateTimeView = DateTime(frame: CGRectMake(self.width-335,self.height-600, 300, 500))
+                self.addDateTimeView = DateTime(frame: CGRectMake(self.width,self.height, 300, 500))
+                self.addDateTimeView.center = CGPointMake(self.view.frame.size.width / 2,
+                    self.view.frame.size.height / 2)
                 self.view.addSubview(self.addDateTimeView)
                 
                 
