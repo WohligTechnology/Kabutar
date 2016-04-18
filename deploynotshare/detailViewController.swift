@@ -187,11 +187,11 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     func handleIdleEvent(timer: NSTimer) {
         dispatch_async(dispatch_get_main_queue(),{
             print("before")
-            UIGraphicsBeginImageContext(GDetailView.view.frame.size)
-            GDetailView.view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+            UIGraphicsBeginImageContext(self.ScrView.frame.size)
+            GDetailView.ScrView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
             let image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
 
         print("time out called")
         // do whatever you want when idle after certain period of time

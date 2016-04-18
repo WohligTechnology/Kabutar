@@ -196,6 +196,7 @@ var emailsText = ""
         showShareEmail()
         
         
+        
     }
     @IBAction func shareViaNoteshareText(sender: AnyObject) {
         let st = UIActivityViewController(activityItems: [selectedNoteDesc], applicationActivities: nil)
@@ -217,6 +218,8 @@ var emailsText = ""
             mainview.presentViewController(st, animated: true, completion: nil)
             break
         }
+        self.removeFromSuperview()
+        blackOut.removeFromSuperview()
     }
     
     @IBAction func shareViaNoteshareScreenshot(sender: AnyObject) {

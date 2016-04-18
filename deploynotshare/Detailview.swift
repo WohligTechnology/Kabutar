@@ -246,13 +246,13 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 
                 
                 if(self.notesId[indexPath.row]==0 || !self.notesobj.isConnectedToNetwork()){
-                print("empty yooooooooo......")
-                let alert = UIAlertController(title: "Alert", message: "Can not share this note without sync OR No Internet Connection.", preferredStyle: UIAlertControllerStyle.Alert)
-                let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+                    print("empty yooooooooo......")
+                    let alert = UIAlertController(title: "Alert", message: "Can not share this note without sync OR No Internet Connection.", preferredStyle: UIAlertControllerStyle.Alert)
+                    let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
                     
-                }
-                alert.addAction(alertAction)
-                self.presentViewController(alert, animated: true) { () -> Void in }
+                    }
+                    alert.addAction(alertAction)
+                    self.presentViewController(alert, animated: true) { () -> Void in }
                     
                 }else{
                 
@@ -268,8 +268,6 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                             //                        self.noteobj.shareNote(onenote![self.noteobj.serverid]!, email: sendemailto, completion: self.resShareNote)
                         }
                     }
-
-                    
                     
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
                 self.addBlackView()

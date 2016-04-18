@@ -47,7 +47,7 @@ class InsideNoteMenu: UIView {
         blackOut.alpha = 0
         addSubview(blackOut);
         blackOut.animation.makeAlpha(1).animate(transitionTime);
-        newDateTime = DateTime(frame: CGRectMake((width)-335, (height)-600, 300,500));
+        newDateTime = DateTime(frame: CGRectMake((width)-335, (height)-600, 300,500))
         self.window?.addSubview(newDateTime)
     }
     @IBAction func moveNote(sender: AnyObject) {
@@ -60,18 +60,16 @@ class InsideNoteMenu: UIView {
     
     func addBlackView(){
         blackOut = UIView(frame: CGRectMake(0, 0, (width), (height)))
-        blackOut.backgroundColor = UIColor(red: 234, green: 0, blue: 0, alpha: 0.3)
+        blackOut.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
     }
     
     func closeTimeBomb(sender:UIGestureRecognizer?){
         self.newDateTime.animation.makeY(height).easeInOut.animateWithCompletion(transitionTime, {
             self.newDateTime.removeFromSuperview()
-            
+            blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
+                blackOut.removeFromSuperview()
+            })
         })
-        blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
-            blackOut.removeFromSuperview()
-        })
-        
     }
 
 
