@@ -39,7 +39,9 @@ class EraserView: UIView {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "EraserView", bundle: bundle)
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-        view.frame = bounds
+        //view.frame = bounds
+        view.center = CGPointMake(self.frame.size.width / 2,
+                                                  self.frame.size.height / 2)
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
         textValue.text = String(Int(GSketch.brushWidth))

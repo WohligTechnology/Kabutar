@@ -27,7 +27,8 @@ class InsideNoteMenu: UIView {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "InsideNoteMenu", bundle: bundle)
         let sortnewview = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-        sortnewview.frame = bounds
+        //sortnewview.frame = bounds
+        sortnewview.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)
         sortnewview.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(sortnewview);
     }
