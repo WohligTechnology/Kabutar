@@ -20,7 +20,6 @@ class ElementImage:UIView {
     }
     
     override init(frame: CGRect) {
-        
         super.init(frame: frame)
         loadViewFromNib ()
     }
@@ -38,9 +37,6 @@ class ElementImage:UIView {
         self.addSubview(view);
         deleteView = DeleteSection(frame: CGRectMake(self.frame.size.width - left , 0, 30, 30))
         self.addSubview(deleteView)
-        
-        
-        
     }
     
     func showDelete () {

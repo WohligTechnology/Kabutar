@@ -66,8 +66,19 @@
                         <action selector="addMenu:" destination="-1" eventType="touchUpInside" id="sXF-US-xlM"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBB-h3-yqT">
+                    <rect key="frame" x="188" y="11" width="24" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="dyS-fb-emW"/>
+                        <constraint firstAttribute="height" constant="23" id="lK5-Xv-Bmv"/>
+                    </constraints>
+                    <state key="normal" image="ic_checklist_white"/>
+                    <connections>
+                        <action selector="addCheckBox:" destination="-1" eventType="touchUpInside" id="t8p-MX-qm4"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iC9-YX-1Rb">
-                    <rect key="frame" x="180" y="10" width="28" height="28"/>
+                    <rect key="frame" x="228" y="10" width="28" height="28"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="28" id="LX2-5t-DeA"/>
                         <constraint firstAttribute="height" constant="28" id="azv-ym-VEV"/>
@@ -88,22 +99,33 @@
                 <constraint firstItem="jqt-UY-Qcu" firstAttribute="leading" secondItem="C8o-9M-3oo" secondAttribute="trailing" constant="17" id="F2S-LW-2TY"/>
                 <constraint firstItem="C8o-9M-3oo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="G14-Ff-1iF"/>
                 <constraint firstItem="C8o-9M-3oo" firstAttribute="leading" secondItem="5Ly-NQ-siJ" secondAttribute="trailing" constant="17" id="H9M-Es-PGi"/>
+                <constraint firstAttribute="bottom" secondItem="xBB-h3-yqT" secondAttribute="bottom" constant="8" id="IGo-f3-VFx"/>
                 <constraint firstItem="16V-Y4-377" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LS2-oU-qDV"/>
                 <constraint firstAttribute="bottom" secondItem="jqt-UY-Qcu" secondAttribute="bottom" constant="8" id="R35-Oh-Xzq"/>
+                <constraint firstItem="iC9-YX-1Rb" firstAttribute="leading" secondItem="xBB-h3-yqT" secondAttribute="trailing" constant="16" id="U43-78-GKn"/>
                 <constraint firstItem="jqt-UY-Qcu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="XXl-hn-kKv"/>
                 <constraint firstAttribute="bottom" secondItem="Dvb-cN-Tz1" secondAttribute="bottom" constant="8" id="YAe-Vq-vpq"/>
                 <constraint firstItem="Dvb-cN-Tz1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="aav-ju-3gJ"/>
+                <constraint firstItem="xBB-h3-yqT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="acC-xb-Kyh"/>
                 <constraint firstAttribute="trailing" secondItem="16V-Y4-377" secondAttribute="trailing" constant="8" id="bxU-TS-aGn"/>
                 <constraint firstItem="iC9-YX-1Rb" firstAttribute="baseline" secondItem="Dvb-cN-Tz1" secondAttribute="baseline" id="mQN-k1-dRd"/>
+                <constraint firstItem="xBB-h3-yqT" firstAttribute="leading" secondItem="Dvb-cN-Tz1" secondAttribute="trailing" constant="20" id="rKk-em-g5v"/>
                 <constraint firstItem="5Ly-NQ-siJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="rmM-t7-CtG"/>
                 <constraint firstItem="Dvb-cN-Tz1" firstAttribute="leading" secondItem="jqt-UY-Qcu" secondAttribute="trailing" constant="12" id="uEY-3w-XjY"/>
                 <constraint firstAttribute="bottom" secondItem="C8o-9M-3oo" secondAttribute="bottom" constant="8" id="yyH-Jw-5N5"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="IGo-f3-VFx"/>
+                    <exclude reference="BuH-Uo-Bbk"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="385" y="260"/>
         </view>
     </objects>
     <resources>
+        <image name="ic_checklist_white" width="24" height="24"/>
         <image name="note_audio_white" width="500" height="500"/>
         <image name="note_brush_white" width="500" height="500"/>
         <image name="note_delete_white" width="24" height="24"/>

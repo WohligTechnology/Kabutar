@@ -46,7 +46,6 @@ class DetailViewFooterMain: UIView {
         let DetailViewCtrl = GDetailView
         DetailViewCtrl.addCheckBox(true);
     }
-    
     func addBlackView(){
         blackOut = UIView(frame: CGRectMake(0, 0, (self.window?.frame.width)!, (self.window?.frame.height)!))
         blackOut.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
