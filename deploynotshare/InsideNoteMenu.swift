@@ -10,6 +10,9 @@ import UIKit
 
 class InsideNoteMenu: UIView {
     
+    var notesobj = Note()
+    var addMoveToFolder: MoveToFolder!
+    var addDateTimeView:DateTime!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -35,6 +38,16 @@ class InsideNoteMenu: UIView {
     @IBAction func lockNote(sender: AnyObject) {
     }
     @IBAction func timebombOnNote(sender: AnyObject) {
+        datetimepopupType = "timebomb"
+        let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
+        self.addBlackView()
+        blackOut.addGestureRecognizer(blackOutTap)
+        blackOut.alpha = 0
+        addSubview(blackOut);
+        blackOut.animation.makeAlpha(1).animate(transitionTime);
+        addDateTimeView = DateTime(frame: CGRectMake(width / 2 ,height / 2, 300, 800))
+        addDateTimeView.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)
+        self.addSubview(addDateTimeView)
     }
     var newDateTime: DateTime!
     @IBAction func reminderOnNote(sender: AnyObject) {
@@ -51,10 +64,35 @@ class InsideNoteMenu: UIView {
         self.window?.addSubview(newDateTime)
     }
     @IBAction func moveNote(sender: AnyObject) {
+        //self.removeFromSuperview()
+        //showMoveNote()
     }
     @IBAction func deleteNote(sender: AnyObject) {
+        self.removeFromSuperview()
+        blackOut.removeFromSuperview()
+        showdeletenote()
     }
     @IBAction func shareNote(sender: AnyObject) {
+        if(!self.notesobj.isConnectedToNetwork()){
+            print("empty y......")
+            let alert = UIAlertController(title: "Alert", message: "Can not share this note without sync OR No Internet Connection.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in }
+            alert.addAction(alertAction)
+            GDetailView.presentViewController(alert, animated: true) { () -> Void in }
+            
+        }else{
+            let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
+            self.addBlackView()
+            blackOut.addGestureRecognizer(blackOutTap)
+            blackOut.alpha = 0
+            self.addSubview(blackOut);
+            blackOut.animation.makeAlpha(1).animate(transitionTime);
+            
+            let addShareView = ShareView(frame: CGRectMake(0,0, width/2 + 90, 200))
+            addShareView.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)
+            self.addSubview(addShareView)
+        }
+
     }
     
     
@@ -70,6 +108,25 @@ class InsideNoteMenu: UIView {
                 blackOut.removeFromSuperview()
             })
         })
+    }
+    
+    func showdeletenote(){
+        let alert = UIAlertController(title: "Delete Note", message: "Are you sure !", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+        }
+        let alertdelete = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+            self.notesobj.delete(selectedNoteId)
+            GDetailView.navigationController?.popViewControllerAnimated(true)
+        }
+        alert.addAction(alertAction)
+        alert.addAction(alertdelete)
+        GDetailView.presentViewController(alert, animated: true) { () -> Void in }
+    }
+    
+    func showMoveNote() {
+        self.addMoveToFolder = MoveToFolder(frame: CGRectMake(MainWidth, MainHeight, 300, 250))
+        self.addMoveToFolder.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)
+        self.addSubview(self.addMoveToFolder)
     }
 
 
