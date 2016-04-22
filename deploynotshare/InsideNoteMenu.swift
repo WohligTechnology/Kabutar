@@ -12,7 +12,6 @@ class InsideNoteMenu: UIView {
     
     var notesobj = Note()
     var addMoveToFolder: MoveToFolder!
-    var addDateTimeView:DateTime!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -25,53 +24,85 @@ class InsideNoteMenu: UIView {
         super.init(frame: frame)
         loadViewFromNib ()
     }
-    
+    var sortnewview: UIView!
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "InsideNoteMenu", bundle: bundle)
-        let sortnewview = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        sortnewview = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         //sortnewview.frame = bounds
         sortnewview.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)
         sortnewview.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(sortnewview);
     }
     @IBAction func lockNote(sender: AnyObject) {
+        sortnewview.removeFromSuperview()
+        blackOut.removeFromSuperview()
+        print("lock clicked")
+        let passcodemodal = GDetailView.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
+        passcodemodal.setLock = selectedLock
+        print("selected note id" + selectedNoteId)
+        print("selected lock" + selectedLock)
+        let realpasscode = config.get("passcode")
+        if(realpasscode == ""){
+            passcodemodal.lockValue = 0
+            GDetailView.presentViewController(passcodemodal, animated: true, completion: nil)
+        }else{
+            passcodemodal.lockValue = 1
+            if(Int(selectedLock) == 0){
+                notesobj.changeLock(1,id2:selectedNoteId)
+            }else{
+                GDetailView.presentViewController(passcodemodal, animated: true, completion: nil)
+            }
+        }
     }
+    var addDateTimeView: DateTime!
     @IBAction func timebombOnNote(sender: AnyObject) {
+        sortnewview.removeFromSuperview()
+        blackOut.removeFromSuperview()
         datetimepopupType = "timebomb"
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
         self.addBlackView()
         blackOut.addGestureRecognizer(blackOutTap)
         blackOut.alpha = 0
-        addSubview(blackOut);
-        blackOut.animation.makeAlpha(1).animate(transitionTime);
-        addDateTimeView = DateTime(frame: CGRectMake(width / 2 ,height / 2, 300, 800))
-        addDateTimeView.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)
-        self.addSubview(addDateTimeView)
+        GDetailView.view.addSubview(blackOut)
+        blackOut.animation.makeAlpha(1).animate(transitionTime)
+        addDateTimeView = DateTime(frame: CGRectMake(0 ,0, 300, 500))
+        addDateTimeView.center = CGPointMake(GDetailView.view.frame.size.width / 2, GDetailView.view.frame.size.height / 2)
+        GDetailView.view.addSubview(addDateTimeView)
     }
     var newDateTime: DateTime!
     @IBAction func reminderOnNote(sender: AnyObject) {
+        sortnewview.removeFromSuperview()
+        blackOut.removeFromSuperview()
         innotepage = 1
-//        self.removeFromSuperview()
         datetimepopupType = "reminder"
-        let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
+        let blackOutTap = UITapGestureRecognizer(target: self,action: "closeRemainder:")
         self.addBlackView()
         blackOut.addGestureRecognizer(blackOutTap)
         blackOut.alpha = 0
-        addSubview(blackOut);
-        blackOut.animation.makeAlpha(1).animate(transitionTime);
-        newDateTime = DateTime(frame: CGRectMake((width)-335, (height)-600, 300,500))
-        self.window?.addSubview(newDateTime)
+        GDetailView.view.addSubview(blackOut)
+        blackOut.animation.makeAlpha(1).animate(transitionTime)
+        newDateTime = DateTime(frame: CGRectMake(0, 0, 300,300))
+        newDateTime.center = CGPointMake(GDetailView.view.frame.size.width / 2, GDetailView.view.frame.size.width / 2)
+        GDetailView.view.addSubview(newDateTime)
     }
     @IBAction func moveNote(sender: AnyObject) {
-        //self.removeFromSuperview()
-        //showMoveNote()
+        sortnewview.removeFromSuperview()
+        blackOut.removeFromSuperview()
+        let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMove:")
+        self.addBlackView()
+        blackOut.addGestureRecognizer(blackOutTap)
+        blackOut.alpha = 0
+        GDetailView.view.addSubview(blackOut);
+        blackOut.animation.makeAlpha(1).animate(transitionTime);
+        showMoveNote()
     }
     @IBAction func deleteNote(sender: AnyObject) {
-        self.removeFromSuperview()
+        sortnewview.removeFromSuperview()
         blackOut.removeFromSuperview()
         showdeletenote()
     }
+    var addShareView: ShareView!
     @IBAction func shareNote(sender: AnyObject) {
         if(!self.notesobj.isConnectedToNetwork()){
             print("empty y......")
@@ -79,31 +110,56 @@ class InsideNoteMenu: UIView {
             let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in }
             alert.addAction(alertAction)
             GDetailView.presentViewController(alert, animated: true) { () -> Void in }
-            
-        }else{
-            let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
+        } else {
+            blackOut.removeFromSuperview()
+            let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShare:")
             self.addBlackView()
             blackOut.addGestureRecognizer(blackOutTap)
             blackOut.alpha = 0
-            self.addSubview(blackOut);
+            GDetailView.view.addSubview(blackOut);
             blackOut.animation.makeAlpha(1).animate(transitionTime);
-            
-            let addShareView = ShareView(frame: CGRectMake(0,0, width/2 + 90, 200))
-            addShareView.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)
-            self.addSubview(addShareView)
+            addShareView = ShareView(frame: CGRectMake(0,0, width / 2 + 90, 200))
+            addShareView.center = CGPointMake(GDetailView.view.frame.size.width / 2, GDetailView.view.frame.size.height / 2)
+            GDetailView.view.addSubview(addShareView)
+            sortnewview.removeFromSuperview()
         }
-
     }
     
-    
     func addBlackView(){
-        blackOut = UIView(frame: CGRectMake(0, 0, (width), (height)))
+        blackOut = UIView(frame: CGRectMake(0, 0, (GDetailView.view.frame.size.width), (GDetailView.view.frame.size.height)))
         blackOut.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
     }
     
-    func closeTimeBomb(sender:UIGestureRecognizer?){
-        self.newDateTime.animation.makeY(height).easeInOut.animateWithCompletion(transitionTime, {
+    func closeRemainder(sender:UIGestureRecognizer?){
+        newDateTime.animation.makeY(height).easeInOut.animateWithCompletion(transitionTime, {
             self.newDateTime.removeFromSuperview()
+            blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
+                blackOut.removeFromSuperview()
+            })
+        })
+    }
+    
+    func closeTimeBomb(sender:UIGestureRecognizer?){
+        addDateTimeView.animation.makeY(height).easeInOut.animateWithCompletion(transitionTime, {
+            self.addDateTimeView.removeFromSuperview()
+            blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
+                blackOut.removeFromSuperview()
+            })
+        })
+    }
+    
+    func closeMove(sender:UIGestureRecognizer?){
+        addMoveToFolder.animation.makeY(height).easeInOut.animateWithCompletion(transitionTime, {
+            self.addMoveToFolder.removeFromSuperview()
+            blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
+                blackOut.removeFromSuperview()
+            })
+        })
+    }
+    
+    func closeShare(sender:UIGestureRecognizer?){
+        addShareView.animation.makeY(height).easeInOut.animateWithCompletion(transitionTime, {
+            self.addShareView.removeFromSuperview()
             blackOut.animation.makeAlpha(0).animateWithCompletion(transitionTime,{
                 blackOut.removeFromSuperview()
             })
@@ -124,9 +180,10 @@ class InsideNoteMenu: UIView {
     }
     
     func showMoveNote() {
-        self.addMoveToFolder = MoveToFolder(frame: CGRectMake(MainWidth, MainHeight, 300, 250))
-        self.addMoveToFolder.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)
-        self.addSubview(self.addMoveToFolder)
+        addMoveToFolder = MoveToFolder(frame: CGRectMake(0, 0, 300, 250))
+        addMoveToFolder.center = CGPointMake(GDetailView.view.frame.size.width / 2, GDetailView.view.frame.size.height / 2)
+        GDetailView.view.addSubview(addMoveToFolder)
+        //GDetailView.navigationController?.popViewControllerAnimated(true)
     }
 
 

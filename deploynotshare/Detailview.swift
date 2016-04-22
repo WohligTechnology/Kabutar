@@ -43,8 +43,6 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         
         ViewForNotes = self;
         
-
-        
         let note2 = Note()
         
         getAllNotes()
@@ -533,6 +531,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         }
         else {
             selectedNoteIndex = Int(indexPath.row)
+            selectedLock = String(self.islocked[indexPath.row])
             
             let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
             

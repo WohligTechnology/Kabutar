@@ -23,7 +23,7 @@ var emailsText = ""
     var note = ""
     var emaillist = UITextField()
     var checkvalidation = true;
-    
+    var sortnewview: UIView!
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,7 +41,7 @@ var emailsText = ""
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "ShareView", bundle: bundle)
-        let sortnewview = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        sortnewview = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         sortnewview.frame = bounds
         sortnewview.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(sortnewview);
@@ -195,8 +195,8 @@ var emailsText = ""
         
         showShareEmail()
         
-        
-        
+        sortnewview.removeFromSuperview()
+        blackOut.removeFromSuperview()
     }
     @IBAction func shareViaNoteshareText(sender: AnyObject) {
         let st = UIActivityViewController(activityItems: [selectedNoteDesc], applicationActivities: nil)
@@ -218,7 +218,7 @@ var emailsText = ""
             mainview.presentViewController(st, animated: true, completion: nil)
             break
         }
-        self.removeFromSuperview()
+        sortnewview.removeFromSuperview()
         blackOut.removeFromSuperview()
     }
     
@@ -251,7 +251,8 @@ var emailsText = ""
             mainview.presentViewController(passcodemodal, animated: true, completion: nil)
             break
         }
-        
+        sortnewview.removeFromSuperview()
+        blackOut.removeFromSuperview()
     }
     @IBAction func shareViaNoteshareUrl(sender: AnyObject) {
         dispatch_async(dispatch_get_main_queue(),{
@@ -287,7 +288,8 @@ var emailsText = ""
             
         })
 
-        
+        sortnewview.removeFromSuperview()
+        blackOut.removeFromSuperview()
     }
     
 }

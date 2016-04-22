@@ -87,7 +87,7 @@
                                 <action selector="timebombOnNote:" destination="-1" eventType="touchUpInside" id="OMQ-n2-70N"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCZ-Jz-fFB">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCZ-Jz-fFB">
                             <rect key="frame" x="0.0" y="301" width="278" height="50"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -95,7 +95,7 @@
                                 <color key="titleColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="lockNote:" destination="-1" eventType="touchUpInside" id="6YH-wo-Paj"/>
+                                <action selector="lockNote:" destination="-1" eventType="touchUpInside" id="3XU-tF-5nT"/>
                             </connections>
                         </button>
                     </subviews>

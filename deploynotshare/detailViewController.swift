@@ -187,10 +187,12 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     func handleIdleEvent(timer: NSTimer) {
         dispatch_async(dispatch_get_main_queue(),{
             print("before")
-            UIGraphicsBeginImageContext(self.ScrView.frame.size)
-            GDetailView.ScrView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+            UIGraphicsBeginImageContext(self.vLayout.frame.size)
+            self.vLayout.layer.renderInContext(UIGraphicsGetCurrentContext()!)
             let image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
+            
+            // save image to camera roll
             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
 
         print("time out called")

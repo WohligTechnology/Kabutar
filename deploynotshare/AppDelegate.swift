@@ -36,6 +36,7 @@ var ColorNote = String()
 let config = Config()
 var NoteElementModel = NoteElement()
 var selectedNoteId = ""
+var selectedLock = ""
 var selectedNoteDesc = ""
 var selectedName = ""
 var selectedNote = ""
