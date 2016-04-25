@@ -108,6 +108,30 @@ public class Config {
         return result
         
     }
+    
+    func isConfigNet() -> Bool {
+        var confInt = self.get("sync_via")
+        var getVia =  reach!.isReachableViaWiFi()
+        if (getVia && confInt == "0") {
+            return true
+        }else if ((getVia || !getVia) && confInt == "2"){
+            return true
+        }else if (!getVia && confInt == "1"){
+            return true
+        }else{
+            return false
+        }
+        
+    }
+    func invokeAlertMethod(msgtitle: NSString, msgBody: NSString, delegate: AnyObject?) {
+        var alert: UIAlertView = UIAlertView()
+        alert.title = msgtitle as String
+        alert.message = msgBody as String
+        alert.delegate = delegate
+        alert.addButtonWithTitle("Ok")
+        alert.show()
+    }
+    
     func isValidPhone(value: String) -> Bool {
         
         let PHONE_REGEX = "^\\d{3}-\\d{3}-\\d{4}$"
@@ -134,6 +158,21 @@ extension String {
             return trimmed.isEmpty
         }
     }
+    
+    var isConfigNet: Bool {
+        let confInt = config.get("sync_via")
+        let getVia =  reach!.isReachableViaWiFi()
+        if (getVia && confInt == "0") {
+            return true
+        }else if ((getVia || !getVia) && confInt == "2"){
+            return true
+        }else if (!getVia && confInt == "1"){
+            return true
+        }else{
+            return false
+        }
+    }
+    
     
     //Validate Email
     var isEmail: Bool {

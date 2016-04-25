@@ -12,6 +12,7 @@ class SyncTableViewController: UITableViewController {
 
     @IBOutlet weak var cellWifi: UITableViewCell!
     @IBOutlet weak var cellMobileData: UITableViewCell!
+    @IBOutlet weak var cellBoth: UITableViewCell!
     override func viewDidLoad() {
         super.viewDidLoad()
         switch(config.get("sync_via")){
@@ -20,7 +21,7 @@ class SyncTableViewController: UITableViewController {
             case "1":
                 self.cellMobileData.accessoryType = UITableViewCellAccessoryType.Checkmark
             default :
-                self.cellWifi.accessoryType = UITableViewCellAccessoryType.Checkmark
+                self.cellBoth.accessoryType = UITableViewCellAccessoryType.Checkmark
         }
     }
 

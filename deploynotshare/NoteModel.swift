@@ -391,6 +391,7 @@ public class Note {
     }
     
     func servertolocal(completion : ((JSON)->Void)) {
+        if(config.isConfigNet()){
         print("server to local")
         let ServerDateFormatter = NSDateFormatter()
         var timeprob = ""
@@ -479,6 +480,9 @@ public class Note {
             print("ERROR")
             completion(0)
         }
+        }else{
+//            config.invokeAlertMethod("demo",msgBody: "demo",delegate: "")
+        }
     }
     
     
@@ -500,6 +504,7 @@ public class Note {
     
     
     func localtoserver(completion : ((JSON)->Void)) {
+        if(config.isConfigNet()){
         if(isNoteSyncOn)
         {
             
@@ -630,6 +635,10 @@ public class Note {
             }
             completion(1)
             
+            }
+        }else{
+            config.invokeAlertMethod("Sync",msgBody: "Can not Sync. Check your Settings",delegate: "")
         }
     }
+    
 }

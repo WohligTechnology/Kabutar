@@ -147,7 +147,8 @@ public class Folder {
     }
     
     func servertolocal(completion : ((JSON)->Void)) {
-        
+        if(config.isConfigNet()){
+
         let ServerDateFormatter = NSDateFormatter()
         ServerDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
@@ -200,14 +201,17 @@ public class Folder {
         
         })
         completion(1)
-        
+        }else{
+                config.invokeAlertMethod("Sync",msgBody: "Can not Sync. Check your Settings",delegate: "")
+            }
        
         
     }
     
     
     func localtoserver(completion : ((JSON)->Void)) {
-        
+        if(config.isConfigNet()){
+
         let rows = getFolderStatementToSync()
         for row in rows {
             let ServerDateFormatter = NSDateFormatter()
@@ -261,7 +265,9 @@ public class Folder {
         
         }
         completion(1)
-        
+        }else{
+            config.invokeAlertMethod("Sync",msgBody: "Can not Sync. Check your Settings",delegate: "")
+        }
         
     }
     

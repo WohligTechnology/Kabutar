@@ -14,7 +14,6 @@ import FBSDKCoreKit
 
 import SQLite
 
-
 import SwiftHTTP
 import SwiftyJSON
 
@@ -49,6 +48,8 @@ var innotepage = 0;
 var isScreenShot = 0
 var isloadfirst = true
 var noteid = ""
+var internetReachability = config.get("sync_via")
+var reach: Reachability? =  Reachability.reachabilityForInternetConnection()
 
 public var noteModel  = Note()
 var ntfobj = Notification()
@@ -129,6 +130,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         self.window?.makeKeyAndVisible()
     
     }
+    func invokeAlertMethod(msgtitle: NSString, msgBody: NSString, delegate: AnyObject?) {
+        var alert: UIAlertView = UIAlertView()
+        alert.title = msgtitle as String
+        alert.message = msgBody as String
+        alert.delegate = delegate
+        alert.addButtonWithTitle("Ok")
+        alert.show()
+    }
     
     func registerForPushNotifications(application: UIApplication) {
         let notificationSettings = UIUserNotificationSettings(
@@ -171,6 +180,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         registerForPushNotifications(application)
         UILabel.appearance().font = UIFont(name: "Agenda", size: 14)
         UINavigationBar.appearance().titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Agenda", size: 16)!,NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        // start internet connectivity
+        reach = Reachability.reachabilityForInternetConnection()
+        print("in reach")
+        print(reach!.isReachableViaWiFi())
+        if reach!.isReachable() {
+            if reach!.isReachableViaWiFi() {
+                internetReachability = "0"
+            }else{
+                internetReachability = "1"
+            }
+        }
+//        invokeAlertMethod("demo",msgBody: "demo",delegate: "")
+        
+        reach!.startNotifier()
+
+        //end internet connectivity
+        
+        
+        
+        
         
         GAppDelegate = self
         // Override point for customization after application launch.
