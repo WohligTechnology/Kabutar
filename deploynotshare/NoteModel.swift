@@ -637,6 +637,7 @@ public class Note {
             
             }
         }else{
+            
             config.invokeAlertMethod("Sync",msgBody: "Can not Sync. Check your Settings",delegate: "")
         }
     }
