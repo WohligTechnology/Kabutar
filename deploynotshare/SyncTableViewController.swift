@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class SyncTableViewController: UITableViewController {
 
     @IBOutlet weak var cellWifi: UITableViewCell!
     @IBOutlet weak var cellMobileData: UITableViewCell!
     @IBOutlet weak var cellBoth: UITableViewCell!
+    var notesobj = Note()
+    var folderobj = Folder()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         switch(config.get("sync_via")){
@@ -20,8 +24,10 @@ class SyncTableViewController: UITableViewController {
                 self.cellWifi.accessoryType = UITableViewCellAccessoryType.Checkmark
             case "1":
                 self.cellMobileData.accessoryType = UITableViewCellAccessoryType.Checkmark
-            default :
+            case "2":
                 self.cellBoth.accessoryType = UITableViewCellAccessoryType.Checkmark
+            default : break
+            
         }
     }
 
@@ -34,26 +40,42 @@ class SyncTableViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (indexPath.row != previousCheckedIndex) {
-            var cell: UITableViewCell = self.tableView.cellForRowAtIndexPath(indexPath)!
-            if (cell.accessoryType == UITableViewCellAccessoryType.None) {
-                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-                if (previousCheckedIndex != indexPath.row) {
-                    cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: previousCheckedIndex, inSection: 0))!
-                    cell.accessoryType = UITableViewCellAccessoryType.None
-                    previousCheckedIndex = indexPath.row
-//                    if(config.get("sync_via") != ""){
+        print(indexPath.section)
+        if indexPath.section == 0 {
+            if (indexPath.row != previousCheckedIndex) {
+                var cell: UITableViewCell = self.tableView.cellForRowAtIndexPath(indexPath)!
+                if (cell.accessoryType == UITableViewCellAccessoryType.None) {
+                    cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+                    if (previousCheckedIndex != indexPath.row) {
+                        cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: previousCheckedIndex, inSection: 0))!
+                        cell.accessoryType = UITableViewCellAccessoryType.None
+                        previousCheckedIndex = indexPath.row
                         config.set("sync_via", value2: String(indexPath.row))
-//                    }else{
-//                        
-//                    }
+                    }
+                } else {
+                    cell.accessoryType = UITableViewCellAccessoryType.None
                 }
-            } else {
-                cell.accessoryType = UITableViewCellAccessoryType.None
+                
+                tableView.reloadData()
+            }
+        }else{
+            if config.isConfigNet() {
+                self.notesobj.localtoserver{(json: JSON) -> () in
+                    self.notesobj.servertolocal{(json: JSON) -> () in
+                        config.invokeAlertMethod("Sync",msgBody: "Sync Successful",delegate:"")
+
+                    }}
+                
+                self.folderobj.localtoserver{(json: JSON) -> () in
+                    self.folderobj.servertolocal{(json: JSON) -> () in}}
+                
+            }else{
+                config.invokeAlertMethod("Sync",msgBody: "Can not Sync. Check your Sync Settings",delegate:"")
             }
             
-            tableView.reloadData()
+
         }
+        
     }
 
 

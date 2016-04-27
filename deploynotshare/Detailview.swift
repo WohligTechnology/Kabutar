@@ -10,6 +10,7 @@ import UIKit
 import MGSwipeTableCell
 import EventKit
 import SwiftyJSON
+//import SwiftL
 
 class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchResultsUpdating, UIViewControllerPreviewingDelegate {
 
@@ -253,10 +254,10 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                     self.presentViewController(alert, animated: true) { () -> Void in }
                     
                 }else{
-                    if(config.isConfigNet()){
                 selectedNoteId = String(self.notesId[indexPath.row])
                 selectedNoteDesc = String(self.noteDesc[indexPath.row])
                 selectedName = String(self.notesTitle[indexPath.row])
+                    if(config.isConfigNet()){
 
                     self.notesobj.localtoserver{(json: JSON) -> () in
                         self.notesobj.servertolocal{(json: JSON) -> () in
@@ -265,6 +266,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
 //                            print(onenote![self.notesobj.serverid]!)
                             //                        self.noteobj.shareNote(onenote![self.noteobj.serverid]!, email: sendemailto, completion: self.resShareNote)
                         }
+                    }
                     }
                     
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
@@ -276,9 +278,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 
                 self.addShareView = ShareView(frame: CGRectMake(self.width/4 - 45,self.height/4, self.width/2 + 90, 200))
                 self.view.addSubview(self.addShareView)
-                } else {
-                    config.invokeAlertMethod("Sync",msgBody: "Can not Sync. Check your Settings",delegate: "")
-                }
+                
                 }
                 
                 return true

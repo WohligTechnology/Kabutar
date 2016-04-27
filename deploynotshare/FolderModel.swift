@@ -202,7 +202,6 @@ public class Folder {
         })
         completion(1)
         }else{
-                config.invokeAlertMethod("Sync",msgBody: "Can not Sync. Check your Settings",delegate: "")
             }
        
         
@@ -266,7 +265,7 @@ public class Folder {
         }
         completion(1)
         }else{
-            config.invokeAlertMethod("Sync",msgBody: "Can not Sync. Check your Settings",delegate: "")
+            config.invokeAlertMethod("Sync",msgBody: "Can not Sync. Check your Sync Settings",delegate: "")
         }
         
     }

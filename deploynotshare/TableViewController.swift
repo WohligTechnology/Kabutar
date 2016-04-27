@@ -322,6 +322,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 noInternet()
 
             }else{
+                if config.isConfigNet(){
                 self.folderobj.localtoserver{(json: JSON) -> () in
                     self.folderobj.servertolocal{(json: JSON) -> () in
                         print(strtoll(self.folderId[indexPath.row] as! String,nil,10))
@@ -334,6 +335,10 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                         }
 
                     }
+                }
+                }else{
+                    config.invokeAlertMethod("Sync",msgBody: "Can not Sync. Check your Sync Settings",delegate: "")
+
                 }
             }
             

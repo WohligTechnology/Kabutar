@@ -111,12 +111,14 @@ public class Config {
     
     func isConfigNet() -> Bool {
         var confInt = self.get("sync_via")
+        print("in sync_via")
+        print(confInt)
         var getVia =  reach!.isReachableViaWiFi()
-        if (getVia && confInt == "0") {
+        print("is reachable")
+        print(getVia)
+        if (getVia && (confInt == "0" || confInt == "2")) {
             return true
-        }else if ((getVia || !getVia) && confInt == "2"){
-            return true
-        }else if (!getVia && confInt == "1"){
+        }else if (!getVia && (confInt == "1" || confInt == "2")){
             return true
         }else{
             return false

@@ -49,6 +49,8 @@ var emailsText = ""
     
     func resShareNote(json: JSON){
         print(json)
+//        config.invokeAlertMethod("Share Note",msgBody: "Note Shared Successfully.",delegate: "")
+
     }
     
     func closeAllView(){
@@ -192,11 +194,14 @@ var emailsText = ""
     
     @IBAction func shareViaNoteshare(sender: AnyObject) {
 //        print(checkstatus);
-        
+        if(config.isConfigNet()){
         showShareEmail()
         
         sortnewview.removeFromSuperview()
         blackOut.removeFromSuperview()
+        }else{
+            config.invokeAlertMethod("Sync",msgBody: "Can not Sync. Check your Sync Settings",delegate: "")
+        }
     }
     @IBAction func shareViaNoteshareText(sender: AnyObject) {
         let st = UIActivityViewController(activityItems: [selectedNoteDesc], applicationActivities: nil)
@@ -255,6 +260,7 @@ var emailsText = ""
         blackOut.removeFromSuperview()
     }
     @IBAction func shareViaNoteshareUrl(sender: AnyObject) {
+        if(config.isConfigNet()){
         dispatch_async(dispatch_get_main_queue(),{
             
             self.noteobj.localtoserver{(json: JSON) -> () in
@@ -290,6 +296,9 @@ var emailsText = ""
 
         sortnewview.removeFromSuperview()
         blackOut.removeFromSuperview()
+        }else{
+            config.invokeAlertMethod("Sync",msgBody: "Can not Sync. Check your Sync Settings",delegate: "")
+        }
     }
     
 }

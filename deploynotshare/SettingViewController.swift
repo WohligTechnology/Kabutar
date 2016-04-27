@@ -15,9 +15,22 @@ import SwiftyJSON
 class SettingViewController: UITableViewController{
     let notesobj = Note()
     
+    @IBOutlet weak var lastSync: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         print(self.title);
+        print(config.get("note_server_to_local"))
+        if (config.get("note_server_to_local") == "") {
+            lastSync.text = "00.00"
+        }else{
+        let moddate = NSDate(timeIntervalSince1970: Double(config.get("note_server_to_local"))!)
+        let dateFormatter = NSDateFormatter()
+//        dateFormatter.dateStyle  = .MediumStyle // superset of OP's format
+//        dateFormatter.timeStyle = .ShortStyle
+        dateFormatter.dateFormat = "yy-dd-mm , h:m a"
+        let str = dateFormatter.stringFromDate(moddate)
+        lastSync.text = String(str)
+        }
         
         self.setNavigationBarItem()
     }
@@ -26,8 +39,9 @@ class SettingViewController: UITableViewController{
         super.didReceiveMemoryWarning()
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.row)
-        print(indexPath.section);
+        if(indexPath.section == 0){
+            
+        }
         if(indexPath.section == 1){
             let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
             passcodemodal.lockValue = 4

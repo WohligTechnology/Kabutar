@@ -255,12 +255,12 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                     self.presentViewController(alert, animated: true) { () -> Void in }
                     
                 }else{
-                    if(config.isConfigNet()){
 
                 selectedNoteId = String(self.notesId[indexPath.row])
                 selectedNoteDesc = String(self.noteDesc[indexPath.row])
                 selectedName = String(self.notesTitle[indexPath.row])
                     
+                    if(config.isConfigNet()){
                     dispatch_async(dispatch_get_main_queue(),{
                         
                         self.notesobj.localtoserver{(json: JSON) -> () in
@@ -272,6 +272,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
                             }
                         }
                     })
+                    }
                     
                 print(selectedNoteId)
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShareView:")
@@ -283,9 +284,6 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
         
                 self.addShareView = ShareView(frame: CGRectMake(self.width/4 - 45,self.height/4, self.width/2 + 90, 200))
                 self.view.addSubview(self.addShareView)
-                    } else {
-                        config.invokeAlertMethod("Sync",msgBody: "Can not Sync. Check your Settings",delegate: "")
-                    }
                 }
                     
 
