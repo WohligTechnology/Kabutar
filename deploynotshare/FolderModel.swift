@@ -5,6 +5,7 @@
 //  Created by Chintan Shah on 31/10/15.
 //  Copyright © 2015 Wohlig. All rights reserved.
 //
+var isFolderSyncOn = false;
 
 import Foundation
 import SQLite
@@ -173,13 +174,13 @@ public class Folder {
                 
                 if(subJson["_id"] != nil)
                 {
-                    print("Inside 1");
+//                    print("Inside 1");
                     if(subJson["creationtime"].string == "")
                     {
                         self.deleteServer(subJson["_id"].string!)
                     }
                     else {
-                        print("Inside 2")
+//                        print("Inside 2")
                         self.syncSave(subJson["_id"].string!, creationTime2: subJson["creationtime"].string!, modificationTime2: subJson["modifytime"].string!, order2: subJson["order"].string!, name2: subJson["name"].string!)
                     }
                     
@@ -201,6 +202,8 @@ public class Folder {
         
         })
         completion(1)
+            isFolderSyncOn = true;
+
         }else{
             }
        
@@ -210,7 +213,13 @@ public class Folder {
     
     func localtoserver(completion : ((JSON)->Void)) {
         if(config.isConfigNet()){
-
+            if(isFolderSyncOn)
+            {
+                
+            }
+            else
+            {
+                isFolderSyncOn = true;
         let rows = getFolderStatementToSync()
         for row in rows {
             let ServerDateFormatter = NSDateFormatter()
@@ -264,6 +273,7 @@ public class Folder {
         
         }
         completion(1)
+            }
         }else{
             config.invokeAlertMethod("Sync",msgBody: "Can not Sync. Check your Sync Settings",delegate: "")
         }

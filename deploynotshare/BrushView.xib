@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -58,14 +58,14 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3W-xs-H5K" userLabel="color2">
-                                    <rect key="frame" x="57" y="0.0" width="46" height="31"/>
+                                    <rect key="frame" x="57" y="0.0" width="47" height="31"/>
                                     <color key="backgroundColor" red="0.50980392156862742" green="0.34509803921568627" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="secondBrush:" destination="-1" eventType="touchUpInside" id="nLC-2Y-yei"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbE-LN-1Um" userLabel="color3">
-                                    <rect key="frame" x="113" y="0.0" width="47" height="31"/>
+                                    <rect key="frame" x="114" y="0.0" width="47" height="31"/>
                                     <color key="backgroundColor" red="0.48627450980392156" green="0.35686274509803922" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="thirdBrush:" destination="-1" eventType="touchUpInside" id="UKq-2x-c1m"/>
@@ -79,14 +79,14 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brf-iU-rbk" userLabel="color5">
-                                    <rect key="frame" x="227" y="0.0" width="46" height="31"/>
+                                    <rect key="frame" x="227" y="0.0" width="47" height="31"/>
                                     <color key="backgroundColor" red="0.52941176470588236" green="0.74509803921568629" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="fifthBrush:" destination="-1" eventType="touchUpInside" id="T01-4L-7tD"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6J-ix-ezl" userLabel="color6">
-                                    <rect key="frame" x="283" y="0.0" width="47" height="31"/>
+                                    <rect key="frame" x="284" y="0.0" width="47" height="31"/>
                                     <color key="backgroundColor" red="0.24705882352941178" green="0.49803921568627452" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="sixthBrush:" destination="-1" eventType="touchUpInside" id="wOc-L1-eKh"/>
@@ -105,14 +105,14 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ktd-cv-Y5D" userLabel="color2">
-                                    <rect key="frame" x="57" y="0.0" width="46" height="31"/>
+                                    <rect key="frame" x="57" y="0.0" width="47" height="31"/>
                                     <color key="backgroundColor" red="0.99607843137254903" green="0.55294117647058827" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="eighthBrush:" destination="-1" eventType="touchUpInside" id="BmA-eJ-Mia"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fo8-sL-UIh" userLabel="color3">
-                                    <rect key="frame" x="113" y="0.0" width="47" height="31"/>
+                                    <rect key="frame" x="114" y="0.0" width="47" height="31"/>
                                     <color key="backgroundColor" red="0.96470588235294119" green="0.82745098039215681" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="ninthBrush:" destination="-1" eventType="touchUpInside" id="hr6-4H-U75"/>
@@ -126,14 +126,14 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1x-k6-YTs" userLabel="color5">
-                                    <rect key="frame" x="227" y="0.0" width="46" height="31"/>
+                                    <rect key="frame" x="227" y="0.0" width="47" height="31"/>
                                     <color key="backgroundColor" red="0.97647058823529409" green="0.32941176470588235" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
                                     <connections>
                                         <action selector="eleventhBrush:" destination="-1" eventType="touchUpInside" id="uXP-C7-afT"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsG-M1-rGV" userLabel="color6">
-                                    <rect key="frame" x="283" y="0.0" width="47" height="31"/>
+                                    <rect key="frame" x="284" y="0.0" width="47" height="31"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>

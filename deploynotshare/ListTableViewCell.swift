@@ -40,9 +40,28 @@ class ListTableViewCell: MGSwipeTableCell {
 
         // Configure the view for the selected state
     }
+    func showPopup (title:String, msgBody:String){
+        let alertController = UIAlertController(title: title, message: msgBody, preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Ok", style: .Cancel) { (action) in
+            print(action)
+        }
+        alertController.addAction(cancelAction)
+        
+        
+        GlobalNotificationView.presentViewController(alertController, animated: true) {
+            // ...
+        }
+    }
     
-    func downNotification(json:JSON){
+    func downNotification(val:Int64,json:JSON){
         if(json["value"]=="true"){
+            if val == 1 {
+                self.showPopup("Notification", msgBody: "Notification Rejected!")
+            }else{
+                self.showPopup("Notification", msgBody: "Notification Accepted!")
+
+            }
             ntfobj.notificationCount{(json: JSON) -> () in
                 UIApplication.sharedApplication().applicationIconBadgeNumber = Int(json["count"].stringValue)!
             }
@@ -52,14 +71,22 @@ class ListTableViewCell: MGSwipeTableCell {
                 }
             }
             GlobalNotificationView.getAllNotification()
+//            config.invokeAlertMethod("Notification",msgBody: "Notification Accepted",delegate: self)
+            
+
         }
+        
     }
 
     @IBAction func ntfCancel(sender: AnyObject) {
-        ntfobj.notificationStatus(ntfNote.text!, folder: ntfFolder.text!, userid: ntfUserId.text!, status: "false", completion: downNotification)
+        ntfobj.notificationStatus(ntfNote.text!, folder: ntfFolder.text!, userid: ntfUserId.text!, status: "false", completion: {(json:JSON) in
+            self.downNotification(1,json:json)
+        })
     }
     
     @IBAction func ntfAccept(sender: AnyObject) {
-        ntfobj.notificationStatus(ntfNote.text!, folder: ntfFolder.text!, userid: ntfUserId.text!, status: "true", completion: downNotification)
+        ntfobj.notificationStatus(ntfNote.text!, folder: ntfFolder.text!, userid: ntfUserId.text!, status: "true", completion: {(json:JSON) in
+            self.downNotification(2,json:json)
+        })
     }
 }

@@ -9,7 +9,6 @@ import UIKit
 import SwiftyJSON
 //var GlobalNotificationView:NotificationViewController!;
 //var checkon = false;
-
 class NotificationViewController: UIViewController {
     var notesobj = Note()
     var image = ["demo","Notes"]
@@ -72,12 +71,13 @@ class NotificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        GlobalNotificationView = self;
+
         print("view did load.")
         checkon = true
         self.setNavigationBarItem()
 //        notesobj.localtoserver{(json: JSON) -> () in }
 
-//        GlobalNotificationView = self;
 //        dispatch_async(dispatch_get_main_queue(),{
 
         let bounds = UIScreen.mainScreen().bounds

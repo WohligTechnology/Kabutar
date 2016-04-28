@@ -33,7 +33,7 @@
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h22-Ub-Lye">
-                            <rect key="frame" x="0.0" y="41" width="348" height="41"/>
+                            <rect key="frame" x="0.0" y="41" width="348" height="42"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="16"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="   NoteShare" image="noteshare_share">
@@ -44,7 +44,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUb-3u-qgu">
-                            <rect key="frame" x="0.0" y="82" width="348" height="42"/>
+                            <rect key="frame" x="0.0" y="83" width="348" height="41"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="16"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="   Text" image="text_share">
@@ -55,7 +55,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JH4-sx-MZi">
-                            <rect key="frame" x="0.0" y="124" width="348" height="41"/>
+                            <rect key="frame" x="0.0" y="124" width="348" height="42"/>
                             <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="16"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="   Screenshot" image="screenshot_share">

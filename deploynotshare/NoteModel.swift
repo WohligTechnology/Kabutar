@@ -17,7 +17,8 @@ import SwiftyJSON
 import SystemConfiguration
 
 public class Note {
-    
+    let folderobj = Folder()
+
     func getImage(urlStr:String) -> UIImage {
         let url = NSURL(string: urlStr)
         let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
@@ -150,7 +151,7 @@ public class Note {
     
     func find2 (txt:String) -> Statement {
         
-        print(config.get("user_id"))
+//        print(config.get("user_id"))
         
         let date = NSDate().timeIntervalSince1970
         let date2 = String(Int64(date))
@@ -317,26 +318,26 @@ public class Note {
                 let fileType = noteElement2["type"].string!
                 if (checkValidation.fileExistsAtPath(getFilePath) && (fileType == "image" || fileType == "scribble" || fileType == "audio" ))
                 {
-                    print("FILE AVAILABLE");
+//                    print("FILE AVAILABLE");
                 }
                 else if(fileType == "image" || fileType == "scribble" || fileType == "audio" )
                 {
-                    print("FILE NOT AVAILABLE");
+//                    print("FILE NOT AVAILABLE");
                     
                     
                     request.download(ServerURL + "user/getmedia?file=" + filename, parameters: nil, progress: {(complete: Double) in
-                        print("percent complete: \(complete)")
+//                        print("percent complete: \(complete)")
                         }, completionHandler: {(response: HTTPResponse) in
                             print("download finished!")
                             if let err = response.error {
-                                print("error: \(err.localizedDescription)")
+//                                print("error: \(err.localizedDescription)")
                                 return //also notify app of failure as needed
                             }
                             if let url = response.responseObject as? NSURL {
                                 //we MUST copy the file from its temp location to a permanent location.
                                 if let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as String! {
                                     if let fileName = response.suggestedFilename {
-                                        print(path + "/" + filename);
+//                                        print(path + "/" + filename);
                                         let newPath = NSURL(fileURLWithPath: path + "/" + filename )
                                         let fileManager = NSFileManager.defaultManager()
                                         
@@ -344,7 +345,7 @@ public class Note {
                                         try fileManager.moveItemAtURL(url, toURL: newPath)
                                         }
                                         catch {
-                                            print("File Exists");
+//                                            print("File Exists");
                                         }
                                     }
                                 }
@@ -378,7 +379,7 @@ public class Note {
     
         }
         catch {
-            print("Value issue");
+//            print("Value issue");
         }
     }
     
@@ -392,7 +393,7 @@ public class Note {
     
     func servertolocal(completion : ((JSON)->Void)) {
         if(config.isConfigNet()){
-        print("server to local")
+//        print("server to local")
         let ServerDateFormatter = NSDateFormatter()
         var timeprob = ""
         ServerDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -477,8 +478,9 @@ public class Note {
             isNoteSyncOn = true;
         }
         catch {
-            print("ERROR")
+//            print("ERROR")
             completion(0)
+//            isNoteSyncOn = false
         }
         }else{
 //            config.invokeAlertMethod("demo",msgBody: "demo",delegate: "")
@@ -489,10 +491,9 @@ public class Note {
     
     func getNoteStatementToSync() -> Statement! {
         let lastLocaltoServer = strtoll(config.get("note_local_to_server"),nil,10)
-        let folderobj = Folder()
         var query:Statement!
         folderobj.localtoserver{(json:JSON) -> () in
-            folderobj.servertolocal{(json:JSON) -> () in
+            self.folderobj.servertolocal{(json:JSON) -> () in
                 query = try! self.db.prepare("SELECT * FROM (SELECT `note`.`id`,`note`.`title`,`note`.`creationTime`,`note`.`modificationTime`,`note`.`background`,`color`, `folder`.`serverid` as `folder` ,`note`.`islocked`,`note`.`paper`,`note`.`reminderTime`,`note`.`serverid`,`note`.`tags`,`note`.`timebomb` FROM `note` LEFT OUTER JOIN `folder` ON `folder`.`id` =  `note`.`folder` ORDER BY `note`.`modificationTime` ASC) WHERE `modificationTime` > \(lastLocaltoServer) ")
             }
         }
@@ -507,13 +508,14 @@ public class Note {
         if(config.isConfigNet()){
         if(isNoteSyncOn)
         {
-            
+            print("is note sync on")
         }
         else
         {
             isNoteSyncOn = true;
-            print("LOCAL IS HERE");
+//            print("LOCAL IS HERE");
             let rows = getNoteStatementToSync()
+//            print(rows)
             for row in rows {
                 let ServerDateFormatter = NSDateFormatter()
                 ServerDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -539,17 +541,17 @@ public class Note {
                     
                     if(row[noteElement.type] == "image" || row[noteElement.type] == "scribble" || row[noteElement.type] == "audio"  )
                     {
-                        print(row[noteElement.content]);
+//                        print(row[noteElement.content]);
                         if(row[noteElement.content] != nil){
                             request.GET(ServerURL+"user/searchmedia?file="+row[noteElement.content]!, parameters: nil, completionHandler: {(response: HTTPResponse) in
                                 let json = JSON(data: response.responseObject as! NSData)
                                 if(json["value"].string == "false")
                                 {
-                                    print("Upload file" + row[self.noteElement.content]!)
-                                    print(path);
+//                                    print("Upload file" + row[self.noteElement.content]!)
+//                                    print(path);
                                     let fileUrl = NSURL(fileURLWithPath: path+"/"+row[self.noteElement.content]!)
                                     request.upload(ServerURL + "user/mediaupload", method: .POST, parameters: ["file": HTTPUpload(fileUrl: fileUrl)], progress: { (value: Double) in
-                                        print("progress: \(value)")
+//                                        print("progress: \(value)")
                                         }, completionHandler: { (response: HTTPResponse) in
                                     })
                                     
@@ -578,7 +580,7 @@ public class Note {
                 let creationDate2 =  NSDate(timeIntervalSince1970: NSTimeInterval(row[2] as! Int64!))
                 var creationDateStr = ServerDateFormatter.stringFromDate(creationDate2)
                 let checkcreation = row[2] as! Int64!
-                print(checkcreation)
+//                print(checkcreation)
                 if(checkcreation == 0)
                 {
                     creationDateStr = "0"
@@ -586,15 +588,15 @@ public class Note {
                 let mofificationDate2  = NSDate(timeIntervalSince1970: NSTimeInterval(row[3] as! Int64!))
                 
                 
-                print("folder wala folder")
-                print(row[6])
+//                print("folder wala folder")
+//                print(row)
                 var folder2 = row[6] as! String!
-                if(folder2 == nil || folder2 != "0")
-                {
+                if(folder2 == nil) {
                     folder2 = "0"
                 }
-                
-                
+                print("string operation")
+                print(folder2)
+            
                 
                 let params : Dictionary<String,AnyObject>  = ["title":row[1] as! String!,
                                                               "creationtime":  creationDateStr ,
@@ -611,13 +613,14 @@ public class Note {
                                                               "timebomb": String(row[12] as! Int64!),
                                                               "noteelements" : jsonNoteElement,
                                                               ]
-                print("GOINT INSIDE");
+//                print("GOINT INSIDE");
+                print(params)
                 
-                print("CHECKING THE NOTE ELEMENT");
+//                print("CHECKING THE NOTE ELEMENT");
                 
                 request.POST(ServerURL+"note/localtoserver", parameters: params, completionHandler: {(response: HTTPResponse) in
                     dispatch_async(dispatch_get_main_queue(),{
-                        print("localto server")
+//                        print("localto server")
                         let json = JSON(data: response.responseObject as! NSData)
                         config.set("note_local_to_server",value2: String(row[3] as! Int64!))
                         

@@ -12,6 +12,7 @@ class InsideNoteMenu: UIView {
     
     var notesobj = Note()
     var addMoveToFolder: MoveToFolder!
+
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -28,6 +29,8 @@ class InsideNoteMenu: UIView {
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "InsideNoteMenu", bundle: bundle)
+        
+
         sortnewview = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         //sortnewview.frame = bounds
         sortnewview.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)
@@ -35,25 +38,47 @@ class InsideNoteMenu: UIView {
         self.addSubview(sortnewview);
     }
     @IBAction func lockNote(sender: AnyObject) {
-        sortnewview.removeFromSuperview()
-        blackOut.removeFromSuperview()
-        print("lock clicked")
+        let oneNoteData = notesobj.findOne(Int64(config.get("note_id"))!)
+        print("in lock button")
+        print(oneNoteData)
+        
         let passcodemodal = GDetailView.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
-        passcodemodal.setLock = selectedLock
-        print("selected note id" + selectedNoteId)
-        print("selected lock" + selectedLock)
+        
+        passcodemodal.setLock = String(oneNoteData![self.notesobj.islocked])
+        
         let realpasscode = config.get("passcode")
+        
         if(realpasscode == ""){
             passcodemodal.lockValue = 0
             GDetailView.presentViewController(passcodemodal, animated: true, completion: nil)
         }else{
             passcodemodal.lockValue = 1
-            if(Int(selectedLock) == 0){
-                notesobj.changeLock(1,id2:selectedNoteId)
+            if(oneNoteData![self.notesobj.islocked] == 0){
+                self.notesobj.changeLock(1,id2:(String)(oneNoteData![self.notesobj.id]))
             }else{
                 GDetailView.presentViewController(passcodemodal, animated: true, completion: nil)
             }
         }
+        
+//        sortnewview.removeFromSuperview()
+//        blackOut.removeFromSuperview()
+//        print("lock clicked")
+//        let passcodemodal = GDetailView.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
+//        passcodemodal.setLock = selectedLock
+//        print("selected note id" + selectedNoteId)
+//        print("selected lock" + selectedLock)
+//        let realpasscode = config.get("passcode")
+//        if(realpasscode == ""){
+//            passcodemodal.lockValue = 0
+//            GDetailView.presentViewController(passcodemodal, animated: true, completion: nil)
+//        }else{
+//            passcodemodal.lockValue = 1
+//            if(Int(selectedLock) == 0){
+//                notesobj.changeLock(1,id2:selectedNoteId)
+//            }else{
+//                GDetailView.presentViewController(passcodemodal, animated: true, completion: nil)
+//            }
+//        }
     }
     var addDateTimeView: DateTime!
     @IBAction func timebombOnNote(sender: AnyObject) {

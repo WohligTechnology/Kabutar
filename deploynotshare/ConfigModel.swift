@@ -111,11 +111,7 @@ public class Config {
     
     func isConfigNet() -> Bool {
         var confInt = self.get("sync_via")
-        print("in sync_via")
-        print(confInt)
         var getVia =  reach!.isReachableViaWiFi()
-        print("is reachable")
-        print(getVia)
         if (getVia && (confInt == "0" || confInt == "2")) {
             return true
         }else if (!getVia && (confInt == "1" || confInt == "2")){
@@ -126,7 +122,7 @@ public class Config {
         
     }
     func invokeAlertMethod(msgtitle: NSString, msgBody: NSString, delegate: AnyObject?) {
-        var alert: UIAlertView = UIAlertView()
+        let alert: UIAlertView = UIAlertView()
         alert.title = msgtitle as String
         alert.message = msgBody as String
         alert.delegate = delegate

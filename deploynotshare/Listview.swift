@@ -52,7 +52,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     override func viewDidLoad() {
         super.viewDidLoad()
         ViewForNotes = self;
-        
+
         
         getAllNotes()
 //        ConfigObj.set("passcode", value2: "1234")

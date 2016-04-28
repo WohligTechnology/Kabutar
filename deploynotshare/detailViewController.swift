@@ -30,13 +30,16 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     var sketchFooter = ElementSketchFooter(frame: CGRectMake(width,0,width+10,44))
     let sideMenuController  = slideMenuLeft as! SlideMenuController
     var noteName:UITextField!
+    var noteobj = Note()
     var activeCheckbox : ElementCheckBox!
     let titleView = UILabel()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initNavigationItemTitleView();
-        
+        print("in side note note data")
+//        var oneNoteData = noteobj.findOne(Int64(config.get("note_id"))!)
+
         loadingCompleted = false
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name: UIKeyboardWillChangeFrameNotification, object: nil)

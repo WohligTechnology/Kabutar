@@ -83,6 +83,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
         return 1
@@ -376,6 +377,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             let vc = segue.destinationViewController as! Detailview
             vc.title = self.folderName[selectedPath!.row] as? String
             selectedFolderToNoteId = (self.folderId[selectedPath!.row] as? String)!
+            vc.navigationItem.leftItemsSupplementBackButton = true
             
         }
         if(segue.identifier == "noteList"){
