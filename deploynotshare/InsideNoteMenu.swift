@@ -38,6 +38,9 @@ class InsideNoteMenu: UIView {
         self.addSubview(sortnewview);
     }
     @IBAction func lockNote(sender: AnyObject) {
+        
+                sortnewview.removeFromSuperview()
+                blackOut.removeFromSuperview()
         let oneNoteData = notesobj.findOne(Int64(config.get("note_id"))!)
         print("in lock button")
         print(oneNoteData)

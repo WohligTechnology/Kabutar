@@ -294,6 +294,9 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 (sender: MGSwipeTableCell!) -> Bool in
                 
                 selectedNoteId = String(self.notesId[indexPath.row])
+                let folderobj = Folder()
+                print(folderobj.countFolder())
+                if(folderobj.countFolder() != 0){
                 let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMoveToFolder:")
                 self.addBlackView()
                 blackOut.addGestureRecognizer(blackOutTap)
@@ -307,6 +310,18 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
                 
                 self.addMoveToFolder = MoveToFolder(frame: CGRectMake(self.width / 2 - 150, self.height / 2 - 200, 300, 200))
                 self.view.addSubview(self.addMoveToFolder)
+                }else{
+                        let editalert = UIAlertController(title: "Move", message: "No Folder Available.", preferredStyle: UIAlertControllerStyle.Alert)
+                        let eidtcancel = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+                            
+                        }
+                        editalert.addAction(eidtcancel)
+                        
+                        self.presentViewController(editalert, animated: true) { () -> Void in
+                            
+                        }
+                        
+                    }
                 
                 return true
             }),

@@ -431,10 +431,12 @@ public class Note {
                     }
                     else {
                         var folder3:Int64 = 0;
-                        if(subJson["folder"].string == "")
-                        {
+                        print("server to local server id")
+                        print(subJson["folder"].string!)
+//                        if(subJson["folder"].string == "" || subJson["folder"].string == "0")
+//                        {
                             folder3 = Folder().getIdFromServerID(subJson["folder"].string!);
-                        }
+//                        }
                         var parernote = ""
                         
                         if(subJson["paper"].stringValue == ""){
@@ -475,7 +477,7 @@ public class Note {
             })
         })
             completion(1)
-            isNoteSyncOn = true;
+            isNoteSyncOn = false;
         }
         catch {
 //            print("ERROR")
@@ -492,11 +494,11 @@ public class Note {
     func getNoteStatementToSync() -> Statement! {
         let lastLocaltoServer = strtoll(config.get("note_local_to_server"),nil,10)
         var query:Statement!
-        folderobj.localtoserver{(json:JSON) -> () in
-            self.folderobj.servertolocal{(json:JSON) -> () in
+//        folderobj.localtoserver{(json:JSON) -> () in
+//            self.folderobj.servertolocal{(json:JSON) -> () in
                 query = try! self.db.prepare("SELECT * FROM (SELECT `note`.`id`,`note`.`title`,`note`.`creationTime`,`note`.`modificationTime`,`note`.`background`,`color`, `folder`.`serverid` as `folder` ,`note`.`islocked`,`note`.`paper`,`note`.`reminderTime`,`note`.`serverid`,`note`.`tags`,`note`.`timebomb` FROM `note` LEFT OUTER JOIN `folder` ON `folder`.`id` =  `note`.`folder` ORDER BY `note`.`modificationTime` ASC) WHERE `modificationTime` > \(lastLocaltoServer) ")
-            }
-        }
+//            }
+//        }
         return query
 
         
@@ -617,7 +619,7 @@ public class Note {
                 print(params)
                 
 //                print("CHECKING THE NOTE ELEMENT");
-                
+                if(config.get("note_local_to_server") != ServerDateFormatter.stringFromDate(mofificationDate2)){
                 request.POST(ServerURL+"note/localtoserver", parameters: params, completionHandler: {(response: HTTPResponse) in
                     dispatch_async(dispatch_get_main_queue(),{
 //                        print("localto server")
@@ -635,6 +637,7 @@ public class Note {
                         }
                     })
                 })
+                }
             }
             completion(1)
             

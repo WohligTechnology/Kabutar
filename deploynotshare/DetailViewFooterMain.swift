@@ -73,7 +73,7 @@ class DetailViewFooterMain: UIView {
         self.window?.addSubview(blackOut);
         blackOut.animation.makeAlpha(1).animate(transitionTime);
         
-        newInsideNoteMenu = InsideNoteMenu(frame: CGRectMake(40, (self.window?.frame.height)!+75, (self.window?.frame.width)! - 80,200));
+        newInsideNoteMenu = InsideNoteMenu(frame: CGRectMake(40, (self.window?.frame.height)!-20, (self.window?.frame.width)! - 80,305));
         newInsideNoteMenu.layer.zPosition = 100000
         self.window?.addSubview(newInsideNoteMenu)
         newInsideNoteMenu.animation.moveY(-350).easeInOut.animate(transitionTime)

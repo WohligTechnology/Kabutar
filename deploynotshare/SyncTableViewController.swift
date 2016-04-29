@@ -65,10 +65,12 @@ class SyncTableViewController: UITableViewController {
                     print("Note localtoserver")
                     self.notesobj.servertolocal{(json: JSON) -> () in
                         print("Note servertolocal")
+                        print(isNoteSyncOn)
                         self.folderobj.localtoserver{(json: JSON) -> () in
                             print("Folder localtoserver")
                             self.folderobj.servertolocal{(json: JSON) -> () in
                                 print("Folder servertolocal")
+                                print(isFolderSyncOn)
                                 config.invokeAlertMethod("Sync",msgBody: "Sync Successful",delegate:"")
                                 
                             }}

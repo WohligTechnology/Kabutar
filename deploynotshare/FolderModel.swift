@@ -34,7 +34,7 @@ public class Folder {
             t.column(modificationTime)
             t.column(order)
             t.column(serverID)
-        })
+            })
         
     }
     
@@ -47,6 +47,9 @@ public class Folder {
     
     func find() -> AnySequence<Row>  {
         return try! db.prepare(folder.filter(creationTime != 0).order(id.desc))
+    }
+    func countFolder() -> Int {
+        return try! db.scalar(folder.filter(creationTime != 0).count)
     }
     
     func findOne(id2:Int64) -> Row?  {
@@ -74,7 +77,7 @@ public class Folder {
     
     func edit(name2:String,id2:String) -> AnySequence<Row>  {
         let date = NSDate().timeIntervalSince1970
-
+        
         let id3 = strtoll(id2,nil,10)
         let fol = folder.filter(id == id3)
         try! db.run(fol.update(name <- name2, modificationTime <- Int64(date)))
@@ -121,10 +124,10 @@ public class Folder {
         let fol = folder.filter(id == id3)
         try! db.run(fol.update(serverID <- serverid2))
     }
-
+    
     func delete(id2:String) -> AnySequence<Row>  {
         let date = NSDate().timeIntervalSince1970
-
+        
         let id3 = strtoll(id2,nil,10)
         let fol = folder.filter(id == id3)
         try! db.run(fol.update(name <- "", modificationTime <- Int64(date), creationTime <- 0))
@@ -149,64 +152,59 @@ public class Folder {
     
     func servertolocal(completion : ((JSON)->Void)) {
         if(config.isConfigNet()){
-
-        let ServerDateFormatter = NSDateFormatter()
-        ServerDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        var ServerToLocal = ServerDateFormatter.stringFromDate(NSDate( timeIntervalSince1970: NSTimeInterval( strtoll(config.get("folder_server_to_local"),nil,10) ) ))
-        
-        
-        if(ServerToLocal == "")
-        {
-            ServerToLocal = "1970-01-01 00:00:00";
-        }
-        let params = ["modifytime": ServerToLocal,
-        "user":config.get("user_id")]
-        
-        request.POST(ServerURL+"folder/servertolocal", parameters: params, completionHandler: {(response: HTTPResponse) in
             
-            dispatch_async(dispatch_get_main_queue(),{
+            let ServerDateFormatter = NSDateFormatter()
+            ServerDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             
-            let json = JSON(data: response.responseObject as! NSData)
-                        for (key,subJson):(String, JSON) in json {
-                //Do something you want
-                
-                
-                if(subJson["_id"] != nil)
-                {
-//                    print("Inside 1");
-                    if(subJson["creationtime"].string == "")
-                    {
-                        self.deleteServer(subJson["_id"].string!)
-                    }
-                    else {
-//                        print("Inside 2")
-                        self.syncSave(subJson["_id"].string!, creationTime2: subJson["creationtime"].string!, modificationTime2: subJson["modifytime"].string!, order2: subJson["order"].string!, name2: subJson["name"].string!)
-                    }
-                    
-                    // change modify time to server
-                    let dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                    //dateFormatter.timeZone = NSTimeZone(name: "UTC")
-                    let modval = dateFormatter.dateFromString(subJson["modifytime"].string!)! as NSDate
-                    
-                    config.set("folder_server_to_local", value2: String(modval.timeIntervalSince1970))
-                }
-                
-                
+            var ServerToLocal = ServerDateFormatter.stringFromDate(NSDate( timeIntervalSince1970: NSTimeInterval( strtoll(config.get("folder_server_to_local"),nil,10) ) ))
+            
+            
+            if(ServerToLocal == "")
+            {
+                ServerToLocal = "1970-01-01 00:00:00";
             }
+            let params = ["modifytime": ServerToLocal,
+                          "user":config.get("user_id")]
             
+            request.POST(ServerURL+"folder/servertolocal", parameters: params, completionHandler: {(response: HTTPResponse) in
+                
+                dispatch_async(dispatch_get_main_queue(),{
+                    
+                    let json = JSON(data: response.responseObject as! NSData)
+                    for (key,subJson):(String, JSON) in json {
+                        //Do something you want
+                        
+                        
+                        if(subJson["_id"] != nil)
+                        {
+                            //                    print("Inside 1");
+                            if(subJson["creationtime"].string == "")
+                            {
+                                self.deleteServer(subJson["_id"].string!)
+                            }
+                            else {
+                                //                        print("Inside 2")
+                                self.syncSave(subJson["_id"].string!, creationTime2: subJson["creationtime"].string!, modificationTime2: subJson["modifytime"].string!, order2: subJson["order"].string!, name2: subJson["name"].string!)
+                            }
+                            
+                            // change modify time to server
+                            let dateFormatter = NSDateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                            //dateFormatter.timeZone = NSTimeZone(name: "UTC")
+                            let modval = dateFormatter.dateFromString(subJson["modifytime"].string!)! as NSDate
+                            
+                            config.set("folder_server_to_local", value2: String(modval.timeIntervalSince1970))
+                        }
+                    }
+//                    self.localtoserver{(json:JSON) -> () in}
+                })
+            })
+            completion(1)
+            isFolderSyncOn = false;
             
-            self.localtoserver{(json:JSON) -> () in}
-        })
-        
-        })
-        completion(1)
-            isFolderSyncOn = true;
-
         }else{
-            }
-       
+        }
+        
         
     }
     
@@ -215,64 +213,65 @@ public class Folder {
         if(config.isConfigNet()){
             if(isFolderSyncOn)
             {
+                print("is Folder sync on")
                 
             }
             else
             {
                 isFolderSyncOn = true;
-        let rows = getFolderStatementToSync()
-        for row in rows {
-            let ServerDateFormatter = NSDateFormatter()
-            ServerDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            
-            //ServerDateFormatter.dateStyle = .FullStyle
-            //ServerDateFormatter.timeStyle = .FullStyle
-            //ServerDateFormatter.timeZone = NSTimeZone(name: "UTC")
-
-            let rowid = String(row[0] as! Int64!)
-            let creationDate2 =  NSDate(timeIntervalSince1970: NSTimeInterval(row[2] as! Int64!))
-            var creationDateStr = ServerDateFormatter.stringFromDate(creationDate2)
-            let checkcreation = row[2] as! Int64!
-          
-            if(checkcreation == 0)
-            {
-                creationDateStr = "0"
-            }
-            let mofificationDate2  = NSDate(timeIntervalSince1970: NSTimeInterval(row[3] as! Int64!))
-            
-            let params = ["name":row[1] as! String!,
-                "creationtime":  creationDateStr ,
-                "modifytime": ServerDateFormatter.stringFromDate(mofificationDate2) ,
-                "order":String(row[4] as! Int64!),
-                "user":config.get("user_id"),
-                "_id":row[5] as! String! ]
-            
-           
-            
-            request.POST(ServerURL+"folder/localtoserver", parameters: params, completionHandler: {(response: HTTPResponse) in
-                dispatch_async(dispatch_get_main_queue(),{
-               
-                let json = JSON(data: response.responseObject as! NSData)
-                
-                config.set("folder_local_to_server",value2: String(row[3] as! Int64!))
-                
-                if(json["id"].string != nil)
-                {
+                let rows = getFolderStatementToSync()
+                for row in rows {
+                    let ServerDateFormatter = NSDateFormatter()
+                    ServerDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                     
-                    self.setServerId(json["id"].string!,id2:rowid)
+                    //ServerDateFormatter.dateStyle = .FullStyle
+                    //ServerDateFormatter.timeStyle = .FullStyle
+                    //ServerDateFormatter.timeZone = NSTimeZone(name: "UTC")
                     
-                    if(creationDateStr == "0")
+                    let rowid = String(row[0] as! Int64!)
+                    let creationDate2 =  NSDate(timeIntervalSince1970: NSTimeInterval(row[2] as! Int64!))
+                    var creationDateStr = ServerDateFormatter.stringFromDate(creationDate2)
+                    let checkcreation = row[2] as! Int64!
+                    
+                    if(checkcreation == 0)
                     {
-                        self.delete(rowid)
+                        creationDateStr = "0"
                     }
+                    let mofificationDate2  = NSDate(timeIntervalSince1970: NSTimeInterval(row[3] as! Int64!))
+                    
+                    let params = ["name":row[1] as! String!,
+                                  "creationtime":  creationDateStr ,
+                                  "modifytime": ServerDateFormatter.stringFromDate(mofificationDate2) ,
+                                  "order":String(row[4] as! Int64!),
+                                  "user":config.get("user_id"),
+                                  "_id":row[5] as! String! ]
+                    
+                    
+                    if(config.get("folder_local_to_server") != ServerDateFormatter.stringFromDate(mofificationDate2)){
+                        request.POST(ServerURL+"folder/localtoserver", parameters: params, completionHandler: {(response: HTTPResponse) in
+                            dispatch_async(dispatch_get_main_queue(),{
+                                
+                                let json = JSON(data: response.responseObject as! NSData)
+                                
+                                config.set("folder_local_to_server",value2: String(row[3] as! Int64!))
+                                
+                                if(json["id"].string != nil)
+                                {
+                                    
+                                    self.setServerId(json["id"].string!,id2:rowid)
+                                    
+                                    if(creationDateStr == "0")
+                                    {
+                                        self.delete(rowid)
+                                    }
+                                }
+                                
+                            })
+                        })
+                    }
+                    
                 }
-
-                })
-                
-            })
-        
-        }
-        completion(1)
+                completion(1)
             }
         }else{
             config.invokeAlertMethod("Sync",msgBody: "Can not Sync. Check your Sync Settings",delegate: "")
