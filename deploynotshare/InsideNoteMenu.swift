@@ -128,6 +128,7 @@ class InsideNoteMenu: UIView {
     @IBAction func deleteNote(sender: AnyObject) {
         sortnewview.removeFromSuperview()
         blackOut.removeFromSuperview()
+        print("deleted clicked")
         showdeletenote()
     }
     var addShareView: ShareView!
@@ -199,6 +200,7 @@ class InsideNoteMenu: UIView {
         let alertAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
         }
         let alertdelete = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+            print("delete button clicked")
             self.notesobj.delete(selectedNoteId)
             GDetailView.navigationController?.popViewControllerAnimated(true)
         }

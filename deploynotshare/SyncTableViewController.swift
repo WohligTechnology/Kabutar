@@ -61,20 +61,23 @@ class SyncTableViewController: UITableViewController {
         }else{
             if config.isConfigNet() {
                 print("in side if......")
-                self.notesobj.localtoserver{(json: JSON) -> () in
+                dispatch_async(dispatch_get_main_queue(),{
+
+                self.folderobj.localtoserver{(json: JSON) -> () in
                     print("Note localtoserver")
-                    self.notesobj.servertolocal{(json: JSON) -> () in
+                    self.folderobj.servertolocal{(json: JSON) -> () in
                         print("Note servertolocal")
                         print(isNoteSyncOn)
-                        self.folderobj.localtoserver{(json: JSON) -> () in
+                        self.notesobj.localtoserver{(json: JSON) -> () in
                             print("Folder localtoserver")
-                            self.folderobj.servertolocal{(json: JSON) -> () in
+                            self.notesobj.servertolocal{(json: JSON) -> () in
                                 print("Folder servertolocal")
                                 print(isFolderSyncOn)
                                 config.invokeAlertMethod("Sync",msgBody: "Sync Successful",delegate:"")
                                 
                             }}
                     }}
+            })
             }else{
                 config.invokeAlertMethod("Sync",msgBody: "Can not Sync. Check your Sync Settings",delegate:"")
             }

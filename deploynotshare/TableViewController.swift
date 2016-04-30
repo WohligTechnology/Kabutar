@@ -326,6 +326,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                 if config.isConfigNet(){
                 self.folderobj.localtoserver{(json: JSON) -> () in
                     self.folderobj.servertolocal{(json: JSON) -> () in
+                        self.notesobj.localtoserver{(json: JSON) -> () in
+                            self.notesobj.servertolocal{(json: JSON) -> () in
                         print(strtoll(self.folderId[indexPath.row] as! String,nil,10))
                         let onenote = self.folderobj.findOne(strtoll(self.folderId[indexPath.row] as! String,nil,10))
                         print(onenote)
@@ -333,6 +335,8 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
                             noInternet()
                         }else{
                             self.sharefolder(onenote![self.folderobj.serverID])
+                        }
+                            }
                         }
 
                     }

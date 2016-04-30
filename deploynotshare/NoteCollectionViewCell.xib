@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoteCollectionUIView" customModule="deploynotshare" customModuleProvider="target">
             <connections>
                 <outlet property="View" destination="iN0-l3-epB" id="Ixz-28-fGp"/>
+                <outlet property="cardNoteId" destination="ump-kl-QyM" id="bdD-Ya-UQH"/>
                 <outlet property="descLabel" destination="d21-7l-CYN" id="PGE-Kd-3xa"/>
                 <outlet property="moreBtn" destination="7h3-bV-ZRs" id="ZXb-au-SnD"/>
                 <outlet property="timeLabel" destination="4gM-Hm-uNn" id="NOd-sK-LY8"/>
@@ -68,7 +69,16 @@
                         <constraint firstAttribute="width" constant="20" id="tzy-t8-7Po"/>
                     </constraints>
                     <state key="normal" image="ic_option"/>
+                    <connections>
+                        <action selector="addMore:" destination="-1" eventType="touchUpInside" id="Jmo-y4-XHN"/>
+                    </connections>
                 </button>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ump-kl-QyM">
+                    <rect key="frame" x="104" y="161" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.3151531159" green="0.89278149959999997" blue="0.91987179490000004" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>

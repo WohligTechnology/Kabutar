@@ -25,6 +25,8 @@
 		366F1F151CCE458A003AD42A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 366F1F141CCE458A003AD42A /* SystemConfiguration.framework */; };
 		36CB87E91C633FF7009125D6 /* AgendaMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 36CB87E81C633FD2009125D6 /* AgendaMedium.otf */; };
 		36D130DB1C9049FB00048AE9 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D130DA1C9049FB00048AE9 /* NotificationViewController.swift */; };
+		36DB45B31CD479E800D4C419 /* CardNoteMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DB45B21CD479E800D4C419 /* CardNoteMenu.xib */; };
+		36DB45B51CD47B0700D4C419 /* CardNoteMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DB45B41CD47B0700D4C419 /* CardNoteMenu.swift */; };
 		36E4166F1BEB1266007EE385 /* NoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E4166E1BEB1266007EE385 /* NoteCollectionViewCell.xib */; };
 		36E416711BEB12E0007EE385 /* NoteCollectionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E416701BEB12E0007EE385 /* NoteCollectionUIView.swift */; };
 		36E416731BEB35EE007EE385 /* NoteFooterAdd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E416721BEB35EE007EE385 /* NoteFooterAdd.xib */; };
@@ -166,6 +168,8 @@
 		366F1F141CCE458A003AD42A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		36CB87E81C633FD2009125D6 /* AgendaMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AgendaMedium.otf; sourceTree = "<group>"; };
 		36D130DA1C9049FB00048AE9 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		36DB45B21CD479E800D4C419 /* CardNoteMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardNoteMenu.xib; sourceTree = "<group>"; };
+		36DB45B41CD47B0700D4C419 /* CardNoteMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardNoteMenu.swift; sourceTree = "<group>"; };
 		36E4166E1BEB1266007EE385 /* NoteCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteCollectionViewCell.xib; sourceTree = "<group>"; };
 		36E416701BEB12E0007EE385 /* NoteCollectionUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCollectionUIView.swift; sourceTree = "<group>"; };
 		36E416721BEB35EE007EE385 /* NoteFooterAdd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteFooterAdd.xib; sourceTree = "<group>"; };
@@ -342,6 +346,15 @@
 				364EA4601BF1B37A001B7161 /* NoteElementModel.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		36DB45B61CD47B8000D4C419 /* CardNoteMenu */ = {
+			isa = PBXGroup;
+			children = (
+				36DB45B21CD479E800D4C419 /* CardNoteMenu.xib */,
+				36DB45B41CD47B0700D4C419 /* CardNoteMenu.swift */,
+			);
+			name = CardNoteMenu;
 			sourceTree = "<group>";
 		};
 		36F568281C08372000CBE128 /* DeleteSection */ = {
@@ -692,6 +705,7 @@
 				43344B201BF737BF00AC4802 /* ColorPaper */,
 				43344B211BF737CC00AC4802 /* MessageView */,
 				437BCA371C980AB30069F00E /* SharePopup */,
+				36DB45B61CD47B8000D4C419 /* CardNoteMenu */,
 			);
 			name = UIViews;
 			sourceTree = "<group>";
@@ -900,6 +914,7 @@
 				36E416731BEB35EE007EE385 /* NoteFooterAdd.xib in Resources */,
 				7827219B1BFDAC8C00241D44 /* delete@3x.png in Resources */,
 				36344E711BF32EAC0053EDCD /* ElementSketch.xib in Resources */,
+				36DB45B31CD479E800D4C419 /* CardNoteMenu.xib in Resources */,
 				36344E731BF33B2F0053EDCD /* ElementSketchFooter.xib in Resources */,
 				C2F2EE0B1C65BAF200B622B6 /* AgendaBold.otf in Resources */,
 				43921D551BE0BD940032DE28 /* SortView.xib in Resources */,
@@ -1029,6 +1044,7 @@
 				437BCA341C980A740069F00E /* SharePopup.swift in Sources */,
 				36F114701BF078CC0023E2DB /* ConfigModel.swift in Sources */,
 				4395A6411BF9AEA600EE4F10 /* AboutTableViewController.swift in Sources */,
+				36DB45B51CD47B0700D4C419 /* CardNoteMenu.swift in Sources */,
 				43BE98E81BF220DE0006CBC4 /* ColorPaper.swift in Sources */,
 				C25FD0F21C64EA50002F38BF /* NotificationView.swift in Sources */,
 				434E77781BE34B4800684C08 /* SlideMenuController.swift in Sources */,

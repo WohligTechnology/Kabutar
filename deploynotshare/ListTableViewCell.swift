@@ -30,6 +30,7 @@ class ListTableViewCell: MGSwipeTableCell {
     var userid = "";
     var ntfobj = Notification()
     var noteobj = Note()
+    var folderobj = Folder()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -66,8 +67,12 @@ class ListTableViewCell: MGSwipeTableCell {
                 UIApplication.sharedApplication().applicationIconBadgeNumber = Int(json["count"].stringValue)!
             }
             
-            self.noteobj.localtoserver{(json: JSON) -> () in
-                self.noteobj.servertolocal{(json: JSON) -> () in
+            self.folderobj.localtoserver{(json: JSON) -> () in
+                self.folderobj.servertolocal{(json: JSON) -> () in
+                    self.noteobj.localtoserver{(json: JSON) -> () in
+                        self.noteobj.servertolocal{(json: JSON) -> () in
+                        }
+                    }
                 }
             }
             GlobalNotificationView.getAllNotification()

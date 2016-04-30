@@ -473,11 +473,11 @@ public class Note {
                 
             }
             }
-            
+                completion(1)
+                isNoteSyncOn = false;
             })
         })
-            completion(1)
-            isNoteSyncOn = false;
+            
         }
         catch {
 //            print("ERROR")

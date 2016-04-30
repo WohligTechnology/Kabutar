@@ -205,9 +205,12 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         insideView.titleLabel.font = UIFont(name: "Agenda", size: 14)
         insideView.descLabel.font = UIFont(name: "Agenda", size: 14)
         insideView.timeLabel.font = UIFont(name: "Agenda", size: 11)
-        
+
+        insideView.timeLabel.font = UIFont(name: "Agenda", size: 11)
+
         insideView.titleLabel.text = notesTitle[indexPath.row] as? String
         insideView.descLabel.text = (noteDesc[indexPath.row] as? String?)!
+        insideView.cardNoteId.text = String(notesId[indexPath.row])
         let moddate = NSDate(timeIntervalSince1970: modificationTime[indexPath.row] as! Double)
         
         let dateFormatter = NSDateFormatter()

@@ -110,12 +110,14 @@ public class Folder {
     }
     
     func  getIdFromServerID(serverID2: String) -> Int64 {
+        print(serverID2)
         if(serverID2 == "0")
         {
             return 0
         }
         let query = folder.filter(serverID == serverID2)
         let val = db.pluck( query );
+        print(val)
         return val![id]
     }
     
@@ -154,9 +156,15 @@ public class Folder {
         if(config.isConfigNet()){
             
             let ServerDateFormatter = NSDateFormatter()
+            var timeprob = String()
             ServerDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            if config.get("folder_server_to_local") == "" {
+                timeprob = String(Double(86400000))
+            }else{
+                timeprob = String(Double(config.get("folder_server_to_local"))! - 86400000)
+            }
             
-            var ServerToLocal = ServerDateFormatter.stringFromDate(NSDate( timeIntervalSince1970: NSTimeInterval( strtoll(config.get("folder_server_to_local"),nil,10) ) ))
+            var ServerToLocal = ServerDateFormatter.stringFromDate(NSDate( timeIntervalSince1970: NSTimeInterval( strtoll(String(timeprob),nil,10) ) ))
             
             
             if(ServerToLocal == "")
@@ -171,6 +179,7 @@ public class Folder {
                 dispatch_async(dispatch_get_main_queue(),{
                     
                     let json = JSON(data: response.responseObject as! NSData)
+                    print(json)
                     for (key,subJson):(String, JSON) in json {
                         //Do something you want
                         
@@ -184,7 +193,11 @@ public class Folder {
                             }
                             else {
                                 //                        print("Inside 2")
+                                
+                                if(config.get("folder_server_to_local") != subJson["modifytime"].string!){
+                                    
                                 self.syncSave(subJson["_id"].string!, creationTime2: subJson["creationtime"].string!, modificationTime2: subJson["modifytime"].string!, order2: subJson["order"].string!, name2: subJson["name"].string!)
+                                }
                             }
                             
                             // change modify time to server
@@ -197,10 +210,11 @@ public class Folder {
                         }
                     }
 //                    self.localtoserver{(json:JSON) -> () in}
+                    completion(1)
+                    isFolderSyncOn = false;
                 })
             })
-            completion(1)
-            isFolderSyncOn = false;
+            
             
         }else{
         }
