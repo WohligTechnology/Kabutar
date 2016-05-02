@@ -88,7 +88,9 @@ var emailsText = ""
     func showShareEmail(){
         let createalert = UIAlertController(title: "Share Note", message: "Emails to Share", preferredStyle: UIAlertControllerStyle.Alert)
         let createcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
-//            innotepage
+            if(innotepage == 1){
+//                GDetailView.
+            }else{
             switch(self.checkstatus){
             case "2" :
                 let mainview = ViewForNotes as! Listview
@@ -98,10 +100,13 @@ var emailsText = ""
                 let mainview = ViewForNotes as! Detailview
                 mainview.closeShareView(nil)
                 break
+            case "3" :
+                                break
             default:
                 let mainview = ViewForNotes as! Detailview
                 mainview.closeShareView(nil)
                 break
+            }
             }
             
         }
@@ -126,6 +131,7 @@ var emailsText = ""
                     }
                 }
                 print(self.checkvalidation);
+                print(selectedNoteId)
                 if(self.checkvalidation){
                     dispatch_async(dispatch_get_main_queue(),{
                         var sendemailto = fullNameArr![0]
@@ -136,7 +142,9 @@ var emailsText = ""
                                 print(onenote![self.noteobj.serverid]!)
                                 self.noteobj.shareNote(onenote![self.noteobj.serverid]!, email: sendemailto, completion: self.resShareNote)
                     })
-                    
+                    if (innotepage == 1){
+                        
+                    }else{
                     switch(self.checkstatus){
                     case "2" :
                         let mainview = ViewForNotes as! Listview
@@ -146,10 +154,13 @@ var emailsText = ""
                         let mainview = ViewForNotes as! Detailview
                         mainview.closeShareView(nil)
                         break
+                    case "3" :
+                                                break
                     default:
                         let mainview = ViewForNotes as! Detailview
                         mainview.closeShareView(nil)
                         break
+                    }
                     }
 
                     
@@ -169,10 +180,10 @@ var emailsText = ""
             self.emaillist = shareemaillist
         }
         //        let mainview = ViewForNotes as! Listview
-//        if innotepage == 1 {
-//            let mainview = ViewForNotes as! GD
-//            mainview.presentViewController(createalert, animated: true, completion: nil)
-//        }
+        if (innotepage == 1) {
+            
+            GDetailView.presentViewController(createalert, animated: true, completion: nil)
+        }else{
         
         switch(checkstatus){
         case "2" :
@@ -191,6 +202,7 @@ var emailsText = ""
             let mainview = ViewForNotes as! Detailview
             mainview.presentViewController(createalert, animated: true, completion: nil)
             break
+        }
         }
     }
     func showShareSocial(datatosend : String){

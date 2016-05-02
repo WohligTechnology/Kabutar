@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class InsideNoteMenu: UIView {
     
     var notesobj = Note()
     var addMoveToFolder: MoveToFolder!
-
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -31,7 +32,7 @@ class InsideNoteMenu: UIView {
         let nib = UINib(nibName: "InsideNoteMenu", bundle: bundle)
         ViewForNotes = self
         
-
+        
         sortnewview = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         //sortnewview.frame = bounds
         sortnewview.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)
@@ -39,9 +40,9 @@ class InsideNoteMenu: UIView {
         self.addSubview(sortnewview);
     }
     @IBAction func lockNote(sender: AnyObject) {
-
-                self.removeFromSuperview()
-                blackOut.removeFromSuperview()
+        
+        self.removeFromSuperview()
+        blackOut.removeFromSuperview()
         let oneNoteData = self.notesobj.findOne(Int64(config.get("note_id"))!)
         print("in lock button")
         print(oneNoteData)
@@ -64,32 +65,32 @@ class InsideNoteMenu: UIView {
             }
         }
         
-//        sortnewview.removeFromSuperview()
-//        blackOut.removeFromSuperview()
-//        print("lock clicked")
-//        let passcodemodal = GDetailView.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
-//        passcodemodal.setLock = selectedLock
-//        print("selected note id" + selectedNoteId)
-//        print("selected lock" + selectedLock)
-//        let realpasscode = config.get("passcode")
-//        if(realpasscode == ""){
-//            passcodemodal.lockValue = 0
-//            GDetailView.presentViewController(passcodemodal, animated: true, completion: nil)
-//        }else{
-//            passcodemodal.lockValue = 1
-//            if(Int(selectedLock) == 0){
-//                notesobj.changeLock(1,id2:selectedNoteId)
-//            }else{
-//                GDetailView.presentViewController(passcodemodal, animated: true, completion: nil)
-//            }
-//        }
+        //        sortnewview.removeFromSuperview()
+        //        blackOut.removeFromSuperview()
+        //        print("lock clicked")
+        //        let passcodemodal = GDetailView.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
+        //        passcodemodal.setLock = selectedLock
+        //        print("selected note id" + selectedNoteId)
+        //        print("selected lock" + selectedLock)
+        //        let realpasscode = config.get("passcode")
+        //        if(realpasscode == ""){
+        //            passcodemodal.lockValue = 0
+        //            GDetailView.presentViewController(passcodemodal, animated: true, completion: nil)
+        //        }else{
+        //            passcodemodal.lockValue = 1
+        //            if(Int(selectedLock) == 0){
+        //                notesobj.changeLock(1,id2:selectedNoteId)
+        //            }else{
+        //                GDetailView.presentViewController(passcodemodal, animated: true, completion: nil)
+        //            }
+        //        }
     }
     var addDateTimeView: DateTime!
     @IBAction func timebombOnNote(sender: AnyObject) {
         self.removeFromSuperview()
         blackOut.removeFromSuperview()
         innotepage = 1
-
+        
         datetimepopupType = "timebomb"
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
         self.addBlackView()
@@ -120,14 +121,27 @@ class InsideNoteMenu: UIView {
     @IBAction func moveNote(sender: AnyObject) {
         self.removeFromSuperview()
         blackOut.removeFromSuperview()
-        innotepage = 1
-        let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMove:")
-        self.addBlackView()
-        blackOut.addGestureRecognizer(blackOutTap)
-        blackOut.alpha = 0
-        GDetailView.view.addSubview(blackOut);
-        blackOut.animation.makeAlpha(1).animate(transitionTime);
-        showMoveNote()
+        let folderobj = Folder()
+        if(folderobj.countFolder() != 0){
+            innotepage = 1
+            let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMove:")
+            self.addBlackView()
+            blackOut.addGestureRecognizer(blackOutTap)
+            blackOut.alpha = 0
+            GDetailView.view.addSubview(blackOut);
+            blackOut.animation.makeAlpha(1).animate(transitionTime);
+            showMoveNote()
+        }else{
+            let editalert = UIAlertController(title: "Move", message: "No Folder Available.", preferredStyle: UIAlertControllerStyle.Alert)
+            let eidtcancel = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+                
+            }
+            editalert.addAction(eidtcancel)
+            
+            GDetailView.presentViewController(editalert, animated: true) { () -> Void in
+                
+            }
+        }
     }
     @IBAction func deleteNote(sender: AnyObject) {
         self.removeFromSuperview()
@@ -137,6 +151,7 @@ class InsideNoteMenu: UIView {
     }
     var addShareView: ShareView!
     @IBAction func shareNote(sender: AnyObject) {
+        innotepage = 1
         if(!self.notesobj.isConnectedToNetwork()){
             print("empty y......")
             let alert = UIAlertController(title: "Alert", message: "Can not share this note without sync OR No Internet Connection.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -144,6 +159,17 @@ class InsideNoteMenu: UIView {
             alert.addAction(alertAction)
             GDetailView.presentViewController(alert, animated: true) { () -> Void in }
         } else {
+            if(config.isConfigNet()){
+                
+                self.notesobj.localtoserver{(json: JSON) -> () in
+                    self.notesobj.servertolocal{(json: JSON) -> () in
+                        //                            let onenote = self.notesobj.findOne(strtoll(selectedNoteId,nil,10));
+                        //                            print(onenote)
+                        //                            print(onenote![self.notesobj.serverid]!)
+                        //                        self.noteobj.shareNote(onenote![self.noteobj.serverid]!, email: sendemailto, completion: self.resShareNote)
+                    }
+                }
+            }
             blackOut.removeFromSuperview()
             let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShare:")
             self.addBlackView()
@@ -219,5 +245,5 @@ class InsideNoteMenu: UIView {
         GDetailView.view.addSubview(addMoveToFolder)
         //GDetailView.navigationController?.popViewControllerAnimated(true)
     }
-
+    
 }

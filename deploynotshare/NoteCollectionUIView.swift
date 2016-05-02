@@ -59,7 +59,7 @@ class NoteCollectionUIView: UIView {
     }
 
     @IBAction func addMore(sender: AnyObject) {
-        print(selectedId)
+        print(cardNoteId.text)
         selectedNoteId = cardNoteId.text!
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMenuTap:")
         self.addBlackView()

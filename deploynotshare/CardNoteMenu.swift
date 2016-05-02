@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+import SwiftyJSON
+var noteInsideCard:CardNoteMenu!
+var folderobj = Folder()
 class CardNoteMenu: UIView {
     
     var notesobj = Note()
@@ -31,7 +33,9 @@ class CardNoteMenu: UIView {
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "CardNoteMenu", bundle: bundle)
-        
+//        ViewForNotes = self
+        noteInsideCard = self
+
         
         sortnewview = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         //sortnewview.frame = bounds
@@ -89,6 +93,7 @@ class CardNoteMenu: UIView {
     @IBAction func timebombOnNote(sender: AnyObject) {
         self.removeFromSuperview()
         blackOut.removeFromSuperview()
+        innotepage = 0
         datetimepopupType = "timebomb"
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
         self.addBlackView()
@@ -104,7 +109,7 @@ class CardNoteMenu: UIView {
     @IBAction func reminderOnNote(sender: AnyObject) {
         self.removeFromSuperview()
         blackOut.removeFromSuperview()
-        innotepage = 1
+        innotepage = 0
         datetimepopupType = "reminder"
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeRemainder:")
         self.addBlackView()
@@ -117,8 +122,10 @@ class CardNoteMenu: UIView {
         mainview.view.addSubview(newDateTime)
     }
     @IBAction func moveNote(sender: AnyObject) {
+        
         self.removeFromSuperview()
         blackOut.removeFromSuperview()
+        if(folderobj.countFolder() != 0){
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMove:")
         self.addBlackView()
         blackOut.addGestureRecognizer(blackOutTap)
@@ -126,6 +133,17 @@ class CardNoteMenu: UIView {
         mainview.view.addSubview(blackOut);
         blackOut.animation.makeAlpha(1).animate(transitionTime);
         showMoveNote()
+        }else{
+            let editalert = UIAlertController(title: "Move", message: "No Folder Available.", preferredStyle: UIAlertControllerStyle.Alert)
+            let eidtcancel = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+                
+            }
+            editalert.addAction(eidtcancel)
+            
+            mainview.presentViewController(editalert, animated: true) { () -> Void in
+                
+            }
+        }
     }
     @IBAction func deleteNote(sender: AnyObject) {
         self.removeFromSuperview()
@@ -142,6 +160,18 @@ class CardNoteMenu: UIView {
             alert.addAction(alertAction)
             mainview.presentViewController(alert, animated: true) { () -> Void in }
         } else {
+            if(config.isConfigNet()){
+                
+                self.notesobj.localtoserver{(json: JSON) -> () in
+                    self.notesobj.servertolocal{(json: JSON) -> () in
+                        //                            let onenote = self.notesobj.findOne(strtoll(selectedNoteId,nil,10));
+                        //                            print(onenote)
+                        //                            print(onenote![self.notesobj.serverid]!)
+                        //                        self.noteobj.shareNote(onenote![self.noteobj.serverid]!, email: sendemailto, completion: self.resShareNote)
+                    }
+                }
+            }
+            
             blackOut.removeFromSuperview()
             let blackOutTap = UITapGestureRecognizer(target: self,action: "closeShare:")
             self.addBlackView()
@@ -206,6 +236,8 @@ class CardNoteMenu: UIView {
             print(selectedNoteId)
             self.notesobj.delete(selectedNoteId)
             self.mainview.navigationController?.popViewControllerAnimated(true)
+            self.mainview.getAllNotes()
+            self.mainview.collectionView.reloadData()
         }
         alert.addAction(alertAction)
         alert.addAction(alertdelete)

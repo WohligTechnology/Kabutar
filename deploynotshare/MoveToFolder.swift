@@ -92,9 +92,12 @@ class MoveToFolder: UIView,UITableViewDataSource,UITableViewDelegate{
             mainview.listView.reloadData()
             mainview.closeMoveToFolder(nil);
         } else if(checkstatus == "3"){
-//            let mainview = ViewForNotes as! cardViewController
-//            moveToSelectedFolder(selectedNoteId,folderID: folderId[indexPath.row] as! String)
-//            mainview.closeMoveToFolder(nil);
+//            let mainview = ViewForNotes as! CardNoteMenu
+            moveToSelectedFolder(selectedNoteId,folderID: folderId[indexPath.row] as! String)
+            noteInsideCard.closeMove(nil);
+            let mainviewmain = ViewForNotes as! cardViewController
+            mainviewmain.getAllNotes()
+            mainviewmain.collectionView.reloadData()
         } else if(checkstatus == "1" || checkstatus == ""){
             let mainview = ViewForNotes as! Detailview
             moveToSelectedFolder(selectedNoteId,folderID: folderId[indexPath.row] as! String)

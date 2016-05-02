@@ -112,7 +112,10 @@ class DateTime: UIView {
             } else if(checkstatus == "1"){
                 let mainview = ViewForNotes as! Detailview
                 mainview.closeTimeBomb(nil);
-            }
+            } else if(checkstatus == "3"){
+                noteInsideCard.closeTimeBomb(nil)
+                
+                }
             }
         })
     }

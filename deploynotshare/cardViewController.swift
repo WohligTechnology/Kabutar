@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import DKChainableAnimationKit
 import UIColor_Hex_Swift
+//var CNoteView: 
 
 
 class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, UICollectionViewDataSource ,UICollectionViewDelegate {
@@ -250,7 +251,9 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
             
         }
         else{
-            selectedNoteId = self.notesId[indexPath.row] as! String
+            print("on note card click")
+            print(self.notesId[indexPath.row])
+            selectedNoteId = String(self.notesId[indexPath.row])
             selectedNoteIndex = Int(indexPath.row)
             
             let passcodemodal = self.storyboard?.instantiateViewControllerWithIdentifier("PasswordViewController") as! PasswordViewController
