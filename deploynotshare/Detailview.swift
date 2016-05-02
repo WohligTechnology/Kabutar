@@ -34,6 +34,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
+        innotepage = 0
                 self.getAllNotes()
                 self.detailtableview.reloadData()
 
@@ -43,6 +44,7 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         super.viewDidLoad()
         
         ViewForNotes = self;
+        innotepage = 0
         
         let note2 = Note()
         
@@ -473,8 +475,6 @@ class Detailview: UIViewController,UITableViewDelegate,UITableViewDataSource, UI
         })
         
     }
-    
-    
     
     func closeMoveToFolder(sender:UIGestureRecognizer?){
         self.addMoveToFolder.animation.makeY((self.view.frame.height)).easeInOut.animateWithCompletion(transitionTime, {

@@ -35,6 +35,8 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
+        innotepage = 0
+
 //        if(notesobj.isConnectedToNetwork())
 //        {
 //        dispatch_async(dispatch_get_main_queue(),{
@@ -52,6 +54,7 @@ class Listview: UIViewController,UITableViewDataSource,UITableViewDelegate,UISea
     override func viewDidLoad() {
         super.viewDidLoad()
         ViewForNotes = self;
+        innotepage = 0
 
         
         getAllNotes()

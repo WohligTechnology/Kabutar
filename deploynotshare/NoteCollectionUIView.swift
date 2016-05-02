@@ -69,7 +69,7 @@ class NoteCollectionUIView: UIView {
         blackOut.animation.makeAlpha(1).animate(transitionTime);
         
         newCardNoteMenu = CardNoteMenu(frame: CGRectMake(40, (self.window?.frame.height)!-20, (self.window?.frame.width)! - 80,305));
-        newCardNoteMenu.layer.zPosition = 100000
+//        newCardNoteMenu.layer.zPosition = 100000
         self.window?.addSubview(newCardNoteMenu)
         newCardNoteMenu.animation.moveY(-350).easeInOut.animate(transitionTime)
 

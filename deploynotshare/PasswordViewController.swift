@@ -17,6 +17,7 @@ class PasswordViewController: UIViewController {
     @IBOutlet weak var fourthbox: UITextField!
     @IBOutlet weak var passwordText: UILabel!
     
+    @IBOutlet weak var buttonOne: UIButton!
     var lockValue = Int64()
     var setLock = String()
     var noteobj = Note()
@@ -26,7 +27,6 @@ class PasswordViewController: UIViewController {
 //    @IBOutlet var PassView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
 
         passwordText.text = "Touch ID Enter Passcode"
         self.firstbox.layer.borderWidth = 1.0

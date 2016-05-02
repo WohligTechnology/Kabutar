@@ -34,7 +34,10 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
     var activeCheckbox : ElementCheckBox!
     let titleView = UILabel()
     override func viewDidLoad() {
+//        ViewForNotes = self;
+
         super.viewDidLoad()
+
         
         initNavigationItemTitleView();
         print("in side note note data")
@@ -49,6 +52,7 @@ class detailViewController: UIViewController , UINavigationControllerDelegate,UI
         
         self.navigationItem.rightBarButtonItem = bc
         GDetailView = self
+
         
         
         vLayout = VerticalFitLayout(width: view.frame.width)

@@ -12,98 +12,11 @@
             <string>Agenda-Medium</string>
             <string>Agenda-Medium</string>
             <string>Agenda-Medium</string>
-            <string>Agenda-Medium</string>
-            <string>Agenda-Medium</string>
-            <string>Agenda-Medium</string>
-            <string>Agenda-Medium</string>
-            <string>Agenda-Medium</string>
-            <string>Agenda-Medium</string>
-            <string>Agenda-Medium</string>
         </mutableArray>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardNoteMenu" customModule="deploynotshare" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DQ5-lk-J3w">
-                    <rect key="frame" x="161" y="125" width="278" height="351"/>
-                    <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uRf-Vg-GB9">
-                            <rect key="frame" x="0.0" y="0.0" width="134" height="168"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTR-ZG-gBR">
-                                    <rect key="frame" x="0.0" y="0.0" width="134" height="24"/>
-                                    <color key="backgroundColor" red="1" green="0.40188042969999999" blue="0.4112429044" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
-                                    <state key="normal" title="OPTIONS" backgroundImage="PinkColor">
-                                        <color key="titleColor" red="0.98823529409999999" green="1" blue="0.98823529409999999" alpha="1" colorSpace="deviceRGB"/>
-                                    </state>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8b7-wx-WjM">
-                                    <rect key="frame" x="0.0" y="24" width="134" height="24"/>
-                                    <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
-                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="     Share" image="note_share_black">
-                                        <color key="titleColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxe-fE-3Vf">
-                                    <rect key="frame" x="0.0" y="48" width="134" height="24"/>
-                                    <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
-                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="     Delete" image="note_delete_black">
-                                        <color key="titleColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xac-D9-08M">
-                                    <rect key="frame" x="0.0" y="72" width="134" height="24"/>
-                                    <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
-                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="     Move" image="note_move_black">
-                                        <color key="titleColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNN-zN-PJb">
-                                    <rect key="frame" x="0.0" y="96" width="134" height="24"/>
-                                    <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
-                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="     Remind" image="note_remainder_black">
-                                        <color key="titleColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIr-cr-oW2">
-                                    <rect key="frame" x="0.0" y="120" width="134" height="24"/>
-                                    <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
-                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="     Timebomb" image="note_timebomb_black">
-                                        <color key="titleColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ax-Zd-GJs">
-                                    <rect key="frame" x="0.0" y="144" width="134" height="24"/>
-                                    <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="18"/>
-                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <state key="normal" title="     Lock" image="note_lock_black">
-                                        <color key="titleColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                </button>
-                            </subviews>
-                        </stackView>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="uRf-Vg-GB9" secondAttribute="trailing" id="3m4-v6-JEa"/>
-                        <constraint firstItem="uRf-Vg-GB9" firstAttribute="leading" secondItem="DQ5-lk-J3w" secondAttribute="leading" id="XYk-GY-1l6"/>
-                        <constraint firstItem="uRf-Vg-GB9" firstAttribute="top" secondItem="DQ5-lk-J3w" secondAttribute="top" id="azG-ZO-Jfc"/>
-                        <constraint firstAttribute="bottom" secondItem="uRf-Vg-GB9" secondAttribute="bottom" id="rRq-8u-9dJ"/>
-                    </constraints>
-                </view>
-            </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-        </view>
         <view contentMode="scaleToFill" id="Uyt-aL-0OB">
             <rect key="frame" x="0.0" y="0.0" width="278" height="351"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

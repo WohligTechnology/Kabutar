@@ -102,12 +102,17 @@ class DateTime: UIView {
         self.animation.makeY(height).easeInOut.animateWithCompletion(transitionTime, {
             self.removeFromSuperview()
             let checkstatus = config.get("note_view")
+            if(innotepage == 1){
+                let mainview = ViewForNotes as! InsideNoteMenu
+                mainview.closeTimeBomb(nil);
+            }else{
             if(checkstatus == "2"){
                 let mainview = ViewForNotes as! Listview
                 mainview.closeTimeBomb(nil);
             } else if(checkstatus == "1"){
                 let mainview = ViewForNotes as! Detailview
                 mainview.closeTimeBomb(nil);
+            }
             }
         })
     }

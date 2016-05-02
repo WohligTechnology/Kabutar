@@ -12,7 +12,7 @@ class CardNoteMenu: UIView {
     
     var notesobj = Note()
     var addMoveToFolder: MoveToFolder!
-    let mainview = ViewForNotes as! cardViewController
+    var mainview = ViewForNotes as! cardViewController
 
     
     
@@ -30,7 +30,7 @@ class CardNoteMenu: UIView {
     var sortnewview: UIView!
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)
-        let nib = UINib(nibName: "InsideNoteMenu", bundle: bundle)
+        let nib = UINib(nibName: "CardNoteMenu", bundle: bundle)
         
         
         sortnewview = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
@@ -41,7 +41,7 @@ class CardNoteMenu: UIView {
     }
     @IBAction func lockNote(sender: AnyObject) {
         
-        sortnewview.removeFromSuperview()
+        self.removeFromSuperview()
         blackOut.removeFromSuperview()
         let oneNoteData = notesobj.findOne(Int64(selectedNoteId)!)
         print("in lock button")
@@ -87,7 +87,7 @@ class CardNoteMenu: UIView {
     }
     var addDateTimeView: DateTime!
     @IBAction func timebombOnNote(sender: AnyObject) {
-        sortnewview.removeFromSuperview()
+        self.removeFromSuperview()
         blackOut.removeFromSuperview()
         datetimepopupType = "timebomb"
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
@@ -102,7 +102,7 @@ class CardNoteMenu: UIView {
     }
     var newDateTime: DateTime!
     @IBAction func reminderOnNote(sender: AnyObject) {
-        sortnewview.removeFromSuperview()
+        self.removeFromSuperview()
         blackOut.removeFromSuperview()
         innotepage = 1
         datetimepopupType = "reminder"
@@ -117,7 +117,7 @@ class CardNoteMenu: UIView {
         mainview.view.addSubview(newDateTime)
     }
     @IBAction func moveNote(sender: AnyObject) {
-        sortnewview.removeFromSuperview()
+        self.removeFromSuperview()
         blackOut.removeFromSuperview()
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMove:")
         self.addBlackView()
@@ -128,7 +128,7 @@ class CardNoteMenu: UIView {
         showMoveNote()
     }
     @IBAction func deleteNote(sender: AnyObject) {
-        sortnewview.removeFromSuperview()
+        self.removeFromSuperview()
         blackOut.removeFromSuperview()
         showdeletenote()
     }
@@ -152,7 +152,7 @@ class CardNoteMenu: UIView {
             addShareView = ShareView(frame: CGRectMake(0,0, width / 2 + 90, 200))
             addShareView.center = CGPointMake(mainview.view.frame.size.width / 2, mainview.view.frame.size.height / 2)
             mainview.view.addSubview(addShareView)
-            sortnewview.removeFromSuperview()
+            self.removeFromSuperview()
         }
     }
     

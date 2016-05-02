@@ -658,7 +658,7 @@ static inline CGFloat mgEaseInOutBounce(CGFloat t, CGFloat b, CGFloat c) {
         _swipeContentView = [[UIView alloc] initWithFrame:self.contentView.bounds];
         _swipeContentView.backgroundColor = [UIColor clearColor];
         _swipeContentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        _swipeContentView.layer.zPosition = 9;
+//        _swipeContentView.layer.zPosition = 9;
         [self.contentView addSubview:_swipeContentView];
     }
     return _swipeContentView;
@@ -698,7 +698,7 @@ static inline CGFloat mgEaseInOutBounce(CGFloat t, CGFloat b, CGFloat c) {
         [self fixRegionAndAccesoryViews];
         _swipeOverlay.hidden = YES;
         _swipeOverlay.backgroundColor = [self backgroundColorForSwipe];
-        _swipeOverlay.layer.zPosition = 10; //force render on top of the contentView;
+//        _swipeOverlay.layer.zPosition = 10; //force render on top of the contentView;
         _swipeView = [[UIImageView alloc] initWithFrame:_swipeOverlay.bounds];
         _swipeView.autoresizingMask =  UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _swipeView.contentMode = UIViewContentModeCenter;

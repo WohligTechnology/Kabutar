@@ -29,6 +29,7 @@ class InsideNoteMenu: UIView {
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "InsideNoteMenu", bundle: bundle)
+//        ViewForNotes = self
         
 
         sortnewview = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
@@ -38,10 +39,10 @@ class InsideNoteMenu: UIView {
         self.addSubview(sortnewview);
     }
     @IBAction func lockNote(sender: AnyObject) {
-        
-                sortnewview.removeFromSuperview()
+
+                self.removeFromSuperview()
                 blackOut.removeFromSuperview()
-        let oneNoteData = notesobj.findOne(Int64(config.get("note_id"))!)
+        let oneNoteData = self.notesobj.findOne(Int64(config.get("note_id"))!)
         print("in lock button")
         print(oneNoteData)
         
@@ -85,8 +86,10 @@ class InsideNoteMenu: UIView {
     }
     var addDateTimeView: DateTime!
     @IBAction func timebombOnNote(sender: AnyObject) {
-        sortnewview.removeFromSuperview()
+        self.removeFromSuperview()
         blackOut.removeFromSuperview()
+        innotepage = 1
+
         datetimepopupType = "timebomb"
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeTimeBomb:")
         self.addBlackView()
@@ -100,7 +103,7 @@ class InsideNoteMenu: UIView {
     }
     var newDateTime: DateTime!
     @IBAction func reminderOnNote(sender: AnyObject) {
-        sortnewview.removeFromSuperview()
+        self.removeFromSuperview()
         blackOut.removeFromSuperview()
         innotepage = 1
         datetimepopupType = "reminder"
@@ -115,7 +118,7 @@ class InsideNoteMenu: UIView {
         GDetailView.view.addSubview(newDateTime)
     }
     @IBAction func moveNote(sender: AnyObject) {
-        sortnewview.removeFromSuperview()
+        self.removeFromSuperview()
         blackOut.removeFromSuperview()
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMove:")
         self.addBlackView()
@@ -126,7 +129,7 @@ class InsideNoteMenu: UIView {
         showMoveNote()
     }
     @IBAction func deleteNote(sender: AnyObject) {
-        sortnewview.removeFromSuperview()
+        self.removeFromSuperview()
         blackOut.removeFromSuperview()
         print("deleted clicked")
         showdeletenote()
@@ -150,7 +153,7 @@ class InsideNoteMenu: UIView {
             addShareView = ShareView(frame: CGRectMake(0,0, width / 2 + 90, 200))
             addShareView.center = CGPointMake(GDetailView.view.frame.size.width / 2, GDetailView.view.frame.size.height / 2)
             GDetailView.view.addSubview(addShareView)
-            sortnewview.removeFromSuperview()
+            self.removeFromSuperview()
         }
     }
     

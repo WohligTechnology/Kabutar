@@ -34,15 +34,17 @@ class cardViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
+        innotepage = 0
         self.getAllNotes()
         self.collectionView.reloadData()
+        
     }
     
     override func viewDidLoad() {
         
         ViewForNotes = self;
         
-        
+        innotepage = 0
         super.viewDidLoad()
         if(isInsideFolder == 0)
         {
