@@ -77,6 +77,13 @@ class MoveToFolder: UIView,UITableViewDataSource,UITableViewDelegate{
         
         let checkstatus = config.get("note_view")
         print(checkstatus);
+        print(innotepage)
+        if (innotepage == 1) {
+            let mainview = ViewForNotes as! InsideNoteMenu
+
+            moveToSelectedFolder(selectedNoteId,folderID: folderId[indexPath.row] as! String)
+            mainview.closeMove(nil)
+        }else{
         if(checkstatus == "2"){
             let mainview = ViewForNotes as! Listview
             print(selectedNoteId)
@@ -95,6 +102,7 @@ class MoveToFolder: UIView,UITableViewDataSource,UITableViewDelegate{
             mainview.getAllNotes()
             mainview.detailtableview.reloadData()
             mainview.closeMoveToFolder(nil);
+        }
         }
         
         self.removeFromSuperview()

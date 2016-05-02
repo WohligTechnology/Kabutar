@@ -88,6 +88,7 @@ var emailsText = ""
     func showShareEmail(){
         let createalert = UIAlertController(title: "Share Note", message: "Emails to Share", preferredStyle: UIAlertControllerStyle.Alert)
         let createcancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+//            innotepage
             switch(self.checkstatus){
             case "2" :
                 let mainview = ViewForNotes as! Listview
@@ -168,6 +169,10 @@ var emailsText = ""
             self.emaillist = shareemaillist
         }
         //        let mainview = ViewForNotes as! Listview
+//        if innotepage == 1 {
+//            let mainview = ViewForNotes as! GD
+//            mainview.presentViewController(createalert, animated: true, completion: nil)
+//        }
         
         switch(checkstatus){
         case "2" :

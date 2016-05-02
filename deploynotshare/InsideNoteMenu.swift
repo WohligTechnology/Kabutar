@@ -29,7 +29,7 @@ class InsideNoteMenu: UIView {
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "InsideNoteMenu", bundle: bundle)
-//        ViewForNotes = self
+        ViewForNotes = self
         
 
         sortnewview = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
@@ -120,6 +120,7 @@ class InsideNoteMenu: UIView {
     @IBAction func moveNote(sender: AnyObject) {
         self.removeFromSuperview()
         blackOut.removeFromSuperview()
+        innotepage = 1
         let blackOutTap = UITapGestureRecognizer(target: self,action: "closeMove:")
         self.addBlackView()
         blackOut.addGestureRecognizer(blackOutTap)
