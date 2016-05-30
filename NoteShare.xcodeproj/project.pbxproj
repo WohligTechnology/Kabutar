@@ -860,7 +860,7 @@
 				TargetAttributes = {
 					437317291BD770650018B580 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = YVWVDTRG4B;
+						DevelopmentTeam = 8SX7CQ83Y5;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -880,7 +880,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 437317251BD770650018B580 /* Build configuration list for PBXProject "deploynotshare" */;
+			buildConfigurationList = 437317251BD770650018B580 /* Build configuration list for PBXProject "NoteShare" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1242,7 +1242,7 @@
 				);
 				INFOPLIST_FILE = deploynotshare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.wohlig.deploynotshare;
+				PRODUCT_BUNDLE_IDENTIFIER = com.noteshareapp.noteshareapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1267,7 +1267,7 @@
 				INFOPLIST_FILE = deploynotshare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wohlig.deploynotshare;
+				PRODUCT_BUNDLE_IDENTIFIER = com.noteshareapp.noteshareapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1326,7 +1326,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		437317251BD770650018B580 /* Build configuration list for PBXProject "deploynotshare" */ = {
+		437317251BD770650018B580 /* Build configuration list for PBXProject "NoteShare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				437317501BD770660018B580 /* Debug */,

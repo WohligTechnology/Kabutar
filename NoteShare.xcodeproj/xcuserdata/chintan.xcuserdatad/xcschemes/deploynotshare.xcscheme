@@ -17,7 +17,7 @@
                BlueprintIdentifier = "437317291BD770650018B580"
                BuildableName = "deploynotshare.app"
                BlueprintName = "deploynotshare"
-               ReferencedContainer = "container:deploynotshare.xcodeproj">
+               ReferencedContainer = "container:NoteShare.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "4373173D1BD770660018B580"
                BuildableName = "deploynotshareTests.xctest"
                BlueprintName = "deploynotshareTests"
-               ReferencedContainer = "container:deploynotshare.xcodeproj">
+               ReferencedContainer = "container:NoteShare.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "437317481BD770660018B580"
                BuildableName = "deploynotshareUITests.xctest"
                BlueprintName = "deploynotshareUITests"
-               ReferencedContainer = "container:deploynotshare.xcodeproj">
+               ReferencedContainer = "container:NoteShare.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,7 +55,7 @@
             BlueprintIdentifier = "437317291BD770650018B580"
             BuildableName = "deploynotshare.app"
             BlueprintName = "deploynotshare"
-            ReferencedContainer = "container:deploynotshare.xcodeproj">
+            ReferencedContainer = "container:NoteShare.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "437317291BD770650018B580"
             BuildableName = "deploynotshare.app"
             BlueprintName = "deploynotshare"
-            ReferencedContainer = "container:deploynotshare.xcodeproj">
+            ReferencedContainer = "container:NoteShare.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -97,7 +97,7 @@
             BlueprintIdentifier = "437317291BD770650018B580"
             BuildableName = "deploynotshare.app"
             BlueprintName = "deploynotshare"
-            ReferencedContainer = "container:deploynotshare.xcodeproj">
+            ReferencedContainer = "container:NoteShare.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
