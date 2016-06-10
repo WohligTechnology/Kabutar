@@ -2,28 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>fbapi</string>
-		<string>fbauth2</string>
-		<string>com.wohlig.deploynotshare</string>
-    <string>com.googleusercontent.apps.54026670441-a3gpai37r2j4hpnmracsf6pvn6kuvokr</string>
-    <string>com-google-gidconsent-google</string>
-    <string>com-google-gidconsent-youtube</string>
-    <string>com-google-gidconsent</string>
-    <string>com.google.gppconsent.2.4.1</string>
-    <string>com.google.gppconsent.2.4.0</string>
-    <string>googlechrome</string>
-    <string>googlechrome-x-callback</string>
-	</array>
 	<key>CLIENT_ID</key>
-	<string>54026670441-a3gpai37r2j4hpnmracsf6pvn6kuvokr.apps.googleusercontent.com</string>
+	<string>854220607547-prv18lhquo2f1p8uggc1odseeof684rg.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.54026670441-a3gpai37r2j4hpnmracsf6pvn6kuvokr</string>
+	<string>com.googleusercontent.apps.854220607547-prv18lhquo2f1p8uggc1odseeof684rg</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.wohlig.deploynotshare</string>
+	<string>com.noteshareapp.noteshareapp</string>
+	<key>PROJECT_ID</key>
+	<string>project-7527554572079471822</string>
 	<key>IS_ADS_ENABLED</key>
 	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -35,6 +23,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:54026670441:ios:20aa9ebb0ce52d3b</string>
+	<string>1:854220607547:ios:3a760d5328689adc</string>
 </dict>
 </plist>
