@@ -31,7 +31,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.wohlig.deploynotshare</string>
+				<string>com.googleusercontent.apps.54026670441-a3gpai37r2j4hpnmracsf6pvn6kuvokr</string>
 			</array>
 		</dict>
 		<dict>
@@ -39,7 +39,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.54026670441-a3gpai37r2j4hpnmracsf6pvn6kuvokr</string>
+				<string>com.noteshareapp.noteshareapp</string>
 			</array>
 		</dict>
 	</array>

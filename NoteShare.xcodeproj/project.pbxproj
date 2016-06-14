@@ -161,6 +161,7 @@
 		364EA4641BF20FC6001B7161 /* ElementRecording.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElementRecording.xib; sourceTree = "<group>"; };
 		366420311BE4BF03003477CF /* FolderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderModel.swift; sourceTree = "<group>"; };
 		36685A091C0DAE1100113F2D /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		366B7DA31D0FFFFB00A1D0CD /* NoteShare-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NoteShare-Bridging-Header.h"; sourceTree = "<group>"; };
 		366CE6001BFE6F550002A0C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		366F1F101CCE4474003AD42A /* deploynotshare-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "deploynotshare-Bridging-Header.h"; sourceTree = "<group>"; };
 		366F1F111CCE4475003AD42A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -643,6 +644,7 @@
 				4308BE551BDE02D6009DC448 /* Views */,
 				437317391BD770660018B580 /* Info.plist */,
 				366CE6001BFE6F550002A0C7 /* GoogleService-Info.plist */,
+				366B7DA31D0FFFFB00A1D0CD /* NoteShare-Bridging-Header.h */,
 			);
 			path = deploynotshare;
 			sourceTree = "<group>";
