@@ -124,6 +124,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
                 config.set("user_name",value2: json["name"].string!);
                 config.set("user_email",value2: json["email"].string!);
                 config.set("user_facebook_id",value2: json["id"].string!);
+                config.set("sync_via",value2: "2");
+
                 
                 request.GET("https://graph.facebook.com/v2.5/me/picture?redirect=0&me/picture?redirect=0&height=1000&width=1000&access_token=\(result.token.tokenString)", parameters: nil, completionHandler: {(response: HTTPResponse) in
                     

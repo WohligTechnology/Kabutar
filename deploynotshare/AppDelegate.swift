@@ -268,6 +268,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
                 config.set("user_name",value2: name);
                 config.set("user_email",value2: email);
                 config.set("user_google_id",value2: userId);
+                config.set("sync_via",value2: "2");
                 try! config.set("user_pic_url",value2: imageurlStr);
                 
                 
