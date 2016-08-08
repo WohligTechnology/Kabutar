@@ -862,7 +862,7 @@
 				TargetAttributes = {
 					437317291BD770650018B580 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 8SX7CQ83Y5;
+						DevelopmentTeam = YVWVDTRG4B;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -882,7 +882,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 437317251BD770650018B580 /* Build configuration list for PBXProject "NoteShare" */;
+			buildConfigurationList = 437317251BD770650018B580 /* Build configuration list for PBXProject "Noteshare" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1328,7 +1328,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		437317251BD770650018B580 /* Build configuration list for PBXProject "NoteShare" */ = {
+		437317251BD770650018B580 /* Build configuration list for PBXProject "Noteshare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				437317501BD770660018B580 /* Debug */,
